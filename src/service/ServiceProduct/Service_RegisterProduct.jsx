@@ -1,22 +1,24 @@
-
-
-
 import { useState } from 'react'
 import { CrudProduct } from '../../Component/Layout/CrudProduct/CrudProduct'
 
-
+import { Container,FormGroup,Input} from 'reactstrap'
 export const ServiceProduct_Register = () => {
 
+    //==========Cloudinary=======================================
+    
+    //=========================
+    
     const [idProduct, setIdProduct] = useState(0)
     const [name_product, setProduct] = useState("")
     const [descrition, setDescrition] = useState("")
     const [press, setPress] = useState(0)
+    const [foto, setFoto] = useState("")
 
     const catchName = (even) => {
         setProduct(even.target.value)
     }
 
-    const catchId = (even) => {
+    const getfoto= (even) => {
         setIdProduct(even.target.value)
     }
 
@@ -34,6 +36,8 @@ export const ServiceProduct_Register = () => {
 
         const urlRegister = 'http://localhost:8080/productos';
 
+       
+
         fetch(urlRegister, {
             method: 'POST',
             headers: {
@@ -43,7 +47,8 @@ export const ServiceProduct_Register = () => {
                 codigo: idProduct,
                 nombre: name_product,
                 descripcion: descrition,
-                precio: press
+                presio: press,
+                foto:""
             })
         })
             .then(response => response)
@@ -62,9 +67,7 @@ export const ServiceProduct_Register = () => {
 
     return (
         <div>
-            {/* <FormRegisterProducts onChange1={catchId} onChange2={catchName} onChange3={catchDescrition}
-                onChange4={catchPress} onClick={registerProduct} /> */}
-            <CrudProduct onChange1={catchName} onChange2={catchDescrition} onChange3={catchPress}  onClick={registerProduct}/>
+            <CrudProduct onChange1={catchName} onChange2={catchDescrition} onChange3={catchPress}  onClick={registerProduct} onChange5={getfoto} />
         </div>
 
     )
