@@ -1,0 +1,56 @@
+.container_Carousel{
+    margin-top: 10px;
+    text-align: center; 
+    padding: 4em;
+}
+.carousel_item{
+    display: flex !important;
+}
+
+.h3,h3{
+    
+    color: transparent !important;
+}
+img,svg{
+    width: 75% !important;
+    height: 32em;
+}
+.carousel-control-next-icon, .carousel-control-prev-icon{
+    background-color: rgb(66, 219, 66) !important;
+    border-radius: 100px;
+}
+
+.content-page-main{
+    padding: 8em 0 0 0;
+}
+
+.car .cardOjeb{
+    width: 20%;
+    height: 10em;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+}
+.cardImg{
+    width: 100% !important;
+    height: 100% !important;
+}
+.car{
+    display: flex;
+    margin: 0 0rem;
+    justify-content: center;
+    gap: 37px;
+    flex-wrap: wrap; 
+    
+}
+
+.p-panel .p-panel-header{
+    height: 40px !important;
+}
+
+.content-panel{
+    display: flex;
+    justify-content: space-between;
+    font-size: 30px;
+}

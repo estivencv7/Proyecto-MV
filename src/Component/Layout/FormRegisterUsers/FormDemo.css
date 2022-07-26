@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Cormorant+Garamond:ital,wght@1,700&family=Fredoka+One&family=Indie+Flower&family=Ms+Madi&family=Murecho:wght@200;400&family=Open+Sans:wght@500&family=Poppins:ital,wght@0,300;1,900&family=Sigmar+One&family=Water+Brush&display=swap');
+
+
+.form-demo{
+    display: flex;
+    justify-content: center;
+    padding-top:15px;
+}
+
+.card{
+    width: 30%;
+    display: flex;
+    border: 0px;
+}
+
+.mt-2{
+    background-color: rgb(0,189,72) !important;   
+    color: white !important ;
+}
+
+.p-fluid .p-button-icon-only{
+    background-color: rgb(0,189,72);
+}
+
+.p-fluid .p-inputtext{
+    border: solid 1px  rgb(0,189,72);
+}
+
+.p-fluid .p-inputtext:focus{
+    
+    box-shadow: 1px 1px 3px 1px rgb(0,189,72);
+    border: 2px solid rgb(121, 206, 154);
+}
+
+.p-button-label{
+    color: black;
+}
+.p-fluid .p-button{
+    border: solid 3px white !important;
+}
+
+.p-float-label:focus{
+    border: solid 10000003px rgb(0,189,72) !important;
+
+}
+.page-formUser{
+    display: flex !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+    padding: 30em 0 0 0 !important;
+    height: 70vh;
+    margin-top: 7px;
+}
+.page-register-footer{
+    margin-top:400px;
+    padding-top: 100px;
+}
+.title-form{
+    font-family: cursive;
+    font-size: 50px !important; 
+    color: green;
+}
