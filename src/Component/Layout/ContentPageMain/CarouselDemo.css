@@ -26,31 +26,53 @@ img,svg{
 
 .car .cardOjeb{
     width: 20%;
-    height: 10em;
+    height: 15em;
     background-color: black;
     display: flex;
     flex-direction: column;
-    margin: 2rem;
+    margin:0  3rem 12rem 3rem;
+    
 }
 .cardImg{
     width: 100% !important;
     height: 100% !important;
+   
+    border-radius: 50px 0 0 0;
 }
 .car{
     display: flex;
     margin: 0 0rem;
     justify-content: center;
-    gap: 37px;
     flex-wrap: wrap; 
-    
 }
 
 .p-panel .p-panel-header{
-    height: 40px !important;
+    height: 40px !important;  
 }
+
+.seew{
+    width: 100% !important;
+    text-align: center !important;
+    font-size: 22px;
+    justify-content: center;
+}
+
+/* 
+
+.p-panel {
+    margin-bottom: 100px !important;
+} */
 
 .content-panel{
     display: flex;
     justify-content: space-between;
     font-size: 30px;
+}
+
+.p-panel .p-panel-content{
+    z-index: 300;
+}
+
+.card{
+    width: 60% !important;
 }

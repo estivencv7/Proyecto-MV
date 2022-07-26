@@ -13,6 +13,7 @@ import { InputNumber } from 'primereact/inputnumber';
 import { Dialog } from 'primereact/dialog';
 import { InputText } from 'primereact/inputtext';
 import './stylecontent.css'
+import { Cloudinary} from '../../Cloudinary/Cloudinary';
 export const CrudProduct = ({onChange1,onChange2,onChange3,onClick}) => {
     let emptyProduct = {
         id: null,
@@ -294,7 +295,7 @@ export const CrudProduct = ({onChange1,onChange2,onChange3,onClick}) => {
                 </DataTable>
             </div>
 
-            <Dialog visible={productDialog} style={{ width: '450px' }} header="Product Details" modal className="p-fluid" footer={productDialogFooter} onHide={hideDialog}>
+            <Dialog visible={productDialog} style={{ width: '700px' }} header="Product Details" modal className="p-fluid" footer={productDialogFooter} onHide={hideDialog}>
                 {product.image && <img src={`images/product/${product.image}`} onError={(e) => e.target.src='https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} alt={product.image} className="product-image block m-auto pb-3" />}
                 <div className="field">
                     <label htmlFor="name">Name</label>
@@ -338,6 +339,8 @@ export const CrudProduct = ({onChange1,onChange2,onChange3,onClick}) => {
                         <InputNumber id="quantity" value={product.quantity} onValueChange={(e) => onInputNumberChange(e, 'quantity')} integeronly />
                     </div> */}
                 </div>
+
+                <Cloudinary/>
             </Dialog>
 
             <Dialog visible={deleteProductDialog} style={{ width: '450px' }} header="Confirm" modal footer={deleteProductDialogFooter} onHide={hideDeleteProductDialog}>
@@ -353,6 +356,7 @@ export const CrudProduct = ({onChange1,onChange2,onChange3,onClick}) => {
                     {product && <span>Are you sure you want to delete the selected products?</span>}
                 </div>
             </Dialog>
+            
         </div>
     );
 }
