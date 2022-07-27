@@ -20,16 +20,16 @@ code {
 
 .title-main {
   text-align: center;
-  text-shadow: 0px 0px 40px;
   animation: animate 5s infinite linear;
   font-size: 400%;
   padding: 2px;
   border-radius: 20px;
   font-family: 'Water Brush', cursive;
+  color: rgb(0, 133, 51);
   
 }
 
-@keyframes animate {
+/* @keyframes animate {
   0%,
   100% {
     color: rgb(0, 189, 72);
@@ -40,7 +40,7 @@ code {
   75% {
     color: white;
   }
-}
+} */
 
 /*============*/
 
@@ -83,7 +83,7 @@ code {
   justify-content:space-around;
   border-bottom: 5px solid rgb(0, 189, 72);
   height: 12vh;
-  background-color:  rgb(1, 63, 50);
+  background-color: white;
 }
 
 .header-user{
@@ -123,14 +123,14 @@ code {
 
 .icons {
   display: flex;
-  gap: 60px;
+  gap: 36px;
 }
 
 .icon {
   color: green;
-  background-color: wheat;
-  border-radius: 100%;
   padding: 10px 10px;
+  border: none;
+  background-color: white;
   
 }
 .icon:hover {
@@ -138,7 +138,7 @@ code {
 }
 
 .ico::before{
-  font-size: 33px;
+  font-size:26px;
 }
 
 .pi-user{
@@ -153,6 +153,10 @@ code {
   background-color: currentColor;
   height: 50px;
   align-items: center;
+}
+
+.inf{
+  display: flex;
 }
 
 .inf:hover .tool-text {

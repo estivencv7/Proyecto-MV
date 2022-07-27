@@ -7,6 +7,7 @@ import { Logo } from '../../Ui/Logo/Logo';
 // import wardrobe from '../../../Images/armario.jpeg'
 // import bed from '../../../Images/cama2.PNG'
 //import './NavHome.css'
+import  './style.css'
 
 export const NavHome = () => {
 
@@ -35,9 +36,9 @@ export const NavHome = () => {
                
             </Sidebar>
            
-            <div className="inf">
-                <button className='icon'  onClick={(e) => setVisible2(true)} ><i className="pi pi-shopping-cart ico"></i></button>
-              
+            <div className="cart-conten">
+                <p className='cantidad-product'>0</p>
+                <button className='icon'  onClick={(e) => setVisible2(true)} ><i className="pi pi-shopping-cart ico"></i></button> 
             </div>
 
        
