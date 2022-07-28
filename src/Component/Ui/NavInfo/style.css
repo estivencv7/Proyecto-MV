@@ -1,0 +1,15 @@
+.navInf{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    position: relative;
+    bottom: 35px;
+    border: 1px transparent;
+}
+
+.information{
+    text-decoration: none;
+    margin-left: 12px;
+    color:black; 
+}
+

@@ -26,7 +26,7 @@ export const SubHeader = () => {
 
        
             <nav className='subNav'>
-                <Link className='sunbNavLink' to="Quienes-Somos">Quienes Somos</Link>
+                <Link className='sunbNavLink' to="Quienes-Somos">Muebles</Link>
                 <Link className='sunbNavLink' to="dudas-preguntas">Ayuda</Link>
                 <Link className='sunbNavLink' to="dudas-preguntas">Contacto</Link>
             </nav>
