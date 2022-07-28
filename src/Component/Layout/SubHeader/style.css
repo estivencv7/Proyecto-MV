@@ -11,7 +11,7 @@
 }
 
 .navbar.active{
-     background:linear-gradient(70deg,rgb(0, 161, 0) 60%,white 0% ); 
+     background:linear-gradient(70deg,red,rgb(0, 161, 0) 60%,white 0% ); 
    
     
     

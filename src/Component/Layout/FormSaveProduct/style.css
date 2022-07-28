@@ -1,0 +1,18 @@
+.dialogoRegisterProduct{
+    height: 70vh !important;
+    width: 30% !important;
+}
+.cont-Register{
+    display: flex !important;
+    gap: 30px;
+    
+}
+.form-control{
+    width: 30% !important;
+}
+.form{
+    width: 80%;
+}
+.input-register{
+    width: 100% !important;
+}
