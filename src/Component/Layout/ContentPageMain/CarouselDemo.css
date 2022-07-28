@@ -74,5 +74,6 @@ img,svg{
 }
 
 .card{
-    width: 60% !important;
+    width: 20% !important;
+    display: flex !important;
 }

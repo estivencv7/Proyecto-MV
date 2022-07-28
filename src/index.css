@@ -82,7 +82,7 @@ code {
   align-items: center;
   justify-content:space-around;
   border-bottom: 5px solid rgb(0, 189, 72);
-  height: 12vh;
+  height: 16vh;
   background-color: white;
 }
 
@@ -147,14 +147,6 @@ code {
 /*=============*/
 
 /*==========SubHeader====**/
-.subHeader {
-  display: flex;
-  justify-content: space-evenly;
-  background-color: currentColor;
-  height: 50px;
-  align-items: center;
-}
-
 .inf{
   display: flex;
 }

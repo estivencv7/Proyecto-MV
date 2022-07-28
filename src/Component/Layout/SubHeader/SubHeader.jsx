@@ -4,10 +4,13 @@ import { Sidebar } from 'primereact/sidebar/';
 import { ButtonDark } from '../../Ui/ButtonDark/ButtonDark';
 
 export const SubHeader = () => {
+
+
+    
     
     const [visible, setVisible] = useState(false);
     return (
-        <div className='subHeader' id='SubHeader'>
+        <nav className='subHeader' id='SubHeader'>
           
             <Sidebar  className='sidebar1' visible={visible} style={{ width: '23em' }} onHide={() => setVisible(false)} >
             <header><h1>Opciones</h1></header>
@@ -28,6 +31,6 @@ export const SubHeader = () => {
                 <Link className='sunbNavLink' to="dudas-preguntas">Contacto</Link>
             </nav>
            <ButtonDark/>
-        </div>
+        </nav>
     )
 }

@@ -7,12 +7,12 @@
 .cart-conten{
     background-color: red;
     height: 3px;
+    position: relative;
 }
 
 .cantidad-product {
-    position: fixed;
-    top: 25px;
-    right: 251px;
+    position: absolute;
+    left: 31px;
     width: 21px;
     text-align: center;
     border-radius: 100%;

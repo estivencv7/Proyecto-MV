@@ -3,6 +3,7 @@ import { Logo } from '../../Ui/Logo/Logo'
 import { InputHeader } from '../../Ui/InputHeader/InputHeader'
 import { NavHome } from '../NavHome/NavHome'
 import { SubHeader } from '../SubHeader/SubHeader'
+import { NavBar } from '../SubHeader/NavBar'
 export const HeaderHome = () => {
   return (
     <div className='header-user'>
@@ -11,7 +12,7 @@ export const HeaderHome = () => {
           <InputHeader/>
           <NavHome/>
       </header>
-    <SubHeader/> 
+      <NavBar/> 
     </div>
   )
 }

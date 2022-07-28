@@ -1,0 +1,8 @@
+.header-form-user {
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+  
+    height: 15vh;
+    background-color: white;
+  }
