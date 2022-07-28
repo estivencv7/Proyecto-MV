@@ -4,13 +4,15 @@
 .form-demo{
     display: flex;
     justify-content: center;
-    padding-top:15px;
+    
+    gap: 5%;
 }
 
 .card{
-    width: 30%;
+    width: 30% !important;
     display: flex;
-    border: 0px;
+    border: none;
+    margin-left: 2%;
 }
 
 .mt-2{
@@ -44,12 +46,13 @@
 
 }
 .page-formUser{
-    display: flex !important;
+    
+    flex-direction: row !important;
     justify-content: center !important;
     flex-direction: column !important;
-    padding: 30em 0 0 0 !important;
+    padding: 3em  !important;
     height: 70vh;
-    margin-top: 7px;
+    
 }
 .page-register-footer{
     margin-top:400px;
@@ -59,4 +62,18 @@
     font-family: cursive;
     font-size: 50px !important; 
     color: green;
+}
+
+.descrition{
+    width: 20%;   
+}
+
+.descrition .p-panel-header{
+    height: 50px !important; 
+    /* background-color: rgba(255, 0, 0, 0.89);  */
+    /* background:#449e48; */
+    color: white;
+    font-size: 22px;
+    border-radius: 5%;
+    background-image: linear-gradient(to right,green 70%, rgb(34, 7, 7)  ) !important;
 }

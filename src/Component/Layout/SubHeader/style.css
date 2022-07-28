@@ -1,0 +1,39 @@
+.navbar{
+    background: transparent; 
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    
+}
+
+.navbar.active{
+    /* background:linear-gradient(70deg,rgb(0, 161, 0) 75%,white 0% );  */
+   
+    
+    
+}
+
+.navbar-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    
+}
+.sunbNavLinkDisabled{
+    color: transparent !important;
+    border: none !important;
+    background: transparent;
+}
+
+.subHeader {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: currentColor;
+    height: 50px;
+    align-items: center;
+  }

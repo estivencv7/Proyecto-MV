@@ -1,23 +1,24 @@
 // import { FormRegister } from "../../Layout/FormRegisterUsers/FormRegister";
 
-import React from 'react'
+import React,{useState} from 'react'
 
 import '../../Layout/FormRegisterUsers/FormDemo.css'
 import { FormRegister } from '../../Layout/FormRegisterUsers/FormRegister';
-import { HeaderHome } from "../../Layout/HeaderHome/HeaderHome";
+import { HeaderFormRegisterUsuario } from '../../Layout/HeaderFormRegister/HeaderFormRegisterUsuario';
+//import { HeaderFormRegisterUsuario } from '../../Layout/HeaderFormRegisterUsuario/HeaderFormRegisterUsuario';
+//import { HeaderHome } from "../../Layout/HeaderHome/HeaderHome";
 
+
+import './style.css'
 
 export const RegisterUser = () => {
+  
+
   return (
     <div className="page-register-user" >
-        <HeaderHome/>
-      <div className="page-formUser">
-        <div>
-            <h1  className="title-form">¡¡Bienvenido se parte de Nosotros!!</h1>
-        </div> 
-        <div className="page-fom">
-            <FormRegister/>
-        </div> 
+         <HeaderFormRegisterUsuario/>
+      <div className="page-formUser"> 
+          <FormRegister/>
       </div>  
     </div>
   )
