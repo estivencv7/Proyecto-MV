@@ -1,7 +1,7 @@
 .container_Carousel{
     margin-top: 10px;
     text-align: center; 
-    padding: 4em;
+    padding: 10em;
 }
 .carousel_item{
     display: flex !important;

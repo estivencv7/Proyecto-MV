@@ -56,9 +56,10 @@ export const NavBar = () => {
 
             
                 <nav className='subNav'>
-                    <Link className={ navbar? 'sunbNavLink': 'sunbNavLinkDisabled'} to="Quienes-Somos">Quienes Somos</Link>
-                    <Link className={ navbar? 'sunbNavLink': 'sunbNavLinkDisabled'} to="dudas-preguntas">Ayuda</Link>
-                    <Link className={ navbar? 'sunbNavLink': 'sunbNavLinkDisabled'} to="dudas-preguntas">Contacto</Link>
+                    <Link className={ navbar? 'sunbNavLink': 'sunbNavLinkDisabled'} to="Quienes-Somos">Muebles</Link>
+                    <Link className={ navbar? 'sunbNavLink': 'sunbNavLinkDisabled'} to="dudas-preguntas">Categorias</Link>
+                    <Link className={ navbar? 'sunbNavLink': 'sunbNavLinkDisabled'} to="dudas-preguntas">Lo Nuevo</Link>
+                    
                 </nav>
             </div>
       </nav>

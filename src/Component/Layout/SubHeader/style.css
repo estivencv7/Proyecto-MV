@@ -11,7 +11,7 @@
 }
 
 .navbar.active{
-    /* background:linear-gradient(70deg,rgb(0, 161, 0) 75%,white 0% );  */
+     background:linear-gradient(70deg,rgb(0, 161, 0) 60%,white 0% ); 
    
     
     
@@ -36,4 +36,10 @@
     background-color: currentColor;
     height: 50px;
     align-items: center;
-  }
+}
+
+.separar{
+    border-right: 3px solid;
+    padding: 2px 13px;
+    text-align: center;
+}
