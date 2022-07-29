@@ -2,6 +2,8 @@ import React,{useState}from 'react'
 import { Container,FormGroup,Input} from 'reactstrap'
 // import {Cloudinary} from '../Cloudinary/Cloudinary'
 
+
+
 export const Cloudinary = ({onchange1}) => {
 
   const [image, setImage] = useState("");

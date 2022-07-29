@@ -1,0 +1,15 @@
+.content-image{
+    /* background: red; */
+    position: relative;
+    height: 100vh;
+}
+
+
+.image-product {
+    position: absolute;
+    top: 52px;
+    left: 518px;
+    height: 40vh !important;
+    width: 40% !important;
+    border-radius: 12px 12px;
+}
