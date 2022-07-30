@@ -2,13 +2,13 @@ import React,{useState} from 'react'
 import { FormSaveProduct } from '../../Component/Layout/FormSaveProduct/FormSaveProduct';
 import { Dialog } from 'primereact/dialog';
 import { Button,} from 'primereact/button';
+import { InputText } from 'primereact/inputtext';
 import './css/registerProduct.css'
-export const Service_ProductRegis = () => {
+export const Service_ProductRegis = ({style}) => {
 
     const [visible, setVisible] = useState(false)
     const [image, setImage] = useState("");
-    const [loading, setLoading] = useState(false);
-    const [idProduct, setIdProduct] = useState(0)
+    const [loading, setLoading] = useState(true);
     const [name_product, setProduct] = useState("")
     const [descrition, setDescrition] = useState("")
     const [press, setPress] = useState(0)
@@ -31,6 +31,7 @@ export const Service_ProductRegis = () => {
         const file=await res.json();
         console.log(res)
         setImage(file.secure_url)
+        setLoading(false)
         return (
             <img src={file.secure_url} alt="imagen"></img>
         )
@@ -54,7 +55,6 @@ export const Service_ProductRegis = () => {
                 "Content-type": "application/json"
             },
             body: JSON.stringify({
-                codigo: idProduct,
                 nombre: name_product,
                 descripcion: descrition,
                 presio: press,
@@ -88,16 +88,22 @@ export const Service_ProductRegis = () => {
     )
 
     return (
-        <>
-            <Button className='' onClick={() => onHide(onHide)} ></Button>
-            <Dialog header={header}   className='dialogoRegisterProduct' visible={visible} style={{ width: '30em', height: '22em'}} modal onHide={onHide}>
+        <div className={style}>
+            <Button className='' onClick={() => onHide(onHide)} >Nuevo</Button>
+            <Dialog header={header}   className='dialogoRegisterProduct' visible={visible} style={{ width: '30em',bordeRadius:'100%'}} modal onHide={onHide}>
             
             <div className='content-image'>
-                <FormSaveProduct onChange1={catchName} onChange2={catchDescrition} onchange4={registerProduct} onchage5={uploadimage}/>
-                <img  className='image-product' src={image} />
+                
+                <FormSaveProduct onChange1={catchName} onChange2={catchDescrition} onchange4={registerProduct} onchange3={() => onHide(onHide)}/>
+                
+                <div className='content-Input-file'>
+                {loading ? (<h3>cargando imagen</h3>):(<img className='image-product' src={image} />)}
+                    <InputText className='input-register'  id='catch' type='file' name='file' placeholder='subirImg' onChange={uploadimage}  />
+                    
+                </div>
             </div>
             </Dialog>
             
-        </>
+        </div>
     )
 }

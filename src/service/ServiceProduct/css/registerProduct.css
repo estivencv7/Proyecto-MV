@@ -1,15 +1,20 @@
 .content-image{
-    /* background: red; */
-    position: relative;
-    height: 100vh;
+    display: flex;
+    gap: 78px;
+
 }
 
 
 .image-product {
-    position: absolute;
-    top: 52px;
-    left: 518px;
-    height: 40vh !important;
-    width: 40% !important;
+    height: 42vh !important;
+    width: 100% !important;
     border-radius: 12px 12px;
+    margin-bottom: 16px;
+}
+.content-Input-file.image-product{
+    width: 100%;
+    
+}
+.content-image{
+    border-radius: 50% !important;
 }
