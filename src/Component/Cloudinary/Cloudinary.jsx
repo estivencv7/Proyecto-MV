@@ -1,5 +1,8 @@
 import React,{useState}from 'react'
 import { Container,FormGroup,Input} from 'reactstrap'
+// import {Cloudinary} from '../Cloudinary/Cloudinary'
+
+
 
 export const Cloudinary = ({onchange1}) => {
 
@@ -29,6 +32,7 @@ export const Cloudinary = ({onchange1}) => {
     <div>
         <Container>
           <h1>Subiendo Imagenes</h1>
+          {/* <Cloudinary/> */}
           <FormGroup>
             <Input type='file' name='file' placeholder='subirImg' onChange={uploadimage} onKeyDownCapture={image}/>
             {loading ? (<h3>cargando imagen</h3>):(<img src={image} style={{width:"300px"}}/>)}
