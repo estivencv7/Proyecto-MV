@@ -12,21 +12,28 @@ import './CarouselDemo.css'
 const items = [
  
   {
-    src: require("../../../Images/sillasrojas.jpeg"),
+    src: require("../../../Images/1.png"),
     
   },
   {
-    src: require("../../../Images/mueblegris.jpeg")
+    src: require("../../../Images/2.png")
   },
   {
-    src: require("../../../Images/sillasymesa.jpeg")
+    src: require("../../../Images/3.png")
     
   },
   {
-    src: require("../../../Images/sofaazul.jpeg")
+    src: require("../../../Images/4.png")
+    
+  },
+  {
+    src: require("../../../Images/5.png")
+    
+  },
+  {
+    src: require("../../../Images/6.png")
     
   }
-  
 ];
 
 class CarouselDemo extends Component {
