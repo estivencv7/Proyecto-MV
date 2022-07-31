@@ -89,7 +89,7 @@ export const Service_ProductRegis = ({style}) => {
 
     return (
         <div className={style}>
-            <Button className='' onClick={() => onHide(onHide)} >Nuevo</Button>
+            <Button className='' onClick={() => onHide(onHide)} ><i className='pi pi-save'></i></Button>
             <Dialog header={header}   className='dialogoRegisterProduct' visible={visible} style={{ width: '30em',bordeRadius:'100%'}} modal onHide={onHide}>
             
             <div className='content-image'>
@@ -99,7 +99,6 @@ export const Service_ProductRegis = ({style}) => {
                 <div className='content-Input-file'>
                 {loading ? (<h3>cargando imagen</h3>):(<img className='image-product' src={image} />)}
                     <InputText className='input-register'  id='catch' type='file' name='file' placeholder='subirImg' onChange={uploadimage}  />
-                    
                 </div>
             </div>
             </Dialog>

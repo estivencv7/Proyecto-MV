@@ -1,7 +1,7 @@
-.dialogoRegisterProduct .p.dialog{
+.dialogoRegisterProduct {
     height: 70vh !important;
     width: 70% !important;
-    border-radius: 50% !important;
+
 }
 .cont-Register{
     display: flex !important;

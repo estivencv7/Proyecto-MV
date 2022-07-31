@@ -37,7 +37,7 @@ export const DataTableTemplatingDemo = () => {
 
     const header = (
         <div className="table-header">
-            Products
+
             <Button icon="pi pi-refresh" />
         </div>
     );

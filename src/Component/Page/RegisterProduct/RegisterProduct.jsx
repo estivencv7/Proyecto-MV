@@ -9,7 +9,9 @@ export const RegisterProduct = () => {
   
   return (
     <div>
-      <PaginaRegisterProduct></PaginaRegisterProduct>
+      <PaginaRegisterProduct/>
+
+     
        {/* <Service_ProductRegis/>  */}
     </div>
   )
