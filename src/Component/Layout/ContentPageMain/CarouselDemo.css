@@ -79,11 +79,39 @@ img,svg{
 }
 
 .seew-image{
-    width: 100%;
+    width: 100% !important;
     height: 50vh;
-    padding: 0px;
+}
+.cursor{
+    background-color:red;
+    opacity: 8.5;
+    position: absolute!important;
+    z-index: 100;
+    
+   
 }
 .content-seew{
     display: flex;
+    position: relative;
+
    
 }
+/* .zoom-contenedor, .area-zoom{
+    position: relative;
+}
+.lupa{
+    position: absolute!important;
+    background-color: white !important;
+    opacity: 8.5 !important;
+
+}
+
+.zoom-heigth{
+    position: absolute !important;
+    display: none !important;
+    overflow: hidden !important;
+}
+.zoom-heigth image{
+    position:absolute !important ;
+} */
+

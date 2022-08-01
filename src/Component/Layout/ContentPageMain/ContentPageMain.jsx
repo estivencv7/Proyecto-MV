@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import CarouselDemo from './Carousel'
-import watchImg1200 from '../../../Images/cama1.jpg'
+import cama from '../../../Images/cama1.jpg'
 import cama2 from '../../../Images/cama2.PNG'
 import cama3 from '../../../Images/cama3.jpg'
 import sillar from '../../../Images/sillasrojas.jpeg'
@@ -11,8 +11,9 @@ import { Panel } from 'primereact/panel';
 import { Rating } from 'primereact/rating';
 import './CarouselDemo.css'
 import { Dialog } from 'primereact/dialog'
-import { Zoom } from './Zoom'
-import ReactImageMagnify from 'react-image-magnify';
+import {getZomm} from './Zoom'
+import { Zoom2 } from './Zoom2'
+// import ReactImageMagnify from 'react-image-magnify';
 // import { on } from 'rsuite/esm/DOMHelper'
 
 export const ContentPageMain = () => {
@@ -34,7 +35,7 @@ export const ContentPageMain = () => {
             <div className='car'>
 
                <div className='cardOjeb'>
-                  <img className='cardImg' src={watchImg1200} alt="" />
+                  <img className='cardImg' src={cama} alt="" />
                   <Panel header={<Rating value={val1} onChange={(e) => setVal1(e.value)} />} toggleable>
                      <div>
                         <div className='content-panel'>
@@ -46,8 +47,8 @@ export const ContentPageMain = () => {
                      <Dialog visible={visible} style={{ width: '70%' }} onHide={onHide}>
                         <main className='content-seew'>
                           
-                              <div style={{ width: '60%', height: '600px' }} >
-                                 <ReactImageMagnify  style={{width:'342x',heigth:'483px'}}{...{
+                              <div className='cursor' style={{ width: '40%', height: '50vh' }} >
+                                 {/* <ReactImageMagnify  style={{width:'342x',heigth:'483px'}}{...{
                                     smallImage: {
                                        alt: 'Wristwatch by Ted Baker London',
                                        isFluidWidth: true,
@@ -58,7 +59,10 @@ export const ContentPageMain = () => {
                                        width: 2000,
                                        height: 1900
                                     }
-                                 }} />
+                                 }} /> */}
+                                   <img className='seew-image' src={cama}/>
+                                {/* <Zoom2/>  */}
+                                 {/* <getZoom/> */}
                               
                            </div>
 
