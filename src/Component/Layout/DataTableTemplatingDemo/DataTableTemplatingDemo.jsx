@@ -15,6 +15,23 @@ export const DataTableTemplatingDemo = () => {
         // productService.getProductsSmall().then(data => setProducts(data));
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+    function listProducts() {
+
+        console.log("LISTANDO PRODUCTOS")
+        const urlRegister = 'http://localhost:8080/producto/listaProductos';
+        fetch(urlRegister, {
+            method: 'GET',
+            headers: {
+                "Content-type": "application/json"
+            }
+        })
+            .then(response => response.json())
+            .then(product => {
+                product.forEach(element => console.log(element))
+            })
+            
+    }
+
     const formatCurrency = (value) => {
         return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
     }
@@ -56,6 +73,7 @@ export const DataTableTemplatingDemo = () => {
                     <Column header="Status" body={statusBodyTemplate}></Column>
                 </DataTable>
             </div>
+            <input type="text" onChange={listProducts}/>
         </div>
     );
 }
