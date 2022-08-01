@@ -8,6 +8,7 @@ import { Home } from "./Component/Page/Home/Home";
 import { RegisterUser } from "./Component/Page/RegisterUser/RegisterUser";
 import { Route , Routes} from "react-router-dom";
 import { RegisterProduct } from './Component/Page/RegisterProduct/RegisterProduct';
+import { PageMainAdmin } from './Component/Page/PageMainAdmin/PageMainAdmin';
 function App() {
   return (
     <div className="App">
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="registerUser" element={<RegisterUser/>}  />
         <Route path='registerProduct' element={<RegisterProduct/>}/>
+        <Route path='PageMainAdmin' element={<PageMainAdmin/>}/>
       </Routes>
     </div>
   );
