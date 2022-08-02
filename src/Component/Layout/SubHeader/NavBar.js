@@ -1,3 +1,4 @@
+import 'primeicons/primeicons.css';
 import React, { useState,useEffect } from 'react'
 import { Sidebar } from 'primereact/sidebar/';
 import { Link } from 'react-router-dom'
@@ -43,14 +44,21 @@ export const NavBar = () => {
         <nav className={navbar ? 'navbar active': 'navabar'} id='SubHeader'>
             <div className='navbar-container'>
                 <Sidebar  className={navbar?'sidebar1': 'sunbNavLinkDisabled'} visible={visible} style={{ width: '23em' }} onHide={() => setVisible(false)} >
-                <header><h1>Opciones</h1></header>
+                <header>
+                    <h1></h1>
+                    <h2>Filtro por Precio</h2>
+                    <div className='filtro'>
+                        <input className='filtro-Input' type="number" placeholder='Maximo'></input>
+                        <input className='filtro-Input' type="number" placeholder='Minimo'></input>
+                    </div>
+                    </header>
 
                 </Sidebar>
                 
                 <div className="inf">
-                    <button className={navbar ?'button-menu': 'sunbNavLinkDisabled'} onClick={(e) => setVisible(true)} >☰</button>
+                    <button className={navbar ?'button-menu pi pi-filter-fill': 'sunbNavLinkDisabled'} onClick={(e) => setVisible(true)} ></button>
                     <span className="tool-text">
-                        menu
+                        Filtrado
                     </span>
                 </div>
 
