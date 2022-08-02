@@ -6,15 +6,12 @@ import { Column } from 'primereact/column';
 import { Button } from 'primereact/button';
 import { Rating } from 'primereact/rating';
 import './DataTableDemo.css';
+import { Col } from 'reactstrap';
 
 export const DataTableTemplatingDemo = () => {
     const [products, setProducts] = useState([]);
     // const productService = new ProductService();
-
-    useEffect(() => {
-        // productService.getProductsSmall().then(data => setProducts(data));
-    }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
+    
     function listProducts() {
 
         console.log("LISTANDO PRODUCTOS")
@@ -26,30 +23,40 @@ export const DataTableTemplatingDemo = () => {
             }
         })
             .then(response => response.json())
-            .then(product => {
-                product.forEach(element => console.log(element))
-            })
-            
+            .then(product => setProducts(product))
+            console.log(products);
     }
 
     const formatCurrency = (value) => {
         return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
     }
 
-    const imageBodyTemplate = (rowData) => {
-        return <img src={`images/product/${rowData.image}`} onError={(e) => e.target.src='https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} alt={rowData.image} className="product-image" />;
+    const codeBodyTemplate = (element) => {
+        return element.codigo_producto;
     }
 
-    const priceBodyTemplate = (rowData) => {
-        return formatCurrency(rowData.price);
+    const nameBodyTemplate = (element) => {
+        return element.nombre_producto;
     }
 
-    const ratingBodyTemplate = (rowData) => {
-        return <Rating value={rowData.rating} readOnly cancel={false} />;
+    const amountBodyTemplate = (element) => {
+        return element.cantidad_producto;
     }
 
-    const statusBodyTemplate = (rowData) => {
-        return <span className={`product-badge status-${rowData.inventoryStatus.toLowerCase()}`}>{rowData.inventoryStatus}</span>;
+    const priceBodyTemplate = (element) => {
+        return formatCurrency(element.precio_producto);
+    }
+
+    const descriptionBodyTemplate = (element) => {
+        return element.descripcion_producto;
+    }
+
+    const imageBodyTemplate = (element) => {
+        return <img src={element.foto_producto} onError={(e) => e.target.src='https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} alt="imgProd" className="product-image" />;
+    }
+
+    const categoryBodyTemplate = (element) => {
+        return element.id_categoria.nombre_categoria;
     }
 
     const header = (
@@ -58,22 +65,25 @@ export const DataTableTemplatingDemo = () => {
             <Button icon="pi pi-refresh" />
         </div>
     );
-    const footer = `In total there are ${products ? products.length : 0} products.`;
-
+    const footer = `En total hay ${products ? products.length : 0} productos.`;
+    useEffect(() => {
+      listProducts()
+    }, [])
+    
     return (
-        <div className="datatable-templating-demo">
+        <div className="datatable-templating-demo" >
             <div className="table-produc">
-                <DataTable value={products} header={header} footer={footer} responsiveLayout="scroll">
-                    <Column field="name" header="Name"></Column>
-                    <Column field='remove'/>
-                    <Column header="Image" body={imageBodyTemplate}></Column>
-                    <Column field="price" header="Price" body={priceBodyTemplate}></Column>
-                    <Column field="category" header="Category"></Column>
-                    <Column field="rating" header="Reviews" body={ratingBodyTemplate}></Column>
-                    <Column header="Status" body={statusBodyTemplate}></Column>
-                </DataTable>
+            <DataTable value={products} header={header} footer={footer} responsiveLayout="scroll" >
+                <Column field='code' header="Codigo" body={codeBodyTemplate}></Column>
+                <Column field="name" header="Nombre" body={nameBodyTemplate}></Column>
+                <Column field='amount' header="Cantidad" body={amountBodyTemplate}></Column>
+                <Column field='price' header="Precio" body={priceBodyTemplate}></Column>
+                <Column field='description' header="Descripcion" body={descriptionBodyTemplate}></Column>
+                <Column field='image' header="Imagen" body={imageBodyTemplate}></Column>
+                <Column field='category' header="Categoria" body={categoryBodyTemplate}></Column>
+                <Column field='remove' />
+           </DataTable>
             </div>
-            <input type="text" onChange={listProducts}/>
         </div>
     );
 }
