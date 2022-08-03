@@ -66,9 +66,10 @@ export const DataTableTemplatingDemo = () => {
         </div>
     );
     const footer = `En total hay ${products ? products.length : 0} productos.`;
+    let i = products.length;
     useEffect(() => {
-      listProducts()
-    }, [])
+        listProducts()
+    }, [i])
     
     return (
         <div className="datatable-templating-demo" >
