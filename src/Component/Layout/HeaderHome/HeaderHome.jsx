@@ -10,14 +10,16 @@ export const HeaderHome = () => {
   return (
     <div className='header-user'>
       <header className='header-main'>
-          <div>
-            <NavInfo/>
-            <Logo classN="title-main"/>
+        <div>
+          <div className='navinfo'>
+            <NavInfo />
           </div>
-          <InputHeader/>
-          <NavHome/>
+          <Logo classN="title-main" />
+        </div>
+        <InputHeader />
+        <NavHome />
       </header>
-      <NavBar/> 
+      <NavBar />
     </div>
   )
 }

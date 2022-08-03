@@ -13,3 +13,68 @@
     color:black; 
 }
 
+.contacto{
+    text-align: center;
+    color: rgb(0, 133, 51)
+}
+
+.informacion{
+    text-align: revert;
+    margin-top:20px;
+}
+
+.quienes{
+    text-align: center;
+    color: rgb(0, 133, 51)
+}
+
+.texto{
+    margin:30px 0 0 0 ;
+    text-align: webkit-left;
+}
+
+.ayuda{
+    text-align: center;
+    color: rgb(0, 133, 51)
+}
+
+.preguntas{
+    text-align:revert;
+    color:dimgray;
+    margin-top:15px;
+}
+
+.preguntas1{
+    text-align:revert;
+    margin-top:20px;
+    color:dimgray;
+}
+
+.preguntas2{
+    text-align:revert;
+    margin-top:20px;
+    color:dimgray;
+}
+
+.preguntas3{
+    text-align:revert;
+    margin-top:20px;
+    color:dimgray;
+}
+
+.interogacion{
+    font-size:15px;
+    color: black;
+}
+
+.boton1{
+    color: black;
+    background-color: white;
+    border: none;
+
+}
+
+.p-button:enabled:hover{
+    background-color: transparent;
+    color: black;
+}
