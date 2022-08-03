@@ -8,10 +8,11 @@
     top: 0;
     z-index: 999;
     
+    
 }
 
 .navbar.active{
-     background:linear-gradient(70deg,red,rgb(0, 161, 0) 60%,white 0% ); 
+    background:linear-gradient(70deg,red,rgb(0, 161, 0) 60%,white 0% ); 
 }
 .filtro-Input{
     margin: 10px 0 0 0;
@@ -26,12 +27,15 @@
     align-items: center;
     justify-content: space-around;
     width: 100%;
+    transition: 8s;
+   
     
 }
 .sunbNavLinkDisabled{
     color: transparent !important;
     border: none !important;
     background: transparent;
+   
 }
 
 .subHeader {
@@ -40,6 +44,7 @@
     background-color: currentColor;
     height: 50px;
     align-items: center;
+   
 }
 
 .separar{
