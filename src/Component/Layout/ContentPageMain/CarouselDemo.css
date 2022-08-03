@@ -11,10 +11,10 @@
     
     color: transparent !important;
 }
-img,svg{
+.img,svg{
     width: 75% !important;
-    height: 32em;
-}
+    height: 32em !important;
+} 
 .carousel-control-next-icon, .carousel-control-prev-icon{
     background-color: rgb(66, 219, 66) !important;
     border-radius: 100px;
@@ -79,11 +79,61 @@ img,svg{
 }
 
 .seew-image{
-    width: 100%;
+    width: 100% !important;
     height: 50vh;
-    padding: 0px;
+}
+.cursor{
+   
+    
+   
 }
 .content-seew{
     display: flex;
+    position: relative;
+
    
+}
+/* .zoom-contenedor, .area-zoom{
+    position: relative;
+}
+.lupa{
+    position: absolute!important;
+    background-color: white !important;
+    opacity: 8.5 !important;
+
+}
+
+.zoom-heigth{
+    position: absolute !important;
+    display: none !important;
+    overflow: hidden !important;
+}
+.zoom-heigth image{
+    position:absolute !important ;
+} */
+
+.img1 ,
+.img2{
+   position: absolute;
+   top: 0px;
+   left:0px; 
+   border: 0px;
+   overflow: hidden;
+   display: block;
+}
+
+.img2{
+    clip:rect(0px, 100px, 100px, 0px);
+}
+.lupa{
+    
+    background-color: red !important;
+    width: 50%;
+    height: 50vh;
+    position: relative;
+}
+
+.content-modal{
+    width: 70%;
+    height:700vh;
 }
