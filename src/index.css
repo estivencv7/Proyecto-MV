@@ -27,6 +27,7 @@ code {
   font-family: 'Water Brush', cursive;
   color: rgb(0, 133, 51);
   
+  
 }
 
 /* @keyframes animate {
@@ -345,3 +346,7 @@ code {
 }
 /*===============*/
 
+.navinfo{
+  top: -20px;
+  position: relative;
+}

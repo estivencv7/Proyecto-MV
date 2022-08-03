@@ -9,9 +9,6 @@ import { RegisterUser } from "./Component/Page/RegisterUser/RegisterUser";
 import { Route , Routes} from "react-router-dom";
 import { RegisterProduct } from './Component/Page/RegisterProduct/RegisterProduct';
 import { PageMainAdmin } from './Component/Page/PageMainAdmin/PageMainAdmin';
-import { AboutUs } from './Component/Layout/AboutUs/AboutUs';
-import { Help } from './Component/Layout/Help/Help';
-import { ContactUs } from './Component/Layout/ContactUs/ContactUs';
 
 
 function App() {
@@ -23,9 +20,6 @@ function App() {
         <Route path="registerUser" element={<RegisterUser/>}  />
         <Route path='registerProduct' element={<RegisterProduct/>}/>
         <Route path='PageMainAdmin' element={<PageMainAdmin/>}/>
-        <Route path='Quienes-Somos' element={<AboutUs/>}/>
-        <Route path='dudas-preguntas' element={<Help/>}/>
-        <Route path='Contactanos' element={<ContactUs/>}/>
       </Routes>
     </div>
   );
