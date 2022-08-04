@@ -10,6 +10,7 @@ export const Service_ProductRegis = ({style}) => {
     const [image, setImageProduct] = useState("");
     const [loading, setLoading] = useState(true);
     const [name_product, setNameProduct] = useState("")
+    const [name_supplier_product, setNameSupplierProduct] = useState("")
     const [description, setDescriptionProduct] = useState("")
     const [price, setPriceProduct] = useState(0)
     const [code , setCodeProduct] = useState(0)
@@ -43,6 +44,10 @@ export const Service_ProductRegis = ({style}) => {
 
     const catchNameProduct = (even) => {
         setNameProduct(even.target.value)
+    }
+    
+    const catchNameSupplierProduct = (even) => {
+        setNameSupplierProduct(even)
     }
 
     const catchDescriptionProduct = (even) => {
@@ -87,11 +92,13 @@ export const Service_ProductRegis = ({style}) => {
                 id_categoria : {
                     id_categoria : idCategory,
                     nombre_categoria : nameCategory
-                }
+                },
+                nombre_proveedor_producto : name_supplier_product
             })
         })
             .then(response => response)
             .then(json => check(json.ok))
+            console.log(name_supplier_product);
     }
 
     function check(element) {
@@ -123,7 +130,7 @@ export const Service_ProductRegis = ({style}) => {
             
             <div className='content-image'>
                 
-                <FormSaveProduct onChange1={catchNameProduct} onChange2={catchDescriptionProduct} onChange5={catchPriceProduct} onChange6={catchAmountProduct} onchange4={registerProduct} onChange7={setIdCategory} onchange3={() => onHide(onHide)}/>
+                <FormSaveProduct onChange1={catchNameProduct} onChange2={catchDescriptionProduct} onChange5={catchPriceProduct} onChange6={catchAmountProduct} onchange4={registerProduct} onChange7={setIdCategory} onChange8={setNameSupplierProduct} onchange3={() => onHide(onHide)}/>
                 
                 <div className='content-Input-file'>
                 {loading ? (<h3>cargando imagen</h3>):(<img className='image-product' src={image} />)}

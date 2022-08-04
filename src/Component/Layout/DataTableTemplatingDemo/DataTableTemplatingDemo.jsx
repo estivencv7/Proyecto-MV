@@ -35,6 +35,10 @@ export const DataTableTemplatingDemo = () => {
         return element.codigo_producto;
     }
 
+    const supplierNameBodyTemplate = (element) => {
+        return element.nombre_proveedor_producto;
+    }
+
     const nameBodyTemplate = (element) => {
         return element.nombre_producto;
     }
@@ -82,7 +86,7 @@ export const DataTableTemplatingDemo = () => {
                 <Column field='description' header="Descripcion" body={descriptionBodyTemplate}></Column>
                 <Column field='image' header="Imagen" body={imageBodyTemplate}></Column>
                 <Column field='category' header="Categoria" body={categoryBodyTemplate}></Column>
-                <Column field='remove' />
+                <Column field='nameSupplier' header="Nombre Proveedor" body={supplierNameBodyTemplate}></Column>
            </DataTable>
             </div>
         </div>
