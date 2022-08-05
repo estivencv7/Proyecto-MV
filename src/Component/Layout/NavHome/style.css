@@ -20,3 +20,52 @@
     background-color: red;
     color: white;
 }
+
+
+.-login .p-dialog-content{
+    display: flex !important;
+    justify-content: center;
+    border-bottom-left-radius: 20px !important;
+    border-bottom-right-radius: 20px !important;
+}
+.-login .p-dialog-header{
+    background-color: #008037;
+    color: white; 
+    height: 70px !important;
+
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+}
+   
+.-login.p-dialog{
+    border-bottom-left-radius: 50px !important;
+    border-bottom-right-radius: 50px !important;
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+}
+  
+   
+.form-login{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 30px;
+    align-items: center;
+    
+}
+.content-login{
+    display: flex;
+    gap: 18px;
+    flex-direction: column;
+}
+.inputs{
+    height: 50px;
+    border-radius: 7px;
+}
+.divLink{
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 17px;
+}

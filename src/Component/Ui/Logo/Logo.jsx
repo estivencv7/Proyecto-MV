@@ -1,7 +1,12 @@
 import React from 'react'
-
-export const Logo = ({classN,text="Muebles Valencia"}) => {
+import logo from '../../../Images/logo3.png'
+import './style.css'
+export const Logo = ({classN}) => {
   return (
-    <h1  className={classN}>{text}</h1>
+    <>
+      <img  src={logo}alt="" className={classN}/>
+      <p className='name' >Muebles Valencia</p>
+    </>
+    // <h1  className={classN}>{text}</h1>
   )
 }

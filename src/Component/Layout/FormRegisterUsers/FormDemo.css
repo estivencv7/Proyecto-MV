@@ -16,22 +16,22 @@
 }
 
 .mt-2{
-    background-color: rgb(0,189,72) !important;   
-    color: white !important ;
+    background-color:#008031 !important;   
+    
 }
 
 .p-fluid .p-button-icon-only{
-    background-color: rgb(0,189,72);
+    background-color: #008031;;
 }
 
 .p-fluid .p-inputtext{
-    border: solid 1px  rgb(0,189,72);
+    border: solid 1px  #008031;
 }
 
 .p-fluid .p-inputtext:focus{
     
-    box-shadow: 1px 1px 3px 1px rgb(0,189,72);
-    border: 2px solid rgb(121, 206, 154);
+    box-shadow: 1px 1px 3px 1px #008031;
+    border: 2px solid #008031;
 }
 
 .p-button-label{
@@ -42,7 +42,7 @@
 }
 
 .p-float-label:focus{
-    border: solid 10000003px rgb(0,189,72) !important;
+    border: solid 10000003px #008031 !important;
 
 }
 .page-formUser{
@@ -61,7 +61,7 @@
 .title-form{
     font-family: cursive;
     font-size: 50px !important; 
-    color: green;
+    color:#008031;
 }
 
 .descrition{
@@ -70,10 +70,14 @@
 
 .descrition .p-panel-header{
     height: 50px !important; 
-    /* background-color: rgba(255, 0, 0, 0.89);  */
+    background-color: #008031; 
     /* background:#449e48; */
     color: white;
     font-size: 22px;
     border-radius: 5%;
-    background-image: linear-gradient(to right,green 70%, rgb(34, 7, 7)  ) !important;
+    background-image: linear-gradient(to right #008031, rgb(34, 7, 7)  ) !important;
+}
+
+.p-button-label{
+    color: white !important;
 }

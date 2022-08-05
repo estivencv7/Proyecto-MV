@@ -1,5 +1,5 @@
-.navbar{
-    background: transparent; 
+.navbar {
+    background: transparent;
     height: 8vh;
     display: flex;
     justify-content: center;
@@ -7,35 +7,49 @@
     position: sticky;
     top: 0;
     z-index: 999;
-    
-    
+
+
 }
 
-.navbar.active{
-    background:linear-gradient(70deg,red,rgb(0, 161, 0) 60%,white 0% ); 
+.navbar.active {
+    background: linear-gradient(70deg, #008037 60%, white 0%);
 }
-.filtro-Input{
+
+.filtro-Input {
     margin: 10px 0 0 0;
+    height: 38px;
+    border-radius: 40px;
+    text-align: center;
+    width: 70%;
 }
-.tool-text{
+
+.filtro-Input:focus-visible{
+    box-shadow: #008037 !important;
+    text-shadow: #008037;
+
+    outline-offset: none;
+    outline:none;
+}
+
+
+.tool-text {
 
     color: #000;
     background-color: white;
 }
-.navbar-container{
+
+.navbar-container {
     display: flex;
     align-items: center;
     justify-content: space-around;
     width: 100%;
-    transition: 8s;
-   
-    
 }
-.sunbNavLinkDisabled{
+
+.sunbNavLinkDisabled {
     color: transparent !important;
     border: none !important;
     background: transparent;
-   
+
 }
 
 .subHeader {
@@ -44,14 +58,68 @@
     background-color: currentColor;
     height: 50px;
     align-items: center;
-   
+
 }
 
-.separar{
+.separar {
     border-right: 3px solid;
     padding: 2px 13px;
     text-align: center;
 }
-.button-menu{
+
+.button-menu {
     font-size: 30px;
+}
+
+.buttom1 {
+    background: none;
+    border: 0px;
+    color: #008037;
+}
+
+.buttom1:hover {
+    background: none !important;
+    border: 0px !important;
+    color: red !important;
+}
+
+.buttom1:focus {
+    box-shadow: 0 0 0 0 !important;
+}
+
+.sidebar1 {
+    background: #008037;
+    color: white;
+    text-align: center;
+}
+
+
+.emblema {
+    /* text-align: center; */
+    /* animation: animate 5s infinite linear; */
+    /* font-size: 200%; */
+    font-family: 'Water Brush', cursive;
+    width: 90px;
+    height: 60px;
+  
+   
+
+}
+
+.header-sildebar1{
+    
+   
+    height: 15%;
+    display: flex;
+    border-radius: 100%;
+    width: 34%;
+    text-align: center;
+    background: white;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.content-select{
+    border-radius: 40px;
 }
