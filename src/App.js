@@ -15,7 +15,7 @@ import { RegisterProvider } from './Component/Page/RegisterProvider/RegisterProv
 function App() {
   return (
     <div className="App">
-      {/* <Cloudinary></Cloudinary> */}
+ {/* <Cloudinary></Cloudinary> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="registerUser" element={<RegisterUser/>}  />

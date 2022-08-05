@@ -1,0 +1,44 @@
+.sildebarAdmin{
+    width: 18%;
+    background: #008037;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+.divLogo{
+    background: white;
+    border-radius: 100%;
+    text-align: center;
+    height: 15%;
+    width: 110%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.logo{
+    width: 50px;
+}
+.title{
+    font-size: 15px;
+    font-family: 'Alfa Slab One', cursive;
+    /* font-family: 'Indie Flower', cursive; */
+    color:#008031;
+  
+    text-shadow: 0px 0px 40px black;
+}
+.content{
+    display: flex;
+}
+.section{
+    width: 88%;
+    display: flex;
+    flex-direction: column;
+
+
+}
+.section-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
