@@ -5,7 +5,7 @@ import { Logo } from '../../Ui/Logo/Logo'
 // import{ DataTableTemplatingDemo} from '../DataTableTemplatingDemo/DataTableTemplatingDemo'
 import { Button } from 'primereact/button'
 import './style.css'
-import { DataTableTemplatingDemo } from '../DataTableTemplatingDemo/DataTableTemplatingDemo'
+import { DataTableProducts } from '../DataTableTemplatingDemo/DataTableProducts'
 import { Service_Update } from '../../../service/ServiceProduct/Service_Update'
 
 
@@ -46,7 +46,7 @@ export const PaginaRegisterProduct = () => {
           <header style={{ height: '12em', display: 'flex', alignItems: 'center' }}>
             <Logo classN='title-main'></Logo>
           </header>
-          <DataTableTemplatingDemo/>
+          <DataTableProducts/>
          
         </div>
       </main>

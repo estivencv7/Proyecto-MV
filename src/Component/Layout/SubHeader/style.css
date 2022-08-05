@@ -109,8 +109,6 @@
 }
 
 .header-sildebar1{
-    
-   
     height: 15%;
     display: flex;
     border-radius: 100%;
@@ -125,6 +123,51 @@
 .content-select{
     border-radius: 40px;
 }
-.vvv .ggg{
-    color: red !important;
+
+.h1,h1{
+    text-align: center !important;
+    color: #008037 !important;
+}
+
+.cuadro.p-dialog .p-dialog-header{
+    color: white !important;
+    background-color: #008037 !important;
+    border-top-left-radius: 15px !important;
+    border-top-right-radius: 15px !important;
+}
+
+.interogacion{
+    color: #000 !important;
+    text-align:revert;
+    font-size: 20px;
+}
+
+.p-dialog .p-dialog-content{
+    border-bottom-left-radius: 15px !important;
+    border-bottom-right-radius: 15px !important;
+}
+
+p.texto{
+    color:black;
+    font-size:22px;
+    margin-top:15px;
+}
+
+p.informacion{
+    color: #000;
+    text-align:revert;
+    margin-top:15px;
+    font-size:22px;
+}
+
+p.preguntas1{
+    font-size:19px !important;
+}
+
+p.preguntas2{
+    font-size: 19px !important;
+}
+
+p.preguntas3{
+    font-size: 19px !important;
 }

@@ -14,7 +14,7 @@ export const NavBar = () => {
     const [visible3, setVisible3] = useState(false)
 
     const header = () => {
-        return "Ininquietudes"
+        return "Preguntas Frecuentes"
     }
     const header2 = () => {
         return "Conocenos "
@@ -122,35 +122,34 @@ export const NavBar = () => {
                     <nav className='subNav'>
 
                         <Button className={navbar ? 'sunbNavLink buttom1' : 'sunbNavLinkDisabled'} onClick={() => open(open)}>Contacto</Button>
-                        <Dialog visible={visible1} style={{ width: '20%' }} style1={{ height: '20%' }} onHide={open} header={header3}>
+                        <Dialog className='cuadro'  visible={visible1} style={{ width: '30%' }} style1={{ height: '30%' }} onHide={open} header={header3}>
                             <h1 className='contacto'>CONTACTANOS</h1>
                             <p className='informacion'>
                                 Estamos ubicados en la Carrera 17 #21-46 <br />
                                 Horario desde la 8:00 am hasta las 6:30pm <br />
                                 Telefono: 3117969946 <br />
                                 No abrimos los dias Domingos ni los dias Festivos <br />
-                                Si quiere informacion mas detalla comuniquese <br />
-                                al numero ya antes escrito
+                                Si quiere informacion mas detalla comuniquese al numero ya antes escrito
                             </p>
                         </Dialog>
 
                         <Button className={navbar ? 'sunbNavLink buttom1' : 'sunbNavLinkDisabled'} onClick={() => open1(open1)}>Quines Somos</Button>
-                        <Dialog visible={visible2} style={{ width: '20%' }} style1={{ height: '20%' }} onHide={open1} header={header2} >
+                        <Dialog  className='cuadro' visible={visible2} style={{ width: '30%' }} style1={{ height: '30%' }} onHide={open1} header={header2} >
                             <h1 className='quienes'>QUIENES SOMOS</h1>
                             <p className='texto'>
                                 Muebles Valencia es un empreza ubicada en la carrera 17 zona centrica,dedicada a la venta de  producto para el hogar tipo:<br />
-                                -Armarios<br />
-                                -Comedor<br />
-                                -Salas<br />
-                                -Peinadores<br />
-                                -Camas<br />
-                                -Basecamas etc. <br />
+                                ~Armarios<br />
+                                ~Comedor<br />
+                                ~Salas<br />
+                                ~Peinadores<br />
+                                ~Camas<br />
+                                ~Basecamas etc. <br />
                                 fabricados en madera.Muebles Valencia lleva 1 año y 9 meses sirviendole a sus cliente
                             </p>
                         </Dialog>
 
                         <Button className={navbar ? 'sunbNavLink buttom1' : 'sunbNavLinkDisabled'} onClick={() => open2(open2)}>Ayuda</Button>
-                        <Dialog visible={visible3} style={{ width: '20%' }} style1={{ height: '20%' }} onHide={open2} header={header}>
+                        <Dialog className='cuadro'  visible={visible3} style={{ width: '30%' }} style1={{ height: '30%' }} onHide={open2} header={header}>
                             <h1 className='ayuda'>AYUDA</h1>
                             <div>
                                 <p className='preguntas'>

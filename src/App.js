@@ -9,21 +9,19 @@ import { RegisterUser } from "./Component/Page/RegisterUser/RegisterUser";
 import { Route , Routes} from "react-router-dom";
 import { RegisterProduct } from './Component/Page/RegisterProduct/RegisterProduct';
 import { PageMainAdmin } from './Component/Page/PageMainAdmin/PageMainAdmin';
-import { InterfazPageAdmin } from './Component/Page/InterfazPageAdmin/InterfazPageAdmin';
+import { RegisterProvider } from './Component/Page/RegisterProvider/RegisterProvider';
 
 
 function App() {
   return (
     <div className="App">
-      {/* <Cloudinary></Cloudinary> */}
+ {/* <Cloudinary></Cloudinary> */}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/registerUser" element={<RegisterUser/>}  />
-     
-        <Route path='/PageMainAdmin' element={<PageMainAdmin/>}/>
-        <Route path='/InterfazPageAdmin' element={<InterfazPageAdmin/>}/>
-        <Route path='/crudProduc' element={<RegisterProduct/>}/>
-
+        <Route path="registerUser" element={<RegisterUser/>}  />
+        <Route path='registerProduct' element={<RegisterProduct/>}/>
+        <Route path='PageMainAdmin' element={<PageMainAdmin/>}/>
+        <Route path='registerProvider' element={<RegisterProvider/>}/>
       </Routes>
     </div>
   );

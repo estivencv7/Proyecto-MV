@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import { FormGroup} from 'reactstrap'
 import { Button } from 'primereact/button';
 import { InputTextarea } from 'primereact/inputtextarea';
@@ -7,6 +7,7 @@ import { RadioGroup } from 'rsuite';
 export const FormSaveProduct = ({onChange1,onChange2,onchange3,onchange4,onChange5,onChange6,onChange7,onChange8}) => {
 
     let [category , setCategory] = useState(0);
+
     const catchValue1 = () => {
         let cat = document.getElementById("mueble").value;
         setCategory(cat)
@@ -14,13 +15,6 @@ export const FormSaveProduct = ({onChange1,onChange2,onchange3,onchange4,onChang
         console.log(cat);
     }
 
-    const catchValue2 = () => {
-        let cat = document.getElementById("silla").value;
-        setCategory(cat)
-        console.log(cat);
-        onChange7(cat)
-    }
-    
     function listSuppliers() {
         console.log("LISTANDO PROVEEDORES")
         const urlRegister = 'http://localhost:8080/proveedores/listaProveedores';
@@ -34,6 +28,17 @@ export const FormSaveProduct = ({onChange1,onChange2,onchange3,onchange4,onChang
             .then(supplier => createSelectElements(supplier))
     }
 
+    function listCategories(){
+        const urlRegister = 'http://localhost:8080/categorias/listarCategorias';
+        fetch(urlRegister, {
+            method: 'GET',
+            headers: {
+                "Content-type": "application/json"
+            }
+        })
+            .then(response => response.json())
+            .then(supplier => createRadioElements(supplier))    
+    }
     function checkSuppliers(){
         while(document.getElementById('selectContainer').lastChild){
           document.getElementById('selectContainer').removeChild(document.getElementById('selectContainer').lastChild)
@@ -63,6 +68,38 @@ export const FormSaveProduct = ({onChange1,onChange2,onchange3,onchange4,onChang
         }
     }
 
+    const createRadioElements = (categoriesList) => {
+        console.log(categoriesList.length);
+        let i = 0;
+        const radioContainer = document.getElementById("categoryGroup");
+        const labelContainer = document.getElementById("labelGroup");
+        while(i <= categoriesList.length){
+            categoriesList.forEach(element => {
+                const optionRadio = document.createElement("input")
+                optionRadio.setAttribute("type","radio")
+                optionRadio.setAttribute("id",element.id_categoria)
+                optionRadio.setAttribute("name","productos")
+                optionRadio.setAttribute("className" , "radioProductos")
+                console.log("ELEMENT: " + element.nombre_categoria);
+                optionRadio.setAttribute("value",element.nombre_proveedor)
+                const labelRadio = document.createElement("label")
+                if(element.nombre_categoria == ""){
+                    labelRadio.textContent = "Sin nombre registrado"    
+                }else{
+                    labelRadio.textContent = element.nombre_categoria
+                }
+                labelContainer.appendChild(labelRadio)
+                radioContainer.appendChild(optionRadio)
+                i++
+            })
+            break;
+        }
+    }
+
+    useEffect(() => {
+      listCategories()
+    }, [listCategories.length])
+    
     return (
         
         <FormGroup className='cont-Register'>
@@ -78,11 +115,15 @@ export const FormSaveProduct = ({onChange1,onChange2,onchange3,onchange4,onChang
                 <div className='pared'></div>
                
                 <div className='category'>
-                    <RadioGroup >
-                        <input type="radio" id='mueble' name="productos" value={1} onClickCapture={catchValue1}/>Muebles
-                        <br />
-                        <input type="radio" id='silla' name="productos" value={2} onClickCapture={catchValue2}/>Sillas
-                    </RadioGroup>  
+                    <div>
+                        <RadioGroup id='categoryGroup' onChange={e => onChange7(e.target.value)} className='radioGroup'>
+                            
+
+                        </RadioGroup>
+                    </div>
+                    <div id='labelGroup' className='labelGroup'>
+                        
+                    </div>  
                 </div>          
             </div>
             <div>
