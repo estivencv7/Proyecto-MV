@@ -16,7 +16,7 @@
     height: 32em !important;
 } 
 .carousel-control-next-icon, .carousel-control-prev-icon{
-    background-color: rgb(66, 219, 66) !important;
+    background-color: #008031 !important;
     border-radius: 100px;
 }
 

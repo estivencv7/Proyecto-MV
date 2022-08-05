@@ -7,12 +7,16 @@ import './css/registerProduct.css'
 export const Service_ProductRegis = ({style}) => {
 
     const [visible, setVisible] = useState(false)
-    const [image, setImage] = useState("");
+    const [image, setImageProduct] = useState("");
     const [loading, setLoading] = useState(true);
-    const [name_product, setProduct] = useState("")
-    const [descrition, setDescrition] = useState("")
-    const [press, setPress] = useState(0)
-    
+    const [name_product, setNameProduct] = useState("")
+    const [name_supplier_product, setNameSupplierProduct] = useState("")
+    const [description, setDescriptionProduct] = useState("")
+    const [price, setPriceProduct] = useState(0)
+    const [code , setCodeProduct] = useState(0)
+    const [amount , setAmountProduct] = useState(0)
+    const [idCategory , setIdCategory] = useState(0)
+    const [nameCategory , setNameCategory] = useState("")
 
 
     const uploadimage=async(e)=>{
@@ -30,39 +34,71 @@ export const Service_ProductRegis = ({style}) => {
         )
         const file=await res.json();
         console.log(res)
-        setImage(file.secure_url)
+        console.log(idCategory);
+        setImageProduct(file.secure_url)
         setLoading(false)
         return (
             <img src={file.secure_url} alt="imagen"></img>
         )
     }
 
-    const catchName = (even) => {
-        setProduct(even.target.value)
+    const catchNameProduct = (even) => {
+        setNameProduct(even.target.value)
+    }
+    
+    const catchNameSupplierProduct = (even) => {
+        setNameSupplierProduct(even)
     }
 
-    const catchDescrition = (even) => {
-        setDescrition(even.target.value)
+    const catchDescriptionProduct = (even) => {
+        setDescriptionProduct(even.target.value)
     }
+
+    const catchCodeProduct = (even) => {
+        setCodeProduct(even.target.value)
+    }
+
+    const catchPriceProduct = (even) => {
+        setPriceProduct(even.target.value)
+    }
+
+    const catchAmountProduct = (even) => {
+        setAmountProduct(even.target.value)
+    }
+
 
     function registerProduct() {
-        
+        console.log(idCategory);
+        if(idCategory == 1){
+            setNameCategory("Muebles")
+            console.log(idCategory);
+        }else if(idCategory == 2){
+            setNameCategory("Silla")
+        }
         console.log("estoy registrando un producto")
-        const urlRegister = 'http://localhost:8080/productos';
+        const urlRegister = 'http://localhost:8080/producto';
         fetch(urlRegister, {
             method: 'POST',
             headers: {
                 "Content-type": "application/json"
             },
             body: JSON.stringify({
-                nombre: name_product,
-                descripcion: descrition,
-                presio: press,
-                foto:image
+                codigo_producto : code,
+                nombre_producto: name_product,
+                descripcion_producto: description,
+                precio_producto: price,
+                cantidad_producto : amount,
+                foto_producto:image,
+                id_categoria : {
+                    id_categoria : idCategory,
+                    nombre_categoria : nameCategory
+                },
+                nombre_proveedor_producto : name_supplier_product
             })
         })
             .then(response => response)
             .then(json => check(json.ok))
+            console.log(name_supplier_product);
     }
 
     function check(element) {
@@ -94,7 +130,7 @@ export const Service_ProductRegis = ({style}) => {
             
             <div className='content-image'>
                 
-                <FormSaveProduct onChange1={catchName} onChange2={catchDescrition} onchange4={registerProduct} onchange3={() => onHide(onHide)}/>
+                <FormSaveProduct onChange1={catchNameProduct} onChange2={catchDescriptionProduct} onChange5={catchPriceProduct} onChange6={catchAmountProduct} onchange4={registerProduct} onChange7={setIdCategory} onChange8={setNameSupplierProduct} onchange3={() => onHide(onHide)}/>
                 
                 <div className='content-Input-file'>
                 {loading ? (<h3>cargando imagen</h3>):(<img className='image-product' src={image} />)}

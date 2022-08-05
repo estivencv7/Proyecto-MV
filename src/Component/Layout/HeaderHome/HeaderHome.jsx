@@ -4,20 +4,23 @@ import { InputHeader } from '../../Ui/InputHeader/InputHeader'
 import { NavHome } from '../NavHome/NavHome'
 import { SubHeader } from '../SubHeader/SubHeader'
 import { NavBar } from '../SubHeader/NavBar'
-import { NavInfo } from '../../Ui/NavInfo/NavInfo'
+// import { NavInfo } from '../../Ui/NavInfo/NavInfo'
 
 export const HeaderHome = () => {
   return (
     <div className='header-user'>
       <header className='header-main'>
-          <div>
-            <NavInfo/>
-            <Logo classN="title-main"/>
-          </div>
-          <InputHeader/>
-          <NavHome/>
+        <div style={{width:'184px',}}>
+          {/* <div className='navinfo'>
+            <NavInfo />
+          </div> */}
+          <Logo classN="title-main" />
+         
+        </div>
+        <InputHeader />
+        <NavHome />
       </header>
-      <NavBar/> 
+      <NavBar />
     </div>
   )
 }

@@ -160,7 +160,7 @@ export const FormRegister = () => {
                             <label htmlFor="accept" className={classNames({ 'p-error': isFormFieldValid('accept') })}>Acepto terminos y condiciones*</label>
                         </div>
 
-                        <Button type="submit" label="Registrar" className="mt-2" />
+                        <Button type="submit" label="Registrar" className="mt-2 buttom-register" />
                     </form>
                 </div>
                 <Panel className='descrition' header="Hola 🙂" toggleable>  

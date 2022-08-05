@@ -1,7 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Cormorant+Garamond:ital,wght@1,700&family=Fredoka+One&family=Indie+Flower&family=Ms+Madi&family=Murecho:wght@200;400&family=Open+Sans:wght@500&family=Poppins:ital,wght@0,300;1,900&family=Sigmar+One&family=Water+Brush&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fascinate&family=Indie+Flower&family=Lobster&family=Rubik+Moonrocks&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -19,13 +19,14 @@ code {
 /*====title_main===Muebles valencia=========*/
 
 .title-main {
-  text-align: center;
-  animation: animate 5s infinite linear;
-  font-size: 400%;
-  padding: 2px;
-  border-radius: 20px;
+  /* text-align: center; */
+  /* animation: animate 5s infinite linear; */
+  /* font-size: 200%; */
   font-family: 'Water Brush', cursive;
-  color: rgb(0, 133, 51);
+  width:110px;
+  height: 70px;
+  
+  
   
 }
 
@@ -82,7 +83,7 @@ code {
   display: flex;
   align-items: center;
   justify-content:space-around;
-  border-bottom: 5px solid rgb(0, 189, 72);
+  /* border-bottom: 0.1px solid#008031; */
   height: 22vh;
   background-color: white;
 }
@@ -128,7 +129,7 @@ code {
 }
 
 .icon {
-  color: green;
+  color: #008031;
   padding: 10px 10px;
   border: none;
   background-color: white;
@@ -198,12 +199,12 @@ code {
 
 .subNav {
   display: flex;
-  gap: 40px;
+  gap: 20px;
 }
 
 .sunbNavLink {
   text-decoration: none;
-  color: rgb(0, 189, 72);
+  color:#008031;;
   
   font-size: 20px;
 }
@@ -296,9 +297,9 @@ code {
   width: 35px;
   height: 34px;
   background-color: #bd9e18;
-  border:2px solid rgb(0, 189, 72);
+  border:2px solid #008031;
   border-radius: 50%;
-  box-shadow: 0 0 5px rgb(0, 189, 72);
+  box-shadow: 0 0 5px #008031;;
   position: absolute;
   top: -5px;
   left: 0;
@@ -341,7 +342,11 @@ code {
 .title-form{
   font-family: cursive;
   font-size: 50px !important; 
-  color: green;
+  color: #008031;;
 }
 /*===============*/
 
+.navinfo{
+  top: -20px;
+  position: relative;
+}
