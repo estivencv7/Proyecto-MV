@@ -2,15 +2,24 @@
 import React, { useState, useEffect } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
-// import { ProductService } from '../service/ProductService';
-import { Button } from 'primereact/button';
-import { Rating } from 'primereact/rating';
 import './DataTableDemo.css';
-import { Col } from 'reactstrap';
+import { FilterMatchMode, FilterOperator } from 'primereact/api';
+import { InputText } from 'primereact/inputtext';
+import { MultiSelect } from 'primereact/multiselect';
 
 export const DataTableTemplatingDemo = () => {
     const [products, setProducts] = useState([]);
-    // const productService = new ProductService();
+    const [selectedProducts, setSelectedProducts] = useState(null);
+    const [filters, setFilters] = useState({
+        'global': { value: null, matchMode: FilterMatchMode.CONTAINS },
+        'name': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+        'code': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+        'amount': { value: null, matchMode: FilterMatchMode.IN },
+        'description': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.DATE_IS }] },
+        'price': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
+    });
+    const [loading, setLoading] = useState(true);
+    const [globalFilterValue, setGlobalFilterValue] = useState('');
     
     function listProducts() {
 
@@ -25,6 +34,7 @@ export const DataTableTemplatingDemo = () => {
             .then(response => response.json())
             .then(product => setProducts(product))
             console.log(products);
+            setLoading(false)
     }
 
     const formatCurrency = (value) => {
@@ -63,33 +73,71 @@ export const DataTableTemplatingDemo = () => {
         return element.id_categoria.nombre_categoria;
     }
 
-    const header = (
-        <div className="table-header">
-
-            <Button icon="pi pi-refresh" />
-        </div>
-    );
-    const footer = `En total hay ${products ? products.length : 0} productos.`;
     let i = products.length;
     useEffect(() => {
         listProducts()
     }, [i])
     
-    return (
-        <div className="datatable-templating-demo" >
-            <div className="table-produc">
-            <DataTable value={products} header={header} footer={footer} responsiveLayout="scroll" >
-                <Column field='code' header="Codigo" body={codeBodyTemplate}></Column>
-                <Column field="name" header="Nombre" body={nameBodyTemplate}></Column>
-                <Column field='amount' header="Cantidad" body={amountBodyTemplate}></Column>
-                <Column field='price' header="Precio" body={priceBodyTemplate}></Column>
-                <Column field='description' header="Descripcion" body={descriptionBodyTemplate}></Column>
-                <Column field='image' header="Imagen" body={imageBodyTemplate}></Column>
-                <Column field='category' header="Categoria" body={categoryBodyTemplate}></Column>
-                <Column field='nameSupplier' header="Nombre Proveedor" body={supplierNameBodyTemplate}></Column>
-           </DataTable>
+    const onGlobalFilterChange = (e) => {
+        const value = e.target.value;
+        let _filters = { ...filters };
+        _filters['global'].value = value;
+
+        setFilters(_filters);
+        setGlobalFilterValue(value);
+    }
+    
+    const renderHeader = () => {
+        return (
+            <div className="flex justify-content-between align-items-center">
+                <h5 className="m-0">Productos</h5>
+                <span className="p-input-icon-left">
+                    <i className="pi pi-search" />
+                    <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Palabras Clave" />
+                </span>
             </div>
+        )
+    }
+    
+    const codeFilterTemplate = (options) => {
+        return (
+            <React.Fragment>
+                <div className="mb-3 font-bold">Code Picker</div>
+                <MultiSelect value={options.code} options={products} itemTemplate={productsItemTemplate} onChange={(e) => options.filterCallback(e.value)} optionLabel="name" placeholder="Any" className="p-column-filter" />
+            </React.Fragment>
+        );
+    }
+
+    const productsItemTemplate = (option) => {
+        return (
+            <div className="p-multiselect-representative-option">
+                <span className="image-text">{option.codigo_producto}</span>
+            </div>
+        );
+    }
+
+    const header = renderHeader();
+
+    return (
+        <div className="datatable-doc-demo">
+        <div className="card">
+            <DataTable value={products} paginator className="p-datatable-customers" header={header} rows={5}
+                paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" rowsPerPageOptions={[5,10,15]}
+                dataKey="id" rowHover selection={selectedProducts} onSelectionChange={e => setSelectedProducts(e.value)}
+                globalFilterFields={['name', 'product.code', 'amount', 'description', 'price']} filterDisplay="menu" responsiveLayout="scroll"  filters={filters} loading={loading} emptyMessage="No se han encontrado productos."
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+                <Column selectionMode="multiple" headerStyle={{ width: '3em' }}></Column>
+                <Column field="name" header="Name" sortable filter filterPlaceholder="Search by name" body={nameBodyTemplate}/>
+                <Column field="code" header="Codigo" sortable sortField="product.code" filterField="code" body={codeBodyTemplate} showFilterMatchModes={false} filter filterElement={codeFilterTemplate}/>
+                <Column field="amount" header="Cantidad" sortable filterField="product.code" body={amountBodyTemplate} filter filterPlaceholder="Search by country"  />
+                <Column field="description" header="Descripcion" sortable filter filterPlaceholder="Search by name" body={descriptionBodyTemplate}/>
+                <Column field="price" header="Precio" sortable filterField="price" body={priceBodyTemplate}/>
+                <Column field="image" header="Imagen" body={imageBodyTemplate} />
+                <Column field="category" header="Categoria" body={categoryBodyTemplate}/>
+                <Column field='nameSupplier' header='Nombre Proveedor' body={supplierNameBodyTemplate} />
+            </DataTable>
         </div>
+    </div>
     );
 }
                  
