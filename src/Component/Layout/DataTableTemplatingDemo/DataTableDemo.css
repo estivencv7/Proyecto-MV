@@ -57,3 +57,12 @@
 .datatable-doc-demo .p-datatable.p-datatable-customers .p-dropdown-label:not(.p-placeholder) {
     text-transform: uppercase;
 }
+
+.card{
+    width: 100% !important;
+}
+
+.product-image{
+    height: 4.5rem;
+    width: 30%;
+}
