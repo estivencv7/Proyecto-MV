@@ -1,0 +1,13 @@
+.card-section{
+    
+    padding: 72%;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 0%;
+    height: 30%;
+    box-shadow: 0px 0px 40px #008037;
+   
+}

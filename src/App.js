@@ -9,6 +9,7 @@ import { RegisterUser } from "./Component/Page/RegisterUser/RegisterUser";
 import { Route , Routes} from "react-router-dom";
 import { RegisterProduct } from './Component/Page/RegisterProduct/RegisterProduct';
 import { PageMainAdmin } from './Component/Page/PageMainAdmin/PageMainAdmin';
+import { InterfazPageAdmin } from './Component/Page/InterfazPageAdmin/InterfazPageAdmin';
 
 
 function App() {
@@ -17,9 +18,12 @@ function App() {
       {/* <Cloudinary></Cloudinary> */}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="registerUser" element={<RegisterUser/>}  />
-        <Route path='registerProduct' element={<RegisterProduct/>}/>
-        <Route path='PageMainAdmin' element={<PageMainAdmin/>}/>
+        <Route path="/registerUser" element={<RegisterUser/>}  />
+     
+        <Route path='/PageMainAdmin' element={<PageMainAdmin/>}/>
+        <Route path='/InterfazPageAdmin' element={<InterfazPageAdmin/>}/>
+        <Route path='/crudProduc' element={<RegisterProduct/>}/>
+
       </Routes>
     </div>
   );
