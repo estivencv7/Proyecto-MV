@@ -28,7 +28,7 @@ export const Service_Update = () => {
             <div>
                 <div>
                     <input type='text' placeholder='Nombre'/>
-                    <InputTextarea placeholder='Dedcrition'/>
+                    <InputTextarea placeholder='Description'/>
                     <input type="number" />
                     <input type="number" />
                 </div>
