@@ -9,6 +9,7 @@ import { RegisterUser } from "./Component/Page/RegisterUser/RegisterUser";
 import { Route , Routes} from "react-router-dom";
 import { RegisterProduct } from './Component/Page/RegisterProduct/RegisterProduct';
 import { PageMainAdmin } from './Component/Page/PageMainAdmin/PageMainAdmin';
+import { RegisterProvider } from './Component/Page/RegisterProvider/RegisterProvider';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="registerUser" element={<RegisterUser/>}  />
         <Route path='registerProduct' element={<RegisterProduct/>}/>
         <Route path='PageMainAdmin' element={<PageMainAdmin/>}/>
+        <Route path='registerProvider' element={<RegisterProvider/>}/>
       </Routes>
     </div>
   );
