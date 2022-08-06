@@ -40,5 +40,9 @@
 .section-card{
     display: flex;
     justify-content: center;
-    align-items: center;
+    
+}
+
+.header-content{
+    border-bottom: 1px solid #008031;
 }

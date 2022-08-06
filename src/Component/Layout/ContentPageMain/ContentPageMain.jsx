@@ -1,19 +1,21 @@
 import React, { useState } from 'react'
 import CarouselDemo from './Carousel'
-import cama from '../../../Images/cama1.jpg'
-import cama2 from '../../../Images/cama2.PNG'
-import cama3 from '../../../Images/cama3.jpg'
-import sillar from '../../../Images/sillasrojas.jpeg'
-import sillam from '../../../Images/sillasymesa.jpeg'
-import sillaa from '../../../Images/sofaazul.jpeg'
-import { Button } from 'primereact/button';
-import { Panel } from 'primereact/panel';
-import { Rating } from 'primereact/rating';
+// import sinfondo from '../../../Images/sinfondo.png'
+// import cama2 from '../../../Images/cama2.PNG'
+// import cama3 from '../../../Images/cama3.jpg'
+// import sillar from '../../../Images/sillasrojas.jpeg'
+// import sillam from '../../../Images/sillasymesa.jpeg'
+// import sillaa from '../../../Images/sofaazul.jpeg'
+// import { Button } from 'primereact/button';
+// import { Panel } from 'primereact/panel';
+// import { Rating } from 'primereact/rating';
 import './CarouselDemo.css'
-import { Dialog } from 'primereact/dialog'
-import { getZomm } from './Zoom'
-import { Zoom2 } from './Zoom2'
-import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+// import { Dialog } from 'primereact/dialog'
+// import { getZomm } from './Zoom'
+// import { Zoom2 } from './Zoom2'
+// import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+import { Link } from 'react-router-dom'
+import { Service_ListProduct } from '../../../service/ServiceProduct/Service_ListProduct'
 // import ReactImageMagnify from 'react-image-magnify';
 // import { on } from 'rsuite/esm/DOMHelper'
 
@@ -91,18 +93,25 @@ export const ContentPageMain = () => {
       // //      document.images.namedItem('big').style.clipPath="rect("+y1+"px"+x2+"px,"+y2+"px,"+x1+"px)";  
       // // 
    }
-
-
    return (
-      <div>
-         <div className='content-page-main'>
-            <CarouselDemo />
-            {/*==============card=====================*/}
-            <div className='car'>
 
-               <div className='cardOjeb'>
-                  <img className='cardImg' src={cama} alt="" />
-                  <Panel header={<Rating value={val1} onChange={(e) => setVal1(e.value)} />} toggleable>
+      <div className='content-page-main'>
+         <CarouselDemo />
+         {/*==============card=====================*/}
+         <div className='car'>
+
+           <Service_ListProduct/> 
+           
+
+         </div>
+
+
+      </div>
+
+   )
+}
+
+{/* <Panel header={<Rating value={val1} onChange={(e) => setVal1(e.value)} />} toggleable>
                      <div>
                         <div className='content-panel'>
                            <p>$100.050</p>
@@ -124,129 +133,29 @@ export const ContentPageMain = () => {
                         {/* <div onMouseMove={ver} className='lupa' >
                            <img className='img1' src={cama} style={{ width: '700', height: '50vh' }}></img>
                            <img className='img2' src={cama} name='big' style={{ width: '900' }} ></img>
-                        </div> */}
-
-
-
-                     </Dialog>
-                     {/*==============card=====================*/}
-                  </Panel>
-
+                        </div> 
+                       <div className='cardOjeb'>
+               <Link to='jjj'>
+                  <img className='img-card' src={sinfondo} alt="" />
+                  <h2>Juego de muebles</h2>
+               </Link>
+               <div className='cont-press'>
+                  <p style={{fontSize:'25px',color:'red'}}>$150.000</p>
+                  <p><i className="pi pi-shopping-cart ico"></i></p>
                </div>
+               <Button className='seew' onClick={() => onHide(onHide)}>Observar</Button>
+               <Dialog visible={visible} className='content-modal' onHide={onHide}  >
+                  <div>
+                     <TransformWrapper>
+                        <TransformComponent>
+                           <img src={sinfondo} width='600' />
+                        </TransformComponent>
+                     </TransformWrapper>
+                  </div>
+               </Dialog>*/}
 
-               <div className='cardOjeb'>
-                  <img className='cardImg' src={cama2} alt="" />
-                  <Panel header={<Rating value={val1} onChange={(e) => setVal1(e.value)} />} toggleable>
-                     <div>
-                        <div className='content-panel'>
-                           <p>$100.050</p>
-                           <p><i className="pi pi-shopping-cart ico"></i></p>
-                        </div>
-                     </div>
-                     <Button className='seew'>Observar</Button>
-                  </Panel>
 
-               </div>
 
-               <div className='cardOjeb'>
-                  <img className='cardImg' src={cama3} alt="" />
-                  <Panel header={<Rating value={val1} onChange={(e) => setVal1(e.value)} />} toggleable>
-                     <div>
-                        <div className='content-panel'>
-                           <p>$100.050</p>
-                           <p><i className="pi pi-shopping-cart ico"></i></p>
-                        </div>
-                     </div>
-                     <Button className='seew'>Observar</Button>
-                  </Panel>
-
-               </div>
-
-               <div className='cardOjeb'>
-                  <img className='cardImg' src={sillaa} alt="" />
-                  <Panel header={<Rating value={val1} onChange={(e) => setVal1(e.value)} />} toggleable>
-                     <div>
-                        <div className='content-panel'>
-                           <p>$100.050</p>
-                           <p><i className="pi pi-shopping-cart ico"></i></p>
-                        </div>
-                     </div>
-                     <Button className='seew'>Observar</Button>
-                  </Panel>
-
-               </div>
-
-               <div className='cardOjeb'>
-                  <img className='cardImg' src={sillam} alt="" />
-                  <Panel header={<Rating value={val1} onChange={(e) => setVal1(e.value)} />} toggleable>
-                     <div>
-                        <div className='content-panel'>
-                           <p>$100.050</p>
-                           <p><i className="pi pi-shopping-cart ico"></i></p>
-                        </div>
-                     </div>
-                     <Button className='seew'>Observar</Button>
-                  </Panel>
-
-               </div>
-
-               <div className='cardOjeb'>
-                  <img className='cardImg' src={sillar} alt="" />
-                  <Panel header={<Rating value={val1} onChange={(e) => setVal1(e.value)} />} toggleable>
-                     <div>
-                        <div className='content-panel'>
-                           <p>$100.050</p>
-                           <p><i className="pi pi-shopping-cart ico"></i></p>
-                        </div>
-                     </div>
-                     <Button className='seew'>Observar</Button>
-                  </Panel>
-
-               </div>
-               <div className='cardOjeb'>
-                  <img className='cardImg' src={cama2} alt="" />
-                  <Panel header={<Rating value={val1} onChange={(e) => setVal1(e.value)} />} toggleable>
-                     <div>
-                        <div className='content-panel'>
-                           <p>$100.050</p>
-                           <p><i className="pi pi-shopping-cart ico"></i></p>
-                        </div>
-                     </div>
-                     <Button className='seew'>Observar</Button>
-                  </Panel>
-
-               </div>
-
-               <div className='cardOjeb'>
-                  <img className='cardImg' src={cama2} alt="" />
-                  <Panel header={<Rating value={val1} onChange={(e) => setVal1(e.value)} />} toggleable>
-                     <div>
-                        <div className='content-panel'>
-                           <p>$100.050</p>
-                           <p><i className="pi pi-shopping-cart ico"></i></p>
-                        </div>
-                     </div>
-                     <Button className='seew'>Observar</Button>
-                  </Panel>
-
-               </div>
-
-               <div className='cardOjeb'>
-                  <img className='cardImg' src={cama2} alt="" />
-                  <Panel header={<Rating value={val1} onChange={(e) => setVal1(e.value)} />} toggleable>
-                     <div>
-                        <div className='content-panel'>
-                           <p>$100.050</p>
-                           <p><i className="pi pi-shopping-cart ico"></i></p>
-                        </div>
-                     </div>
-                     <Button className='seew'>Observar</Button>
-                  </Panel>
-
-               </div>
-
-            </div>
-         </div>
-      </div>
-   )
-}
+                  //    </Dialog>
+                  //    {/*==============card=====================*/}
+                  // </Panel> */}

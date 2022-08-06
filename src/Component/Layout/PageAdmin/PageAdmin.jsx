@@ -15,11 +15,11 @@ export const PageAdmin = () => {
       </div>
 
       <div className='section'>
-        <header style={{height:'9em'}}>
+        <header className='header-content' style={{height:'10em'}}>
           <p>Muebles Valencia dfdfgd</p>
         </header>
          <div className='section-card'  style={{height:'100%'}}>
-         <ContentPageMainAdmin></ContentPageMainAdmin>
+         <ContentPageMainAdmin/>
          </div>
       </div>
     </div>
