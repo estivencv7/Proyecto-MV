@@ -24,14 +24,9 @@
     padding: 8em 0 0 0;
 }
 
-.car .cardOjeb{
-    width: 20%;
-    height: 15em;
-    background-color: black;
-    display: flex;
-    flex-direction: column;
-    margin:0  3rem 12rem 3rem;
-    
+.cardOjeb{
+    text-align: center;
+    width: 20%; 
 }
 .cardImg{
     width: 100% !important;
@@ -39,12 +34,12 @@
    
     border-radius: 50px 0 0 0;
 }
-.car{
+/* .car{
     display: flex;
     margin: 0 0rem;
     justify-content: center;
-    flex-wrap: wrap; 
-}
+    flex-direction: column;
+} */
 
 .p-panel .p-panel-header{
     height: 40px !important;  
@@ -136,4 +131,19 @@
 .content-modal{
     width: 70%;
     height:700vh;
+}
+
+.img-card{
+    width: 100%;
+}
+.cont-card{
+    background-color: #008031;
+    max-width: 24%;
+}
+
+.cont-press{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
 }
