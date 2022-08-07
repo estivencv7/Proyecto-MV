@@ -9,8 +9,6 @@
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
-
-
 /***************************************************************************/
 .datatable-templating-demo .table-header {
     display: flex;
@@ -65,4 +63,9 @@
 .product-image{
     height: 4.5rem;
     width: 30%;
+}
+
+.p-datatable .p-datatable-tbody > tr:active{
+    background-color: green !important;
+    color: white !important;
 }
