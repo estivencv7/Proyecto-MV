@@ -8,28 +8,26 @@ import './DataTableDemo.css';
 
 export const DataTableProvider = () => {
     const [selectedProvider, setSelectedProvider] = useState(null);
-    const [products, setProducts] = useState([]);
+    const [provider, setProvider] = useState([]);
     const [filters, setFilters] = useState({
         'global': { value: null, matchMode: FilterMatchMode.CONTAINS },
-        'nombre_producto': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-        'codigo_producto': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-        'amount': { value: null, matchMode: FilterMatchMode.IN },
-        'description': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.DATE_IS }] },
-        'price': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
-        'id_categoria.nombre_categoria' : { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+        'nombre_proveedor': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+        'cedula_proveedor': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+        'telefono_proveedor': { value: null, matchMode: FilterMatchMode.IN },
     });
     const [globalFilterValue, setGlobalFilterValue] = useState('');
     const [loading, setLoading] = useState(true);
 
-    let i = products.length;
+    let i = provider.length;
     useEffect(() => {
-        listProducts()
-    }, [i])
+        listSuppliers()
+        
+    }, [provider])
 
-    function listProducts() {
+    function listSuppliers() {
 
-        console.log("LISTANDO PRODUCTOS")
-        const urlRegister = 'http://localhost:8080/producto/listaProductos';
+        console.log("LISTANDO PROVEEDORES")
+        const urlRegister = 'http://localhost:8080/proveedores/listaProveedores';
         fetch(urlRegister, {
             method: 'GET',
             headers: {
@@ -37,8 +35,8 @@ export const DataTableProvider = () => {
             }
         })
             .then(response => response.json())
-            .then(product => setProducts(product))
-        console.log(products);
+            .then(provider => setProvider(provider))
+        console.log(provider);
         setLoading(false)
     }
 
@@ -63,86 +61,38 @@ export const DataTableProvider = () => {
         )
     }
 
-    const codeBodyTemplate = (product) => {
+    const codeBodyTemplate = (provider) => {
         return (
             <React.Fragment>
-                <span className="text">{product.codigo_producto}</span>
+                <span className="text">{provider.cedula_proveedor}</span>
             </React.Fragment>
         );
     }
 
-    const imageBodyTemplate = (product) => {
-        return (
-            <React.Fragment>
-                <img alt="ImagenMuebleria" src={product.foto_producto} onError={(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} width={32} style={{ verticalAlign: 'middle' }} className='product-image' />
-            </React.Fragment>
-        );
+    const nameBodyTemplate = (provider) => {
+        return provider.nombre_proveedor;
     }
 
-    const productFilterTemplate = (options) => {
-        return (
-            <React.Fragment>
-                <div className="mb-3 font-bold">Agent Picker</div>
-                <MultiSelect value={options.nombre_producto} options={products} itemTemplate={productsItemTemplate} onChange={(e) => options.filterCallback(e.value)} optionLabel="name" placeholder="Any" className="p-column-filter" />
-            </React.Fragment>
-        );
-    }
-
-    const productsItemTemplate = (option) => {
-        return (
-            <div className="p-multiselect-representative-option">
-                <img alt="imgMuebleria" src={option.foto_producto} onError={(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} width={32} style={{ verticalAlign: 'middle' }} />
-            </div>
-        );
-    }
-
-    const nameBodyTemplate = (product) => {
-        return product.nombre_producto;
-    }
-
-    const supplierNameBodyTemplate = (product) => {
-        return product.nombre_proveedor_producto;
-    }
-
-    const productsRowFilterTemplate = (options) => {
-        return <MultiSelect value={options.value} options={products} itemTemplate={productFilterTemplate} onChange={(e) => options.filterApplyCallback(e.value)} optionLabel="name" placeholder="Any" className="p-column-filter" maxSelectedLabels={1} />;
-    }
-    
     const amountBodyTemplate = (element) => {
-        return element.cantidad_producto;
+        return element.telefono_proveedor;
     }
     
-    const descriptionBodyTemplate = (element) => {
-        return element.descripcion_producto;
-    }
-    
-    const formatCurrency = (value) => {
-        return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-    }
-
-    const priceBodyTemplate = (element) => {
-        return formatCurrency(element.precio_producto);
-    }
-
-    const categoryBodyTemplate = (element) => {
-        return element.id_categoria.nombre_categoria;
-    }
 
     const header = renderHeader();
 
     return (
         <div className="datatable-doc-demo">
             <div className="card">
-                <DataTable value={products} paginator className="p-datatable-customers" header={header} rows={5}
+                <DataTable value={provider} paginator className="p-datatable-customers" header={header} rows={5}
                     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" rowsPerPageOptions={[10, 25, 50]}
-                    dataKey="id" rowHover selection={selectedProvider} onSelectionChange={e => setSelectedProvider(e.codigo_producto)}
+                    dataKey="id" rowHover selection={selectedProvider} onSelectionChange={e => setSelectedProvider(e.cedula_proveedor)}
                     filters={filters} filterDisplay="menu" loading={loading} responsiveLayout="scroll"
-                    globalFilterFields={['nombre_producto', 'codigo_producto', 'cantidad_producto']} emptyMessage="No se encontraron productos."
+                    globalFilterFields={['nombre_proveedor', 'cedula_proveedor', 'telefono_proveedor']} emptyMessage="No se encontraron proveedores."
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
                     <Column selectionMode="multiple" headerStyle={{ width: '3em' }}></Column>
-                    <Column field="codigo_producto" header="Documento" sortable filterField="codigo_producto" body={codeBodyTemplate} filter filterPlaceholder="Search by code" />
-                    <Column field="nombre_producto" header="Nombre" sortable filter filterPlaceholder="Search by name" body={nameBodyTemplate}/>
-                    <Column field="cantidad_producto" header="Telefono" sortable filter filterPlaceholder="Search by amount" body={amountBodyTemplate}/>
+                    <Column field="cedula_proveedor" header="Documento" sortable filterField="cedula_proveedor" body={codeBodyTemplate} filter filterPlaceholder="Search by code" />
+                    <Column field="nombre_proveedor" header="Nombre" sortable filter filterPlaceholder="Search by name" body={nameBodyTemplate}/>
+                    <Column field="telefono_proveedor" header="Telefono" sortable filter filterPlaceholder="Search by amount" body={amountBodyTemplate}/>
                 </DataTable>
             </div>
         </div>

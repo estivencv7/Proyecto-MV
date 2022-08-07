@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Service_ProductRegis } from '../../../service/ServiceProduct/Service_ProductRegis'
 import { Button } from 'primereact/button'
 import { Service_Update } from '../../../service/ServiceProduct/Service_Update'
 import { Logo } from '../../Ui/Logo/Logo'
 import { DataTableProvider } from '../DataTableTemplatingDemo/DataTableProvider'
+import { Service_RegisterProvider } from '../../../service/ServiceProvider/Service_RegisterProvider'
 export const PageRegisterProvider = () => {
   
   const [value, setValue] = useState(false);
@@ -18,7 +18,7 @@ export const PageRegisterProvider = () => {
     <>
       <main className='content-Page'>
         <div className='sildebar'>
-          <Service_ProductRegis style='' />
+          <Service_RegisterProvider style='' />
           <Button className=''><i className='pi pi-trash icons-registerProduct'></i></Button>
           <Service_Update />
           <Button className='' onClick={inputSarch}><i className='pi pi-search icons-registerProduct'></i></Button>
