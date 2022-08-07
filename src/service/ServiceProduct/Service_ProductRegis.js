@@ -68,13 +68,6 @@ export const Service_ProductRegis = ({style}) => {
 
 
     function registerProduct() {
-        console.log(idCategory);
-        if(idCategory == 1){
-            setNameCategory("Muebles")
-            console.log(idCategory);
-        }else if(idCategory == 2){
-            setNameCategory("Silla")
-        }
         console.log("estoy registrando un producto")
         const urlRegister = 'http://localhost:8080/producto';
         fetch(urlRegister, {
