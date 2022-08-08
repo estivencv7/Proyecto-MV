@@ -36,6 +36,7 @@
 
     color: #000;
     background-color: white;
+    padding: 15px;
 }
 
 .navbar-container {
@@ -68,7 +69,8 @@
 }
 
 .button-menu {
-    font-size: 30px;
+    font-size: 22px;
+   
 }
 
 .buttom1 {
