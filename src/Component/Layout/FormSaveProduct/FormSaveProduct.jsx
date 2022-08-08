@@ -46,6 +46,12 @@ export const FormSaveProduct = ({onChange1,onChange2,onchange3,onchange4,onChang
         listSuppliers();
       }
 
+      function checkCategories(){
+        while(document.getElementById('categoryGroup').lastChild){
+          document.getElementById('categoryGroup').removeChild(document.getElementById('categoryGroup').lastChild)
+        }
+        listCategories();
+      }
     const createSelectElements = (supplierList) => {
         console.log(supplierList.length);
         let i = 0;
@@ -97,7 +103,7 @@ export const FormSaveProduct = ({onChange1,onChange2,onchange3,onchange4,onChang
     }
 
     useEffect(() => {
-      listCategories()
+      checkCategories()
     }, [listCategories.length])
     
     return (

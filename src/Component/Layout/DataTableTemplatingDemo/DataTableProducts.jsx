@@ -5,9 +5,10 @@ import { Column } from 'primereact/column';
 import { InputText } from 'primereact/inputtext';
 import { MultiSelect } from 'primereact/multiselect';
 import './DataTableDemo.css';
+import { Service_Update } from '../../../service/ServiceProduct/Service_Update';
 
 export const DataTableProducts = () => {
-    const [selectedProducts, setSelectedProduct] = useState(null);
+    let [selectedProducts, setSelectedProduct] = useState(null);
     const [products, setProducts] = useState([]);
     const [filters, setFilters] = useState({
         'global': { value: null, matchMode: FilterMatchMode.CONTAINS },
@@ -24,7 +25,7 @@ export const DataTableProducts = () => {
     let i = products.length;
     useEffect(() => {
         listProducts()
-    }, [i])
+    }, [selectedProducts])
 
     function listProducts() {
 
@@ -71,28 +72,11 @@ export const DataTableProducts = () => {
         );
     }
 
-    const imageBodyTemplate = (product) => {
+    const imageBodyTemplate = (product) => {    
         return (
             <React.Fragment>
                 <img alt="ImagenMuebleria" src={product.foto_producto} onError={(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} width={32} style={{ verticalAlign: 'middle' }} className='product-image' />
             </React.Fragment>
-        );
-    }
-
-    const productFilterTemplate = (options) => {
-        return (
-            <React.Fragment>
-                <div className="mb-3 font-bold">Agent Picker</div>
-                <MultiSelect value={options.nombre_producto} options={products} itemTemplate={productsItemTemplate} onChange={(e) => options.filterCallback(e.value)} optionLabel="name" placeholder="Any" className="p-column-filter" />
-            </React.Fragment>
-        );
-    }
-
-    const productsItemTemplate = (option) => {
-        return (
-            <div className="p-multiselect-representative-option">
-                <img alt="imgMuebleria" src={option.foto_producto} onError={(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} width={32} style={{ verticalAlign: 'middle' }} />
-            </div>
         );
     }
 
@@ -104,10 +88,6 @@ export const DataTableProducts = () => {
         return product.nombre_proveedor_producto;
     }
 
-    const productsRowFilterTemplate = (options) => {
-        return <MultiSelect value={options.value} options={products} itemTemplate={productFilterTemplate} onChange={(e) => options.filterApplyCallback(e.value)} optionLabel="name" placeholder="Any" className="p-column-filter" maxSelectedLabels={1} />;
-    }
-    
     const amountBodyTemplate = (element) => {
         return element.cantidad_producto;
     }
@@ -128,25 +108,58 @@ export const DataTableProducts = () => {
         return element.id_categoria.nombre_categoria;
     }
 
+    const productFilterTemplate = (options) => {
+        return (
+            <React.Fragment>
+                <div className="mb-3 font-bold">Agent Picker</div>
+                <MultiSelect value={options.value} options={products} itemTemplate={productsItemTemplate} onChange={(e) => options.filterCallback(e.value)} optionLabel="name" placeholder="Any" className="p-column-filter" />
+            </React.Fragment>
+        );
+    }
+
+    const productsItemTemplate = (option) => {
+        return (
+            <div className="p-multiselect-representative-option">
+                <img alt="Muebles" src={option.foto_producto} onError={(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} width={32} style={{ verticalAlign: 'middle' }} />
+            </div>
+        );
+    }
+
+    const renderFooter = () => {
+        if(selectedProducts == null){
+            return (
+                <div className="flex justify-content-between align-items-center">
+                    <Service_Update codeProductUpdate={0}/>
+                </div>
+            )
+        }else{
+            return (
+                <div className="flex justify-content-between align-items-center">
+                    <Service_Update codeProductUpdate={selectedProducts.codigo_producto}/>
+                </div>
+            )
+        }
+    }
+
     const header = renderHeader();
+    const footer = renderFooter();
 
     return (
         <div className="datatable-doc-demo">
             <div className="card">
-                <DataTable value={products} paginator className="p-datatable-customers" header={header} rows={5}
-                    paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" rowsPerPageOptions={[10, 25, 50]}
-                    dataKey="id" rowHover selection={selectedProducts} onSelectionChange={e => setSelectedProduct(e.codigo_producto)}
+                <DataTable value={products} paginator className="p-datatable-customers" footer={footer} header={header} rows={5}
+                    paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" rowsPerPageOptions={[10, 25, 50]} dataKey="id" rowHover selection={e => e.value} onSelectionChange={e => setSelectedProduct(e.value)}
                     filters={filters} filterDisplay="menu" loading={loading} responsiveLayout="scroll"
                     globalFilterFields={['nombre_producto', 'codigo_producto', 'cantidad_producto', 'descripcion_producto', 'precio_producto' , 'id_categoria.nombre_categoria' , 'nombre_proveedor_producto']} emptyMessage="No se encontraron productos."
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
-                    <Column selectionMode="multiple" headerStyle={{ width: '3em' }}></Column>
+                    <Column selectionMode="single" headerStyle={{ width: '3em' }}></Column>
                     <Column field="codigo_producto" header="Codigo" sortable filterField="codigo_producto" body={codeBodyTemplate} filter filterPlaceholder="Search by code" />
-                    <Column field="nombre_producto" header="Nombre" sortable filter filterPlaceholder="Search by name" body={nameBodyTemplate}/>
+                    <Column field="nombre_producto" header="Nombre" sortable filter filterPlaceholder="Search by name" body={nameBodyTemplate} />
                     <Column field="cantidad_producto" header="Cantidad" sortable filter filterPlaceholder="Search by amount" body={amountBodyTemplate}/>
                     <Column field="descripcion_producto" header="Descripcion" sortable sortField='descripcion_producto' body={descriptionBodyTemplate}/>
                     <Column field="precio_producto" header="Precio" sortable filterField="price" body={priceBodyTemplate}/>
                     <Column header="Imagen producto" sortable sortField="foto_producto" filterField="foto" body={imageBodyTemplate} />
-                    <Column field="id_categoria.nombre_categoria" header="Categoria" sortable filter filterPlaceholder="Search by name"  style={{ width: '10%' }} body={categoryBodyTemplate} />
+                    <Column field="id_categoria.nombre_categoria" header="Categoria" sortable filter filterPlaceholder="Search by name"  body={categoryBodyTemplate} />
                     <Column field="nombre_proveedor_producto" header="Proveedor" sortable showFilterMatchModes={false} body={supplierNameBodyTemplate} />
                 </DataTable>
             </div>
