@@ -1,6 +1,7 @@
 import { Button } from 'primereact/button'
 import { Dialog } from 'primereact/dialog'
 import React,{useState,useEffect}from 'react'
+import { InputText } from 'primereact/inputtext';
 import { InputTextarea } from 'primereact/inputtextarea';
 import { RadioGroup } from 'rsuite';
 
@@ -16,7 +17,7 @@ export const Service_Update = ({codeProductUpdate}) => {
     const [nameCategory , setNameCategory] = useState("")
 
     function searchProduct () {
-        const urlRegister = 'http://localhost:8080/producto/buscar/' + document.getElementById("inputSearch").value;
+        const urlRegister = 'http://localhost:8080/producto/buscar/' + codeProductUpdate;
         fetch(urlRegister, {
             method: 'GET',
             headers: {
@@ -36,6 +37,7 @@ export const Service_Update = ({codeProductUpdate}) => {
         const imgPhoto = document.createElement("img")
         const inputPrice = document.createElement("input")
         const inputDescription = document.createElement("input")
+        setProducts(prod)
         inputCode.placeholder = prod.codigo_producto
         inputName.placeholder = prod.nombre_producto
         inputName.setAttribute('type','text')
@@ -43,8 +45,6 @@ export const Service_Update = ({codeProductUpdate}) => {
         inputAmount.placeholder = prod.cantidad_producto
         inputAmount.setAttribute('type','number')
         inputAmount.setAttribute('id','inputAmount')
-        imgPhoto.setAttribute('src',prod.foto_producto)
-        inputPrice.placeholder = prod.precio_producto
         setCodeProduct(prod.codigo_producto)
         setImageProduct(prod.foto_producto)
         inputPrice.setAttribute('id','inputPrice')
@@ -55,8 +55,8 @@ export const Service_Update = ({codeProductUpdate}) => {
         dataProductsContainer.appendChild(inputAmount)
         dataProductsContainer.appendChild(inputPrice)
         dataProductsContainer.appendChild(inputDescription)
-        dataProductsContainer.appendChild(imgPhoto)
         checkCategories()
+        checkSuppliers()
     }
 
     function listCategories(){
@@ -69,6 +69,13 @@ export const Service_Update = ({codeProductUpdate}) => {
         })
             .then(response => response.json())
             .then(supplier => createRadioElements(supplier))    
+    }
+
+    
+    const setDataCategory = (category) => {
+        console.log(category.target.value);
+        setIdCategory(category.id_categoria)
+        setNameCategory(category.nombre_categoria)
     }
 
     const createRadioElements = (categoriesList) => {
@@ -84,7 +91,7 @@ export const Service_Update = ({codeProductUpdate}) => {
                 optionRadio.setAttribute("name","productos")
                 optionRadio.setAttribute("className" , "radioProductos")
                 console.log("ELEMENT: " + element.nombre_categoria);
-                optionRadio.setAttribute("value",element.nombre_proveedor)
+                optionRadio.setAttribute("value",element.id_categoria)
                 const labelRadio = document.createElement("label")
                 if(element.nombre_categoria == ""){
                     labelRadio.textContent = "Sin nombre registrado"    
@@ -103,6 +110,7 @@ export const Service_Update = ({codeProductUpdate}) => {
     const seew=()=>{
        
         if (visible == false) {
+            searchProduct()
             setVisible(true)
         } else {
             setVisible(false)
@@ -115,6 +123,7 @@ export const Service_Update = ({codeProductUpdate}) => {
         const description = document.getElementById("inputDescription").value
         const price = document.getElementById("inputPrice").value
         const amount = document.getElementById("inputAmount").value
+        console.log(nameCategory);
         const urlRegister = 'http://localhost:8080/producto/actualizar/' + codeProductUpdate;
         fetch(urlRegister, {
             method: 'PUT',
@@ -135,7 +144,7 @@ export const Service_Update = ({codeProductUpdate}) => {
                 nombre_proveedor_producto : name_supplier_product
             })
         })
-            .then(response => console.log(response.json))
+            .then(response => response.json)
             .then(json => {
                 if(json.ok){
                     alert("Registro exitoso")
@@ -194,19 +203,33 @@ export const Service_Update = ({codeProductUpdate}) => {
         listSuppliers();
       }
 
+      const uploadimage=async(e)=>{
+        console.log("entro")
+        const files=e.target.files;
+        const data=new FormData()
+        data.append("file",files[0])
+        data.append("upload_preset","images");
+        setLoading(true)
+        const res=await fetch("https://api.cloudinary.com/v1_1/estivencloud/image/upload",
+        {
+        method:"POST",
+        body:data
+        }
+        )
+        const file=await res.json();
+        console.log(res)
+        console.log(idCategory);
+        setImageProduct(file.secure_url)
+        setLoading(false)
+    }
+
   return (
     <>
         <Button onClick={()=>seew(seew)}><i className='pi pi-user-edit icons-registerProduct'></i></Button>
         <Dialog visible={visible} modal onHide={seew} style={{ width: '30em',bordeRadius:'100%'}} >
-           
-            <div>
-                <input type="button" onClick={searchProduct} id='inputSearch' value={codeProductUpdate}/>
-            </div>
-            <hr />
-            
             <div className='category'>
                     <div>
-                        <RadioGroup id='categoryGroup' onChange={e => setIdCategory(e.target.value)} className='radioGroup'>
+                        <RadioGroup id='categoryGroup' onClick={e => setDataCategory(e)} className='radioGroup'>
                             
 
                         </RadioGroup>
@@ -224,6 +247,10 @@ export const Service_Update = ({codeProductUpdate}) => {
 
                 </select>
             </div>
+            <div className='content-Input-file'>
+                {loading ? (<h3>cargando imagen</h3>):(<img className='image-product' src={image} />)}
+                    <InputText className='input-register'  id='catch' type='file' name='file' placeholder='subirImg' onChange={uploadimage}  />
+                </div>
             <div>
                 <button onClick={editProduct}>Guardar</button>
             </div>

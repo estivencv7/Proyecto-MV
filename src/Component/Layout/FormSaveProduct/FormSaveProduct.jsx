@@ -104,6 +104,7 @@ export const FormSaveProduct = ({onChange1,onChange2,onchange3,onchange4,onChang
 
     useEffect(() => {
       checkCategories()
+      checkSuppliers()
     }, [listCategories.length])
     
     return (

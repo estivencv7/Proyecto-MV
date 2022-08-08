@@ -47,7 +47,7 @@ export const DataTableProducts = () => {
         const value = e.target.value;
         let _filters = { ...filters };
         _filters['global'].value = value;
-
+        console.log(selectedProducts);
         setFilters(_filters);
         setGlobalFilterValue(value);
     }
@@ -147,8 +147,9 @@ export const DataTableProducts = () => {
     return (
         <div className="datatable-doc-demo">
             <div className="card">
-                <DataTable value={products} paginator className="p-datatable-customers" footer={footer} header={header} rows={5}
-                    paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" rowsPerPageOptions={[10, 25, 50]} dataKey="id" rowHover selection={e => e.value} onSelectionChange={e => setSelectedProduct(e.value)}
+                <DataTable value={products} paginator className="p-datatable-customers" header={header} rows={5} footer={footer}
+                    paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" rowsPerPageOptions={[10, 25, 50]}
+                    dataKey="id" rowHover onSelectionChange={e => setSelectedProduct(e.value)}
                     filters={filters} filterDisplay="menu" loading={loading} responsiveLayout="scroll"
                     globalFilterFields={['nombre_producto', 'codigo_producto', 'cantidad_producto', 'descripcion_producto', 'precio_producto' , 'id_categoria.nombre_categoria' , 'nombre_proveedor_producto']} emptyMessage="No se encontraron productos."
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
