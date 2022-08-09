@@ -48,6 +48,7 @@ export const Service_Update = ({codeProductUpdate}) => {
         setCodeProduct(prod.codigo_producto)
         setImageProduct(prod.foto_producto)
         inputPrice.setAttribute('id','inputPrice')
+        inputPrice.setAttribute('type','number')
         inputDescription.placeholder = prod.descripcion_producto
         inputDescription.setAttribute('id','inputDescription')
         dataProductsContainer.appendChild(inputCode)
@@ -68,38 +69,37 @@ export const Service_Update = ({codeProductUpdate}) => {
             }
         })
             .then(response => response.json())
-            .then(supplier => createRadioElements(supplier))    
+            .then(categories => createSelectElementsCategories(categories))    
     }
 
     
     const setDataCategory = (category) => {
-        console.log(category.target.value);
-        setIdCategory(category.id_categoria)
-        setNameCategory(category.nombre_categoria)
+        console.log(category);
+        fetch("http://localhost:8080/producto/consultarCategoria/" + category, {
+            method: 'GET'
+        })
+        .then(response => response.json())
+        .then(product =>  {
+            setNameCategory(product.nombre_categoria);
+            setIdCategory(product.id_categoria)
+        })
     }
 
-    const createRadioElements = (categoriesList) => {
-        console.log(categoriesList.length);
+    const createSelectElementsCategories = (categoriesList) => {
         let i = 0;
-        const radioContainer = document.getElementById("categoryGroup");
-        const labelContainer = document.getElementById("labelGroup");
+        const selectContainer = document.getElementById("selectContainerCategories");
+        const optionSelect = document.createElement("option")
+        optionSelect.textContent = "Seleccione una categoria";
+        optionSelect.setAttribute("value","Vacio")
+        selectContainer.appendChild(optionSelect)
         while(i <= categoriesList.length){
             categoriesList.forEach(element => {
-                const optionRadio = document.createElement("input")
-                optionRadio.setAttribute("type","radio")
-                optionRadio.setAttribute("id",element.id_categoria)
-                optionRadio.setAttribute("name","productos")
-                optionRadio.setAttribute("className" , "radioProductos")
-                console.log("ELEMENT: " + element.nombre_categoria);
-                optionRadio.setAttribute("value",element.id_categoria)
-                const labelRadio = document.createElement("label")
-                if(element.nombre_categoria == ""){
-                    labelRadio.textContent = "Sin nombre registrado"    
-                }else{
-                    labelRadio.textContent = element.nombre_categoria
-                }
-                labelContainer.appendChild(labelRadio)
-                radioContainer.appendChild(optionRadio)
+                const optionSelect2 = document.createElement("option")
+                console.log("ELEMENT CATEGORY: " + element.nombre_categoria);
+                optionSelect2.textContent = element.nombre_categoria;
+                optionSelect2.setAttribute("value",element.id_categoria)
+                // optionSelect.setAttribute("onClick",catchSupplierName(optionSelect))
+                selectContainer.appendChild(optionSelect2)
                 i++
             })
             break;
@@ -123,7 +123,7 @@ export const Service_Update = ({codeProductUpdate}) => {
         const description = document.getElementById("inputDescription").value
         const price = document.getElementById("inputPrice").value
         const amount = document.getElementById("inputAmount").value
-        console.log(nameCategory);
+        console.log(name_supplier_product);
         const urlRegister = 'http://localhost:8080/producto/actualizar/' + codeProductUpdate;
         fetch(urlRegister, {
             method: 'PUT',
@@ -144,7 +144,7 @@ export const Service_Update = ({codeProductUpdate}) => {
                 nombre_proveedor_producto : name_supplier_product
             })
         })
-            .then(response => response.json)
+            .then(response => response.json())
             .then(json => {
                 if(json.ok){
                     alert("Registro exitoso")
@@ -177,12 +177,11 @@ export const Service_Update = ({codeProductUpdate}) => {
         selectContainer.appendChild(optionSelect)
         while(i <= supplierList.length){
             supplierList.forEach(element => {
-                const optionSelect = document.createElement("option")
+                const optionSelect2 = document.createElement("option")
                 console.log("ELEMENT: " + element.nombre_proveedor);
-                optionSelect.textContent = element.nombre_proveedor;
-                optionSelect.setAttribute("value",element.nombre_proveedor)
-                // optionSelect.setAttribute("onClick",catchSupplierName(optionSelect))
-                selectContainer.appendChild(optionSelect)
+                optionSelect2.textContent = element.nombre_proveedor;
+                optionSelect2.setAttribute("value",element.nombre_proveedor)
+                selectContainer.appendChild(optionSelect2)
                 i++
             })
             break;
@@ -190,8 +189,8 @@ export const Service_Update = ({codeProductUpdate}) => {
     }
 
     function checkCategories(){
-        while(document.getElementById('categoryGroup').lastChild){
-            document.getElementById('categoryGroup').removeChild(document.getElementById('categoryGroup').lastChild)
+        while(document.getElementById('selectContainerCategories').lastChild){
+            document.getElementById('selectContainerCategories').removeChild(document.getElementById('selectContainerCategories').lastChild)
         }
         listCategories();
     }
@@ -229,10 +228,9 @@ export const Service_Update = ({codeProductUpdate}) => {
         <Dialog visible={visible} modal onHide={seew} style={{ width: '30em',bordeRadius:'100%'}} >
             <div className='category'>
                     <div>
-                        <RadioGroup id='categoryGroup' onClick={e => setDataCategory(e)} className='radioGroup'>
-                            
+                        <select name="selectContainerCategories" id="selectContainerCategories" onChange={e => setDataCategory(e.target.value)}>
 
-                        </RadioGroup>
+                        </select>
                     </div>
                     <div id='labelGroup' className='labelGroup'>
                         
