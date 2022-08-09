@@ -6,6 +6,7 @@ import { InputText } from 'primereact/inputtext';
 import { MultiSelect } from 'primereact/multiselect';
 import './DataTableDemo.css';
 import { Service_Update } from '../../../service/ServiceProduct/Service_Update';
+import { Button } from 'primereact/button'
 
 export const DataTableProducts = () => {
     let [selectedProducts, setSelectedProduct] = useState(null);
@@ -155,7 +156,7 @@ export const DataTableProducts = () => {
             <div className="card">
                 <DataTable value={products} paginator className="p-datatable-customers" header={header} rows={5} footer={footer}
                     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" rowsPerPageOptions={[5, 10, 15]}
-                    dataKey="id" rowHover onSelectionChange={e => setSelectedProduct(e.value)}
+                    dataKey="id" rowHover onSelectionChange={e => setSelectedProduct(e.value)} 
                     filters={filters} filterDisplay="menu" loading={loading} responsiveLayout="scroll"
                     globalFilterFields={['nombre_producto', 'codigo_producto', 'cantidad_producto', 'descripcion_producto', 'precio_producto' , 'id_categoria.nombre_categoria' , 'nombre_proveedor_producto']} emptyMessage="No se encontraron productos."
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
@@ -167,7 +168,7 @@ export const DataTableProducts = () => {
                     <Column field="precio_producto" header="Precio" sortable filterField="price" body={priceBodyTemplate}/>
                     <Column header="Imagen producto" sortable sortField="foto_producto" filterField="foto" body={imageBodyTemplate} />
                     <Column field="id_categoria.nombre_categoria" header="Categoria" sortable filter filterPlaceholder="Search by name"  body={categoryBodyTemplate} />
-                    <Column field="nombre_proveedor_producto" header="Proveedor" sortable showFilterMatchModes={false} body={supplierNameBodyTemplate} />
+                    <Column field="nombre_proveedor_producto" header="Proveedor" sortable showFilterMatchModes={false} body={supplierNameBodyTemplate} />                    
                 </DataTable>
             </div>
         </div>
