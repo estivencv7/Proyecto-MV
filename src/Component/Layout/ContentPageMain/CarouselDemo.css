@@ -194,3 +194,8 @@
     box-shadow: 0 0 40px rgb(233, 235, 236);
     
 }
+
+.content-windows-observar{
+    display: flex;
+    justify-content: space-around;
+}

@@ -242,6 +242,9 @@ export const Service_Update = ({codeProductUpdate}) => {
             <div id='dataProductsContainer'>
 
             </div>
+
+            
+
             <div>
                 <select id='selectContainer' onChange={e => setNameSupplierProduct(e.target.value)} onClick={checkSuppliers} >
 
