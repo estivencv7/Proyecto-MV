@@ -39,7 +39,6 @@ export const DataTableProducts = () => {
         })
             .then(response => response.json())
             .then(product => setProducts(product))
-        console.log(products);
         setLoading(false)
     }
 
@@ -105,7 +104,14 @@ export const DataTableProducts = () => {
     }
 
     const categoryBodyTemplate = (element) => {
-        return element.id_categoria.nombre_categoria;
+        let name_category = "";
+        if(element.id_categoria == null){
+            name_category = "Sin categoria"
+           return name_category;
+        }else{
+            name_category = element.id_categoria.nombre_categoria
+            return name_category;
+        }
     }
 
     const productFilterTemplate = (options) => {
@@ -148,7 +154,7 @@ export const DataTableProducts = () => {
         <div className="datatable-doc-demo">
             <div className="card">
                 <DataTable value={products} paginator className="p-datatable-customers" header={header} rows={5} footer={footer}
-                    paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" rowsPerPageOptions={[10, 25, 50]}
+                    paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" rowsPerPageOptions={[5, 10, 15]}
                     dataKey="id" rowHover onSelectionChange={e => setSelectedProduct(e.value)}
                     filters={filters} filterDisplay="menu" loading={loading} responsiveLayout="scroll"
                     globalFilterFields={['nombre_producto', 'codigo_producto', 'cantidad_producto', 'descripcion_producto', 'precio_producto' , 'id_categoria.nombre_categoria' , 'nombre_proveedor_producto']} emptyMessage="No se encontraron productos."
