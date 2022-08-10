@@ -20,7 +20,7 @@ export const DataTableProducts = () => {
         'amount': { value: null, matchMode: FilterMatchMode.IN },
         'description': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.DATE_IS }] },
         'price': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
-        'id_categoria.nombre_categoria' : { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
+        'id_categoria.nombre_categoria': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
     });
     const [globalFilterValue, setGlobalFilterValue] = useState('');
     const [loading, setLoading] = useState(true);
@@ -56,24 +56,43 @@ export const DataTableProducts = () => {
     const inputSarch = () => {
         console.log("hola")
         setValue(true)
-    
-      }
+
+    }
     const renderHeader = () => {
-        return (
-            <div className="flex justify-content-between align-items-center">
-                <h5 className="m-0">Productos</h5>
-                <div className='botones'>
-                    <span className="p-input-icon-left">
-                        <i className="pi pi-search" />
-                        <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre producto" />
-                    </span>
-                    <Service_ProductRegis style='' />
-                    <Service_Update />
-                    <Button className='' onClick={inputSarch}><i className='pi pi-trash icons-registerProduct'></i></Button>
-                    <div></div>
+        if (selectedProducts == null) {
+            return (
+                <div className="flex justify-content-between align-items-center">
+                    <h5 className="m-0">Productos</h5>
+                    <div className='botones'>
+                        <span className="p-input-icon-left">
+                            <i className="pi pi-search" />
+                            <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre producto" />
+                        </span>
+                        <Service_ProductRegis style='' />
+                        <Button className='' onClick={inputSarch}><i className='pi pi-trash icons-registerProduct'></i></Button>
+
+                        <Service_Update codeProductUpdate={0} />
+                    </div>
                 </div>
-            </div>
-        )
+            )
+        } else {
+            return (
+                <div className="flex justify-content-between align-items-center">
+                    <h5 className="m-0">Productos</h5>
+                    <div className='botones'>
+                        <span className="p-input-icon-left">
+                            <i className="pi pi-search" />
+                            <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre producto" />
+                        </span>
+                        <Service_ProductRegis style='' />
+                        <Button className='' onClick={inputSarch}><i className='pi pi-trash icons-registerProduct'></i></Button>
+
+                        <Service_Update codeProductUpdate={selectedProducts.codigo_producto} />
+                    </div>
+                </div>
+            )
+        }
+
     }
 
     const codeBodyTemplate = (product) => {
@@ -84,7 +103,7 @@ export const DataTableProducts = () => {
         );
     }
 
-    const imageBodyTemplate = (product) => {    
+    const imageBodyTemplate = (product) => {
         return (
             <React.Fragment>
                 <img alt="ImagenMuebleria" src={product.foto_producto} onError={(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} width={32} style={{ verticalAlign: 'middle' }} className='product-image' />
@@ -103,11 +122,11 @@ export const DataTableProducts = () => {
     const amountBodyTemplate = (element) => {
         return element.cantidad_producto;
     }
-    
+
     const descriptionBodyTemplate = (element) => {
         return element.descripcion_producto;
     }
-    
+
     const formatCurrency = (value) => {
         return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
     }
@@ -118,10 +137,10 @@ export const DataTableProducts = () => {
 
     const categoryBodyTemplate = (element) => {
         let name_category = "";
-        if(element.id_categoria == null){
+        if (element.id_categoria == null) {
             name_category = "Sin categoria"
-           return name_category;
-        }else{
+            return name_category;
+        } else {
             name_category = element.id_categoria.nombre_categoria
             return name_category;
         }
@@ -144,43 +163,28 @@ export const DataTableProducts = () => {
         );
     }
 
-    const renderFooter = () => {
-        if(selectedProducts == null){
-            return (
-                <div className="flex justify-content-between align-items-center">
-                    <Service_Update codeProductUpdate={0}/>
-                </div>
-            )
-        }else{
-            return (
-                <div className="flex justify-content-between align-items-center">
-                    <Service_Update codeProductUpdate={selectedProducts.codigo_producto}/>
-                </div>
-            )
-        }
-    }
+
 
     const header = renderHeader();
-    const footer = renderFooter();
 
     return (
         <div className="datatable-doc-demo">
             <div className="card">
-                <DataTable value={products} paginator className="p-datatable-customers" header={header} rows={5} footer={footer}
+                <DataTable value={products} paginator className="p-datatable-customers" header={header} rows={5}
                     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" rowsPerPageOptions={[5, 10, 15]}
-                    dataKey="id" rowHover onSelectionChange={e => setSelectedProduct(e.value)} 
+                    dataKey="id" rowHover onSelectionChange={e => setSelectedProduct(e.value)}
                     filters={filters} filterDisplay="menu" loading={loading} responsiveLayout="scroll"
-                    globalFilterFields={['nombre_producto', 'codigo_producto', 'cantidad_producto', 'descripcion_producto', 'precio_producto' , 'id_categoria.nombre_categoria' , 'nombre_proveedor_producto']} emptyMessage="No se encontraron productos."
+                    globalFilterFields={['nombre_producto', 'codigo_producto', 'cantidad_producto', 'descripcion_producto', 'precio_producto', 'id_categoria.nombre_categoria', 'nombre_proveedor_producto']} emptyMessage="No se encontraron productos."
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
                     <Column selectionMode="single" headerStyle={{ width: '3em' }}></Column>
                     <Column field="codigo_producto" header="Codigo" sortable filterField="codigo_producto" body={codeBodyTemplate} filter filterPlaceholder="Search by code" />
                     <Column field="nombre_producto" header="Nombre" sortable filter filterPlaceholder="Search by name" body={nameBodyTemplate} />
-                    <Column field="cantidad_producto" header="Cantidad" sortable filter filterPlaceholder="Search by amount" body={amountBodyTemplate}/>
-                    <Column field="descripcion_producto" header="Descripcion" sortable sortField='descripcion_producto' body={descriptionBodyTemplate}/>
-                    <Column field="precio_producto" header="Precio" sortable filterField="price" body={priceBodyTemplate}/>
+                    <Column field="cantidad_producto" header="Cantidad" sortable filter filterPlaceholder="Search by amount" body={amountBodyTemplate} />
+                    <Column field="descripcion_producto" header="Descripcion" sortable sortField='descripcion_producto' body={descriptionBodyTemplate} />
+                    <Column field="precio_producto" header="Precio" sortable filterField="price" body={priceBodyTemplate} />
                     <Column header="Imagen producto" sortable sortField="foto_producto" filterField="foto" body={imageBodyTemplate} />
-                    <Column field="id_categoria.nombre_categoria" header="Categoria" sortable filter filterPlaceholder="Search by name"  body={categoryBodyTemplate} />
-                    <Column field="nombre_proveedor_producto" header="Proveedor" sortable showFilterMatchModes={false} body={supplierNameBodyTemplate} />                    
+                    <Column field="id_categoria.nombre_categoria" header="Categoria" sortable filter filterPlaceholder="Search by name" body={categoryBodyTemplate} />
+                    <Column field="nombre_proveedor_producto" header="Proveedor" sortable showFilterMatchModes={false} body={supplierNameBodyTemplate} />
                 </DataTable>
             </div>
         </div>
