@@ -21,7 +21,7 @@ export const Service_ListProduct = () => {
       getProducts()
       //saveObj.push(objProduct)
       //setProductFound(saveObj)
-  }, [product])
+  }, [])
  
   return (
     <GetCards getCards={product}/>
