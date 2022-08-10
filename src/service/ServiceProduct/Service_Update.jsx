@@ -1,8 +1,10 @@
 import { Button } from 'primereact/button'
 import { Dialog } from 'primereact/dialog'
 import React,{useState,useEffect}from 'react'
+import { InputText } from 'primereact/inputtext';
 import { InputTextarea } from 'primereact/inputtextarea';
 import { RadioGroup } from 'rsuite';
+import './css/registerProduct.css'
 
 export const Service_Update = ({codeProductUpdate}) => {
 
@@ -16,7 +18,7 @@ export const Service_Update = ({codeProductUpdate}) => {
     const [nameCategory , setNameCategory] = useState("")
 
     function searchProduct () {
-        const urlRegister = 'http://localhost:8080/producto/buscar/' + document.getElementById("inputSearch").value;
+        const urlRegister = 'http://localhost:8080/producto/buscar/' + codeProductUpdate;
         fetch(urlRegister, {
             method: 'GET',
             headers: {
@@ -36,6 +38,7 @@ export const Service_Update = ({codeProductUpdate}) => {
         const imgPhoto = document.createElement("img")
         const inputPrice = document.createElement("input")
         const inputDescription = document.createElement("input")
+        setProducts(prod)
         inputCode.placeholder = prod.codigo_producto
         inputName.placeholder = prod.nombre_producto
         inputName.setAttribute('type','text')
@@ -43,20 +46,30 @@ export const Service_Update = ({codeProductUpdate}) => {
         inputAmount.placeholder = prod.cantidad_producto
         inputAmount.setAttribute('type','number')
         inputAmount.setAttribute('id','inputAmount')
-        imgPhoto.setAttribute('src',prod.foto_producto)
-        inputPrice.placeholder = prod.precio_producto
+
+        /*inputName.className('edit-name')
+        inputCode.className('edit-code')
+        inputAmount.className('edit-amount')
+        inputPrice.className('edit-price')
+        inputDescription.className('edit-description')*/
         setCodeProduct(prod.codigo_producto)
         setImageProduct(prod.foto_producto)
         inputPrice.setAttribute('id','inputPrice')
+        inputPrice.setAttribute('type','number')
         inputDescription.placeholder = prod.descripcion_producto
         inputDescription.setAttribute('id','inputDescription')
+        dataProductsContainer.append('Codigo')
         dataProductsContainer.appendChild(inputCode)
+        dataProductsContainer.append('Nombre')
         dataProductsContainer.appendChild(inputName)
+        dataProductsContainer.append('Cantidad')
         dataProductsContainer.appendChild(inputAmount)
+        dataProductsContainer.append('Precio')
         dataProductsContainer.appendChild(inputPrice)
+        dataProductsContainer.append('Descripcion')
         dataProductsContainer.appendChild(inputDescription)
-        dataProductsContainer.appendChild(imgPhoto)
         checkCategories()
+        checkSuppliers()
     }
 
     function listCategories(){
@@ -68,31 +81,37 @@ export const Service_Update = ({codeProductUpdate}) => {
             }
         })
             .then(response => response.json())
-            .then(supplier => createRadioElements(supplier))    
+            .then(categories => createSelectElementsCategories(categories))    
     }
 
-    const createRadioElements = (categoriesList) => {
-        console.log(categoriesList.length);
+    
+    const setDataCategory = (category) => {
+        console.log(category);
+        fetch("http://localhost:8080/producto/consultarCategoria/" + category, {
+            method: 'GET'
+        })
+        .then(response => response.json())
+        .then(product =>  {
+            setNameCategory(product.nombre_categoria);
+            setIdCategory(product.id_categoria)
+        })
+    }
+
+    const createSelectElementsCategories = (categoriesList) => {
         let i = 0;
-        const radioContainer = document.getElementById("categoryGroup");
-        const labelContainer = document.getElementById("labelGroup");
+        const selectContainer = document.getElementById("selectContainerCategories");
+        const optionSelect = document.createElement("option")
+        optionSelect.textContent = "Seleccione una categoria";
+        optionSelect.setAttribute("value","Vacio")
+        selectContainer.appendChild(optionSelect)
         while(i <= categoriesList.length){
             categoriesList.forEach(element => {
-                const optionRadio = document.createElement("input")
-                optionRadio.setAttribute("type","radio")
-                optionRadio.setAttribute("id",element.id_categoria)
-                optionRadio.setAttribute("name","productos")
-                optionRadio.setAttribute("className" , "radioProductos")
-                console.log("ELEMENT: " + element.nombre_categoria);
-                optionRadio.setAttribute("value",element.nombre_proveedor)
-                const labelRadio = document.createElement("label")
-                if(element.nombre_categoria == ""){
-                    labelRadio.textContent = "Sin nombre registrado"    
-                }else{
-                    labelRadio.textContent = element.nombre_categoria
-                }
-                labelContainer.appendChild(labelRadio)
-                radioContainer.appendChild(optionRadio)
+                const optionSelect2 = document.createElement("option")
+                console.log("ELEMENT CATEGORY: " + element.nombre_categoria);
+                optionSelect2.textContent = element.nombre_categoria;
+                optionSelect2.setAttribute("value",element.id_categoria)
+                // optionSelect.setAttribute("onClick",catchSupplierName(optionSelect))
+                selectContainer.appendChild(optionSelect2)
                 i++
             })
             break;
@@ -103,6 +122,7 @@ export const Service_Update = ({codeProductUpdate}) => {
     const seew=()=>{
        
         if (visible == false) {
+            searchProduct()
             setVisible(true)
         } else {
             setVisible(false)
@@ -115,6 +135,7 @@ export const Service_Update = ({codeProductUpdate}) => {
         const description = document.getElementById("inputDescription").value
         const price = document.getElementById("inputPrice").value
         const amount = document.getElementById("inputAmount").value
+        console.log(name_supplier_product);
         const urlRegister = 'http://localhost:8080/producto/actualizar/' + codeProductUpdate;
         fetch(urlRegister, {
             method: 'PUT',
@@ -135,7 +156,7 @@ export const Service_Update = ({codeProductUpdate}) => {
                 nombre_proveedor_producto : name_supplier_product
             })
         })
-            .then(response => console.log(response.json))
+            .then(response => response.json())
             .then(json => {
                 if(json.ok){
                     alert("Registro exitoso")
@@ -168,12 +189,11 @@ export const Service_Update = ({codeProductUpdate}) => {
         selectContainer.appendChild(optionSelect)
         while(i <= supplierList.length){
             supplierList.forEach(element => {
-                const optionSelect = document.createElement("option")
+                const optionSelect2 = document.createElement("option")
                 console.log("ELEMENT: " + element.nombre_proveedor);
-                optionSelect.textContent = element.nombre_proveedor;
-                optionSelect.setAttribute("value",element.nombre_proveedor)
-                // optionSelect.setAttribute("onClick",catchSupplierName(optionSelect))
-                selectContainer.appendChild(optionSelect)
+                optionSelect2.textContent = element.nombre_proveedor;
+                optionSelect2.setAttribute("value",element.nombre_proveedor)
+                selectContainer.appendChild(optionSelect2)
                 i++
             })
             break;
@@ -181,8 +201,8 @@ export const Service_Update = ({codeProductUpdate}) => {
     }
 
     function checkCategories(){
-        while(document.getElementById('categoryGroup').lastChild){
-            document.getElementById('categoryGroup').removeChild(document.getElementById('categoryGroup').lastChild)
+        while(document.getElementById('selectContainerCategories').lastChild){
+            document.getElementById('selectContainerCategories').removeChild(document.getElementById('selectContainerCategories').lastChild)
         }
         listCategories();
     }
@@ -194,38 +214,68 @@ export const Service_Update = ({codeProductUpdate}) => {
         listSuppliers();
       }
 
+      const uploadimage=async(e)=>{
+        console.log("entro")
+        const files=e.target.files;
+        const data=new FormData()
+        data.append("file",files[0])
+        data.append("upload_preset","images");
+        setLoading(true)
+        const res=await fetch("https://api.cloudinary.com/v1_1/estivencloud/image/upload",
+        {
+        method:"POST",
+        body:data
+        }
+        )
+        const file=await res.json();
+        console.log(res)
+        console.log(idCategory);
+        setImageProduct(file.secure_url)
+        setLoading(false)
+    }
+
   return (
     <>
         <Button onClick={()=>seew(seew)}><i className='pi pi-user-edit icons-registerProduct'></i></Button>
-        <Dialog visible={visible} modal onHide={seew} style={{ width: '30em',bordeRadius:'100%'}} >
-           
-            <div>
-                <input type="button" onClick={searchProduct} id='inputSearch' value={codeProductUpdate}/>
-            </div>
-            <hr />
-            
-            <div className='category'>
-                    <div>
-                        <RadioGroup id='categoryGroup' onChange={e => setIdCategory(e.target.value)} className='radioGroup'>
-                            
+        <Dialog visible={visible} modal onHide={seew} style={{ width: '30em',bordeRadius:'100%'}} >     
+            <h3 className='update'>Menu Editar Productos</h3>
+            <div id='dataProductsContainer' className='dataProductsContainer'></div>
+            <div className='barra-desplegable'>
+                <div className='provider'>
+                    <select id='selectContainer' onChange={e => setNameSupplierProduct(e.target.value)} onClick={checkSuppliers} >
 
-                        </RadioGroup>
+                    </select>
+                </div>
+
+                <div className='category-update'>
+                    <div>
+                        <select name="selectContainerCategories" id="selectContainerCategories" onChange={e => setDataCategory(e.target.value)}>
+
+                        </select>
                     </div>
                     <div id='labelGroup' className='labelGroup'>
                         
-                    </div>  
+                    </div>
+                </div>
                 </div>        
 
             <div id='dataProductsContainer'>
 
             </div>
+
+            
+
             <div>
                 <select id='selectContainer' onChange={e => setNameSupplierProduct(e.target.value)} onClick={checkSuppliers} >
 
                 </select>
             </div>
-            <div>
-                <button onClick={editProduct}>Guardar</button>
+            <div className='content-Input-file'>
+                {loading ? (<h3>cargando imagen</h3>):(<img className='image-product' src={image} />)}
+                    <InputText className='input-register'  id='catch' type='file' name='file' placeholder='subirImg' onChange={uploadimage}  />
+                </div>
+            <div className='save-edit'>
+                <button onClick={editProduct}  >Guardar</button>
             </div>
         </Dialog>
 

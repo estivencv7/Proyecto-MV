@@ -6,8 +6,9 @@
 
 
 .image-product {
-    height: 42vh !important;
-    width: 100% !important;
+    margin: 20px 0 0 0;
+    height: 45vh !important;
+    width: 130% !important;
     border-radius: 12px 12px;
     margin-bottom: 16px;
 }
@@ -20,4 +21,36 @@
 }
 .pi-save{
     font-size: 20px !important;
+}
+
+
+
+/*css de editar producto*/
+.dataProductsContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 10px 0 20px 0;
+}
+
+.save-edit{
+    display: flex;
+    
+    justify-content: center;
+    margin: 10px;
+}
+.category-update{
+    
+    font-size: 30px;
+}
+.provider{
+    font-size: 30px;
+}
+.barra-desplegable{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.update{
+    color: #008031;
 }
