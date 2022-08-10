@@ -4,9 +4,11 @@ import { Button } from 'primereact/button';
 import { InputTextarea } from 'primereact/inputtextarea';
 import './style.css'
 import { RadioGroup } from 'rsuite';
-export const FormSaveProduct = ({onChange1,onChange2,onchange3,onchange4,onChange5,onChange6,onChange7,onChange8}) => {
+export const FormSaveProduct = ({onChange1,onChange2,onchange3,onchange4,onChange5,onChange6,onChange7,onChange8,onChange9}) => {
 
     let [category , setCategory] = useState(0);
+    const [idCategory , setIdCategory] = useState(0)
+    const [nameCategory , setNameCategory] = useState("")
 
     const catchValue1 = () => {
         let cat = document.getElementById("mueble").value;
@@ -37,8 +39,9 @@ export const FormSaveProduct = ({onChange1,onChange2,onchange3,onchange4,onChang
             }
         })
             .then(response => response.json())
-            .then(supplier => createRadioElements(supplier))    
+            .then(categories => createSelectElementsCategories(categories))    
     }
+
     function checkSuppliers(){
         while(document.getElementById('selectContainer').lastChild){
           document.getElementById('selectContainer').removeChild(document.getElementById('selectContainer').lastChild)
@@ -47,8 +50,8 @@ export const FormSaveProduct = ({onChange1,onChange2,onchange3,onchange4,onChang
       }
 
       function checkCategories(){
-        while(document.getElementById('categoryGroup').lastChild){
-          document.getElementById('categoryGroup').removeChild(document.getElementById('categoryGroup').lastChild)
+        while(document.getElementById('selectContainerCategories').lastChild){
+          document.getElementById('selectContainerCategories').removeChild(document.getElementById('selectContainerCategories').lastChild)
         }
         listCategories();
       }
@@ -74,28 +77,21 @@ export const FormSaveProduct = ({onChange1,onChange2,onchange3,onchange4,onChang
         }
     }
 
-    const createRadioElements = (categoriesList) => {
-        console.log(categoriesList.length);
+    const createSelectElementsCategories = (categoriesList) => {
         let i = 0;
-        const radioContainer = document.getElementById("categoryGroup");
-        const labelContainer = document.getElementById("labelGroup");
+        const selectContainer = document.getElementById("selectContainerCategories");
+        const optionSelect = document.createElement("option")
+        optionSelect.textContent = "Seleccione una categoria";
+        optionSelect.setAttribute("value","Vacio")
+        selectContainer.appendChild(optionSelect)
         while(i <= categoriesList.length){
             categoriesList.forEach(element => {
-                const optionRadio = document.createElement("input")
-                optionRadio.setAttribute("type","radio")
-                optionRadio.setAttribute("id",element.id_categoria)
-                optionRadio.setAttribute("name","productos")
-                optionRadio.setAttribute("className" , "radioProductos")
-                console.log("ELEMENT: " + element.nombre_categoria);
-                optionRadio.setAttribute("value",element.nombre_proveedor)
-                const labelRadio = document.createElement("label")
-                if(element.nombre_categoria == ""){
-                    labelRadio.textContent = "Sin nombre registrado"    
-                }else{
-                    labelRadio.textContent = element.nombre_categoria
-                }
-                labelContainer.appendChild(labelRadio)
-                radioContainer.appendChild(optionRadio)
+                const optionSelect2 = document.createElement("option")
+                console.log("ELEMENT CATEGORY: " + element.nombre_categoria);
+                optionSelect2.textContent = element.nombre_categoria;
+                optionSelect2.setAttribute("value",element.id_categoria)
+                // optionSelect.setAttribute("onClick",catchSupplierName(optionSelect))
+                selectContainer.appendChild(optionSelect2)
                 i++
             })
             break;
@@ -107,6 +103,17 @@ export const FormSaveProduct = ({onChange1,onChange2,onchange3,onchange4,onChang
       checkSuppliers()
     }, [listCategories.length])
     
+    const setDataCategory = (category) => {
+        console.log(category);
+        fetch("http://localhost:8080/producto/consultarCategoria/" + category, {
+            method: 'GET'
+        })
+        .then(response => response.json())
+        .then(product =>  {
+            onChange9(product.nombre_categoria);
+            onChange7(product.id_categoria)
+        })
+    }
     return (
         
         <FormGroup className='cont-Register'>
@@ -123,10 +130,10 @@ export const FormSaveProduct = ({onChange1,onChange2,onchange3,onchange4,onChang
                
                 <div className='category'>
                     <div>
-                        <RadioGroup id='categoryGroup' onChange={e => onChange7(e.target.value)} className='radioGroup'>
+                        <select id='selectContainerCategories' onChange={e => setDataCategory(e.target.value)} className='radioGroup'>
                             
 
-                        </RadioGroup>
+                        </select>
                     </div>
                     <div id='labelGroup' className='labelGroup'>
                         

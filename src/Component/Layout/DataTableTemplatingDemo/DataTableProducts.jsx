@@ -175,15 +175,15 @@ export const DataTableProducts = () => {
                     dataKey="id" rowHover onSelectionChange={e => setSelectedProduct(e.value)}
                     filters={filters} filterDisplay="menu" loading={loading} responsiveLayout="scroll"
                     globalFilterFields={['nombre_producto', 'codigo_producto', 'cantidad_producto', 'descripcion_producto', 'precio_producto', 'id_categoria.nombre_categoria', 'nombre_proveedor_producto']} emptyMessage="No se encontraron productos."
-                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+                    currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} productos">
                     <Column selectionMode="single" headerStyle={{ width: '3em' }}></Column>
-                    <Column field="codigo_producto" header="Codigo" sortable filterField="codigo_producto" body={codeBodyTemplate} filter filterPlaceholder="Search by code" />
-                    <Column field="nombre_producto" header="Nombre" sortable filter filterPlaceholder="Search by name" body={nameBodyTemplate} />
-                    <Column field="cantidad_producto" header="Cantidad" sortable filter filterPlaceholder="Search by amount" body={amountBodyTemplate} />
+                    <Column field="codigo_producto" header="Codigo" sortable  body={codeBodyTemplate} />
+                    <Column field="nombre_producto" header="Nombre" sortable  body={nameBodyTemplate} />
+                    <Column field="cantidad_producto" header="Cantidad" sortable  body={amountBodyTemplate} />
                     <Column field="descripcion_producto" header="Descripcion" sortable sortField='descripcion_producto' body={descriptionBodyTemplate} />
                     <Column field="precio_producto" header="Precio" sortable filterField="price" body={priceBodyTemplate} />
                     <Column header="Imagen producto" sortable sortField="foto_producto" filterField="foto" body={imageBodyTemplate} />
-                    <Column field="id_categoria.nombre_categoria" header="Categoria" sortable filter filterPlaceholder="Search by name" body={categoryBodyTemplate} />
+                    <Column field="id_categoria.nombre_categoria" header="Categoria" sortable filterPlaceholder="Search by name" body={categoryBodyTemplate} />
                     <Column field="nombre_proveedor_producto" header="Proveedor" sortable showFilterMatchModes={false} body={supplierNameBodyTemplate} />
                 </DataTable>
             </div>

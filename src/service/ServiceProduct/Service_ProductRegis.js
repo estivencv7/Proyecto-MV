@@ -123,7 +123,7 @@ export const Service_ProductRegis = ({style}) => {
             
             <div className='content-image'>
                 
-                <FormSaveProduct onChange1={catchNameProduct} onChange2={catchDescriptionProduct} onChange5={catchPriceProduct} onChange6={catchAmountProduct} onchange4={registerProduct} onChange7={setIdCategory} onChange8={setNameSupplierProduct} onchange3={() => onHide(onHide)}/>
+                <FormSaveProduct onChange1={catchNameProduct} onChange2={catchDescriptionProduct} onChange5={catchPriceProduct} onChange6={catchAmountProduct} onchange4={registerProduct} onChange7={setIdCategory} onChange8={setNameSupplierProduct} onChange9={setNameCategory} onchange3={() => onHide(onHide)}/>
                 
                 <div className='content-Input-file'>
                 {loading ? (<h3>cargando imagen</h3>):(<img className='image-product' src={image} />)}
