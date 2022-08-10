@@ -76,6 +76,7 @@
     justify-content: space-around;
     gap: 300px;
 }
-.icons-registerProvider{
     
+.hide{
+    visibility: hidden;
 }
