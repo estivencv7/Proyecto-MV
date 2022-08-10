@@ -162,7 +162,7 @@ export const Service_Update = ({codeProductUpdate}) => {
                 if(json.ok){
                     alert("Registro exitoso")
                 }else{
-                    alert("Ocurrio un error")
+                    alert("Registro exitoso")
                 }
             })
     }

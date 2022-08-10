@@ -33,15 +33,6 @@ export const PaginaRegisterProduct = () => {
 
 
       <main className='content-Page'>
-        <div className='sildebar'>
-          <Service_ProductRegis style='' />
-          <Service_Update />
-          <Button className='' onClick={inputSarch}><i className='pi pi-search icons-registerProduct'></i></Button>
-          <div className='pared'></div>
-          {value ? <input type='search' className='input-search' /> : <p />}
-
-        </div>
-
         <div className='content-main'>
           <header style={{ height: '12em', display: 'flex', alignItems: 'center' }}>
             <Logo classN='title-main'></Logo>
