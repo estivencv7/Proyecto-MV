@@ -64,14 +64,15 @@ export const DataTableProducts = () => {
                 <div className="flex justify-content-between align-items-center">
                     <h5 className="m-0">Productos</h5>
                     <div className='botones'>
-                        <span className="p-input-icon-left">
-                            <i className="pi pi-search" />
-                            <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre producto" />
-                        </span>
                         <Service_ProductRegis style='' />
                         <Button className='' onClick={inputSarch}><i className='pi pi-trash icons-registerProduct'></i></Button>
 
                         <Service_Update codeProductUpdate={0} />
+                        <span className="p-input-icon-left">
+                            <i className="pi pi-search" />
+                            <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre producto" />
+                        </span>
+                    
                     </div>
                 </div>
             )
@@ -80,14 +81,17 @@ export const DataTableProducts = () => {
                 <div className="flex justify-content-between align-items-center">
                     <h5 className="m-0">Productos</h5>
                     <div className='botones'>
-                        <span className="p-input-icon-left">
-                            <i className="pi pi-search" />
-                            <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre producto" />
-                        </span>
+                        
                         <Service_ProductRegis style='' />
                         <Button className='' onClick={inputSarch}><i className='pi pi-trash icons-registerProduct'></i></Button>
 
                         <Service_Update codeProductUpdate={selectedProducts.codigo_producto} />
+                        <span className="p-input-icon-left">
+                            <i className="pi pi-search" />
+                            <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre producto" />
+                        </span>
+                        
+
                     </div>
                 </div>
             )
@@ -177,9 +181,9 @@ export const DataTableProducts = () => {
                     globalFilterFields={['nombre_producto', 'codigo_producto', 'cantidad_producto', 'descripcion_producto', 'precio_producto', 'id_categoria.nombre_categoria', 'nombre_proveedor_producto']} emptyMessage="No se encontraron productos."
                     currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} productos">
                     <Column selectionMode="single" headerStyle={{ width: '3em' }}></Column>
-                    <Column field="codigo_producto" header="Codigo" sortable  body={codeBodyTemplate} />
-                    <Column field="nombre_producto" header="Nombre" sortable  body={nameBodyTemplate} />
-                    <Column field="cantidad_producto" header="Cantidad" sortable  body={amountBodyTemplate} />
+                    <Column field="codigo_producto" header="Codigo" sortable body={codeBodyTemplate} />
+                    <Column field="nombre_producto" header="Nombre" sortable body={nameBodyTemplate} />
+                    <Column field="cantidad_producto" header="Cantidad" sortable body={amountBodyTemplate} />
                     <Column field="descripcion_producto" header="Descripcion" sortable sortField='descripcion_producto' body={descriptionBodyTemplate} />
                     <Column field="precio_producto" header="Precio" sortable filterField="price" body={priceBodyTemplate} />
                     <Column header="Imagen producto" sortable sortField="foto_producto" filterField="foto" body={imageBodyTemplate} />

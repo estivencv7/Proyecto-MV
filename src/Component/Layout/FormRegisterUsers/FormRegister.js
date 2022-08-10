@@ -14,7 +14,13 @@ import './FormDemo.css';
 export const FormRegister = () => {
     const [showMessage, setShowMessage] = useState(false);
     const [formData, setFormData] = useState({});
-  
+    const [surnameClient, setSurnameClient] = useState("")
+    const [codeClient, setCodeClient] = useState(0)
+    const [cellphoneNumberClient , setcellphoneNumberClient] = useState(0)
+    const [amount , setAmountProduct] = useState(0)
+    const [idCategory , setIdCategory] = useState(0)
+    const [nameCategory , setNameCategory] = useState("")
+
     const formik = useFormik({
         initialValues: {
             name: '',
@@ -68,6 +74,40 @@ export const FormRegister = () => {
         }
     });
 
+    // function registerProduct() {
+    //     console.log("estoy registrando un producto")
+    //     const urlRegister = 'http://localhost:8080/clientes';
+    //     fetch(urlRegister, {
+    //         method: 'POST',
+    //         headers: {
+    //             "Content-type": "application/json"
+    //         },
+    //         body: JSON.stringify({
+    //             cedula_cliente : code,
+    //             apellido_cliente : surname,
+    //             celular_cliente : cellphoneNumber,
+    //             codigo_cliente : codeCli,
+    //             contraseña_cliente : password,
+    //             correo_cliente : email,
+    //             estado_cliente : 1,
+    //             fecha_nacimin_cliente : dateBirth,
+    //             nombre_cliente : name
+                
+    //         })
+    //     })
+    //         .then(response => response)
+    //         .then(json => check(json.ok))
+    //         console.log(name_supplier_product);
+    // }
+
+    function check(element) {
+        if (element == true) {
+            alert("Registro exitoso")
+        } else {
+            alert("hubo un error al momento de registrar")
+        }
+    }
+    
     const isFormFieldValid = (name) => !!(formik.touched[name] && formik.errors[name]);
     const getFormErrorMessage = (name) => {
         return isFormFieldValid(name) && <small className="p-error">{formik.errors[name]}</small>;

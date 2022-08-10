@@ -133,7 +133,7 @@ export const NavBar = () => {
                             </p>
                         </Dialog>
 
-                        <Button className={navbar ? 'sunbNavLink buttom1' : 'sunbNavLinkDisabled'} onClick={() => open1(open1)}>Quines Somos</Button>
+                        <Button className={navbar ? 'sunbNavLink buttom1' : 'sunbNavLinkDisabled'} onClick={() => open1(open1)}>Quienes Somos</Button>
                         <Dialog  className='cuadro' visible={visible2} style={{ width: '30%' }} style1={{ height: '30%' }} onHide={open1} header={header2} >
                             <h1 className='quienes'>QUIENES SOMOS</h1>
                             <p className='texto'>
