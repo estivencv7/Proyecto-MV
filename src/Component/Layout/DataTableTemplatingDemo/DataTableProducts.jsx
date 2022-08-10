@@ -6,9 +6,11 @@ import { InputText } from 'primereact/inputtext';
 import { MultiSelect } from 'primereact/multiselect';
 import './DataTableDemo.css';
 import { Service_Update } from '../../../service/ServiceProduct/Service_Update';
+import { Service_ProductRegis } from '../../../service/ServiceProduct/Service_ProductRegis'
 import { Button } from 'primereact/button'
 
 export const DataTableProducts = () => {
+    const [value, setValue] = useState(false);
     let [selectedProducts, setSelectedProduct] = useState(null);
     const [products, setProducts] = useState([]);
     const [filters, setFilters] = useState({
@@ -51,15 +53,25 @@ export const DataTableProducts = () => {
         setFilters(_filters);
         setGlobalFilterValue(value);
     }
-
+    const inputSarch = () => {
+        console.log("hola")
+        setValue(true)
+    
+      }
     const renderHeader = () => {
         return (
             <div className="flex justify-content-between align-items-center">
                 <h5 className="m-0">Productos</h5>
-                <span className="p-input-icon-left">
-                    <i className="pi pi-search" />
-                    <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre producto" />
-                </span>
+                <div className='botones'>
+                    <span className="p-input-icon-left">
+                        <i className="pi pi-search" />
+                        <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre producto" />
+                    </span>
+                    <Service_ProductRegis style='' />
+                    <Service_Update />
+                    <Button className='' onClick={inputSarch}><i className='pi pi-trash icons-registerProduct'></i></Button>
+                    <div></div>
+                </div>
             </div>
         )
     }

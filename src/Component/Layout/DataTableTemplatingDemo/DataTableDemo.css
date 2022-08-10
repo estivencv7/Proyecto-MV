@@ -70,6 +70,13 @@
     color: white !important;
 }
 
+/*prueba*/
+.botones{
+    display: flex;
+    justify-content: space-around;
+    gap: 300px;
+}
+    
 .hide{
     visibility: hidden;
 }
