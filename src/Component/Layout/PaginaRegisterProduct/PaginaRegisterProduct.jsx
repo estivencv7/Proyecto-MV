@@ -7,6 +7,7 @@ import { Button } from 'primereact/button'
 import './style.css'
 import { DataTableProducts } from '../DataTableTemplatingDemo/DataTableProducts'
 import { Service_Update } from '../../../service/ServiceProduct/Service_Update'
+import { Service_DeleteProduct } from '../../../service/ServiceProduct/Service_DeleteProduct'
 
 
 
@@ -34,7 +35,6 @@ export const PaginaRegisterProduct = () => {
       <main className='content-Page'>
         <div className='sildebar'>
           <Service_ProductRegis style='' />
-          <Button className=''><i className='pi pi-trash icons-registerProduct'></i></Button>
           <Service_Update />
           <Button className='' onClick={inputSarch}><i className='pi pi-search icons-registerProduct'></i></Button>
           <div className='pared'></div>

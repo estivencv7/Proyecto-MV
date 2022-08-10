@@ -69,3 +69,7 @@
     background-color: green !important;
     color: white !important;
 }
+
+.hide{
+    visibility: hidden;
+}
