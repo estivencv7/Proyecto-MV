@@ -4,6 +4,9 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { InputText } from 'primereact/inputtext';
 import { MultiSelect } from 'primereact/multiselect';
+import { Service_Update } from '../../../service/ServiceProduct/Service_Update'
+import { Service_RegisterProvider } from '../../../service/ServiceProvider/Service_RegisterProvider'
+import { Button } from 'primereact/button'
 import './DataTableDemo.css';
 
 export const DataTableProvider = () => {
@@ -52,11 +55,19 @@ export const DataTableProvider = () => {
     const renderHeader = () => {
         return (
             <div className="flex justify-content-between align-items-center">
-                <h5 className="m-0">Proveedores</h5>
-                <span className="p-input-icon-left">
-                    <i className="pi pi-search" />
-                    <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Documento" />
-                </span>
+                <main>
+                    <h5 className="m-0">Proveedores</h5>
+                    <div className='botones'>
+                    <span className="p-input-icon-left">
+                        <i className="pi pi-search" />
+                        <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Documento" />
+                    </span>
+                        <Service_RegisterProvider style='' />
+                        <Service_Update />
+                        <Button className=''><i className='pi pi-trash icons-registerProvider '></i></Button>
+                        <div></div>
+                    </div>
+                </main>
             </div>
         )
     }
@@ -83,17 +94,19 @@ export const DataTableProvider = () => {
     return (
         <div className="datatable-doc-demo">
             <div className="card">
-                <DataTable value={provider} paginator className="p-datatable-customers" header={header} rows={5}
-                    paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" rowsPerPageOptions={[10, 25, 50]}
-                    dataKey="id" rowHover selection={selectedProvider} onSelectionChange={e => setSelectedProvider(e.cedula_proveedor)}
-                    filters={filters} filterDisplay="menu" loading={loading} responsiveLayout="scroll"
-                    globalFilterFields={['nombre_proveedor', 'cedula_proveedor', 'telefono_proveedor']} emptyMessage="No se encontraron proveedores."
-                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
-                    <Column selectionMode="multiple" headerStyle={{ width: '3em' }}></Column>
-                    <Column field="cedula_proveedor" header="Documento" sortable filterField="cedula_proveedor" body={codeBodyTemplate} filter filterPlaceholder="Search by code" />
-                    <Column field="nombre_proveedor" header="Nombre" sortable filter filterPlaceholder="Search by name" body={nameBodyTemplate}/>
-                    <Column field="telefono_proveedor" header="Telefono" sortable filter filterPlaceholder="Search by amount" body={amountBodyTemplate}/>
-                </DataTable>
+                <main>
+                    <DataTable value={provider} paginator className="p-datatable-customers" header={header} rows={5}
+                        paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" rowsPerPageOptions={[10, 25, 50]}
+                        dataKey="id" rowHover selection={selectedProvider} onSelectionChange={e => setSelectedProvider(e.cedula_proveedor)}
+                        filters={filters} filterDisplay="menu" loading={loading} responsiveLayout="scroll"
+                        globalFilterFields={['nombre_proveedor', 'cedula_proveedor', 'telefono_proveedor']} emptyMessage="No se encontraron proveedores."
+                        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+                        <Column selectionMode="multiple" headerStyle={{ width: '3em' }}></Column>
+                        <Column field="cedula_proveedor" header="Documento" sortable filterField="cedula_proveedor" body={codeBodyTemplate} filter filterPlaceholder="Search by code" />
+                        <Column field="nombre_proveedor" header="Nombre" sortable filter filterPlaceholder="Search by name" body={nameBodyTemplate}/>
+                        <Column field="telefono_proveedor" header="Telefono" sortable filter filterPlaceholder="Search by amount" body={amountBodyTemplate}/>
+                    </DataTable>
+                </main>
             </div>
         </div>
     );

@@ -1,5 +1,6 @@
-/* .sildebar{
-   
+
+.sildebar{
+    background: #008031;
     width: 5% ;
     height: 100vh;
     color: transparent; 
@@ -10,6 +11,7 @@
 
 .sildebar:hover{
      width: 17%; 
+    /* width: 17%; */
     color: transparent;
     display: flex;
     flex-direction: column;
@@ -23,11 +25,15 @@
 
 .button-new{
    background:transparent;
+}
+/* .button-new{
+    background:transparent;
     display: flex;
     justify-content: end;
     position: relative;
     z-index: 1;
 } 
+} */
 
 
 .content-main{
@@ -42,8 +48,7 @@
     margin-left: 20px;
 }
 
-.pared{
-   
+.pared{   
     margin-top: 30px;
 }
 
@@ -54,4 +59,4 @@
 
 .icons-registerProduct:hover{
     color: red;
-} */
+} 

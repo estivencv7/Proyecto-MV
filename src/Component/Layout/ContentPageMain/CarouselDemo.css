@@ -34,12 +34,7 @@
    
     border-radius: 50px 0 0 0;
 }
-/* .car{
-    display: flex;
-    margin: 0 0rem;
-    justify-content: center;
-    flex-direction: column;
-} */
+
 
 .p-panel .p-panel-header{
     height: 40px !important;  
@@ -52,11 +47,7 @@
     justify-content: center;
 }
 
-/* 
 
-.p-panel {
-    margin-bottom: 100px !important;
-} */
 
 .content-panel{
     display: flex;
@@ -77,35 +68,13 @@
     width: 100% !important;
     height: 50vh;
 }
-.cursor{
-   
-    
-   
-}
+
 .content-seew{
     display: flex;
     position: relative;
 
    
 }
-/* .zoom-contenedor, .area-zoom{
-    position: relative;
-}
-.lupa{
-    position: absolute!important;
-    background-color: white !important;
-    opacity: 8.5 !important;
-
-}
-
-.zoom-heigth{
-    position: absolute !important;
-    display: none !important;
-    overflow: hidden !important;
-}
-.zoom-heigth image{
-    position:absolute !important ;
-} */
 
 .img1 ,
 .img2{
@@ -193,4 +162,89 @@
     width: 116%;
     box-shadow: 0 0 40px rgb(233, 235, 236);
     
+}
+
+.content-windows-observar{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+#content-wrapper{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.column{
+	width: 600px;
+	padding: 10px;
+
+}
+
+#featured{
+    /* max-width:600px; */
+	width: 100%;
+	height: 100%;
+
+	cursor: none;
+    /* border: 2px solid; */
+    /* box-shadow: 0 0 40px #008031; */
+	
+
+}
+
+
+
+#img-container{
+	z-index: 1;
+	/* max-width: 500px; */
+    width: 40%;
+	position: relative;
+    display: flex;
+    
+    
+    
+    background-color: #008031;
+    margin-top: 55px;
+
+    
+}
+
+#lens{
+	z-index: 2;
+	position: absolute;
+
+	height: 130px;
+	width: 130px;
+	
+	background-repeat: no-repeat;
+	cursor: none;
+}
+
+.description{
+    width: 412px;
+    font-size: 23px;
+}
+
+.divQuantity{
+    display: flex;
+    gap: 20px
+}
+
+.Quantity{
+    text-align: center;
+    border-radius: 12px;
+    height: 50px;
+    border: none;
+    box-shadow: 0 0 12px #008031;
+}
+
+.Quantity:focus{
+    outline: none;
+}
+
+.Quantity:focus-visible{
+    outline: none;
 }
