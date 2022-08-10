@@ -115,12 +115,12 @@ export const Modal = ({ url,name,description,press }) => {
 
                 <div id="content-wrapper">
 
-                    <div className="column">
+                    {/* <div className="column"> */}
                         <div id="img-container">
                             <div id="lens"></div>
                             <img id='featured' src={url} onMouseMove={imageZoom} />
                         </div>
-                    </div>
+                    {/* </div> */}
 
                     <div>
                         <h1>{name}</h1>
@@ -130,7 +130,11 @@ export const Modal = ({ url,name,description,press }) => {
                         <p className='description'>{description}</p>
                         <br /><br />
                         <hr />
-                        <input type="number" />
+                        <div className='divQuantity'>
+                            <input className='Quantity' type="number"  placeholder='Cantidad'/>
+                            <Button>AGREGAR AL CARRITO</Button>
+                        </div>
+                       
 
                     </div>
 
