@@ -255,8 +255,20 @@ export const Service_Update = ({codeProductUpdate}) => {
                     </div>
                     <div id='labelGroup' className='labelGroup'>
                         
-                    </div>  
-                </div> 
+                    </div>
+                </div>
+                </div>        
+
+            <div id='dataProductsContainer'>
+
+            </div>
+
+            
+
+            <div>
+                <select id='selectContainer' onChange={e => setNameSupplierProduct(e.target.value)} onClick={checkSuppliers} >
+
+                </select>
             </div>
             <div className='content-Input-file'>
                 {loading ? (<h3>cargando imagen</h3>):(<img className='image-product' src={image} />)}
