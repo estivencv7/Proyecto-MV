@@ -4,6 +4,7 @@ import React,{useState,useEffect}from 'react'
 import { InputText } from 'primereact/inputtext';
 import { InputTextarea } from 'primereact/inputtextarea';
 import { RadioGroup } from 'rsuite';
+import './css/registerProduct.css'
 
 export const Service_Update = ({codeProductUpdate}) => {
 
@@ -45,16 +46,27 @@ export const Service_Update = ({codeProductUpdate}) => {
         inputAmount.placeholder = prod.cantidad_producto
         inputAmount.setAttribute('type','number')
         inputAmount.setAttribute('id','inputAmount')
+
+        /*inputName.className('edit-name')
+        inputCode.className('edit-code')
+        inputAmount.className('edit-amount')
+        inputPrice.className('edit-price')
+        inputDescription.className('edit-description')*/
         setCodeProduct(prod.codigo_producto)
         setImageProduct(prod.foto_producto)
         inputPrice.setAttribute('id','inputPrice')
         inputPrice.setAttribute('type','number')
         inputDescription.placeholder = prod.descripcion_producto
         inputDescription.setAttribute('id','inputDescription')
+        dataProductsContainer.append('Codigo')
         dataProductsContainer.appendChild(inputCode)
+        dataProductsContainer.append('Nombre')
         dataProductsContainer.appendChild(inputName)
+        dataProductsContainer.append('Cantidad')
         dataProductsContainer.appendChild(inputAmount)
+        dataProductsContainer.append('Precio')
         dataProductsContainer.appendChild(inputPrice)
+        dataProductsContainer.append('Descripcion')
         dataProductsContainer.appendChild(inputDescription)
         checkCategories()
         checkSuppliers()
@@ -225,8 +237,17 @@ export const Service_Update = ({codeProductUpdate}) => {
   return (
     <>
         <Button onClick={()=>seew(seew)}><i className='pi pi-user-edit icons-registerProduct'></i></Button>
-        <Dialog visible={visible} modal onHide={seew} style={{ width: '30em',bordeRadius:'100%'}} >
-            <div className='category'>
+        <Dialog visible={visible} modal onHide={seew} style={{ width: '30em',bordeRadius:'100%'}} >     
+            <h3 className='update'>Menu Editar Productos</h3>
+            <div id='dataProductsContainer' className='dataProductsContainer'></div>
+            <div className='barra-desplegable'>
+                <div className='provider'>
+                    <select id='selectContainer' onChange={e => setNameSupplierProduct(e.target.value)} onClick={checkSuppliers} >
+
+                    </select>
+                </div>
+
+                <div className='category-update'>
                     <div>
                         <select name="selectContainerCategories" id="selectContainerCategories" onChange={e => setDataCategory(e.target.value)}>
 
@@ -235,22 +256,14 @@ export const Service_Update = ({codeProductUpdate}) => {
                     <div id='labelGroup' className='labelGroup'>
                         
                     </div>  
-                </div>        
-
-            <div id='dataProductsContainer'>
-
-            </div>
-            <div>
-                <select id='selectContainer' onChange={e => setNameSupplierProduct(e.target.value)} onClick={checkSuppliers} >
-
-                </select>
+                </div> 
             </div>
             <div className='content-Input-file'>
                 {loading ? (<h3>cargando imagen</h3>):(<img className='image-product' src={image} />)}
                     <InputText className='input-register'  id='catch' type='file' name='file' placeholder='subirImg' onChange={uploadimage}  />
                 </div>
-            <div>
-                <button onClick={editProduct}>Guardar</button>
+            <div className='save-edit'>
+                <button onClick={editProduct}  >Guardar</button>
             </div>
         </Dialog>
 
