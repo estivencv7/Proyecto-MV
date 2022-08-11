@@ -23,7 +23,7 @@ export const ContentPageMain = () => {
 
          <CarouselPrime /> */}
 
-      </div>
+      // </div> */}
 
    )
 }
