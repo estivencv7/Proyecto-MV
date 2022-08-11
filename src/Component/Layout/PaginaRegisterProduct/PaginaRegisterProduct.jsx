@@ -1,14 +1,13 @@
 
 import React, { useState } from 'react'
 import { Service_ProductRegis } from '../../../service/ServiceProduct/Service_ProductRegis'
-import { Logo } from '../../Ui/Logo/Logo'
 // import{ DataTableTemplatingDemo} from '../DataTableTemplatingDemo/DataTableTemplatingDemo'
 import { Button } from 'primereact/button'
 import './style.css'
 import { DataTableProducts } from '../DataTableTemplatingDemo/DataTableProducts'
 import { Service_Update } from '../../../service/ServiceProduct/Service_Update'
 import { Service_DeleteProduct } from '../../../service/ServiceProduct/Service_DeleteProduct'
-
+import {Emblema} from '../../Ui/Logo/Emblema'
 
 
 
@@ -33,18 +32,9 @@ export const PaginaRegisterProduct = () => {
 
 
       <main className='content-Page'>
-        <div className='sildebar'>
-          <Service_ProductRegis style='' />
-          <Service_Update />
-          <Button className='' onClick={inputSarch}><i className='pi pi-search icons-registerProduct'></i></Button>
-          <div className='pared'></div>
-          {value ? <input type='search' className='input-search' /> : <p />}
-
-        </div>
-
         <div className='content-main'>
           <header style={{ height: '12em', display: 'flex', alignItems: 'center' }}>
-            <Logo classN='title-main'></Logo>
+             <Emblema></Emblema> 
           </header>
           <DataTableProducts/>
          

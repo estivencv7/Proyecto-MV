@@ -56,13 +56,17 @@
     text-transform: uppercase;
 }
 
+.datatable-doc-demo{
+    display: flex;
+    justify-content: center;
+}
 .card{
     width: 100% !important;
 }
 
 .product-image{
-    height: 4.5rem;
-    width: 30%;
+    height: 7.5rem;
+    width: 90%;
 }
 
 .p-datatable .p-datatable-tbody > tr:active{
@@ -79,4 +83,28 @@
     
 .hide{
     visibility: hidden;
+}
+
+.card{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center;
+    width: 90% !important;
+}
+
+.m-0{
+    margin-left: 3% !important;
+}
+
+.p-datatable .p-datatable-tbody > tr > td {
+    padding: 3px 1px !important;
+}
+
+.eye{
+    font-size: 35px ;
+}
+
+.contentTheTable{
+    width: 90%;
+
 }

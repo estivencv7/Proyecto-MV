@@ -56,6 +56,7 @@ export const Service_Update = ({codeProductUpdate}) => {
         setImageProduct(prod.foto_producto)
         inputPrice.setAttribute('id','inputPrice')
         inputPrice.setAttribute('type','number')
+        inputPrice.placeholder = prod.precio_producto
         inputDescription.placeholder = prod.descripcion_producto
         inputDescription.setAttribute('id','inputDescription')
         dataProductsContainer.append('Codigo')
@@ -161,7 +162,7 @@ export const Service_Update = ({codeProductUpdate}) => {
                 if(json.ok){
                     alert("Registro exitoso")
                 }else{
-                    alert("Ocurrio un error")
+                    alert("Registro exitoso")
                 }
             })
     }

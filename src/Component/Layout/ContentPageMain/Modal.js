@@ -28,9 +28,10 @@ export const Modal = ({ url,name,description,press }) => {
 
         lens.style.backgroundImage = `url( ${img.src} )`
 
-        let ratio = 3
+        let ratio = 1.7
 
         lens.style.backgroundSize = (img.width * ratio) + 'px ' + (img.height * ratio) + 'px';
+        
 
         img.addEventListener("mousemove", moveLens)
         lens.addEventListener("mousemove", moveLens)

@@ -24,7 +24,7 @@ function App() {
         <Route path='PageMainAdmin' element={<PageMainAdmin/>}/>
         <Route path='registerProvider' element={<RegisterProvider/>}/>
         <Route path='PageAdminMain' element={<PageAdmin/>}/>
-        <Route path='//crudProduc' element={<RegisterProduct/>}/>
+        <Route path='/crudProduc' element={<RegisterProduct/>}/>
       </Routes>
     </div>
   );
