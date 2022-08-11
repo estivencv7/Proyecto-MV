@@ -12,16 +12,16 @@ export const ContentPageMain = () => {
       <div className='content-page-main'>
          <CarouselDemo />
          {/*==============card=====================*/}
-          {/* <div className='car'>
-            <br /><br /><br />
+         <div className='car'>
+            
             <Service_ListProduct />
 
-         </div>   */}
-      <div>
-        
-      </div>
-      
-       <CarouselPrime/>
+         </div>
+         {/* <div>
+
+         </div>
+
+         <CarouselPrime /> */}
 
       </div>
 
