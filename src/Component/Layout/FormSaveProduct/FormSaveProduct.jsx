@@ -3,6 +3,7 @@ import { FormGroup} from 'reactstrap'
 import { Button } from 'primereact/button';
 import { InputTextarea } from 'primereact/inputtextarea';
 import './style.css'
+import { InputText } from 'primereact/inputtext';
 import { RadioGroup } from 'rsuite';
 export const FormSaveProduct = ({onChange1,onChange2,onchange3,onchange4,onChange5,onChange6,onChange7,onChange8,onChange9}) => {
 
@@ -119,31 +120,34 @@ export const FormSaveProduct = ({onChange1,onChange2,onchange3,onchange4,onChang
         <FormGroup className='cont-Register'>
             <div className='form'>
                 
-                <input type='text' className='input-register' onChange={onChange1} placeholder="Nombre"/>
+                <InputText type='text' className='input-register' onChange={onChange1} placeholder="Nombre"/>
                 <InputTextarea type='' className='input-register'onChange={onChange2} placeholder="Descripcíon"/>
                 
                 <div className='cantidad'>
                     <input type='number' className='input-register inputpress' placeholder="$" onChange={onChange5}/>
                     <input type='number' className='input-register inputpress' placeholder="cantidad" onChange={onChange6}/>
                 </div>
-                <div className='pared'></div>
-               
-                <div className='category'>
-                    <div>
-                        <select id='selectContainerCategories' onChange={e => setDataCategory(e.target.value)} className='radioGroup'>
+                <div className='optionsProduc'>
+                
+                    <div className='category'>
+                        <div>
+                        <div className='paredCategories'></div>
+                            <select id='selectContainerCategories' onChange={e => setDataCategory(e.target.value)} className='radioGroup'>
+                                
+
+                            </select>
+                        </div>
+                        <div id='labelGroup' className='labelGroup'>
                             
+                        </div>  
+                    </div>
+                    <div className='selecProvider'>
+                        <div className='paredProvider'></div>
+                        <select id='selectContainer' onChange={e => onChange8(e.target.value)} onClick={checkSuppliers} className='radioGroup'>
 
                         </select>
                     </div>
-                    <div id='labelGroup' className='labelGroup'>
-                        
-                    </div>  
-                </div>          
-            </div>
-            <div>
-                <select id='selectContainer' onChange={e => onChange8(e.target.value)} onClick={checkSuppliers} >
-
-                </select>
+                </div>
             </div>
             <div className='button-save-Product'>
                 <Button onClick={onchange4}>Guardar</Button> 
