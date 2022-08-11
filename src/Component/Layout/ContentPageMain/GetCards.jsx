@@ -26,10 +26,15 @@ export const GetCards = ({ getCards = [] }) => {
                 getCards.map((item, index,) => (
                     <div key={index} >
 
-                        <div className='sud-content' >
-                            <div className='car'>
+                        {/* <div className='sud-content' > */}
+                        <div className='car' style={{position:'relative'}}>
+                            <button className='heart'><i className='pi pi-heart'></i></button>
+                            <div >
+                                
                                 <img className='img-cardGif' src={item.foto_producto} alt="" />
+                              
                             </div>
+
                             <div>
                                 <h2>{item.nombre_producto}</h2>
                             </div>
@@ -38,10 +43,12 @@ export const GetCards = ({ getCards = [] }) => {
                                 <h2>${item.precio_producto}</h2>
                                 <i className="pi pi-shopping-cart ico"></i>
                             </div>
-                            <Modal url={item.foto_producto} name={item.nombre_producto} description={item.descripcion_producto} press={item.precio_producto}/>
+                            <Modal url={item.foto_producto} name={item.nombre_producto} description={item.descripcion_producto} press={item.precio_producto} />
                         </div>
 
                     </div>
+
+                    // </div>
 
                 ))
             }
