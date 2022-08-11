@@ -12,6 +12,8 @@ import './DataTableDemo.css';
 export const DataTableProvider = () => {
     const [selectedProvider, setSelectedProvider] = useState(null);
     const [provider, setProvider] = useState([]);
+    const [emailUser , setEmailUser] = useState("");
+    const [username , setUsername] = useState("");
     const [filters, setFilters] = useState({
         'global': { value: null, matchMode: FilterMatchMode.CONTAINS },
         'nombre_proveedor': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
@@ -25,7 +27,7 @@ export const DataTableProvider = () => {
     useEffect(() => {
         listSuppliers()
         
-    }, [provider])
+    }, [])
 
     function listSuppliers() {
 
@@ -41,6 +43,16 @@ export const DataTableProvider = () => {
             .then(provider => setProvider(provider))
         console.log(provider);
         setLoading(false)
+    }
+
+    function sendEmail() {
+        console.log("ENTRO AL ENVIAR CORREO");
+        console.log(emailUser);
+        console.log(username);
+        const URLEmail = "http://localhost:8080/producto/reservarProducto/" + emailUser + "/" + username
+        fetch(URLEmail) 
+            .then(response => response)
+            .then(json => json.ok)
     }
 
     const onGlobalFilterChange = (e) => {
@@ -107,6 +119,14 @@ export const DataTableProvider = () => {
                         <Column field="telefono_proveedor" header="Telefono" sortable filter filterPlaceholder="Search by amount" body={amountBodyTemplate}/>
                     </DataTable>
                 </main>
+            </div>
+            <div>
+                <label htmlFor="">Correo</label>
+                <input type="text" onChange={e => setEmailUser(e.target.value)}/>
+                <br />
+                <label htmlFor="">Nombre</label>
+                <input type="text" onChange={e => setUsername(e.target.value)}/>
+                <button onClick={sendEmail}>Enviar</button>
             </div>
         </div>
     );

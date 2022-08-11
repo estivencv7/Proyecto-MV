@@ -11,19 +11,19 @@ export const ContentPageMain = () => {
 
       <div className='content-page-main'>
          <CarouselDemo />
-         {/*==============card=====================*/}
-          {/* <div className='car'>
+         {/* ==============card===================== */}
+          <div className='car'>
             <br /><br /><br />
             <Service_ListProduct />
 
-         </div>   */}
-      <div>
+         </div>  
+      </div>
         
-      </div>
+      // {/* </div>
       
-       <CarouselPrime/>
+      //  <CarouselPrime/>
 
-      </div>
+      // </div> */}
 
    )
 }
