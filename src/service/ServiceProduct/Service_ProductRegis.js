@@ -112,7 +112,7 @@ export const Service_ProductRegis = ({style}) => {
 
     const header=(
         <div className='div-login'>
-           Registrar Product
+           Registrar Producto
        </div>
     )
 

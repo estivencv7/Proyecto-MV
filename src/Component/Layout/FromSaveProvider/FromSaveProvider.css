@@ -1,4 +1,4 @@
-.dialogoRegisterProduct {
+/*.dialogoRegisterProduct {
     height: 70vh !important;
     width: 70% !important;
 
@@ -8,8 +8,7 @@
     gap: 30px;
     flex-direction: column;
     width: 50%;
-    /* background-color: red; */
-    
+    background-color: red; 
 }
 .form-control{
     width: 30% !important;
@@ -19,8 +18,8 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-    /* text-align: center; */
+    justify-content: center; 
+    text-align: center; 
   
     gap: 20px;
 }
@@ -59,12 +58,12 @@
     height: 22px;
 }
 .content-bottom-radio{
-    /* width: 100%; */
+    width: 100%;
     display: flex;
     align-items: center;
     margin-right: 2em;
     padding: 3px;
-    /* background-color: blue; */
+    background-color: blue;
     
 }
 .inputpress{
@@ -108,3 +107,4 @@ option{
     display: flex;
     flex-direction: column;
 }
+*/

@@ -238,11 +238,16 @@ export const Service_Update = ({codeProductUpdate}) => {
   return (
     <>
         <Button onClick={()=>seew(seew)}><i className='pi pi-user-edit icons-registerProduct'></i></Button>
-        <Dialog visible={visible} modal onHide={seew} style={{ width: '30em',bordeRadius:'100%'}} >     
-            <h3 className='update'>Menu Editar Productos</h3>
+        <Dialog visible={visible} modal onHide={seew} style={{ width: '30em',bordeRadius:'100%'}} className='dialogoRegisterProduct' >     
+            <h3 className='div-update'>Menu Editar Productos</h3>
             <div id='dataProductsContainer' className='dataProductsContainer'></div>
+            
+            
+            
+            
+            
             <div className='barra-desplegable'>
-                <div className='provider'>
+                <div className='provider-update'>
                     <select id='selectContainer' onChange={e => setNameSupplierProduct(e.target.value)} onClick={checkSuppliers} >
 
                     </select>
@@ -259,24 +264,22 @@ export const Service_Update = ({codeProductUpdate}) => {
                     </div>
                 </div>
                 </div>        
-
             <div id='dataProductsContainer'>
-
             </div>
-
-            
-
             <div>
                 <select id='selectContainer' onChange={e => setNameSupplierProduct(e.target.value)} onClick={checkSuppliers} >
 
                 </select>
             </div>
+            <div className='content-image'>
+                
             <div className='content-Input-file'>
                 {loading ? (<h3>cargando imagen</h3>):(<img className='image-product' src={image} />)}
                     <InputText className='input-register'  id='catch' type='file' name='file' placeholder='subirImg' onChange={uploadimage}  />
                 </div>
+            </div>
             <div className='save-edit'>
-                <button onClick={editProduct}  >Guardar</button>
+                <Button onClick={editProduct}  >Guardar</Button>
             </div>
         </Dialog>
 
