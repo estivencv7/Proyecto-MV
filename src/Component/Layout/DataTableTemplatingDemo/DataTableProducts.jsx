@@ -8,8 +8,11 @@ import './DataTableDemo.css';
 import { Service_Update } from '../../../service/ServiceProduct/Service_Update';
 import { Service_ProductRegis } from '../../../service/ServiceProduct/Service_ProductRegis'
 import { Button } from 'primereact/button'
-
+import{Image} from 'primereact/image'
 export const DataTableProducts = () => {
+
+    const [seew, setSeew] = useState(false);
+
     const [value, setValue] = useState(false);
     let [selectedProducts, setSelectedProduct] = useState(null);
     const [products, setProducts] = useState([]);
@@ -99,6 +102,7 @@ export const DataTableProducts = () => {
 
     }
 
+   
     const codeBodyTemplate = (product) => {
         return (
             <React.Fragment>
@@ -110,7 +114,7 @@ export const DataTableProducts = () => {
     const imageBodyTemplate = (product) => {
         return (
             <React.Fragment>
-                <img alt="ImagenMuebleria" src={product.foto_producto} onError={(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} width={32} style={{ verticalAlign: 'middle' }} className='product-image' />
+                <Image template={<i className='pi pi-eye eye'></i>} preview={true}  alt="ImagenMuebleria" src={product.foto_producto} onError={(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} width='100%' height='100%' style={{ verticalAlign: 'middle' }} className='product-image' />
             </React.Fragment>
         );
     }
@@ -173,7 +177,7 @@ export const DataTableProducts = () => {
 
     return (
         <div className="datatable-doc-demo">
-            <div className="card">
+            <div className="contentTheTable">
                 <DataTable value={products} paginator className="p-datatable-customers" header={header} rows={5}
                     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" rowsPerPageOptions={[5, 10, 15]}
                     dataKey="id" rowHover onSelectionChange={e => setSelectedProduct(e.value)}

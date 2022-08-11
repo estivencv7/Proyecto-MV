@@ -56,13 +56,17 @@
     text-transform: uppercase;
 }
 
+.datatable-doc-demo{
+    display: flex;
+    justify-content: center;
+}
 .card{
     width: 100% !important;
 }
 
 .product-image{
-    height: 4.5rem;
-    width: 80%;
+    height: 7.5rem;
+    width: 90%;
 }
 
 .p-datatable .p-datatable-tbody > tr:active{
@@ -90,4 +94,17 @@
 
 .m-0{
     margin-left: 3% !important;
+}
+
+.p-datatable .p-datatable-tbody > tr > td {
+    padding: 3px 1px !important;
+}
+
+.eye{
+    font-size: 35px ;
+}
+
+.contentTheTable{
+    width: 90%;
+
 }
