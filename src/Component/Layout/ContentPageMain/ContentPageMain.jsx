@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import CarouselDemo from './Carousel'
 import './CarouselDemo.css'
 import { Service_ListProduct } from '../../../service/ServiceProduct/Service_ListProduct'
+import { CarouselPrime } from './CarouselPrime'
+
 
 export const ContentPageMain = () => {
 
@@ -10,13 +12,16 @@ export const ContentPageMain = () => {
       <div className='content-page-main'>
          <CarouselDemo />
          {/*==============card=====================*/}
-         <div className='car'>
-
+          {/* <div className='car'>
+            <br /><br /><br />
             <Service_ListProduct />
 
-
-         </div>
-
+         </div>   */}
+      <div>
+        
+      </div>
+      
+       <CarouselPrime/>
 
       </div>
 
