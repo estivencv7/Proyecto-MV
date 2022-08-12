@@ -250,53 +250,56 @@ export const Service_Update = ({codeProductUpdate}) => {
            Editar Productos
        </div>
     )
-    /*<div id='dataProductsContainer' className='dataProductsContainer'></div>*/
+    /*<div id='dataProductsContainer' className='dataProductsContainer'></div>
+    <div className='barra-desplegable'>
+    */
   return (
     <>
         <Button onClick={()=>seew(seew)}><i className='pi pi-user-edit icons-registerProduct'></i></Button>
         <Dialog header={header} visible={visible} modal onHide={seew} style={{ width: '30em',bordeRadius:'100%'}} className='dialogoRegisterProduct' >     
-        <div className='cont-update'>     
-        
-        <div className='form'>
-            <InputText type='text' className='input-update' placeholder={product.nombre_producto}/>
-            <InputTextarea type='' placeholder={product.descripcion_producto}/>
+            <div className='content-image'>
             
-            <div className='cantidad'>
-                <input type='number' className='input-update inputpress' placeholder={product.precio_producto}/>
-                <input type='number' className='input-update inputpress' placeholder={product.cantidad_producto}/>
-            </div>
-        </div>
-            
-            
-            
-            
-        <div className='optionsProduc'>
-            <div className='barra-desplegable'>
-                <div className='provider-update'>
-                    <select id='selectContainer' onChange={e => setNameSupplierProduct(e.target.value)} onClick={checkSuppliers} >
-                    </select>
-                </div>
+                <div className='cont-update'>     
+                
+                    <div className='form'>
+                        <InputText type='text' className='input-update' placeholder={product.nombre_producto}/>
+                        <InputTextarea type='' placeholder={product.descripcion_producto}/>
+                        
+                        <div className='cantidad'>
+                            <input type='number' className='input-update inputpress' placeholder={product.precio_producto}/>
+                            <input type='number' className='input-update inputpress' placeholder={product.cantidad_producto}/>
+                        </div>
+                
+                    
+                        <div className='optionsProduc'>
 
-                <div className='category-update'>
-                    <div>
-                        <select name="selectContainerCategories" id="selectContainerCategories" onChange={e => setDataCategory(e.target.value)}>
+                            <div className='category-update'>
+                                <div>
+                                <div className='paredCategories'></div>
+                                    <select name="selectContainerCategories" id="selectContainerCategories" onChange={e => setDataCategory(e.target.value)} className='radioGroup'>
 
-                        </select>
+                                    </select>
+                                </div>
+                                <div id='labelGroup' className='labelGroup'> </div>
+                            </div>
+
+                            <div className='provider-update'>
+                                <div className='paredProvider'></div>
+                                    <select name='selectContainer' id='selectContainer' onChange={e => setNameSupplierProduct(e.target.value)} className='radioGroup' >
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-        </div>
-                    <div id='labelGroup' className='labelGroup'> </div>
-                </div>
-                <div className='content-Input-file'>
-                    {loading ? (<h3>cargando imagen</h3>):(<img className='image-product-update' src={image} />)}
+                    <div className='content-Input-file'>
+                        {loading ? (<h3>cargando imagen</h3>):(<img className='image-product-update' src={image} />)}
                         <InputText className='input-update-imges'  id='catch' type='file' name='file' placeholder='subirImg' onChange={uploadimage}  />
                     </div>
-                </div>
             </div>
             <div className='save-edit'>
                 <Button onClick={editProduct}  >Guardar</Button>
             </div>
         </Dialog>
-
     </>
   )
 }

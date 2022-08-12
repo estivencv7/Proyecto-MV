@@ -139,11 +139,11 @@ export const FormSaveProduct = ({onChange1,onChange2,onchange3,onchange4,onChang
                         </div>
                         <div id='labelGroup' className='labelGroup'>
                             
-                        </div>  
+                        </div>
                     </div>
                     <div className='selecProvider'>
                         <div className='paredProvider'></div>
-                        <select id='selectContainer' onChange={e => onChange8(e.target.value)} onClick={checkSuppliers} className='radioGroup'>
+                        <select id='selectContainer' onChange={e => onChange8(e.target.value)}  className='radioGroup'>
 
                         </select>
                     </div>
