@@ -65,8 +65,7 @@ export const DataTableProducts = () => {
         if (selectedProducts == null) {
             return (
                 <div className="flex justify-content-between align-items-center">
-                    <h5 className="m-0">Productos</h5>
-                    <div className='botones'>
+                    <div className='buttons'>
                         <Service_ProductRegis style='' />
                         <Button className='' onClick={inputSarch}><i className='pi pi-trash icons-registerProduct'></i></Button>
 
@@ -82,8 +81,7 @@ export const DataTableProducts = () => {
         } else {
             return (
                 <div className="flex justify-content-between align-items-center">
-                    <h5 className="m-0">Productos</h5>
-                    <div className='botones'>
+                    <div className='buttons'>
                         
                         <Service_ProductRegis style='' />
                         <Button className='' onClick={inputSarch}><i className='pi pi-trash icons-registerProduct'></i></Button>
