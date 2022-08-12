@@ -121,7 +121,7 @@ export const FormSaveProduct = ({onChange1,onChange2,onchange3,onchange4,onChang
             <div className='form'>
                 
                 <InputText type='text' className='input-register' onChange={onChange1} placeholder="Nombre"/>
-                <InputTextarea type='' className='input-register'onChange={onChange2} placeholder="Descripcíon"/>
+                <InputTextarea type='' className=''onChange={onChange2} placeholder="Descripcíon"/>
                 
                 <div className='cantidad'>
                     <input type='number' className='input-register inputpress' placeholder="$" onChange={onChange5}/>

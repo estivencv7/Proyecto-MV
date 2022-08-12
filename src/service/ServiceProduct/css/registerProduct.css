@@ -8,7 +8,11 @@
     font-size: 25px;
     color: white;
 }
-
+.div-update{
+    text-align: center;
+    font-size: 25px;
+    color: white;
+}
 .div-login{
     text-align: center;
     font-size: 25px;
@@ -19,6 +23,13 @@
     width: 100% !important;
     border-radius: 12px 12px;
     margin-bottom: 16px;
+}
+.image-product-update {
+    height: 45vh !important;
+    /* width: 100% !important; */
+    border-radius: 12px 12px;
+    margin-bottom: 16px;
+    margin: -269px 0 0 500px;
 }
 .content-Input-file.image-product{
     width: 100%;
@@ -39,6 +50,10 @@
     flex-direction: column;
     gap: 5px;
     margin: 10px 0 20px 0;
+}
+.optionsProduc{
+    display: flex;
+
 }
 
 .save-edit{
@@ -78,4 +93,40 @@
     justify-content: space-around;
     font-size: 22px;
    
+}
+
+.input-update{
+    margin: 10px 0 0 0;
+    width: 100% !important;
+    height: 45px;
+    border-radius: 35px;
+}
+
+.form-control{
+    width: 30% !important;
+    
+}
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 25px;
+    gap: 20px;
+}
+
+.cont-update{
+    display: flex !important;
+    gap: 30px;
+    flex-direction: column;
+    width: 50%;
+}
+.inputpress{
+    border-radius: 6px;
+    width: 47% !important;   
+}
+.input-update-imges {
+    margin: 15px 0px 0 500px;
+    width: 100% !important;
+    height: 45px;
+    border-radius: 35px;
 }
