@@ -66,7 +66,6 @@ export const NavBar = () => {
     window.addEventListener('resize', showButton)
 
     const changeBackgroud = () => {
-        console.log("ttt", window.pageYOffset);
         let desplazamientoActual = window.pageYOffset;
         if (ubicacionPrincipal >= desplazamientoActual) {
             setNavbar(true)

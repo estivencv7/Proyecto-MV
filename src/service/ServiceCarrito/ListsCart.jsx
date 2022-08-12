@@ -1,9 +1,10 @@
-import React,{useEffect,useState} from 'react'
+import React,{useEffect,useState,useRef} from 'react'
 // import { GetCards } from '../../Component/Layout/ContentPageMain/GetCards';
 import { IteratCart } from '../../Component/Layout/ShoppingCart/IteratCart';
 
 export const ListsCart = () => {
     const [carrito, setCarrito] = useState([])
+    const [cantida, setcantidad] = useState(0)
     
     
     const getCart = () => {
@@ -11,15 +12,18 @@ export const ListsCart = () => {
         fetch(url)
           .then(response => response.json())
           .then(data =>{
-            console.log("esta es la sista que llega\n"+data)
             setCarrito(data)
-            
+            setcantidad(carrito.length)
+           
           } )
+      
+      
     }
-  
+    const visoref=useRef("andres")
     useEffect(() => {
         getCart()
-        
+       
+       
         //saveObj.push(objProduct)
         //setProductFound(saveObj)
     }, [])

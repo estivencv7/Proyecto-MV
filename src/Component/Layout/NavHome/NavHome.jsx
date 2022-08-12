@@ -10,13 +10,10 @@ import { ListsCart } from '../../../service/ServiceCarrito/ListsCart';
 
 export const NavHome = () => {
 
-
-
-
-
+    const [bandera, setBandera] = useState(0);
     const [visible, setVisible] = useState(false)
     const [visible2, setVisible2] = useState(false)
-    const [carrito, setCarrito] = useState([])
+    const [cart, setCart] = useState([])
 
     const onHide = () => {
         if (visible == false) {
@@ -34,26 +31,23 @@ export const NavHome = () => {
     )
 
 
-    const getCart = async() => {
-        const response= await fetch('http://localhost:8080/carritoCompras/listarcarrito')
+    const getCart = async () => {
+        const response = await fetch('http://localhost:8080/carritoCompras/listarcarrito')
         const data = await response.json();
-        setCarrito(data)
-        return data;
-        // const url = 'http://localhost:8080/carritoCompras/listarcarrito';
-        // fetch(url)
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         setCarrito(data)
-        //     })
+        setCart(data)
+        
+        return data
     }
 
-    const savelLength=()=>{
-        getCart()
-    }
+    // const savelLength = (list) => {
+    //     console.log("siguio")
+    //     setCart(list)
+    //     console.log("esta aqui" + cart.length)
+    // }
 
     useEffect(() => {
-        savelLength()
-    }, [])
+        getCart()
+    },[])
 
     return (
         <nav className='icons'>
@@ -63,8 +57,8 @@ export const NavHome = () => {
                 <ListsCart />
             </Sidebar>
 
-            <div className="cart-conten">
-                <p className='cantidad-product'>{carrito.length}</p>
+            <div className="cart-conten" >
+                <p className='cantidad-product'>{cart.length}</p>
                 <button className='icon' onClick={(e) => setVisible2(true)} ><i className="pi pi-shopping-cart ico"></i></button>
             </div>
 
