@@ -93,7 +93,7 @@ export const Service_ProductRegis = ({style}) => {
             .then(json => check(json.ok))
             console.log(name_supplier_product);
     }
-
+    
     function check(element) {
         if (element == true) {
             alert("Registro exitoso")
