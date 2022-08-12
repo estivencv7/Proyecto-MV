@@ -4,6 +4,7 @@ import { Dialog } from 'primereact/dialog';
 import { Button,} from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
 import './css/registerProduct.css'
+
 export const Service_ProductRegis = ({style}) => {
 
     const [visible, setVisible] = useState(false)
