@@ -1,0 +1,9 @@
+.delete-product-cart{
+    background: none;
+    border: none;
+}
+
+.delete{
+    color: #008037;
+    font-size: 32px;
+}

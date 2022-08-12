@@ -1,0 +1,35 @@
+.card-cart{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    position: relative;
+}
+
+.img-cart{
+    width: 30%;
+    /* background: #eaebea; */
+    /* border: 1px solid; */
+    padding: 20px;
+    border-radius: 30%;
+    margin: 1rem;
+    height: 15rem;
+}
+
+.cart-quantity{
+    height: 50px;
+    border-radius: 30px;
+    text-align: center;
+}
+
+.content-cart-nameProduct{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.content-delete-cart{
+   position: absolute;
+   right: 0;
+   top: 0;
+
+}
