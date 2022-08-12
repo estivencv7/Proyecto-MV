@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Dialog } from 'primereact/dialog';
 import { Sidebar } from 'primereact/sidebar/';
@@ -6,11 +6,17 @@ import { Button } from 'primereact/button';
 
 
 import './style.css'
+import { ListsCart } from '../../../service/ServiceCarrito/ListsCart';
 
 export const NavHome = () => {
 
+    
+
+
+
     const [visible, setVisible] = useState(false)
     const [visible2, setVisible2] = useState(false)
+    const [carrito, setCarrito] = useState([])
 
     const onHide = () => {
         if (visible == false) {
@@ -26,16 +32,35 @@ export const NavHome = () => {
         </div>
 
     )
+   
+
+    const getCart = () => {
+        const url = 'http://localhost:8080/carritoCompras/listarcarrito';
+          fetch(url)
+            .then(response => response.json())
+            .then(data =>{
+              setCarrito(data)
+            } )
+      }
+    
+      useEffect(() => {
+          getCart()
+           
+         
+          //saveObj.push(objProduct)
+          //setProductFound(saveObj)
+      },[carrito])
 
     return (
         <nav className='icons'>
             <Link className='icon' to="/"><i className="pi pi-home ico" ></i></Link>
-            <Sidebar position='right' visible={visible2} style={{ width: '30em' }} onHide={() => setVisible2(false)}>
-
+            <Sidebar position='right' visible={visible2} style={{ width: '40em' }} onHide={() => setVisible2(false)}>
+                <h1>Carrito</h1>
+               <ListsCart/>
             </Sidebar>
 
             <div className="cart-conten">
-                <p className='cantidad-product'>0</p>
+                <p className='cantidad-product'>{carrito.length}</p>
                 <button className='icon' onClick={(e) => setVisible2(true)} ><i className="pi pi-shopping-cart ico"></i></button>
             </div>
 
