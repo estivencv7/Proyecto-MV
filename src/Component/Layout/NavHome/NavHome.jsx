@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Dialog } from 'primereact/dialog';
 import { Sidebar } from 'primereact/sidebar/';
@@ -10,7 +10,7 @@ import { ListsCart } from '../../../service/ServiceCarrito/ListsCart';
 
 export const NavHome = () => {
 
-    
+
 
 
 
@@ -32,31 +32,35 @@ export const NavHome = () => {
         </div>
 
     )
-   
 
-    const getCart = () => {
-        const url = 'http://localhost:8080/carritoCompras/listarcarrito';
-          fetch(url)
-            .then(response => response.json())
-            .then(data =>{
-              setCarrito(data)
-            } )
-      }
-    
-      useEffect(() => {
-          getCart()
-           
-         
-          //saveObj.push(objProduct)
-          //setProductFound(saveObj)
-      },[carrito])
+
+    const getCart = async() => {
+        const response= await fetch('http://localhost:8080/carritoCompras/listarcarrito')
+        const data = await response.json();
+        setCarrito(data)
+        return data;
+        // const url = 'http://localhost:8080/carritoCompras/listarcarrito';
+        // fetch(url)
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         setCarrito(data)
+        //     })
+    }
+
+    const savelLength=()=>{
+        getCart()
+    }
+
+    useEffect(() => {
+        savelLength()
+    }, [])
 
     return (
         <nav className='icons'>
             <Link className='icon' to="/"><i className="pi pi-home ico" ></i></Link>
             <Sidebar position='right' visible={visible2} style={{ width: '40em' }} onHide={() => setVisible2(false)}>
                 <h1>Carrito</h1>
-               <ListsCart/>
+                <ListsCart />
             </Sidebar>
 
             <div className="cart-conten">

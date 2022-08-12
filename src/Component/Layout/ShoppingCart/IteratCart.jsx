@@ -16,7 +16,8 @@ export const IteratCart = ({ listsCart = [] }) => {
                                 <input type="number" className='cart-quantity' />
                             </div>
                             <div className='content-delete-cart'>
-                                <ServicieDeleteCart/>
+                                <ServicieDeleteCart codigo={item.codigo_Carrito}/>
+                                {console.log(item.precio_total)}
                             </div>
                             
 
