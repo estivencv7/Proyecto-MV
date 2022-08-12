@@ -50,7 +50,25 @@ export const DataTableProvider = () => {
         console.log(emailUser);
         console.log(username);
         const URLEmail = "http://localhost:8080/producto/reservarProducto/" + emailUser + "/" + username
-        fetch(URLEmail) 
+        fetch(URLEmail, {
+            method: 'POST',
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify({        
+                codigo_producto: 1224,
+                nombre_producto: "Prod",
+                cantidad_producto: 1212,
+                descripcion_producto: "sdsda",
+                precio_producto: 1221.0,
+                nombre_proveedor_producto: "Jhon",
+                id_categoria: {
+                    id_categoria: 19,
+                    nombre_categoria: ""
+                },
+                foto_producto: "https://res.cloudinary.com/estivencloud/image/upload/v1660270263/images/mt4qrmfmfnwdgnu0dmb7.png"
+            })
+        }) 
             .then(response => response)
             .then(json => json.ok)
     }
@@ -106,6 +124,14 @@ export const DataTableProvider = () => {
     return (
         <div className="datatable-doc-demo">
             <div className="card">
+            <div>
+                <label htmlFor="">Correo</label>
+                <input type="text" onChange={e => setEmailUser(e.target.value)}/>
+                <br />
+                <label htmlFor="">Nombre</label>
+                <input type="text" onChange={e => setUsername(e.target.value)}/>
+                <button onClick={sendEmail}>Enviar</button>
+            </div>
                 <main>
                     <DataTable value={provider} paginator className="p-datatable-customers" header={header} rows={5}
                         paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" rowsPerPageOptions={[10, 25, 50]}
@@ -119,14 +145,6 @@ export const DataTableProvider = () => {
                         <Column field="telefono_proveedor" header="Telefono" sortable filter filterPlaceholder="Search by amount" body={amountBodyTemplate}/>
                     </DataTable>
                 </main>
-            </div>
-            <div>
-                <label htmlFor="">Correo</label>
-                <input type="text" onChange={e => setEmailUser(e.target.value)}/>
-                <br />
-                <label htmlFor="">Nombre</label>
-                <input type="text" onChange={e => setUsername(e.target.value)}/>
-                <button onClick={sendEmail}>Enviar</button>
             </div>
         </div>
     );
