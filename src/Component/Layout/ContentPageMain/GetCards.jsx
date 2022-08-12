@@ -45,7 +45,7 @@ export const GetCards = ({ getCards = [], onClick }) => {
                                 <RegistrarCarrito nameP={item.nombre_producto} descripcionP={item.descripcion_producto} imagenP={item.foto_producto} precioP={item.precio_producto} />
                             </div>
                            
-                            <div className='button-observar'>
+                            <div >
                                 <Modal url={item.foto_producto} name={item.nombre_producto} description={item.descripcion_producto} press={item.precio_producto} />
                             </div>
 
