@@ -16,6 +16,7 @@ export const Service_Update = ({codeProductUpdate}) => {
     const [code , setCodeProduct] = useState(0)
     const [idCategory , setIdCategory] = useState(0)
     const [nameCategory , setNameCategory] = useState("")
+    const [product, setProductos] = useState("")
 
     function searchProduct () {
         const urlRegister = 'http://localhost:8080/producto/buscar/' + codeProductUpdate;
@@ -26,10 +27,20 @@ export const Service_Update = ({codeProductUpdate}) => {
             }
         })
             .then(response => response.json())
-            .then(product => createElements(product))
+            .then(product => guardarProduc(product))
         setLoading(false)
     }    
+
+    const guardarProduc = (prod) =>{
+        setProductos(prod)
+        setCodeProduct(prod.codigo_producto)
+        setImageProduct(prod.foto_producto)
+        checkCategories()
+        checkSuppliers()
+    }
     
+
+/*
     const createElements = (prod) => {
         const dataProductsContainer = document.getElementById("dataProductsContainer");
         const inputName = document.createElement("input")
@@ -47,11 +58,11 @@ export const Service_Update = ({codeProductUpdate}) => {
         inputAmount.setAttribute('type','number')
         inputAmount.setAttribute('id','inputAmount')
 
-        /*inputName.className('edit-name')
+        inputName.className('edit-name')
         inputCode.className('edit-code')
         inputAmount.className('edit-amount')
         inputPrice.className('edit-price')
-        inputDescription.className('edit-description')*/
+        inputDescription.className('edit-description')
         setCodeProduct(prod.codigo_producto)
         setImageProduct(prod.foto_producto)
         inputPrice.setAttribute('id','inputPrice')
@@ -72,7 +83,7 @@ export const Service_Update = ({codeProductUpdate}) => {
         checkCategories()
         checkSuppliers()
     }
-
+*/
     function listCategories(){
         const urlRegister = 'http://localhost:8080/categorias/listarCategorias';
         fetch(urlRegister, {
@@ -234,22 +245,35 @@ export const Service_Update = ({codeProductUpdate}) => {
         setImageProduct(file.secure_url)
         setLoading(false)
     }
-
+    const header=(
+        <div className='div-update'>
+           Editar Productos
+       </div>
+    )
+    /*<div id='dataProductsContainer' className='dataProductsContainer'></div>*/
   return (
     <>
         <Button onClick={()=>seew(seew)}><i className='pi pi-user-edit icons-registerProduct'></i></Button>
-        <Dialog visible={visible} modal onHide={seew} style={{ width: '30em',bordeRadius:'100%'}} className='dialogoRegisterProduct' >     
-            <h3 className='div-update'>Menu Editar Productos</h3>
-            <div id='dataProductsContainer' className='dataProductsContainer'></div>
+        <Dialog header={header} visible={visible} modal onHide={seew} style={{ width: '30em',bordeRadius:'100%'}} className='dialogoRegisterProduct' >     
+        <div className='cont-update'>     
+        
+        <div className='form'>
+            <InputText type='text' className='input-update' placeholder={product.nombre_producto}/>
+            <InputTextarea type='' placeholder={product.descripcion_producto}/>
+            
+            <div className='cantidad'>
+                <input type='number' className='input-update inputpress' placeholder={product.precio_producto}/>
+                <input type='number' className='input-update inputpress' placeholder={product.cantidad_producto}/>
+            </div>
+        </div>
             
             
             
             
-            
+        <div className='optionsProduc'>
             <div className='barra-desplegable'>
                 <div className='provider-update'>
                     <select id='selectContainer' onChange={e => setNameSupplierProduct(e.target.value)} onClick={checkSuppliers} >
-
                     </select>
                 </div>
 
@@ -259,23 +283,13 @@ export const Service_Update = ({codeProductUpdate}) => {
 
                         </select>
                     </div>
-                    <div id='labelGroup' className='labelGroup'>
-                        
-                    </div>
+        </div>
+                    <div id='labelGroup' className='labelGroup'> </div>
                 </div>
-                </div>        
-            <div id='dataProductsContainer'>
-            </div>
-            <div>
-                <select id='selectContainer' onChange={e => setNameSupplierProduct(e.target.value)} onClick={checkSuppliers} >
-
-                </select>
-            </div>
-            <div className='content-image'>
-                
-            <div className='content-Input-file'>
-                {loading ? (<h3>cargando imagen</h3>):(<img className='image-product' src={image} />)}
-                    <InputText className='input-register'  id='catch' type='file' name='file' placeholder='subirImg' onChange={uploadimage}  />
+                <div className='content-Input-file'>
+                    {loading ? (<h3>cargando imagen</h3>):(<img className='image-product-update' src={image} />)}
+                        <InputText className='input-update-imges'  id='catch' type='file' name='file' placeholder='subirImg' onChange={uploadimage}  />
+                    </div>
                 </div>
             </div>
             <div className='save-edit'>
