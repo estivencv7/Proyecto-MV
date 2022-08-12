@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Fascinate&family=Indie+Flower&family=Lobster&family=Rubik+Moonrocks&family=Signika:wght@300&display=swap');
+
+
+
 .container_Carousel{
     margin-top: 14em;
     text-align: center; 
@@ -119,7 +123,7 @@
 
  .conter_car {
   padding-top: 70px;
-  width: 75%;
+  width: 89%;
   
   display: flex;
   justify-content: center;
@@ -136,7 +140,7 @@
 
 .conter_car .car {
     text-align: center;
-    width: 20rem;
+    width: 24rem;
     height: 27rem;
     border-radius: 15px;
     
@@ -288,4 +292,17 @@
 }
 .heart-icon {
     font-size: 30px;
+}
+
+.press{
+    font-family: 'Signika', sans-serif;
+    /* font-family: 'Fascinate', cursive; */
+    /* font-family: 'Fascinate', cursive; */
+    /* font-family: 'Lobster', cursive; */
+/* font-family: 'Rubik Moonrocks', cursive; */
+}
+
+.button-observar{
+    width: 100% !important;
+    
 }

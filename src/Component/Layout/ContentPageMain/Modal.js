@@ -110,7 +110,7 @@ export const Modal = ({ url,name,description,press }) => {
 
     return (
         <div>
-            <Button onClick={() => onHide(onHide)}>Observar</Button>
+            <Button onClick={() => onHide(onHide)} className='button-observar'>Observar</Button>
 
             <Dialog visible={visible} onHide={onHide} style={{ width: '70%', height: '70%' }}  >
 

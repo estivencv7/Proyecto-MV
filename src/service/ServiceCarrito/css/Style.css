@@ -7,3 +7,28 @@
     color: #008037;
     font-size: 32px;
 }
+
+.button-cart-register{
+    background: none;
+    border: none;
+}
+
+.button-cart-register:hover{
+    background: none !important;
+}
+
+
+.button-cart-registerfo:focus{
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.cart-shopping{
+    color: #008037 !important;
+    font-size: 30px;
+}
+
+.cart-shopping:hover{
+    color: red !important;
+}
+

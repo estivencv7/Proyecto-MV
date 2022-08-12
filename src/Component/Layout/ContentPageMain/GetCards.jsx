@@ -6,7 +6,7 @@ import { Modal } from './Modal';
 import { RegistrarCarrito } from '../../../service/ServiceCarrito/RegistrarCarrito';
 // import { get } from 'jquery';
 // import { Modal } from './Modal';
-export const GetCards = ({ getCards = [] ,onClick}) => {
+export const GetCards = ({ getCards = [], onClick }) => {
 
     const [visible2, setVisible2] = useState(false);
 
@@ -28,12 +28,12 @@ export const GetCards = ({ getCards = [] ,onClick}) => {
                     <div key={index} >
 
                         {/* <div className='sud-content' > */}
-                        <div className='car' style={{position:'relative'}}>
+                        <div className='car' style={{ position: 'relative' }}>
                             <button onClick={onClick} className='heart'><i className='pi pi-heart heart-icon'></i></button>
                             <div >
-                                
+
                                 <img className='img-cardGif' src={item.foto_producto} alt="" />
-                              
+
                             </div>
 
                             <div>
@@ -41,10 +41,14 @@ export const GetCards = ({ getCards = [] ,onClick}) => {
                             </div>
                             <hr />
                             <div className='content-press'>
-                                <h2>${item.precio_producto}</h2>
-                                <RegistrarCarrito nameP={item.nombre_producto} descripcionP={item.descripcion_producto} imagenP={item.foto_producto} precioP={item.precio_producto}/>
+                                <h2 className='press'>${item.precio_producto}</h2>
+                                <RegistrarCarrito nameP={item.nombre_producto} descripcionP={item.descripcion_producto} imagenP={item.foto_producto} precioP={item.precio_producto} />
                             </div>
-                            <Modal url={item.foto_producto} name={item.nombre_producto} description={item.descripcion_producto} press={item.precio_producto} />
+                           
+                            <div >
+                                <Modal url={item.foto_producto} name={item.nombre_producto} description={item.descripcion_producto} press={item.precio_producto} />
+                            </div>
+
                         </div>
 
                     </div>
