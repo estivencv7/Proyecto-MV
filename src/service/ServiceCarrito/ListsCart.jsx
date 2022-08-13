@@ -1,3 +1,4 @@
+import { data } from 'jquery';
 import React,{useEffect,useState} from 'react'
 // import { GetCards } from '../../Component/Layout/ContentPageMain/GetCards';
 import { IteratCart } from '../../Component/Layout/ShoppingCart/IteratCart';
@@ -11,7 +12,7 @@ export const ListsCart = () => {
         fetch(url)
           .then(response => response.json())
           .then(data =>{
-            console.log("esta es la sista que llega\n"+data)
+            console.log("esta en listar carrito\n"+data)
             setCarrito(data)
             
           } )
@@ -28,7 +29,5 @@ export const ListsCart = () => {
         <div>
             <IteratCart listsCart={carrito}/>
         </div>
-     
-      
     )
 }

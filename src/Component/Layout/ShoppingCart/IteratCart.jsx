@@ -1,9 +1,9 @@
 import React from 'react'
 import { ServicieDeleteCart } from '../../../service/ServiceCarrito/ServicieDeleteCart'
 import  './style.css'
-export const IteratCart = ({ listsCart = [] }) => {
+export const IteratCart = ({ listsCart = [],conut=0 }) => {
     return (
-        <div>
+        <div  >
            
             {
                 listsCart.map((item,index)=>(
@@ -17,7 +17,6 @@ export const IteratCart = ({ listsCart = [] }) => {
                             </div>
                             <div className='content-delete-cart'>
                                 <ServicieDeleteCart codigo={item.codigo_Carrito}/>
-                                {console.log(item.precio_total)}
                             </div>
                             
 

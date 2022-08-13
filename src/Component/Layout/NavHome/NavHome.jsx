@@ -7,16 +7,22 @@ import { Button } from 'primereact/button';
 
 import './style.css'
 import { ListsCart } from '../../../service/ServiceCarrito/ListsCart';
+import { get } from 'jquery';
+import { Contador } from '../../../service/ServiceCarrito/Contador/Contador';
+import { IteratCart } from '../ShoppingCart/IteratCart';
+import Lista from './Lista';
 
 export const NavHome = () => {
 
 
 
 
-
+    const vandera=0
     const [visible, setVisible] = useState(false)
     const [visible2, setVisible2] = useState(false)
     const [carrito, setCarrito] = useState([])
+    const [cart, setCart] = useState([])
+    const [bandera, setBandera] = useState(0)
 
     const onHide = () => {
         if (visible == false) {
@@ -34,26 +40,38 @@ export const NavHome = () => {
     )
 
 
-    const getCart = async() => {
-        const response= await fetch('http://localhost:8080/carritoCompras/listarcarrito')
-        const data = await response.json();
-        setCarrito(data)
-        return data;
-        // const url = 'http://localhost:8080/carritoCompras/listarcarrito';
-        // fetch(url)
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         setCarrito(data)
-        //     })
+    const getCart = async () => {
+        // peticion()
+       
+       
+
     }
 
-    const savelLength=()=>{
-        getCart()
+    const peticion=async()=>{
+        console.log("hola pasos")
+        const response = await fetch('http://localhost:8080/carritoCompras/listarcarrito')
+        const data = await response.json();
+        setCart(data)
+        const l=new Lista();
+        
+        setBandera(data.length)
+        
+        return data.length
+       
     }
+
+
 
     useEffect(() => {
-        savelLength()
-    }, [])
+        // if(bandera!=cart.length){
+        //     peticion()
+        //     console.log("paso idf")
+        //     console.log("cart="+cart.length +",Bandera="+bandera)
+        // }else{
+          
+        // }
+       
+    },[])
 
     return (
         <nav className='icons'>
