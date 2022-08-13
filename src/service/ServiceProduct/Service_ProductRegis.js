@@ -4,6 +4,7 @@ import { Dialog } from 'primereact/dialog';
 import { Button,} from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
 import './css/registerProduct.css'
+
 export const Service_ProductRegis = ({style}) => {
 
     const [visible, setVisible] = useState(false)
@@ -93,7 +94,7 @@ export const Service_ProductRegis = ({style}) => {
             .then(json => check(json.ok))
             console.log(name_supplier_product);
     }
-
+    
     function check(element) {
         if (element == true) {
             alert("Registro exitoso")

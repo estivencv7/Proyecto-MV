@@ -8,7 +8,7 @@ import { DataTableProducts } from '../DataTableTemplatingDemo/DataTableProducts'
 import { Service_Update } from '../../../service/ServiceProduct/Service_Update'
 import { Service_DeleteProduct } from '../../../service/ServiceProduct/Service_DeleteProduct'
 import {Emblema} from '../../Ui/Logo/Emblema'
-
+import { NavigationAdmin } from '../NavigationAdmin/NavigationAdmin'
 
 
 export const PaginaRegisterProduct = () => {
@@ -29,15 +29,12 @@ export const PaginaRegisterProduct = () => {
   }
   return (
     <>
-
-
       <main className='content-Page'>
         <div className='content-main'>
-          <header style={{ height: '12em', display: 'flex', alignItems: 'center' }}>
-             <Emblema></Emblema> 
+          <header>
+            <NavigationAdmin/>
           </header>
           <DataTableProducts/>
-         
         </div>
       </main>
     </>
