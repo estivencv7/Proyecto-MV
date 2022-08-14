@@ -5,7 +5,10 @@ import { IteratCart } from '../../Component/Layout/ShoppingCart/IteratCart';
 
 export const ListsCart = () => {
   const [carrito, setCarrito] = useState([])
+  const [car, setCar] = useState([])
 
+  
+  
   function timeout(ms) {
     console.log("tiempo")
     return new Promise((resolve) => setTimeout(resolve, ms));
@@ -28,15 +31,15 @@ export const ListsCart = () => {
       console.log("esta en la funcion ")
       const response = await fetch('http://localhost:8080/carritoCompras/listarcarrito')
       const data = await response.json();
-      setCarrito(data)
+      setCar(data)
       console.log("esta aqui ")
      
       await timeout(1000);
 
 
       if(!isCancelled) {
-        alert(`A name was changed: ${1}`)
-        console.log("nose")
+        // alert(`A name was changed: ${1}`)
+        // setCar(data)
       }
 
     }
@@ -49,11 +52,11 @@ export const ListsCart = () => {
       
     };
 
-  },[carrito])
+  },[])
 
   return (
     <div>
-      <IteratCart listsCart={carrito} conut={carrito.length} />
+      <IteratCart listsCart={car} conut={car.length} />
     </div>
   )
 }

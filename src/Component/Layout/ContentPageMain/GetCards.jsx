@@ -8,16 +8,16 @@ import { RegistrarCarrito } from '../../../service/ServiceCarrito/RegistrarCarri
 // import { Modal } from './Modal';
 export const GetCards = ({ getCards = [], onClick }) => {
 
-    const [visible2, setVisible2] = useState(false);
+    // const [visible2, setVisible2] = useState(false);
 
-    const onHide = () => {
+    // const onHide = () => {
 
-        if (visible2 == false) {
-            setVisible2(true)
-        } else {
-            setVisible2(false)
-        }
-    }
+    //     if (visible2 == false) {
+    //         setVisible2(true)
+    //     } else {
+    //         setVisible2(false)
+    //     }
+    // }
    
     return (
         <div className='conter_car'>
