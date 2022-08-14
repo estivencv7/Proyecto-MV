@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Button } from 'primereact/button';
 // import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import { Dialog } from 'primereact/dialog'
@@ -18,13 +18,12 @@ export const GetCards = ({ getCards = [], onClick }) => {
             setVisible2(false)
         }
     }
-
-
-
+   
     return (
         <div className='conter_car'>
             {
                 getCards.map((item, index,) => (
+                    
                     <div key={index} >
 
                         {/* <div className='sud-content' > */}
@@ -54,7 +53,7 @@ export const GetCards = ({ getCards = [], onClick }) => {
                     </div>
 
                     // </div>
-
+                    
                 ))
             }
         </div>
