@@ -8,7 +8,6 @@ export const PageAdmin = () => {
   return (
     <div>
       <NavigationAdmin/>
-
       <div className='content'>
       <div className='section'> 
          <div className='section-card'  style={{height:'100%'}}>

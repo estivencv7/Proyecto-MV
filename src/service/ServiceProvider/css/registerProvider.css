@@ -22,3 +22,8 @@
 .pi-save{
     font-size: 20px !important;
 }*/
+.content-provider{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

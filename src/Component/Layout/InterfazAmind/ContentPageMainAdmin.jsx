@@ -13,17 +13,17 @@ export const ContentPageMainAdmin = () => {
                 <p>Inventario Productos</p>
             </Link>
 
-            <Link className='card-section' to='' >
+            <Link className='card-section' to='/registerProvider' >
                 <img className='invetario-card' src={manos} width='140px'></img>
                 <p>Inventario Proveedores</p>
             </Link>
 
             <Link className='card-section' to='' >
-                <img  src={carpetas} width='170px'></img>
+                <img className='invetario-card' src={carpetas} width='170px'></img>
                 <p>Inventario Proveedores</p>
             </Link>
             <Link className='card-section' to='' >
-                <i  className='style pi pi-eye'></i>
+                <i  className='invetario-card style pi pi-eye'></i>
                 <p>vista de todos los productos</p>
             </Link>
 
