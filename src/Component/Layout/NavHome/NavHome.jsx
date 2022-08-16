@@ -133,7 +133,7 @@ export const NavHome = () => {
     return (
         <nav className='icons'>
              
-            <Link className='icon' to="/"><i className="pi pi-home ico" ></i></Link>
+            <Link className='icon' to="/"><i className="pi pi-home ico" ><p  className='name-icon'> Inicio </p></i></Link>
             <ContentShoppingCart onHide={()=>setVisible2(false)} visible2={visible2}/>
             {/* <Sidebar position='right' visible={visible2} style={{ width: '40em' }} onHide={() => setVisible2(false)}>
                 <h1>Carrito</h1>
@@ -142,12 +142,14 @@ export const NavHome = () => {
 
             <div className="cart-conten">
                 <p className='cantidad-product' id='cantidad'></p>
-                <button className='icon' onClick={(e) => setVisible2(true)} ><i className="pi pi-shopping-cart ico"></i></button>
+                <button className='icon' onClick={(e) => setVisible2(true)} ><i className="pi pi-shopping-cart ico"><p>Mi Carrito</p></i></button>
             </div>
 
 
-
-            <button className='icon' onClick={() => onHide(onHide)} ><i className="pi pi-user"></i></button>
+            <div className='favoritos'>
+                <button className='icon' onClick={() => onHide(onHide)} ><i className="pi pi-user ico"><p  className='name-icon'>Mi Cuenta</p></i></button>
+            </div>
+           
             <Dialog header={header} className='-login' visible={visible} modal onHide={onHide} style={{ width: '30%', height: '40%' }}>
 
                 <form action="" className='form-login'>
@@ -167,6 +169,11 @@ export const NavHome = () => {
 
                 </form>
             </Dialog>
+
+            <div className='favoritos'>
+                <button className='icon'><i className='pi pi-heart heart-icon ico'> <p className='name-icon'>Favoritos</p></i></button>
+            </div>
+            
         </nav>
 
     )
