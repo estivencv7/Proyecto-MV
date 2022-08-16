@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import cama from '../../../Images/inventarioP1.png'
+import inventario from '../../../Images/inventario1.jpg'
 import manos from '../../../Images/manos.png'
 import carpetas from '../../../Images/carpetas.png'
 import etiqueta from '../../../Images/etiqueta.png'
@@ -8,8 +8,8 @@ import './style.css'
 export const ContentPageMainAdmin = () => {
     return (
         <div className='link-card' >
-            <Link className='card-section' to='/crudProduc' >
-                <img className='invetario-card' src={cama} width='170px' ></img>
+            <Link className='card-section' to='/registerProduct' >
+                <img className='invetario-card' src={inventario} width='200px' ></img>
                 <p>Inventario Productos</p>
             </Link>
 
@@ -18,9 +18,9 @@ export const ContentPageMainAdmin = () => {
                 <p>Inventario Proveedores</p>
             </Link>
 
-            <Link className='card-section' to='' >
+            <Link className='card-section' to='/registerCategories' >
                 <img className='invetario-card' src={carpetas} width='170px'></img>
-                <p>Inventario Proveedores</p>
+                <p>Inventario Categorias</p>
             </Link>
             <Link className='card-section' to='' >
                 <i  className='invetario-card style pi pi-eye'></i>

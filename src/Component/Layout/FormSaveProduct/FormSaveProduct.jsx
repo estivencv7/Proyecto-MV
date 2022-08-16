@@ -5,6 +5,7 @@ import { InputTextarea } from 'primereact/inputtextarea';
 import './style.css'
 import { InputText } from 'primereact/inputtext';
 import { RadioGroup } from 'rsuite';
+import { InputNumber } from 'primereact/inputnumber';
 export const FormSaveProduct = ({onChange1,onChange2,onchange3,onchange4,onChange5,onChange6,onChange7,onChange8,onChange9}) => {
 
     let [category , setCategory] = useState(0);
@@ -124,8 +125,8 @@ export const FormSaveProduct = ({onChange1,onChange2,onchange3,onchange4,onChang
                 <InputTextarea type='' className=''onChange={onChange2} placeholder="Descripcíon"/>
                 
                 <div className='cantidad'>
-                    <input type='number' className='input-register inputpress' placeholder="$" onChange={onChange5}/>
-                    <input type='number' className='input-register inputpress' placeholder="cantidad" onChange={onChange6}/>
+                    <InputNumber type='number' className='input-register inputpress input-number' placeholder="$" onChange={onChange5}/>
+                    <InputNumber type='number' className='input-register inputpress input-number' placeholder="cantidad" onChange={onChange6}/>
                 </div>
                 <div className='optionsProduc'>
                 
