@@ -5,9 +5,12 @@ import { ContentShoppingCart } from '../../Component/Layout/ShoppingCart/Content
 export const RegistrarCarrito = ({nameP='',descripcionP='',precioP=0,imagenP}) => {
     
     const [visible2, setVisible2] = useState(false)
-    const saveCart=async()=>{
+    
+    function saveCart(){
         if(visible2==false){
             setVisible2(true)
+        }else{
+            setVisible2(false)
         }
         const url='http://localhost:8080/carritoCompras'
         fetch(url, {
@@ -26,7 +29,7 @@ export const RegistrarCarrito = ({nameP='',descripcionP='',precioP=0,imagenP}) =
     }
     useEffect(()=>{
         
-    },[])
+    },[visible2])
 
     
 

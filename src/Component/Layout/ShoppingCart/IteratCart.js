@@ -4,6 +4,7 @@ import  './style.css'
 export const IteratCart = ({ listsCart = [],conut}) => {
 
 
+
     useEffect(()=>{
         document.getElementById('cantidad').innerHTML= conut
     },[conut])
@@ -11,17 +12,21 @@ export const IteratCart = ({ listsCart = [],conut}) => {
         <div  >
            
             {
-                listsCart.map((item,index)=>(
-                    <div key={index} >
-                        <div className='card-cart'  id={item.nombre__producto}>
-                            <img src={item.imagen_producto}  alt=""  className='img-cart'/>
-                            <div className='content-cart-nameProduct'>
-                                <h2 >{item.nombre__producto}</h2>
-                                <h4>${item.precio_total}</h4>
-                                <input type="number" className='cart-quantity' v />
+                listsCart.map((item)=>(
+                    <div key={item.codigo_Carrito} id='padre' >
+                        <div className='card-cart' id='h1'>
+                            <img src={item.imagen_producto}  alt=""  className='img-cart' id='h2'/>
+                            <div className='content-cart-nameProduct' id='h3'>
+                                <h2  id='padre'>{item.nombre__producto}</h2>
+                                <h4 id='padre'>${item.precio_total}</h4>
+                                <input id='h5' type="number" className='cart-quantity'/>
                             </div>
-                            <div className='content-delete-cart'>
+                            <div className='content-delete-cart' id='h6'>
                                 <ServicieDeleteCart codigo={item.codigo_Carrito}/>
+                                {
+                                
+                                    console.log(item.precio_total+=item.precio_total)
+                                }
                             </div>
                         </div>
                         <hr />
@@ -29,6 +34,7 @@ export const IteratCart = ({ listsCart = [],conut}) => {
                 ))
                
             }
+            <div></div>
         </div>
     )
 }
