@@ -97,7 +97,7 @@
 }
 
 .p-datatable .p-datatable-tbody > tr > td {
-    padding: 3px 1px !important;
+    padding: 20px 1px !important;
 }
 
 .eye{
@@ -106,5 +106,4 @@
 
 .contentTheTable{
     width: 90%;
-
 }

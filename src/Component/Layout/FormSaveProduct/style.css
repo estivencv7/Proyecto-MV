@@ -122,3 +122,7 @@ option{
     display: flex;
 
 }
+
+.p-inputnumber .p-component .p-inputwrapper .input-register .inputpress .input-number{
+    width: 50px !important;
+}

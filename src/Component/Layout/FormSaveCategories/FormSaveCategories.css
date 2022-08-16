@@ -1,0 +1,5 @@
+.button-save-category{
+    display: flex;
+    gap:12px;
+    justify-content: center;
+}

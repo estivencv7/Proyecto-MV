@@ -4,6 +4,7 @@ import { Service_Update } from '../../../service/ServiceProduct/Service_Update'
 import { Logo } from '../../Ui/Logo/Logo'
 import { DataTableProvider } from '../DataTableTemplatingDemo/DataTableProvider'
 import { Service_RegisterProvider } from '../../../service/ServiceProvider/Service_RegisterProvider'
+import { NavigationAdmin } from '../NavigationAdmin/NavigationAdmin'
 import './PageRegisterProvider.css'
 
 export const PageRegisterProvider = () => {
@@ -20,12 +21,8 @@ export const PageRegisterProvider = () => {
     <>
       <main className='content-Page'>
         <div className='content-main'>
-          <header style={{ height: '12em', display: 'flex', alignItems: 'center' }}>
-            <Logo classN='title-main'></Logo>
-          </header>
-          <div>
+            <NavigationAdmin/>
             <DataTableProvider/>
-          </div>
         </div>
       </main>
     </>

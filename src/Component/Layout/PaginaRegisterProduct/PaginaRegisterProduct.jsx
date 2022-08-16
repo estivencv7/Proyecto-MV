@@ -31,13 +31,10 @@ export const PaginaRegisterProduct = () => {
     <>
       <main className='content-Page'>
         <div className='content-main'>
-          <header>
             <NavigationAdmin/>
-          </header>
           <DataTableProducts/>
         </div>
       </main>
     </>
-
   )
 }
