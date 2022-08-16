@@ -33,3 +33,37 @@
    top: 0;
 
 }
+
+.sectionCart{
+    position: relative;
+    padding-bottom: 229px;
+    width: 100%;
+}
+
+.Total-press {
+    /* background: green; */
+    background: white;
+    position: absolute;
+    bottom: 0px;
+    width: 31%;
+    height: 29%;
+    /* position: fixed; */
+    z-index: 400;
+    position: fixed;
+    /* border-top: 1px solid; */
+    box-shadow: 0px -3px 0px 0px #008037;
+    display: flex;
+    align-items: center;
+   
+    
+}
+
+.title-total{
+    font-size: 15px;
+}
+.press-total{
+    display: flex;
+    gap: 35%;
+    width: 99%;
+    justify-content: center;
+}

@@ -1,10 +1,17 @@
 import { Button } from 'primereact/button'
 import React,{useEffect,useState} from 'react'
+import { ContentShoppingCart } from '../../Component/Layout/ShoppingCart/ContentShoppingCart'
 
 export const RegistrarCarrito = ({nameP='',descripcionP='',precioP=0,imagenP}) => {
     
+    const [visible2, setVisible2] = useState(false)
     
-    const saveCart=async()=>{
+    function saveCart(){
+        if(visible2==false){
+            setVisible2(true)
+        }else{
+            setVisible2(false)
+        }
         const url='http://localhost:8080/carritoCompras'
         fetch(url, {
             method: 'POST',
@@ -19,14 +26,18 @@ export const RegistrarCarrito = ({nameP='',descripcionP='',precioP=0,imagenP}) =
                 imagen_producto:imagenP
             })
         })
-
     }
+    useEffect(()=>{
+        
+    },[visible2])
+
     
 
     return (
         <div>
-            
-            <Button  onClick={saveCart} namePb descripcionP precioP imagenP className='button-cart-register'><i className='pi pi-shopping-cart cart-shopping'></i></Button>
+           
+            <Button  onClick={saveCart} namePb descripcionP precioP imagenP className='button-cart-register'><i className='pi pi-shopping-cart cart-shopping' cantidad></i></Button>
+            <ContentShoppingCart visible2={visible2} onHide={()=>{setVisible2(false)}}/>
         </div>
     )
 }

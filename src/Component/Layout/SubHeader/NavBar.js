@@ -69,7 +69,7 @@ export const NavBar = () => {
         let desplazamientoActual = window.pageYOffset;
         if (ubicacionPrincipal >= desplazamientoActual) {
             setNavbar(true)
-            console.log("hola ermen")
+            
         } else {
             setNavbar(false)
         }

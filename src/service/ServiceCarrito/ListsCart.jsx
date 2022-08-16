@@ -1,38 +1,90 @@
-import React,{useEffect,useState,useRef} from 'react'
+import { data } from 'jquery';
+import React, { useEffect, useState } from 'react'
 // import { GetCards } from '../../Component/Layout/ContentPageMain/GetCards';
 import { IteratCart } from '../../Component/Layout/ShoppingCart/IteratCart';
 
 export const ListsCart = () => {
-    const [carrito, setCarrito] = useState([])
-    const [cantida, setcantidad] = useState(0)
-    
-    
-    const getCart = () => {
-      const url = 'http://localhost:8080/carritoCompras/listarcarrito';
-        fetch(url)
-          .then(response => response.json())
-          .then(data =>{
-            setCarrito(data)
-            setcantidad(carrito.length)
-           
-          } )
-      
-      
+  
+  
+  const [carrito, setCarrito] = useState([])
+  const [car, setCar] = useState([])
+
+  
+  
+  function timeout(ms) {
+    console.log("tiempo")
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  const peticion = () => {
+    const url = 'http://localhost:8080/carritoCompras/listarcarrito';
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        console.log("esta en listar carrito\n" + data)
+        setCar(data)
+        pasar(data)
+      })
+  }
+
+  function pasar(data){
+    if(carrito.length!=data.length){
+      setCarrito(data)
+    }else{
+      setCarrito(data)
+      // alert("ojo")
     }
-    const visoref=useRef("andres")
-    useEffect(() => {
-        getCart()
-       
-       
-        //saveObj.push(objProduct)
-        //setProductFound(saveObj)
-    }, [])
+    
+  }
+  useEffect(() => {
    
-    return (
-        <div>
-            <IteratCart listsCart={carrito}/>
-        </div>
+    let isCancelled = false;
+
+
+    // const peticion = () => {
+    //     const url = 'http://localhost:8080/carritoCompras/listarcarrito';
+    //     fetch(url)
+    //       .then(response => response.json())
+    //       .then(data => {
+    //         console.log("esta en listar carrito\n" + data)
+    //         setCar(data)
+    //         pasar(data)
+    //       })
+    //   }
+
+    // const peticion =async () => {
+    //   console.log("esta en la funcion ")
+    //   const response=await fetch('http://localhost:8080/carritoCompras/listarcarrito')
+    //   const data =await  response.json();
+    //   setCar(data)
+    //   console.log("esta aqui ")
      
+    //   await timeout(1000);
+
+
+    //   if(!isCancelled) {
+    //     pasar(data)
+    //   //   console.log("tiempo")
       
-    )
+        
+    //   }
+
+
+    // }
+    peticion()
+    
+    // return () => {
+    //   isCancelled = true;
+      
+    //   console.log("Limpiando")
+      
+    // };
+
+  },[])
+
+  return (
+    <div>
+      <IteratCart listsCart={carrito} conut={car.length} />
+    </div>
+  )
 }

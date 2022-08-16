@@ -94,7 +94,7 @@ export const Service_RegisterProvider = ({style}) => {
         <Button className='' onClick={() => onHide(onHide)} ><i className='pi pi-save'></i></Button>
         <Dialog header={header}   className='dialogoRegisterProduct' visible={visible} style={{ width: '30em',bordeRadius:'100%'}} modal onHide={onHide}>
         
-        <div className='content-image'>
+        <div className='content-provider'>
             <FromSaveProvider onChange1={catchIdProvider} onChange2={catchNameProvider} onChange5={catchphoneProvider} onchange4={registerProvider} onchange3={() => onHide(onHide)}/>
         </div>
         </Dialog>
