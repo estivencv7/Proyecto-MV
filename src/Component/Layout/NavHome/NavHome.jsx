@@ -10,10 +10,10 @@ import { ListsCart } from '../../../service/ServiceCarrito/ListsCart';
 
 export const NavHome = () => {
 
-    const [bandera, setBandera] = useState(0);
     const [visible, setVisible] = useState(false)
     const [visible2, setVisible2] = useState(false)
     const [cart, setCart] = useState([])
+    const count = 0
 
     const onHide = () => {
         if (visible == false) {
@@ -32,22 +32,21 @@ export const NavHome = () => {
 
 
     const getCart = async () => {
-        const response = await fetch('http://localhost:8080/carritoCompras/listarcarrito')
-        const data = await response.json();
-        setCart(data)
-        
-        return data
+        if(cart==false){
+            const response = await fetch('http://localhost:8080/carritoCompras/listarcarrito')
+            const data = await response.json();
+            setCart(data)
+            console.log(data.length)
+            count=data.length()
+            return data.length
+        }
+       
+       
     }
-
-    // const savelLength = (list) => {
-    //     console.log("siguio")
-    //     setCart(list)
-    //     console.log("esta aqui" + cart.length)
-    // }
-
+    
     useEffect(() => {
         getCart()
-    },[])
+    },[cart])
 
     return (
         <nav className='icons'>
@@ -58,6 +57,7 @@ export const NavHome = () => {
             </Sidebar>
 
             <div className="cart-conten" >
+                {console.log("c"+count)}
                 <p className='cantidad-product'>{cart.length}</p>
                 <button className='icon' onClick={(e) => setVisible2(true)} ><i className="pi pi-shopping-cart ico"></i></button>
             </div>

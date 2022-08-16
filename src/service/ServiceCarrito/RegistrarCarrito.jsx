@@ -25,6 +25,7 @@ export const RegistrarCarrito = ({nameP='',descripcionP='',precioP=0,imagenP}) =
 
     return (
         <div>
+            
             <Button  onClick={saveCart} namePb descripcionP precioP imagenP className='button-cart-register'><i className='pi pi-shopping-cart cart-shopping'></i></Button>
         </div>
     )

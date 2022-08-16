@@ -13,9 +13,7 @@ export const ContentPageMain = () => {
          <CarouselDemo />
          {/*==============card=====================*/}
          <div className='car'>
-            
             <Service_ListProduct />
-
          </div>
          {/* <div>
 
