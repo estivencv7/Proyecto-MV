@@ -58,6 +58,7 @@ export const NavigationAdmin = () => {
             <button className='iconAdmin' onClick={() => onHide(onHide)} ><i className="pi pi-user"></i></button>
         </nav>
         </div>
+        <div className='paredAdmin'></div>
         </header>
     </div>
   )
