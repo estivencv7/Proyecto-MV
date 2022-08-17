@@ -21,7 +21,7 @@ export const IteratCart = ({ listsCart = [], conut }) => {
                                 <div className='content-cart-nameProduct' id='h3'>
                                     <h2 id='padre'>{item.nombre__producto}</h2>
                                     <h4 id='padre'>${item.precio_total}</h4>
-                                    <input id='h5' type="number" className='cart-quantity' />
+                                    <input id='h5' type="number" className='cart-quantity' placeholder='Cantidad' />
                                 </div>
                                 <div className='content-delete-cart' id='h6'>
                                     <ServicieDeleteCart codigo={item.codigo_Carrito} />
