@@ -19,7 +19,7 @@ export const RegistrarCarrito = ({nameP='',descripcionP='',precioP=0,imagenP}) =
                 "Content-type": "application/json"
             },
             body: JSON.stringify({
-                // codigo_producto : code,
+                codigo_producto : null,
                 nombre__producto:nameP ,
                 descripcion_producto:descripcionP ,
                 precio_total:precioP ,
@@ -27,9 +27,9 @@ export const RegistrarCarrito = ({nameP='',descripcionP='',precioP=0,imagenP}) =
             })
         })
     }
-    useEffect(()=>{
+    // useEffect(()=>{
         
-    },[visible2])
+    // },[visible2])
 
     
 
