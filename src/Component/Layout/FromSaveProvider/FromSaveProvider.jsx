@@ -1,6 +1,8 @@
 import React,{useState,useEffect} from 'react'
 import { FormGroup} from 'reactstrap'
 import { Button } from 'primereact/button';
+import { InputText } from 'primereact/inputtext';
+import { InputNumber } from 'primereact/inputnumber';
 import './FromSaveProvider.css'
 
 export const FromSaveProvider = ({onChange1,onChange2,onchange3,onchange4,onChange5}) => {
@@ -50,9 +52,9 @@ export const FromSaveProvider = ({onChange1,onChange2,onchange3,onchange4,onChan
         <FormGroup className='cont-Register'>
             <div className='form'>
                 
-                <input type='text' className='input-register' onChange={onChange1} placeholder="Documento"/>
-                <input type='text' className='input-register'onChange={onChange2} placeholder="Nombre"/>
-                <input type='number' className='input-register'onChange={onChange5} placeholder="Telefono"/>
+                <InputText className='input-register' onChange={onChange1} placeholder="Documento"/>
+                <InputText className='input-register'onChange={onChange2} placeholder="Nombre"/>
+                <InputNumber className='input-register'onChange={onChange5} placeholder="Telefono"/>
             </div>
             <div className='button-save-Product'>
                 <Button onClick={onchange4}>Guardar</Button> 
