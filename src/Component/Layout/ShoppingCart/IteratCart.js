@@ -21,8 +21,8 @@ export const IteratCart = ({ listsCart = [], conut }) => {
                 {
                     listsCart.length > 0 ?
                         listsCart.map((item) => (
-                            <div key={item.codigo_Carrito} id='padre' >
-                                <div className='card-cart' id={item.codigo_Carrito}>
+                            <div key={item.codigo_Carrito} id={item.codigo_Carrito} >
+                                <div className='card-cart' >
                                     <img src={item.imagen_producto} alt="" className='img-cart' id='h2' />
                                     <div className='content-cart-nameProduct' id='h3'>
                                         <h2 id='padre'>{item.nombre__producto}</h2>
@@ -30,7 +30,7 @@ export const IteratCart = ({ listsCart = [], conut }) => {
                                         <input id='h5' type="number" className='cart-quantity' />
                                     </div>
                                     <div className='content-delete-cart' id='h6'>
-                                        <ServicieDeleteCart codigo={item.codigo_Carrito} />
+                                        <ServicieDeleteCart codigo={item.codigo_Carrito} press={item.precio_total}/>
                                         {
 
                                             // t+=item.precio_total
@@ -57,7 +57,7 @@ export const IteratCart = ({ listsCart = [], conut }) => {
                     <div className='Total-press'>
                         <div className='section-operation' >
                             <p >TOTAL DE COMPRA</p>
-                            <p className='item-total'>${t} </p>
+                            <p className='item-total' id='press'>{t}</p>
                         </div>
 
                         <Button>FINALIZAR COMPRA</Button>
