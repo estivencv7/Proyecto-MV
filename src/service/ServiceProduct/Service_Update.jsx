@@ -4,6 +4,7 @@ import React,{useState,useEffect}from 'react'
 import { InputText } from 'primereact/inputtext';
 import { InputTextarea } from 'primereact/inputtextarea';
 import { RadioGroup } from 'rsuite';
+import { InputNumber } from 'primereact/inputnumber';
 import './css/registerProduct.css'
 
 export const Service_Update = ({codeProductUpdate}) => {
@@ -266,8 +267,8 @@ export const Service_Update = ({codeProductUpdate}) => {
                         <InputTextarea type='' placeholder={product.descripcion_producto}/>
                         
                         <div className='cantidad'>
-                            <input type='number' className='input-update inputpress' placeholder={product.precio_producto}/>
-                            <input type='number' className='input-update inputpress' placeholder={product.cantidad_producto}/>
+                            <InputNumber className='input-update inputpress' placeholder={product.precio_producto}/>
+                            <InputNumber className='input-update inputpress' placeholder={product.cantidad_producto}/>
                         </div>
                 
                     
