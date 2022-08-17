@@ -19,13 +19,9 @@ export const NavHome = () => {
 
 
 
-    const vandera = 0
+    
     const [visible, setVisible] = useState(false)
     const [visible2, setVisible2] = useState(false)
-    const [carrito, setCarrito] = useState([])
-    const [cart, setCart] = useState([])
-    const [bandera, setBandera] = useState(0)
-    const [value, setValue] = useState("");
 
     const onHide = () => {
         if (visible == false) {
@@ -36,14 +32,13 @@ export const NavHome = () => {
     }
 
 
-    const onHide2 = () => {
-        if (visible == false) {
-            setVisible2(true)
-        } else {
-            setVisible2(false)
-        }
-    }
-
+    // const onHide2 = () => {
+    //     if (visible == false) {
+    //         setVisible2(true)
+    //     } else {
+    //         setVisible2(false)
+    //     }
+    // }
 
     const header = (
         <div className='div-login'>
@@ -51,84 +46,6 @@ export const NavHome = () => {
         </div>
 
     )
-
-
-    const getCart = async () => {
-        // peticion()
-
-
-
-    }
-
-    // const peticion=async()=>{
-    //     console.log("hola pasos")
-    //     const response = await fetch('http://localhost:8080/carritoCompras/listarcarrito')
-    //     const data = await response.json();
-    //     setCart(data)
-    //     const l=new Lista();
-
-    //     setBandera(data.length)
-
-    //     return data.length
-
-    // }
-
-
-
-    // useEffect(() => {
-    //     // if(bandera!=cart.length){
-    //     //     peticion()
-    //     //     console.log("paso idf")
-    //     //     console.log("cart="+cart.length +",Bandera="+bandera)
-    //     // }else{
-
-    //     // }
-
-    // },[])
-
-    // function timeout(ms) {
-    //     return new Promise((resolve) => setTimeout(resolve, ms));
-    // }
-
-    // useEffect(() => {
-    //     let isCancelled = false;
-
-    //     const handleChange = async () => {
-    //         console.log("hola pasos")
-    //         const response = await fetch('http://localhost:8080/carritoCompras/listarcarrito')
-    //         const data = await response.json();
-    //         console.log(response.status)
-    //         setCarrito(data)
-    //         // setBandera(data.length)
-    //         // setCarrito(data)
-            
-    //         console.log("uno" + bandera)
-    //         // await timeout(1000);
-    //         // let i = data.length;
-    //         // while(i<=carrito.length){
-    //         //     setBandera(i)
-    //         //     i+=i
-    //         // }
-
-    //         // if (!isCancelled) {
-    //         //     // alert(`A name was changed: ${carrito.length}`);
-    //         //    console.log("blucle")
-    //         //    console.log("dos"+bandera)
-    //         //    setBandera(data.length)
-    //         // }
-    //     };
-
-    //     // handleChange();
-    //     // //Cleanup function is called when useEffect is called again or on unmount
-    //     // return () => {
-    //     //     isCancelled = true;
-    //     //     console.log("paso")
-    //     //     setBandera(carrito.length)
-    //     //     console.log("tres" + bandera)
-    //     // };
-    // }, [bandera]);
-
-
 
     return (
         <nav className='icons'>
