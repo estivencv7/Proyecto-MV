@@ -16,16 +16,16 @@ export const ListsCart = () => {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
-  const peticion = () => {
-    const url = 'http://localhost:8080/carritoCompras/listarcarrito';
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        console.log("esta en listar carrito\n" + data)
-        setCar(data)
-        pasar(data)
-      })
-  }
+  // const peticion = () => {
+  //   const url = 'http://localhost:8080/carritoCompras/listarcarrito';
+  //   fetch(url)
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       console.log("esta en listar carrito\n" + data)
+  //       setCar(data)
+  //       pasar(data)
+  //     })
+  // }
 
   function pasar(data){
     if(carrito.length!=data.length){
@@ -38,7 +38,7 @@ export const ListsCart = () => {
   }
   useEffect(() => {
    
-    let isCancelled = false;
+    // let isCancelled = false;
 
 
     // const peticion = () => {
@@ -52,25 +52,25 @@ export const ListsCart = () => {
     //       })
     //   }
 
-    // const peticion =async () => {
-    //   console.log("esta en la funcion ")
-    //   const response=await fetch('http://localhost:8080/carritoCompras/listarcarrito')
-    //   const data =await  response.json();
-    //   setCar(data)
-    //   console.log("esta aqui ")
+    const peticion =async () => {
+      console.log("esta en la funcion ")
+      const response=await fetch('http://localhost:8080/carritoCompras/listarcarrito')
+      const data =await  response.json();
+      setCar(data)
+      console.log("esta aqui ")
      
-    //   await timeout(1000);
+      await timeout(1000);
 
 
-    //   if(!isCancelled) {
-    //     pasar(data)
-    //   //   console.log("tiempo")
+      // if(!isCancelled) {
+        pasar(data)
+      //   console.log("tiempo")
       
-        
-    //   }
+        // 
+      // }
 
 
-    // }
+    }
     peticion()
     
     // return () => {

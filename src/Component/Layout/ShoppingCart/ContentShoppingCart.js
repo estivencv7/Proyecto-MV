@@ -16,8 +16,8 @@ import { ListsCart } from '../../../service/ServiceCarrito/ListsCart';
 export const ContentShoppingCart = ({ visible2, onHide }) => {
     
     return (
-        <Sidebar position='right' visible={visible2} style={{ width: '40em' }} onHide={onHide}>
-            <h1>Carrito</h1>
+        <Sidebar  position='right' visible={visible2} style={{ width: '27%' }} onHide={onHide} className='sidebar-cart'>
+            <h1 className='title-cart'>Carrito</h1>
             <ListsCart />
         </Sidebar>
     )

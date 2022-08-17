@@ -1,10 +1,11 @@
 import { Button } from 'primereact/button'
-import React from 'react'
+
+import { useState } from 'react'
 import { useEffect } from 'react'
 import './css/Style.css'
 import { ListsCart } from './ListsCart'
 export const ServicieDeleteCart = ({codigo}) => {
-
+  // const [status,setStatus]=useState(0)
   function deleteProduct() {
     console.log("estoy eliminando un producto")
     const urlRegister = 'http://localhost:8080/carritoCompras/eliminarCarrito/';
@@ -16,22 +17,17 @@ export const ServicieDeleteCart = ({codigo}) => {
     })
       .then(response => response)
       .then(response=>{
-        if(response.status==200){
-          console.log(codigo+"html"+document.getElementById('imagIterar').Value)
-          
-          if(document.getElementById().value==codigo){
-            document.getElementById('imagIterar').innerHTML=""
-            console.log('borro')
-          }
-        }
+       
+         if(response.status){
+          document.getElementById(codigo).innerHTML=""
+         }
+       
+        
+
       })
   }
 
-  useEffect(()=>{
-
-    
-
-  },[])
+  
   
 
  

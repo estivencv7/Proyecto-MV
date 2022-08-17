@@ -36,34 +36,67 @@
 
 .sectionCart{
     position: relative;
-    padding-bottom: 229px;
+    /* padding-bottom: 229px; */
     width: 100%;
-}
-
-.Total-press {
-    /* background: green; */
-    background: white;
-    position: absolute;
-    bottom: 0px;
-    width: 31%;
-    height: 29%;
-    /* position: fixed; */
-    z-index: 400;
-    position: fixed;
-    /* border-top: 1px solid; */
-    box-shadow: 0px -3px 0px 0px #008037;
-    display: flex;
-    align-items: center;
+    padding: 5%;
+    /* background: red; */
    
-    
 }
 
 .title-total{
     font-size: 15px;
 }
-.press-total{
+
+.Total-press {
+position: sticky;
+bottom: 0;
+height: 37%;
+z-index: 100;
+background: white;
+width: 100%;
+box-shadow: 0px 0px 40px #e8e3e3;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 40px;
+
+}
+.sidebar-cart .p-sidebar-content{
+    padding: 0px !important;
+    position: relative !important;
+}
+.section-operation{
     display: flex;
-    gap: 35%;
-    width: 99%;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+    font-size: 27px;
+    color: black;
+}
+.item-total{
+ font-size: 36px;
+}
+.Cart-empty{
+    height: 70%;
+    display: flex;
+    align-items: center;
     justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 30px;
+}
+.ca::before{
+color: #008037 !important;
+
+}
+.titlte-cart{
+    padding: 5px;
+    background: red;
+    position:sticky;
+    z-index:20;
+    width: 26%; 
+    background: white;
+    top:0;
+    width: 100%;
 }
