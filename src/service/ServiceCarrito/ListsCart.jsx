@@ -80,7 +80,7 @@ export const ListsCart = () => {
       
     // };
 
-  },[])
+  },[carrito])
 
   return (
     <div>
