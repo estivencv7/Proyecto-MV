@@ -113,7 +113,7 @@ export const DataTableProvider = () => {
                         <Service_RegisterProvider style='' />
                         <Button className='' onClick={inputSarch}><i className='pi pi-trash icons-registerProduct'></i></Button>
 
-                        <Service_UpdateProvider codeProviderUpdate={selectedProvider.codigo_producto} />
+                        <Service_UpdateProvider codeProviderUpdate={selectedProvider.cedula_proveedor} />
                         <span className="p-input-icon-left">
                             <i className="pi pi-search" />
                             <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre proveedor" />
