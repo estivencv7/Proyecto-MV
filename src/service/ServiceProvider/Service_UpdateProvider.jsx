@@ -9,11 +9,9 @@ import './css/registerProvider.css'
 
 export const Service_UpdateProvider = ({codeProviderUpdate}) => {
   
-  const [productSearch , setProducts] = useState(null);
   const [visible, setVisible] = useState(false);
-  const [loading, setLoading] = useState(true);
   const [name_supplier_product, setNameSupplierProduct] = useState("")
-  const [code , setCodeProvider] = useState(0)
+  const [code , setCodeProvider] = useState("")
   const [provider, setProvider] = useState("")
 
   function searchProvider () {
@@ -29,18 +27,18 @@ export const Service_UpdateProvider = ({codeProviderUpdate}) => {
           .then(response => response.json())
           .then(provider => guardarProvider(provider))
           console.log(provider)
-      setLoading(false)
   }    
 
-  const guardarProvider = (provider) =>{
-      setProvider(provider)
-      setCodeProvider(provider.cedula_proveedor)
+  const guardarProvider = (provi) =>{
+      setProvider(provi)
+      setCodeProvider(provi.cedula_proveedor)
   }
   
   const seew=()=>{
      
       if (visible == false) {
         console.log("entro al if")
+        console.log(codeProviderUpdate+"fsd")
           searchProvider()
           setVisible(true)
       } else {
@@ -51,9 +49,8 @@ export const Service_UpdateProvider = ({codeProviderUpdate}) => {
 
   function editProvider() {
       console.log("estoy editando un proveedor")
-      const identification = document.getElementById("inputCard")
       const name_provider = document.getElementById("inputName").value
-      const phone = document.getElementById("inputPrice").value
+      const phone = document.getElementById("inputPhone").value
       const urlRegister = 'http://localhost:8080/actualizarProveedor/' + codeProviderUpdate;
       fetch(urlRegister, {
           method: 'PUT',
@@ -61,9 +58,9 @@ export const Service_UpdateProvider = ({codeProviderUpdate}) => {
               "Content-type": "application/json"
           },
           body: JSON.stringify({
-                cedula_proveedor: identification,
+                cedula_proveedor: code,
                 nombre_proveedor: name_provider,
-                telefono_proveedor: phone,
+                telefono_proveedor: phone
           })
       })
           .then(response => response.json())
