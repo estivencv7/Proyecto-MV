@@ -4,12 +4,14 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { InputText } from 'primereact/inputtext';
 import { MultiSelect } from 'primereact/multiselect';
-import { Service_Update } from '../../../service/ServiceProduct/Service_Update'
+import { Service_UpdateProvider } from '../../../service/ServiceProvider/Service_UpdateProvider'
 import { Service_RegisterProvider } from '../../../service/ServiceProvider/Service_RegisterProvider'
 import { Button } from 'primereact/button'
 import './DataTableDemo.css';
 
 export const DataTableProvider = () => {
+
+    const [value, setValue] = useState(false);
     const [selectedProvider, setSelectedProvider] = useState(null);
     const [provider, setProvider] = useState([]);
     const [emailUser , setEmailUser] = useState("");
@@ -81,8 +83,48 @@ export const DataTableProvider = () => {
         setFilters(_filters);
         setGlobalFilterValue(value);
     }
+    const inputSarch = () => {
+        console.log("hola")
+        setValue(true)
+    }
 
     const renderHeader = () => {
+        if (selectedProvider == null) {
+            return (
+                <div className="flex justify-content-between align-items-center">
+                    <div className='buttons'>
+                        <Service_RegisterProvider style='' />
+                        <Button className='' onClick={inputSarch}><i className='pi pi-trash icons-registerProduct'></i></Button>
+
+                        <Service_UpdateProvider codeProviderUpdate={0} />
+                        <span className="p-input-icon-left">
+                            <i className="pi pi-search" />
+                            <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre proveedor" />
+                        </span>
+                    
+                    </div>
+                </div>
+            )
+        } else {
+            return (
+                <div className="flex justify-content-between align-items-center">
+                    <div className='buttons'>
+                        
+                        <Service_RegisterProvider style='' />
+                        <Button className='' onClick={inputSarch}><i className='pi pi-trash icons-registerProduct'></i></Button>
+
+                        <Service_UpdateProvider codeProviderUpdate={selectedProvider.cedula_proveedor} />
+                        <span className="p-input-icon-left">
+                            <i className="pi pi-search" />
+                            <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre proveedor" />
+                        </span>
+                        
+
+                    </div>
+                </div>
+            )
+        }
+        /*
         return (
             <div className="flex justify-content-between align-items-center">
                 <main>
@@ -93,13 +135,14 @@ export const DataTableProvider = () => {
                         <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Documento" />
                     </span>
                         <Service_RegisterProvider style='' />
-                        <Service_Update />
+                        <Service_Update codeProviderUpdate={0}  />
                         <Button className=''><i className='pi pi-trash icons-registerProvider '></i></Button>
                         <div></div>
                     </div>
                 </main>
             </div>
         )
+        */
     }
 
     const codeBodyTemplate = (provider) => {
