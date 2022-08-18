@@ -12,7 +12,7 @@ import './DataTableDemo.css';
 export const DataTableProvider = () => {
 
     const [value, setValue] = useState(false);
-    const [selectedProvider, setSelectedProvider] = useState(null);
+    let [selectedProvider, setSelectedProvider] = useState(null);
     const [provider, setProvider] = useState([]);
     const [emailUser , setEmailUser] = useState("");
     const [username , setUsername] = useState("");
@@ -43,7 +43,6 @@ export const DataTableProvider = () => {
         })
             .then(response => response.json())
             .then(provider => setProvider(provider))
-        console.log(provider);
         setLoading(false)
     }
 
@@ -89,7 +88,9 @@ export const DataTableProvider = () => {
     }
 
     const renderHeader = () => {
+
         if (selectedProvider == null) {
+            console.log(selectedProvider);
             return (
                 <div className="flex justify-content-between align-items-center">
                     <div className='buttons'>
@@ -106,13 +107,14 @@ export const DataTableProvider = () => {
                 </div>
             )
         } else {
+            console.log(selectedProvider[0].cedula_proveedor);
             return (
                 <div className="flex justify-content-between align-items-center">
                     <div className='buttons'>
                         
                         <Service_RegisterProvider style='' />
                         <Button className='' onClick={inputSarch}><i className='pi pi-trash icons-registerProduct'></i></Button>
-                        <Service_UpdateProvider codeProviderUpdate={selectedProvider.cedula_proveedor} />
+                        <Service_UpdateProvider codeProviderUpdate={selectedProvider[0].cedula_proveedor} />
                         <span className="p-input-icon-left">
                             <i className="pi pi-search" />
                             <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre proveedor" />
