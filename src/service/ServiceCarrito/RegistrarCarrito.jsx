@@ -2,7 +2,7 @@ import { Button } from 'primereact/button'
 import React, { useEffect, useState } from 'react'
 import { ContentShoppingCart } from '../../Component/Layout/ShoppingCart/ContentShoppingCart'
 
-export const RegistrarCarrito = ({ nameP = '', descripcionP = '', precioP = 0, imagenP }) => {
+export const RegistrarCarrito = ({ codigoP ,nameP = '', descripcionP = '', precioP = 0, imagenP }) => {
 
     const [visible2, setVisible2] = useState(false)
 
@@ -16,7 +16,7 @@ export const RegistrarCarrito = ({ nameP = '', descripcionP = '', precioP = 0, i
                 "Content-type": "application/json"
             },
             body: JSON.stringify({
-                codigo_producto: null,
+                codigo_Carrito: codigoP,
                 nombre__producto: nameP,
                 descripcion_producto: descripcionP,
                 precio_total: precioP,
@@ -39,7 +39,7 @@ export const RegistrarCarrito = ({ nameP = '', descripcionP = '', precioP = 0, i
 
     return (
         <>
-            <Button onClick={(e)=>saveCart()} namePb descripcionP precioP imagenP  press className='button-cart-register'><i className='pi pi-shopping-cart cart-shopping' cantidad></i></Button>
+            <Button onClick={(e)=>saveCart()}codigoP namePb descripcionP precioP imagenP  press className='button-cart-register'><i className='pi pi-shopping-cart cart-shopping' cantidad></i></Button>
             <ContentShoppingCart visible2={visible2} onHide={() => { setVisible2(false) }} />
         </>
 

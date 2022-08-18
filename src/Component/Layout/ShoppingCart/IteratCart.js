@@ -13,6 +13,12 @@ export const IteratCart = ({ listsCart = [], conut }) => {
         document.getElementById('cantidad').innerHTML = conut
     }, [conut])
    
+    const operation=(event,press)=>{
+        console.log(event.target.value)
+        
+        document.getElementById("oper").innerHTML=press*event.target.value
+       
+    }
     return (
         <div className='sectionCart'  >
             <div>
@@ -26,8 +32,14 @@ export const IteratCart = ({ listsCart = [], conut }) => {
                                     <img src={item.imagen_producto} alt="" className='img-cart' id='h2' />
                                     <div className='content-cart-nameProduct' id='h3'>
                                         <h2 id='padre'>{item.nombre__producto}</h2>
-                                        <h4 id='padre'>${item.precio_total}</h4>
-                                        <input id='h5' type="number" className='cart-quantity' />
+                                        <h4 id='precio'>${item.precio_total}</h4>
+                                        {/* <h2 id={item.}></h2> */}
+                                        <select onChange={e=>operation(e,item.precio_total)}>
+                                        <option value={1}>1</option>
+                                        <option value={2}>2</option>
+                                        <option value={3}>3</option>
+                                        <option>4</option>
+                                        </select>
                                     </div>
                                     <div className='content-delete-cart' id='h6'>
                                         <ServicieDeleteCart codigo={item.codigo_Carrito} press={item.precio_total}/>
@@ -43,7 +55,7 @@ export const IteratCart = ({ listsCart = [], conut }) => {
                             </div>
                         ))
                         :
-                        <div className='Cart-empty'><i className='ca pi pi-shopping-cart' style={{ fontSize: '100px' }}></i><h5>SU CARRITO ESTA VASIO</h5></div>
+                        <div className='Cart-empty'><i className='ca pi pi-shopping-cart' style={{ fontSize: '100px' }}></i><h5>SU CARRITO ESTA VACIO</h5></div>
                 }
 
                 {
