@@ -43,7 +43,7 @@ export const IteratCart = ({ listsCart = [], conut }) => {
                             </div>
                         ))
                         :
-                        <div className='Cart-empty'><i className='ca pi pi-shopping-cart' style={{ fontSize: '100px' }}></i><h5>SU CARRITO ESTA VASIO</h5></div>
+                        <div className='Cart-empty'><i className='ca pi pi-shopping-cart' style={{ fontSize: '100px' }}></i><h5>SU CARRITO ESTA VACIO</h5></div>
                 }
 
                 {
