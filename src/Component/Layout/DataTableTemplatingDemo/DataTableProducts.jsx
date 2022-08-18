@@ -40,7 +40,7 @@ export const DataTableProducts = () => {
         fetch(urlRegister, {
             method: 'GET',
             headers: {
-                "Content-type": "application/json"
+                'Content-Type': 'application/json'
             }
         })
             .then(response => response.json())

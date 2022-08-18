@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'
 import { Dialog } from 'primereact/dialog';
 import { Sidebar } from 'primereact/sidebar/';
 import { Button } from 'primereact/button';
-
-
 import './style.css'
 // import { ListsCart } from '../../../service/ServiceCarrito/ListsCart';
 import { get } from 'jquery';
@@ -37,24 +35,29 @@ export const NavHome = () => {
     //     }
     // }
 
+    const catchEmail = (event) => {
+        console.log(event.target.value);
+        setEmail(event.target.value)
+    }
+
     function login() {
         const urlEndpoint = 'http://localhost:8080/oauth/token';
-
+        console.log("ENTRA AL LOGIN");
         const credenciales = btoa('reactapp' + ':' + '12345');
-    
-        console.log("LISTANDO PRODUCTOS")
-        fetch(urlEndpoint, {
+        let params = new URLSearchParams();
+        params.set('grant_type', 'password');
+        params.set('username', email);
+        params.set('password', password);
+        console.log("PARAMETROS " + params);
+        console.log(credenciales);
+        let headers = new Headers();
+        headers.set('Content-Type', 'application/x-www-form-urlencoded');
+        headers.set('Authorization', 'Basic ' + credenciales);
+        fetch("http://localhost:8080/oauth/token", params, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'Authorization': 'Basic ' + credenciales
-            },body : JSON.stringify({
-                'grant_type' : 'password',
-                'username' :  email,
-                'password': password
-            })
+            headers: headers
         })
-            .then(response => console.log(response.json()))
+            .then(response => console.log(response))
     }
 
     
@@ -88,11 +91,9 @@ export const NavHome = () => {
            
             <Dialog header={header} className='-login' visible={visible} modal onHide={onHide} style={{ width: '30%', height: '40%' }}>
 
-                <form action="" className='form-login'>
-
                     <div className='content-login'>
                         <div>
-                            <input className='inputs' type="email" onChange={e => setEmail(e.target.value)} id='email' style={{ width: '20em' }} placeholder='email' />
+                            <input className='inputs' type="email" onChange={e => catchEmail(e)} id='email' style={{ width: '20em' }} placeholder='email' />
                         </div>
                         <div>
                             <input className='inputs' type="password" id='password' onChange={e => setPassword(e.target.value)} placeholder='password' style={{ width: '20em' }} />
@@ -103,7 +104,6 @@ export const NavHome = () => {
                         <div><Button className='button-login' onClick={login}>Iniciar Sesión</Button></div>
                     </div>
 
-                </form>
             </Dialog>
 
             <div className='favoritos'>
