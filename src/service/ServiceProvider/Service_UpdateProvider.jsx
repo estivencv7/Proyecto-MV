@@ -7,7 +7,7 @@ import { RadioGroup } from 'rsuite';
 import { InputNumber } from 'primereact/inputnumber';
 import './css/registerProvider.css'
 
-export const Service_UpdateProvider = (codeProviderUpdate) => {
+export const Service_UpdateProvider = ({codeProviderUpdate}) => {
   
   const [productSearch , setProducts] = useState(null);
   const [visible, setVisible] = useState(false);
@@ -18,7 +18,8 @@ export const Service_UpdateProvider = (codeProviderUpdate) => {
 
   function searchProvider () {
     console.log("entro a buscar un proveedor")
-      const urlRegister = 'http://localhost:8080//buscarProveedor/' + codeProviderUpdate;
+    console.log(codeProviderUpdate)
+      const urlRegister = 'http://localhost:8080/proveedores/buscarProveedor/' + codeProviderUpdate;
       fetch(urlRegister, {
           method: 'GET',
           headers: {
@@ -49,10 +50,10 @@ export const Service_UpdateProvider = (codeProviderUpdate) => {
   }
 
   function editProvider() {
-      console.log("estoy registrando un proveedor")
+      console.log("estoy editando un proveedor")
+      const identification = document.getElementById("inputCard")
       const name_provider = document.getElementById("inputName").value
       const phone = document.getElementById("inputPrice").value
-      console.log(name_supplier_product);
       const urlRegister = 'http://localhost:8080/actualizarProveedor/' + codeProviderUpdate;
       fetch(urlRegister, {
           method: 'PUT',
@@ -60,9 +61,9 @@ export const Service_UpdateProvider = (codeProviderUpdate) => {
               "Content-type": "application/json"
           },
           body: JSON.stringify({
-                cedula_proveedor: code,
+                cedula_proveedor: identification,
                 nombre_proveedor: name_provider,
-                telefono_proveedor: phone
+                telefono_proveedor: phone,
           })
       })
           .then(response => response.json())

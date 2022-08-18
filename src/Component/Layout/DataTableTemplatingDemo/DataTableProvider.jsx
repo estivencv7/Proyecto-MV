@@ -29,7 +29,7 @@ export const DataTableProvider = () => {
     useEffect(() => {
         listSuppliers()
         
-    }, [])
+    }, [selectedProvider])
 
     function listSuppliers() {
 
@@ -112,7 +112,6 @@ export const DataTableProvider = () => {
                         
                         <Service_RegisterProvider style='' />
                         <Button className='' onClick={inputSarch}><i className='pi pi-trash icons-registerProduct'></i></Button>
-
                         <Service_UpdateProvider codeProviderUpdate={selectedProvider.cedula_proveedor} />
                         <span className="p-input-icon-left">
                             <i className="pi pi-search" />
@@ -166,6 +165,7 @@ export const DataTableProvider = () => {
 
     return (
         <div className="datatable-doc-demo">
+            
             <div className="card">
             <div>
                 <label htmlFor="">Correo</label>
@@ -178,7 +178,7 @@ export const DataTableProvider = () => {
                 <main>
                     <DataTable value={provider} paginator className="p-datatable-customers" header={header} rows={5}
                         paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" rowsPerPageOptions={[10, 25, 50]}
-                        dataKey="id" rowHover selection={selectedProvider} onSelectionChange={e => setSelectedProvider(e.cedula_proveedor)}
+                        dataKey="id" rowHover onSelectionChange={e => setSelectedProvider(e.value)}
                         filters={filters} filterDisplay="menu" loading={loading} responsiveLayout="scroll"
                         globalFilterFields={['nombre_proveedor', 'cedula_proveedor', 'telefono_proveedor']} emptyMessage="No se encontraron proveedores."
                         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">

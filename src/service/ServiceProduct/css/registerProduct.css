@@ -45,6 +45,7 @@
 
 /*css de editar producto*/
 .content-Input-file{  
+    margin: 20px 0 0 0;
     width: 50%;
 }
 .dataProductsContainer{
