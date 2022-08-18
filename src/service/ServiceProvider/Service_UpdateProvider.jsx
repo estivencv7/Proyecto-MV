@@ -16,8 +16,9 @@ export const Service_UpdateProvider = (codeProviderUpdate) => {
   const [code , setCodeProvider] = useState(0)
   const [provider, setProvider] = useState("")
 
-  function searchProduct () {
-      const urlRegister = 'http://localhost:8080/buscarProveedor/' + codeProviderUpdate;
+  function searchProvider () {
+    console.log("entro a buscar un proveedor")
+      const urlRegister = 'http://localhost:8080//buscarProveedor/' + codeProviderUpdate;
       fetch(urlRegister, {
           method: 'GET',
           headers: {
@@ -26,6 +27,7 @@ export const Service_UpdateProvider = (codeProviderUpdate) => {
       })
           .then(response => response.json())
           .then(provider => guardarProvider(provider))
+          console.log(provider)
       setLoading(false)
   }    
 
@@ -37,17 +39,18 @@ export const Service_UpdateProvider = (codeProviderUpdate) => {
   const seew=()=>{
      
       if (visible == false) {
-          searchProduct()
+        console.log("entro al if")
+          searchProvider()
           setVisible(true)
       } else {
+        console.log("entro al else")
           setVisible(false)
       } 
   }
 
-  function editProduct() {
+  function editProvider() {
       console.log("estoy registrando un proveedor")
       const name_provider = document.getElementById("inputName").value
-      const identification = document.getElementById("inputDescription").value
       const phone = document.getElementById("inputPrice").value
       console.log(name_supplier_product);
       const urlRegister = 'http://localhost:8080/actualizarProveedor/' + codeProviderUpdate;
@@ -57,7 +60,7 @@ export const Service_UpdateProvider = (codeProviderUpdate) => {
               "Content-type": "application/json"
           },
           body: JSON.stringify({
-                cedula_proveedor: identification,
+                cedula_proveedor: code,
                 nombre_proveedor: name_provider,
                 telefono_proveedor: phone
           })
@@ -95,7 +98,7 @@ return (
                       </div>
                   </div>
           <div className='save-edit'>
-              <Button onClick={editProduct} >Guardar</Button>
+              <Button onClick={editProvider} >Guardar</Button>
           </div>
       </Dialog>
   </>
