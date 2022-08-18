@@ -15,11 +15,8 @@ import { RegistrarCarrito } from '../../../service/ServiceCarrito/RegistrarCarri
 import { ContentShoppingCart } from '../ShoppingCart/ContentShoppingCart';
 
 export const NavHome = () => {
-
-
-
-
-    
+    const [email , setEmail] = useState("")
+    const [password , setPassword] = useState("")
     const [visible, setVisible] = useState(false)
     const [visible2, setVisible2] = useState(false)
 
@@ -40,6 +37,28 @@ export const NavHome = () => {
     //     }
     // }
 
+    function login() {
+        const urlEndpoint = 'http://localhost:8080/oauth/token';
+
+        const credenciales = btoa('reactapp' + ':' + '12345');
+    
+        console.log("LISTANDO PRODUCTOS")
+        fetch(urlEndpoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Authorization': 'Basic ' + credenciales
+            },body : JSON.stringify({
+                'grant_type' : 'password',
+                'username' :  email,
+                'password': password
+            })
+        })
+            .then(response => console.log(response.json()))
+    }
+
+    
+    
     const header = (
         <div className='div-login'>
             <h2>login</h2>
@@ -73,15 +92,15 @@ export const NavHome = () => {
 
                     <div className='content-login'>
                         <div>
-                            <input className='inputs' type="email" id='email' style={{ width: '20em' }} placeholder='email' />
+                            <input className='inputs' type="email" onChange={e => setEmail(e.target.value)} id='email' style={{ width: '20em' }} placeholder='email' />
                         </div>
                         <div>
-                            <input className='inputs' type="password" id='password' placeholder='password' style={{ width: '20em' }} />
+                            <input className='inputs' type="password" id='password' onChange={e => setPassword(e.target.value)} placeholder='password' style={{ width: '20em' }} />
                         </div>
                     </div>
                     <div className='divLink'>
                         <Link to="/registerUser">¿No tienes una cuenta? Registrar</Link>
-                        <div><Button className='button-login'>Iniciar Sesión</Button></div>
+                        <div><Button className='button-login' onClick={login}>Iniciar Sesión</Button></div>
                     </div>
 
                 </form>
