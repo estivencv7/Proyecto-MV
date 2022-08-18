@@ -60,16 +60,18 @@ export const Service_ProductRegis = ({style}) => {
     }
 
     const catchPriceProduct = (even) => {
-        setPriceProduct(even.target.value)
+        setPriceProduct(even.value)
     }
 
     const catchAmountProduct = (even) => {
-        setAmountProduct(even.target.value)
+        setAmountProduct(even.value)
     }
 
 
     function registerProduct() {
         console.log("estoy registrando un producto")
+        console.log(price)
+        console.log(amount)
         const urlRegister = 'http://localhost:8080/producto';
         fetch(urlRegister, {
             method: 'POST',
