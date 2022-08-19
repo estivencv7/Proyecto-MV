@@ -49,8 +49,6 @@ export const Service_UpdateProvider = ({codeProviderUpdate}) => {
 
   function editProvider() {
       console.log("estoy editando un proveedor")
-      const identification = document.getElementById("inputCard").value
-      console.log(identification)
       const name_provider = document.getElementById("inputName").value
       console.log(name_provider)
       const phone = document.getElementById("inputPhone").value
@@ -62,7 +60,7 @@ export const Service_UpdateProvider = ({codeProviderUpdate}) => {
               "Content-type": "application/json"
           },
           body: JSON.stringify({
-                cedula_proveedor: identification,
+                cedula_proveedor: code,
                 nombre_proveedor: name_provider,
                 telefono_proveedor: phone
           })
@@ -93,9 +91,8 @@ return (
               <div className='cont-update'>     
               
                   <div className='form'>
-                        <InputText id='inputCard' className='input-update' placeholder={provider.cedula_proveedor}/>
                         <InputText id='inputName' className='input-update' placeholder={provider.nombre_proveedor}/>
-                        <InputNumber id='inputPhone' className='input-update inputpress' placeholder={provider.telefono_proveedor}/>
+                        <InputText type="number" id='inputPhone' className='input-update inputpress' placeholder={provider.telefono_proveedor}/>
 
                       </div>
                   </div>
