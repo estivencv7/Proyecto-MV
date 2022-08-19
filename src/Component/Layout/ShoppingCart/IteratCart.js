@@ -33,8 +33,7 @@ export const IteratCart = ({ listsCart = [], conut }) => {
                                         <ServicieDeleteCart codigo={item.codigo_Carrito} press={item.precio_total}/>
                                         {
 
-                                            // t+=item.precio_total
-                                            console.log(guardar.push(item.precio_total))
+                                            guardar.push(item.precio_total)
                                         }
                                     </div>
                                 </div>
