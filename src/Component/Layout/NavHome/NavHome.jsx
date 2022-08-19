@@ -44,20 +44,26 @@ export const NavHome = () => {
         const urlEndpoint = 'http://localhost:8080/oauth/token';
         console.log("ENTRA AL LOGIN");
         const credenciales = btoa('reactapp' + ':' + '12345');
-        let params = new URLSearchParams();
-        params.set('grant_type', 'password');
-        params.set('username', email);
-        params.set('password', password);
+        const params = new URLSearchParams();
+        params.append('username', email);
+        params.append('password', password);
+        params.append('grant_type', 'password');
         console.log("PARAMETROS " + params);
         console.log(credenciales);
-        let headers = new Headers();
-        headers.set('Content-Type', 'application/x-www-form-urlencoded');
-        headers.set('Authorization', 'Basic ' + credenciales);
-        fetch("http://localhost:8080/oauth/token", params, {
+        console.log(params.toString());
+        let header = new Headers();
+        // header.set('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+        // header.set('Authorization', 'Basic ' + credenciales);
+        fetch(urlEndpoint ,  {
             method: 'POST',
-            headers: headers
+            headers: {
+                'Access-Control-Allow-Origin': '*' ,
+                'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                'Authorization':  'Basic ' + credenciales,
+            },body : params.toString()
         })
-            .then(response => console.log(response))
+        .then(response => response.json())
+        .then(data => console.log(data.access_token))
     }
 
     
