@@ -41,12 +41,9 @@ export const GetCards = ({ getCards = [], onClick }) => {
                             <hr />
                             <div className='content-press'>
                                 <h2 className='press'>${item.precio_producto}</h2>
-<<<<<<< HEAD
-                                <RegistrarCarrito nameP={item.nombre_producto} descripcionP={item.descripcion_producto} imagenP={item.foto_producto} precioP={item.precio_producto} press={item.precio_producto}  />
-                
-=======
-                                <RegistrarCarrito codigoP={item.codigo_producto} nameP={item.nombre_producto} descripcionP={item.descripcion_producto} imagenP={item.foto_producto} precioP={item.precio_producto} press={item.precio_producto} />
->>>>>>> ee29497d3d4fe023f5a73671246119a21bce45ca
+
+                                <RegistrarCarrito codigoP={item.codigo_producto} nameP={item.nombre_producto} descripcionP={item.descripcion_producto} imagenP={item.foto_producto} precioP={item.precio_producto}  />
+
                             </div>
                            
                             <div >
