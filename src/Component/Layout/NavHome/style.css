@@ -82,3 +82,7 @@
 .name-icon{
     font-size: 15px;
 }
+
+.logoutHide{
+    visibility: hidden;
+}
