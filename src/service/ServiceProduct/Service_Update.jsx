@@ -131,8 +131,7 @@ export const Service_Update = ({codeProductUpdate}) => {
         }
     }
 
-    
-    const seew=()=>{
+       const seew=()=>{
        
         if (visible == false) {
             searchProduct()
