@@ -171,9 +171,9 @@ export const Service_Update = ({codeProductUpdate}) => {
             .then(response => response.json())
             .then(json => {
                 if(json.ok){
-                    alert("Registro exitoso")
+                    alert("Actualizacion Exitosa")
                 }else{
-                    alert("Registro exitoso")
+                    alert("Actualizacion Exitosa")
                 }
             })
     }
