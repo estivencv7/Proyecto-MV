@@ -49,16 +49,20 @@ export const Service_UpdateProvider = ({codeProviderUpdate}) => {
 
   function editProvider() {
       console.log("estoy editando un proveedor")
+      const identification = document.getElementById("inputCard").value
+      console.log(identification)
       const name_provider = document.getElementById("inputName").value
+      console.log(name_provider)
       const phone = document.getElementById("inputPhone").value
-      const urlRegister = 'http://localhost:8080/actualizarProveedor/' + codeProviderUpdate;
+      console.log(phone)
+      const urlRegister = 'http://localhost:8080/proveedores/actualizarProveedor/' + codeProviderUpdate;
       fetch(urlRegister, {
           method: 'PUT',
           headers: {
               "Content-type": "application/json"
           },
           body: JSON.stringify({
-                cedula_proveedor: code,
+                cedula_proveedor: identification,
                 nombre_proveedor: name_provider,
                 telefono_proveedor: phone
           })
@@ -66,9 +70,9 @@ export const Service_UpdateProvider = ({codeProviderUpdate}) => {
           .then(response => response.json())
           .then(json => {
               if(json.ok){
-                  alert("Registro exitoso")
+                  alert("Actualizacion Exitosa")
               }else{
-                  alert("Registro exitoso")
+                  alert("Actualizacion Exitosa")
               }
           })
   }
@@ -89,9 +93,9 @@ return (
               <div className='cont-update'>     
               
                   <div className='form'>
-                        <InputText className='input-update' placeholder={provider.cedula_proveedor}/>
-                        <InputText className='input-update' placeholder={provider.nombre_proveedor}/>
-                        <InputNumber className='input-update inputpress' placeholder={provider.telefono_proveedor}/>
+                        <InputText id='inputCard' className='input-update' placeholder={provider.cedula_proveedor}/>
+                        <InputText id='inputName' className='input-update' placeholder={provider.nombre_proveedor}/>
+                        <InputNumber id='inputPhone' className='input-update inputpress' placeholder={provider.telefono_proveedor}/>
 
                       </div>
                   </div>
