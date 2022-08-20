@@ -24,19 +24,25 @@ export const Service_RegisterCategories = ({style}) => {
           console.log("estoy registrando un proveedor")
           const urlRegister = 'http://localhost:8080/categorias';
           console.log(urlRegister)
-          fetch(urlRegister, {
-              method: 'POST',
-              headers: {
-                  "Content-type": "application/json"
-              },
-              body: JSON.stringify({
-                id_categoria : id,
-                nombre_categoria: name,
-              })
-          })
-          .then(response => response)
-          .then(json => check(json.ok))
-          console.log();
+          let tokenAdmin = localStorage.getItem('admin')
+          if(tokenAdmin == "" || tokenAdmin == null){
+            alert("Por favor registrese")
+          }else{
+            fetch(urlRegister, {
+                method: 'POST',
+                headers: {
+                    "Content-type": "application/json",
+                    "Authorization" : "Bearer " + tokenAdmin
+                },
+                body: JSON.stringify({
+                  id_categoria : id,
+                  nombre_categoria: name,
+                })
+            })
+            .then(response => response)
+            .then(json => check(json.ok))
+            console.log();
+          }
       }
   
       function check(element) {
