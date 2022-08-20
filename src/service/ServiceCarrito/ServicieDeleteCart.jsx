@@ -28,7 +28,7 @@ export const ServicieDeleteCart = ({ codigo, press }) => {
         if (response.status == 200) {
           document.getElementById(codigo).innerHTML = ""
           document.getElementById("cantidad").innerHTML -= 1
-          document.getElementById("press").innerHTML -= press
+          // document.getElementById("press").innerHTML -= press
 
         }
       })

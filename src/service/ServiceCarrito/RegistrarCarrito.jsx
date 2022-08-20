@@ -19,8 +19,10 @@ export const RegistrarCarrito = ({ codigoP ,nameP = '', descripcionP = '', preci
                 codigo_Carrito: codigoP,
                 nombre__producto: nameP,
                 descripcion_producto: descripcionP,
-                precio_total: precioP,
-                imagen_producto: imagenP
+                imagen_producto: imagenP,
+                cantidad_cart:1,
+                precio_producto:precioP,
+                
             })
         })
             .then(response =>{

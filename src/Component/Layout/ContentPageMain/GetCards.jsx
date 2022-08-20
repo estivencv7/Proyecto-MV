@@ -4,6 +4,7 @@ import { Button } from 'primereact/button';
 import { Dialog } from 'primereact/dialog'
 import { Modal } from './Modal';
 import { RegistrarCarrito } from '../../../service/ServiceCarrito/RegistrarCarrito';
+// import { RegistrarCarrito } from '../../../service/ServiceCarrito/RegistrarCarrito';
 // import { get } from 'jquery';
 // import { Modal } from './Modal';
 export const GetCards = ({ getCards = [], onClick }) => {
@@ -42,7 +43,8 @@ export const GetCards = ({ getCards = [], onClick }) => {
                             <div className='content-press'>
                                 <h2 className='press'>${item.precio_producto}</h2>
 
-                                <RegistrarCarrito codigoP={item.codigo_producto} nameP={item.nombre_producto} descripcionP={item.descripcion_producto} imagenP={item.foto_producto} precioP={item.precio_producto}  />
+                                
+                                <RegistrarCarrito  codigoP={item.codigo_producto} nameP={item.nombre_producto} descripcionP={item.descripcion_producto} imagenP={item.foto_producto} precioP={item.precio_producto}/>
 
                             </div>
                            
