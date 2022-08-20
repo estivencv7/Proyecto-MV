@@ -56,25 +56,31 @@ export const Service_UpdateProvider = ({codeProviderUpdate}) => {
       const phone = document.getElementById("inputPhone").value
       console.log(phone)
       const urlRegister = 'http://localhost:8080/proveedores/actualizarProveedor/' + codeProviderUpdate;
-      fetch(urlRegister, {
-          method: 'PUT',
-          headers: {
-              "Content-type": "application/json"
-          },
-          body: JSON.stringify({
-                cedula_proveedor: identification,
-                nombre_proveedor: name_provider,
-                telefono_proveedor: phone
-          })
-      })
-          .then(response => response.json())
-          .then(json => {
-              if(json.ok){
-                  alert("Actualizacion Exitosa")
-              }else{
-                  alert("Actualizacion Exitosa")
-              }
-          })
+      let tokenAdmin = localStorage.getItem('admin')
+      if(tokenAdmin == "" || tokenAdmin == null){
+        alert("Por favor registrese")
+      }else{
+        fetch(urlRegister, {
+            method: 'PUT',
+            headers: {
+                "Content-type": "application/json",
+                "Authorization" : "Bearer " + tokenAdmin
+            },
+            body: JSON.stringify({
+                  cedula_proveedor: identification,
+                  nombre_proveedor: name_provider,
+                  telefono_proveedor: phone
+            })
+        })
+            .then(response => response.json())
+            .then(json => {
+                if(json.ok){
+                    alert("Actualizacion Exitosa")
+                }else{
+                    alert("Actualizacion Exitosa")
+                }
+            })
+      }
   }
 
 

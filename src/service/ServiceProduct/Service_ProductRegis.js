@@ -72,30 +72,35 @@ export const Service_ProductRegis = ({style}) => {
         console.log(price)
         console.log(amount)
         const urlRegister = 'http://localhost:8080/producto';
-
-        fetch(urlRegister, {
-            method: 'POST',
-            headers: {
-                "Content-type": "application/json",
-                "Authorization" : "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbmZvX2FkaWNpb25hbCI6IkhvbGEgcXVlIHRhbCFqaG9uQGdtYWlsLmNvbSIsInVzZXJfbmFtZSI6Impob25AZ21haWwuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImFwZWxsaWRvIjoiaGdnc2RzZCIsImV4cCI6MTY2MDg4MTQxNywibm9tYnJlIjoiSmhvbiIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwianRpIjoiMTliZGIzZDAtZDM0Ny00M2I1LWFiNzAtNTgwYThjMTAxYzhlIiwiZW1haWwiOiJqaG9uQGdtYWlsLmNvbSIsImNsaWVudF9pZCI6InJlYWN0YXBwIn0.R9HkNDZiWFJbNMj51oi38nBweVO3qN8Z6jNy5AKt258"
-            },
-            body: JSON.stringify({
-                codigo_producto : code,
-                nombre_producto: name_product,
-                descripcion_producto: description,
-                precio_producto: price,
-                cantidad_producto : amount,
-                foto_producto:image,
-                id_categoria : {
-                    id_categoria : idCategory,
-                    nombre_categoria : nameCategory
+        let tokenAdmin = localStorage.getItem('admin')
+        console.log(tokenAdmin);
+        if(tokenAdmin == "" || tokenAdmin == null){
+            alert("Por favor registrese")
+        }else{             
+            fetch(urlRegister, {
+                method: 'POST',
+                headers: {
+                    "Content-type": "application/json",
+                    "Authorization" : "Bearer " + tokenAdmin
                 },
-                nombre_proveedor_producto : name_supplier_product
+                body: JSON.stringify({
+                    codigo_producto : code,
+                    nombre_producto: name_product,
+                    descripcion_producto: description,
+                    precio_producto: price,
+                    cantidad_producto : amount,
+                    foto_producto:image,
+                    id_categoria : {
+                        id_categoria : idCategory,
+                        nombre_categoria : nameCategory
+                    },
+                    nombre_proveedor_producto : name_supplier_product
+                })
             })
-        })
-            .then(response => response)
-            .then(json => check(json.ok))
-            console.log(name_supplier_product);
+                .then(response => response)
+                .then(json => check(json.ok))
+                console.log(name_supplier_product);
+        }
     }
     
     function check(element) {

@@ -84,7 +84,6 @@ export const NavHome = () => {
                 console.log("TOKEN PARA REGISTRAR EN ADMIN " + token.access_token);
                 localStorage.setItem('admin' , token.access_token)
                 let tokenAdmin = localStorage.getItem('admin')
-                sessionStorage.setItem("token", token.access_token);
                 console.log("TOKEN ADMIN "  + tokenAdmin);
                 navigate("/PageAdminMain" )
             }
