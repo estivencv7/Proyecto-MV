@@ -10,25 +10,32 @@ export const IteratCart = ({ listsCart = [], conut }) => {//resive como parametr
     
     let guardar = []
     let t = 0;
+
     
     // const [visible, setvible] = useState(false);
     
-    
+    const [visible2,setVisible2]=useState(false)
+    const [visible,setVisible]=useState(false)
+    const [pretotal,setPretotal]=useState([])
 
+    let l;
     
     useEffect(() => {
+        // set2(listsCart)
         document.getElementById('cantidad').innerHTML = conut //se cambia de estado la cantidad de productos que hay en el carrito el componente se en cuentra en la (NavHome)
     }, [conut])
 
     let precioTotal;
 
-
+    function timeout(ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+    }
     //actualizamos el carro cuando multiplicamos precio por cantidad
-    function editCart(e,codigo, nameP,precioP, imagenP,precio_total) {//la (e) es el valor que captura (1234)
+    const  editCart=async(e,codigo, nameP,precioP, imagenP,precio_total)=> {//la (e) es el valor que captura (1234)
         let cantidad=e.target.value;
         precioTotal=precioP*cantidad
-        
-        const urlRegister = 'http://localhost:8080/carritoCompras/actualizarCarrito/'+codigo;//se le pasa por parametro el codigo del carrito
+      
+        const urlRegister ='http://localhost:8080/carritoCompras/actualizarCarrito/'+codigo;//se le pasa por parametro el codigo del carrito
         fetch(urlRegister, {
             method: 'PUT',
             headers: {
@@ -43,31 +50,32 @@ export const IteratCart = ({ listsCart = [], conut }) => {//resive como parametr
                 precio_total:precioTotal
 
             })
+
         })
             .then(response =>{
             
                 if (response.ok) {
                   
-                         
                 } else {     
                 }
             })
+
+         
+            
     }
 
     
-    // function timeout(ms) {
-    //     return new Promise((resolve) => setTimeout(resolve, ms));
-    // }
     
-    // const re=async()=>{
-    //     setVisible2(false)
-    //     await timeout( 1000)
+    
+    const re=async()=>{
+        setVisible2(false)
+        await timeout(1000)
 
-    //     if(visible==false){
-    //         // alert("Actualizando Carrito de compras")
-    //         setVisible2(true)
-    //     }
-    // }
+        if(visible==false){
+            // alert("Actualizando Carrito de compras")
+            
+        }
+    }
 
     return (
         <div className='sectionCart'  >
@@ -88,8 +96,9 @@ export const IteratCart = ({ listsCart = [], conut }) => {//resive como parametr
                                                 {item.cantidad_cart==3? <div></div>:<option value={3}>3</option>}
                                                 <option>4</option>
                                             </select>
+                                        
                                         {item.precio_total>item.precio_producto ? <h4 id='precio'>${item.precio_producto} unidad</h4> : <h4 id='precio'>${item.precio_producto}</h4>}
-                                        {item.precio_total<=item.precio_producto ? <h2></h2> : <h2>{item.precio_total}</h2>}
+                                        {item.precio_total<=item.precio_producto ? <h2></h2> : <h2 id={item.nombre__producto}>{item.precio_producto*item.cantidad_cart}</h2>}
 
                                     </div>
                                     
@@ -131,7 +140,7 @@ export const IteratCart = ({ listsCart = [], conut }) => {//resive como parametr
                 // <div> </div>
             }
 
-            {/* <ContentShoppingCart visible2={visible} onHide={()=>setvible(false)}></ContentShoppingCart> */}
+            <ContentShoppingCart visible2={visible2} onHide={()=>setVisible2(false)}></ContentShoppingCart>
         </div>
 
     )

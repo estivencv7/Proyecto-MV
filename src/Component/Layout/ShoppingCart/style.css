@@ -99,4 +99,18 @@ color: #008037 !important;
     background: white;
     top:0;
     width: 100%;
+    display:flex;
+    justify-content: space-around;
+    /* border-bottom:3px solid rgb(229, 252, 231); */
+    box-shadow: 0px 0px 40px #b1ecca;
+}
+
+.updata-cart{
+    background: none;
+    border: none;
+    font-size: 22px;
+}
+
+.updata-cart:hover{
+    
 }

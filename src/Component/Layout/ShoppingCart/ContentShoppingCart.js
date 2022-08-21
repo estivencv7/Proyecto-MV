@@ -20,13 +20,10 @@ export const ContentShoppingCart = ({ visible2=false, onHide,onClick }) => {
     
     return (
         <Sidebar  position='right' visible={visible2} style={{ width: '30%' }} onHide={onHide} className='sidebar-cart'>
-           
-           
             <div className='title-cart'>
                 <h1 >Carrito</h1> 
-                <button onClick={onClick}>refrescar</button>
+                <button onClick={onClick} className='updata-cart'>Actualizar Precios</button>
             </div>
-            
             <ListsCart />
         </Sidebar>
     )

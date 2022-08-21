@@ -44,7 +44,7 @@ export const RegistrarCarrito = ({ codigoP ,nameP = '', descripcionP = '', preci
     //esta funcion nos permite actualizar el carrito 
     const re=async()=>{
         setVisible2(false)
-        await timeout(310)//se le envia por parametro los el tiempo que se requier
+        await timeout(400)//se le envia por parametro los el tiempo que se requier
 
         if(visible==false){
             setVisible2(true)
