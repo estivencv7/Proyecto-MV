@@ -66,16 +66,7 @@ export const IteratCart = ({ listsCart = [], conut }) => {//resive como parametr
 
     
     
-    
-    const re=async()=>{
-        setVisible2(false)
-        await timeout(1000)
-
-        if(visible==false){
-            // alert("Actualizando Carrito de compras")
-            
-        }
-    }
+   
 
     return (
         <div className='sectionCart'  >
