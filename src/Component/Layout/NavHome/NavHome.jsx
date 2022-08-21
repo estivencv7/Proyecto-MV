@@ -13,6 +13,7 @@ import { RegistrarCarrito } from '../../../service/ServiceCarrito/RegistrarCarri
 import { ContentShoppingCart } from '../ShoppingCart/ContentShoppingCart';
 import { useNavigate } from "react-router-dom";
 import iconLogout from '../../../Images/cerrarSesion.png';
+import { InputText } from 'primereact/inputtext';
 
 export const NavHome = () => {
     const [email , setEmail] = useState("")
@@ -127,7 +128,7 @@ export const NavHome = () => {
     
     const header = (
         <div className='div-login'>
-            <h2>login</h2>
+            <h2>Iniciar Sesion</h2>
         </div>
 
     )
@@ -169,14 +170,14 @@ export const NavHome = () => {
                 <button className='icon' onClick={() => onHide(onHide)} ><i className="pi pi-user ico"><p  className='name-icon' id='nameAccount'>Mi Cuenta</p></i></button>
             </div>
 
-            <Dialog header={header} className='-login' visible={visible} modal onHide={onHide} style={{ width: '30%', height: '40%' }}>
+            <Dialog header={header} className='-login' visible={visible} modal onHide={onHide} style={{ width: '30%', height: '30%' }}>
 
                     <div className='content-login'>
                         <div>
-                            <input className='inputs' type="email" onChange={e => catchEmail(e)} id='email' style={{ width: '20em' }} placeholder='email' />
+                            <InputText className='inputs' type="email" onChange={e => catchEmail(e)} id='email' style={{ width: '20em' }} placeholder='email' />
                         </div>
                         <div>
-                            <input className='inputs' type="password" id='password' onChange={e => setPassword(e.target.value)} placeholder='password' style={{ width: '20em' }} />
+                            <InputText className='inputs' type="password" id='password' onChange={e => setPassword(e.target.value)} placeholder='password' style={{ width: '20em' }} />
                         </div>
                     </div>
                     <div className='divLink'>
