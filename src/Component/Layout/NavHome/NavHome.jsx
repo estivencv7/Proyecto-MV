@@ -132,18 +132,35 @@ export const NavHome = () => {
 
     )
 
+    //========================estas funciones estan explicadas en el servicio registrar producto
+   
+    function timeout(ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+    
+    const re=async()=>{
+        setVisible2(false)
+        await timeout( 1000)
+
+        if(visible==false){
+           
+            setVisible2(true)
+        }
+    }
+    //==================================================================
+
+    useEffect(()=>{
+
+    },[visible2])
+
     return (
         <nav className='icons'>
              
             <Link className='icon' to="/"><i className="pi pi-home ico" ><p  className='name-icon'> Inicio </p></i></Link>
-            <ContentShoppingCart onHide={()=>setVisible2(false)} visible2={visible2}/>
-            {/* <Sidebar position='right' visible={visible2} style={{ width: '40em' }} onHide={() => setVisible2(false)}>
-                <h1>Carrito</h1>
-                <ListsCart />
-            </Sidebar> */}
+            <ContentShoppingCart onHide={()=>setVisible2(false)} visible2={visible2} onClick={re} />
 
             <div className="cart-conten">
-                <p className='cantidad-product' id='cantidad'></p>
+                <p className='cantidad-product' id='cantidad'></p> {/*Aqui va la cantidad de productos que llevamos en el carrito*/}
                 <button className='icon' onClick={(e) => setVisible2(true)} ><i className="pi pi-shopping-cart ico"><p>Mi Carrito</p></i></button>
             </div>
 

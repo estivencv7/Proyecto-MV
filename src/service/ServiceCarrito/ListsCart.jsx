@@ -5,16 +5,16 @@ import { IteratCart } from '../../Component/Layout/ShoppingCart/IteratCart';
 
 export const ListsCart = () => {
   
+  // let m=new ListaN();
   
   const [carrito, setCarrito] = useState([])
-
   const peticion = () => {
     const url = 'http://localhost:8080/carritoCompras/listarcarrito';
     fetch(url)
       .then(response => response.json())
       .then(data => {
-        console.log("esta en listar carrito\n" + data)
         setCarrito(data)
+      //  m.lista.push(data)
       })
   }
 
