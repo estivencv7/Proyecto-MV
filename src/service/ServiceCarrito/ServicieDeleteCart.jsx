@@ -7,7 +7,7 @@ import './css/Style.css'
 import { ListsCart } from './ListsCart'
 
 
-export const ServicieDeleteCart = ({ codigo, press }) => {
+export const ServicieDeleteCart = ({ codigo, press }) => {//tiene como propiedad codigo y precio para capturar su valor en la carperta ShoppingCart(iteratCart)
   // const [status,setStatus]=useState(0)
 
 
@@ -26,9 +26,9 @@ export const ServicieDeleteCart = ({ codigo, press }) => {
 
 
         if (response.status == 200) {
-          document.getElementById(codigo).innerHTML = ""
-          document.getElementById("cantidad").innerHTML -= 1
-          // document.getElementById("press").innerHTML -= press
+          document.getElementById(codigo).innerHTML = "" //cada ves que borremos un producto del carrito de compras se borrara el producto del carrito || se le pasa por id el codigo para referencia cada cart que se encuntra ShoppingCart(iteratCart)
+          document.getElementById("cantidad").innerHTML -= 1 //cada ves que borremos un producto del carrito de compras se le restara a la cantidad de productos que tenemos en el carrito
+          document.getElementById("press").innerHTML -= press //cada ves que borremos un producto del carrito de compras se le restara al total de Compra
 
         }
       })

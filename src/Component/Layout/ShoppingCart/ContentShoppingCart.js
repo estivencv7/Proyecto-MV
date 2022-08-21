@@ -13,11 +13,20 @@ import { ListsCart } from '../../../service/ServiceCarrito/ListsCart';
 // // import Lista from './Lista';
 // import { RegistrarCarrito } from '../../../service/ServiceCarrito/RegistrarCarrito';
 
-export const ContentShoppingCart = ({ visible2, onHide }) => {
+export const ContentShoppingCart = ({ visible2=false, onHide,onClick }) => {
+   const [visible,setvible]=useState(false)
+    
+   
     
     return (
         <Sidebar  position='right' visible={visible2} style={{ width: '30%' }} onHide={onHide} className='sidebar-cart'>
-            <h1 className='title-cart'>Carrito</h1>
+           
+           
+            <div className='title-cart'>
+                <h1 >Carrito</h1> 
+                <button onClick={onClick}>refrescar</button>
+            </div>
+            
             <ListsCart />
         </Sidebar>
     )
