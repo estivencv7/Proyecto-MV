@@ -4,7 +4,6 @@ import { Dialog } from 'primereact/dialog';
 import { Button,} from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
 import './css/registerProduct.css'
-
 export const Service_ProductRegis = ({style}) => {
 
     const [visible, setVisible] = useState(false)
@@ -73,28 +72,35 @@ export const Service_ProductRegis = ({style}) => {
         console.log(price)
         console.log(amount)
         const urlRegister = 'http://localhost:8080/producto';
-        fetch(urlRegister, {
-            method: 'POST',
-            headers: {
-                "Content-type": "application/json"
-            },
-            body: JSON.stringify({
-                codigo_producto : code,
-                nombre_producto: name_product,
-                descripcion_producto: description,
-                precio_producto: price,
-                cantidad_producto : amount,
-                foto_producto:image,
-                id_categoria : {
-                    id_categoria : idCategory,
-                    nombre_categoria : nameCategory
+        let tokenAdmin = localStorage.getItem('admin')
+        console.log(tokenAdmin);
+        if(tokenAdmin == "" || tokenAdmin == null){
+            alert("Por favor registrese")
+        }else{             
+            fetch(urlRegister, {
+                method: 'POST',
+                headers: {
+                    "Content-type": "application/json",
+                    "Authorization" : "Bearer " + tokenAdmin
                 },
-                nombre_proveedor_producto : name_supplier_product
+                body: JSON.stringify({
+                    codigo_producto : code,
+                    nombre_producto: name_product,
+                    descripcion_producto: description,
+                    precio_producto: price,
+                    cantidad_producto : amount,
+                    foto_producto:image,
+                    id_categoria : {
+                        id_categoria : idCategory,
+                        nombre_categoria : nameCategory
+                    },
+                    nombre_proveedor_producto : name_supplier_product
+                })
             })
-        })
-            .then(response => response)
-            .then(json => check(json.ok))
-            console.log(name_supplier_product);
+                .then(response => response)
+                .then(json => check(json.ok))
+                console.log(name_supplier_product);
+        }
     }
     
     function check(element) {

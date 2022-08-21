@@ -10,11 +10,15 @@ export const NavigationAdmin = () => {
     const [visible, setVisible] = useState(false)
     const [visible2, setVisible2] = useState(false)
     const [carrito, setCarrito] = useState([])
+    const [nameAdmin , setNameAdmin] = useState("")
+    let [tokenAccess , setAccessToken] = useState("")
 
     const onHide = () => {
         if (visible == false) {
+            buscarAdminRegistrado()
             setVisible(true)
         } else {
+            buscarAdminRegistrado()
             setVisible(false)
         }
     }
@@ -25,28 +29,47 @@ export const NavigationAdmin = () => {
         </div>
 
     )
-
-
-    const getCart = async() => {
-        const response= await fetch('http://localhost:8080/carritoCompras/listarcarrito')
-        const data = await response.json();
-        setCarrito(data)
-        return data;
-        // const url = 'http://localhost:8080/carritoCompras/listarcarrito';
-        // fetch(url)
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         setCarrito(data)
-        //     })
+    
+    let adminActivo = {
+        nameA : "",
+        stateA : 0,
+        surnameA : "",
+        emailA : "" 
     }
 
-    const savelLength=()=>{
-        getCart()
+    const obtenerDatosToken = (accessToken = "" ) => {
+
+        if (accessToken != null && accessToken.length > 0) {
+          return JSON.parse(atob(accessToken.split(".")[1]));
+        }
+        return null;
     }
 
-    useEffect(() => {
-        savelLength()
-    }, [])
+    const buscarAdminRegistrado = () => {
+        let tokenAdmin = localStorage.getItem('admin') 
+        setAccessToken(tokenAdmin)
+        console.log("Buscar admin " + tokenAccess);
+        let payload = obtenerDatosToken(tokenAccess);
+        adminActivo.nameA = payload.nombre;
+        adminActivo.emailA = payload.email;
+        adminActivo.surnameA = payload.apellido;
+        adminActivo.stateA = payload.Estado;
+        sessionStorage.setItem("admin", JSON.stringify(adminActivo))
+        sessionStorage.setItem("token", tokenAccess);
+        console.log("Admin en el sesion storage " + sessionStorage.getItem("admin"));
+        console.log(adminActivo);
+    }
+
+    const logout = () => {
+        console.log("TOKEN DE ACCESO " + tokenAccess);
+        localStorage.setItem('admin' , "")
+        adminActivo = null;
+        // sessionStorage.clear();
+        sessionStorage.removeItem('admin');
+        sessionStorage.removeItem('token');
+        document.getElementById("nameAccount").textContent = "Mi Cuenta"
+        alert("Sesion cerrada con exito")
+      }
 
   return (
     <div className='header-admin'>
@@ -55,7 +78,8 @@ export const NavigationAdmin = () => {
           <Emblema classN="title-admin" />
           <nav className='icons'>
             <Link className='iconAdmin' to="/PageAdminMain"><i className="pi pi-home ico" ></i></Link>
-            <button className='iconAdmin' onClick={() => onHide(onHide)} ><i className="pi pi-user"></i></button>
+            <button className='iconAdmin' onClick={() => onHide(onHide)} ><i className="pi pi-user"></i><p id='nameAccount'>{adminActivo.nameA}</p></button>
+            <button className='icon' onClick={logout}><i className='pi pi-sign-out ico'><p>Cerrar sesion</p></i></button>
         </nav>
         </div>
         <div className='paredAdmin'></div>

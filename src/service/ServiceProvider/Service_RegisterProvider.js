@@ -43,7 +43,7 @@ export const Service_RegisterProvider = ({style}) => {
     }
 
     const catchphoneProvider = (even) => {
-        setPhoneProvider(even.target.value)
+        setPhoneProvider(even.value)
     }
 
 
@@ -51,21 +51,27 @@ export const Service_RegisterProvider = ({style}) => {
         console.log("estoy registrando un proveedor")
         const urlRegister = 'http://localhost:8080/proveedores/registrarProveedor';
         console.log(urlRegister)
-        fetch(urlRegister, {
-            method: 'POST',
-            headers: {
-                "Content-type": "application/json"
-            },
-            body: JSON.stringify({
-                cedula_proveedor : id,
-                nombre_proveedor: name,
-                telefono_proveedor: phone
-                /*nombre_proveedor_producto : name_supplier_product*/
+        let tokenAdmin = localStorage.getItem('admin')
+        if(tokenAdmin == "" || tokenAdmin == null){
+            alert("Por favor registrese")    
+        }else{
+            fetch(urlRegister, {
+                method: 'POST',
+                headers: {
+                    "Content-type": "application/json",
+                    "Authorization" : "Bearer " + tokenAdmin
+                },
+                body: JSON.stringify({
+                    cedula_proveedor : id,
+                    nombre_proveedor: name,
+                    telefono_proveedor: phone
+                    /*nombre_proveedor_producto : name_supplier_product*/
+                })
             })
-        })
-        .then(response => response)
-        .then(json => check(json.ok))
-        console.log();
+            .then(response => response)
+            .then(json => check(json.ok))
+            console.log();
+        }
     }
 
     function check(element) {
