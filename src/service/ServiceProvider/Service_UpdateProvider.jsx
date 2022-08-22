@@ -84,7 +84,7 @@ export const Service_UpdateProvider = ({codeProviderUpdate}) => {
                 "Authorization" : "Bearer " + tokenAdmin
             },
             body: JSON.stringify({
-                  cedula_proveedor: identification,
+                  cedula_proveedor: code,
                   nombre_proveedor: name_provider,
                   telefono_proveedor: phone
             })

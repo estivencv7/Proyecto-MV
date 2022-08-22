@@ -3,6 +3,7 @@ import { FormSaveProduct } from '../../Component/Layout/FormSaveProduct/FormSave
 import { Dialog } from 'primereact/dialog';
 import { Button,} from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
+import { Toaster, toast } from 'react-hot-toast';
 import './css/registerProduct.css'
 export const Service_ProductRegis = ({style}) => {
 
@@ -105,12 +106,17 @@ export const Service_ProductRegis = ({style}) => {
     
     function check(element) {
         if (element == true) {
-            alert("Registro exitoso")
+            <Toaster reverseOrder={true} toastOptions={{
+            
+            }} />
+            
+            
+            //alert("Registro exitoso")
         } else {
             alert("hubo un error al momento de registrar")
         }
     }
-    
+
     const onHide = () => {
         if (visible == false) {
             setVisible(true)
