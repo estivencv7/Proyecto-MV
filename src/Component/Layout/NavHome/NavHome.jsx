@@ -5,15 +5,10 @@ import { Sidebar } from 'primereact/sidebar/';
 import { Button } from 'primereact/button';
 import './style.css'
 // import { ListsCart } from '../../../service/ServiceCarrito/ListsCart';
-import { get } from 'jquery';
-import { Contador } from '../../../service/ServiceCarrito/Contador/Contador';
-import { IteratCart } from '../ShoppingCart/IteratCart';
-import Lista from './Lista';
-import { RegistrarCarrito } from '../../../service/ServiceCarrito/RegistrarCarrito';
 import { ContentShoppingCart } from '../ShoppingCart/ContentShoppingCart';
 import { useNavigate } from "react-router-dom";
-import iconLogout from '../../../Images/cerrarSesion.png';
 import { InputText } from 'primereact/inputtext';
+import { Toaster, toast } from 'react-hot-toast';
 
 export const NavHome = () => {
     const [email , setEmail] = useState("")
@@ -27,6 +22,7 @@ export const NavHome = () => {
     const [surnameUser , setSurnameUser] = useState("")
     const [emailUser , setEmailUser] = useState("")
     let navigate = useNavigate();
+    
     const onHide = () => {
         if (visible == false) {
             setVisible(true)
@@ -68,8 +64,13 @@ export const NavHome = () => {
 
     const catchToken = (token) => {
         if(token.nombre == "" || token.nombre == null){
-            alert("Correo o contraseña incorrecto, Por favor verifique o registrese")
-            navigate("/registerUser")
+            return (
+                toast("Correo o contraseña incorrecto, Por favor verifique o registrese")
+                (setTimeout(() => {
+                    (navigate("/registerUser"))
+                  }, 1000))
+                
+            )
         }else{
             document.getElementById("logout").classList.remove("logoutHide")
             setAccessToken(token.access_token)
@@ -80,6 +81,7 @@ export const NavHome = () => {
                 document.getElementById("nameAccount").textContent = token.nombre
                 console.log("TOKEN USER "  + tokenUser);
                 guardarUsuario(token.access_token)
+                setVisible(false)
                 navigate("/")
             }else {
                 console.log("TOKEN PARA REGISTRAR EN ADMIN " + token.access_token);
@@ -123,7 +125,7 @@ export const NavHome = () => {
         sessionStorage.removeItem('token');
         document.getElementById("logout").classList.add("logoutHide")
         document.getElementById("nameAccount").textContent = "Mi Cuenta"
-        alert("Sesion cerrada con exito")
+        
       }
     
     const header = (
@@ -191,9 +193,13 @@ export const NavHome = () => {
             </div>
             
             <div className='logoutHide' id='logout'>
-                <button className='icon' onClick={logout}><i className='pi pi-sign-out ico'><p>Cerrar sesion</p></i></button>
+                <button className='icon' onClick={logout} onMouseDown={() => toast('Sesion cerrada ')}><i className='pi pi-sign-out ico'><p>Cerrar sesion</p></i></button>
             </div>
             
+            <Toaster reverseOrder={true} toastOptions={{
+                className: 'k',
+                duration: '100'
+            }} />
         </nav>
 
     )
