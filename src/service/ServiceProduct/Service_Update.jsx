@@ -131,8 +131,7 @@ export const Service_Update = ({codeProductUpdate}) => {
         }
     }
 
-    
-    const seew=()=>{
+       const seew=()=>{
        
         if (visible == false) {
             searchProduct()
@@ -269,12 +268,12 @@ export const Service_Update = ({codeProductUpdate}) => {
                 <div className='cont-update'>     
                 
                     <div className='form'>
-                        <InputText type='text' className='input-update' placeholder={product.nombre_producto}/>
-                        <InputTextarea type='' placeholder={product.descripcion_producto}/>
+                        <InputText id='inputName' type='text' className='input-update' placeholder={product.nombre_producto}/>
+                        <InputTextarea id='inputDescription' type='' placeholder={product.descripcion_producto}/>
                         
                         <div className='cantidad'>
-                            <InputNumber className='input-update inputpress' placeholder={product.precio_producto}/>
-                            <InputNumber className='input-update inputpress' placeholder={product.cantidad_producto}/>
+                            <InputText type='number' id='inputPrice' className='input-update inputpress' placeholder={product.precio_producto}/>
+                            <InputText type='number' id='inputAmount' className='input-update inputpress' placeholder={product.cantidad_producto}/>
                         </div>
                 
                     
