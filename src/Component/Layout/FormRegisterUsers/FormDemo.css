@@ -26,6 +26,7 @@
 
 .p-fluid .p-inputtext{
     border: solid 1px  #008031;
+    width: 500px
 }
 
 .p-fluid .p-inputtext:focus{
