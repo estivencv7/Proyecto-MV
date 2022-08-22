@@ -134,10 +134,10 @@ export const FormRegister = () => {
                     apellido_cliente : surnameClient,
                     celular_cliente : cellphoneNumberClient,
                     contraseña_cliente : passwordClient,
-                    correo_cliente : emailClient,
+                    correo : emailClient,
                     estado_cliente : 1,
                     fecha_nacimin_cliente : dateBirthClient,
-                    nombre_cliente : nameClient
+                    nombre : nameClient
                 })
             })
                 .then(response => response)
