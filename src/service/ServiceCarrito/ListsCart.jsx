@@ -1,4 +1,3 @@
-import { data } from 'jquery';
 import React, { useEffect, useState } from 'react'
 // import { GetCards } from '../../Component/Layout/ContentPageMain/GetCards';
 import { IteratCart } from '../../Component/Layout/ShoppingCart/IteratCart';

@@ -161,7 +161,7 @@ export const IteratCart = ({ listsCart = [], conut }) => {//resive como parametr
             <Toaster reverseOrder={true} toastOptions={{
 
                 className: 'k',
-                duration: '125'
+                duration: '55'
 
             }} />
 
