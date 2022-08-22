@@ -73,8 +73,7 @@ export const Service_ProductRegis = ({style}) => {
         console.log(price)
         console.log(amount)
         const urlRegister = 'http://localhost:8080/producto';
-        let tokenAdmin = localStorage.getItem('admin')
-        console.log(tokenAdmin);
+
         if(tokenAdmin == "" || tokenAdmin == null){
             alert("Por favor registrese")
         }else{             
