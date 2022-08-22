@@ -30,6 +30,8 @@
 .-login .p-dialog-content{
     display: flex !important;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
     border-bottom-left-radius: 20px !important;
     border-bottom-right-radius: 20px !important;
 }
@@ -66,9 +68,9 @@
 .inputs{
     height: 50px;
     border-radius: 7px;
+    margin: 10px
 }
 .divLink{
-  
     display: flex;
     flex-direction: column;
     align-items: center;

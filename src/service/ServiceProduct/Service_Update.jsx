@@ -149,33 +149,39 @@ export const Service_Update = ({codeProductUpdate}) => {
         const amount = document.getElementById("inputAmount").value
         console.log(name_supplier_product);
         const urlRegister = 'http://localhost:8080/producto/actualizar/' + codeProductUpdate;
-        fetch(urlRegister, {
-            method: 'PUT',
-            headers: {
-                "Content-type": "application/json"
-            },
-            body: JSON.stringify({
-                codigo_producto : code,
-                nombre_producto: name_product,
-                descripcion_producto: description,
-                precio_producto: price,
-                cantidad_producto : amount,
-                foto_producto:image,
-                id_categoria : {
-                    id_categoria : idCategory,
-                    nombre_categoria : nameCategory
+        let tokenAdmin = localStorage.getItem('admin')
+        if(tokenAdmin == "" || tokenAdmin == null){
+            alert("Por favor registrese")
+        }else{
+            fetch(urlRegister, {
+                method: 'PUT',
+                headers: {
+                    "Content-type": "application/json",
+                    "Authorization" : "Bearer " + tokenAdmin
                 },
-                nombre_proveedor_producto : name_supplier_product
+                body: JSON.stringify({
+                    codigo_producto : code,
+                    nombre_producto: name_product,
+                    descripcion_producto: description,
+                    precio_producto: price,
+                    cantidad_producto : amount,
+                    foto_producto:image,
+                    id_categoria : {
+                        id_categoria : idCategory,
+                        nombre_categoria : nameCategory
+                    },
+                    nombre_proveedor_producto : name_supplier_product
+                })
             })
-        })
-            .then(response => response.json())
-            .then(json => {
-                if(json.ok){
-                    alert("Actualizacion Exitosa")
-                }else{
-                    alert("Actualizacion Exitosa")
-                }
-            })
+                .then(response => response.json())
+                .then(json => {
+                    if(json.ok){
+                        alert("Actualizacion Exitosa")
+                    }else{
+                        alert("Actualizacion Exitosa")
+                    }
+                })
+        }
     }
 
     function listSuppliers() {

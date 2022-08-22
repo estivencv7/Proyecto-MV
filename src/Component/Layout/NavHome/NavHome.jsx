@@ -13,6 +13,7 @@ import { RegistrarCarrito } from '../../../service/ServiceCarrito/RegistrarCarri
 import { ContentShoppingCart } from '../ShoppingCart/ContentShoppingCart';
 import { useNavigate } from "react-router-dom";
 import iconLogout from '../../../Images/cerrarSesion.png';
+import { InputText } from 'primereact/inputtext';
 
 export const NavHome = () => {
     const [email , setEmail] = useState("")
@@ -84,7 +85,6 @@ export const NavHome = () => {
                 console.log("TOKEN PARA REGISTRAR EN ADMIN " + token.access_token);
                 localStorage.setItem('admin' , token.access_token)
                 let tokenAdmin = localStorage.getItem('admin')
-                sessionStorage.setItem("token", token.access_token);
                 console.log("TOKEN ADMIN "  + tokenAdmin);
                 navigate("/PageAdminMain" )
             }
@@ -128,23 +128,40 @@ export const NavHome = () => {
     
     const header = (
         <div className='div-login'>
-            <h2>login</h2>
+            <h2>Iniciar Sesion</h2>
         </div>
 
     )
+
+    //========================estas funciones estan explicadas en el servicio registrar producto
+   
+    function timeout(ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+    
+    const re=async()=>{
+        setVisible2(false)
+        await timeout( 1000)
+
+        if(visible==false){
+           
+            setVisible2(true)
+        }
+    }
+    //==================================================================
+
+    useEffect(()=>{
+
+    },[visible2])
 
     return (
         <nav className='icons'>
              
             <Link className='icon' to="/"><i className="pi pi-home ico" ><p  className='name-icon'> Inicio </p></i></Link>
-            <ContentShoppingCart onHide={()=>setVisible2(false)} visible2={visible2}/>
-            {/* <Sidebar position='right' visible={visible2} style={{ width: '40em' }} onHide={() => setVisible2(false)}>
-                <h1>Carrito</h1>
-                <ListsCart />
-            </Sidebar> */}
+            <ContentShoppingCart onHide={()=>setVisible2(false)} visible2={visible2} onClick={re} />
 
             <div className="cart-conten">
-                <p className='cantidad-product' id='cantidad'></p>
+                <p className='cantidad-product' id='cantidad'></p> {/*Aqui va la cantidad de productos que llevamos en el carrito*/}
                 <button className='icon' onClick={(e) => setVisible2(true)} ><i className="pi pi-shopping-cart ico"><p>Mi Carrito</p></i></button>
             </div>
 
@@ -153,14 +170,14 @@ export const NavHome = () => {
                 <button className='icon' onClick={() => onHide(onHide)} ><i className="pi pi-user ico"><p  className='name-icon' id='nameAccount'>Mi Cuenta</p></i></button>
             </div>
 
-            <Dialog header={header} className='-login' visible={visible} modal onHide={onHide} style={{ width: '30%', height: '40%' }}>
+            <Dialog header={header} className='-login' visible={visible} modal onHide={onHide} style={{ width: '30%', height: '50%' }}>
 
                     <div className='content-login'>
                         <div>
-                            <input className='inputs' type="email" onChange={e => catchEmail(e)} id='email' style={{ width: '20em' }} placeholder='email' />
+                            <InputText className='inputs' type="email" onChange={e => catchEmail(e)} id='email' style={{ width: '20em' }} placeholder='email' />
                         </div>
                         <div>
-                            <input className='inputs' type="password" id='password' onChange={e => setPassword(e.target.value)} placeholder='password' style={{ width: '20em' }} />
+                            <InputText className='inputs' type="password" id='password' onChange={e => setPassword(e.target.value)} placeholder='password' style={{ width: '20em' }} />
                         </div>
                     </div>
                     <div className='divLink'>
