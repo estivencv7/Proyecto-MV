@@ -77,7 +77,7 @@ export const Service_ProductRegis = ({style}) => {
             method: 'POST',
             headers: {
                 "Content-type": "application/json",
-                "Authorization" : "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbmZvX2FkaWNpb25hbCI6IkhvbGEgcXVlIHRhbCFqaG9uQGdtYWlsLmNvbSIsInVzZXJfbmFtZSI6Impob25AZ21haWwuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImFwZWxsaWRvIjoiaGdnc2RzZCIsImV4cCI6MTY2MDg4MTQxNywibm9tYnJlIjoiSmhvbiIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iXSwianRpIjoiMTliZGIzZDAtZDM0Ny00M2I1LWFiNzAtNTgwYThjMTAxYzhlIiwiZW1haWwiOiJqaG9uQGdtYWlsLmNvbSIsImNsaWVudF9pZCI6InJlYWN0YXBwIn0.R9HkNDZiWFJbNMj51oi38nBweVO3qN8Z6jNy5AKt258"
+                "Authorization" : "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbmZvX2FkaWNpb25hbCI6IkhvbGEgcXVlIHRhbCFqaG9uQGdtYWlsLmNvbSIsInVzZXJfbmFtZSI6Impob25AZ21haWwuY29tIiwic2NvcGUiOlsic2NvcGVzIiwid3JpdGUiXSwiYXBlbGxpZG8iOiJoZ2dzZHNkIiwiZXhwIjoxNjYwOTgzNTIyLCJub21icmUiOiJKaG9uIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9BRE1JTiJdLCJqdGkiOiJlZDllYzU4MC1mMDBjLTRlOTAtOGIwNS03NDIxYzM1NTFhZDQiLCJlbWFpbCI6Impob25AZ21haWwuY29tIiwiY2xpZW50X2lkIjoicmVhY3RhcHAiLCJFc3RhZG8iOjF9.DgiUnMDAIhsh5otoS1sBb3ATWyBoBb5ogyghqrlPpJw"
             },
             body: JSON.stringify({
                 codigo_producto : code,
