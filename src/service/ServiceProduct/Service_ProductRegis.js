@@ -73,29 +73,33 @@ export const Service_ProductRegis = ({style}) => {
         console.log(amount)
         const urlRegister = 'http://localhost:8080/producto';
 
-        fetch(urlRegister, {
-            method: 'POST',
-            headers: {
-                "Content-type": "application/json",
-                "Authorization" : "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbmZvX2FkaWNpb25hbCI6IkhvbGEgcXVlIHRhbCFqaG9uQGdtYWlsLmNvbSIsInVzZXJfbmFtZSI6Impob25AZ21haWwuY29tIiwic2NvcGUiOlsic2NvcGVzIiwid3JpdGUiXSwiYXBlbGxpZG8iOiJoZ2dzZHNkIiwiZXhwIjoxNjYwOTgzNTIyLCJub21icmUiOiJKaG9uIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9BRE1JTiJdLCJqdGkiOiJlZDllYzU4MC1mMDBjLTRlOTAtOGIwNS03NDIxYzM1NTFhZDQiLCJlbWFpbCI6Impob25AZ21haWwuY29tIiwiY2xpZW50X2lkIjoicmVhY3RhcHAiLCJFc3RhZG8iOjF9.DgiUnMDAIhsh5otoS1sBb3ATWyBoBb5ogyghqrlPpJw"
-            },
-            body: JSON.stringify({
-                codigo_producto : code,
-                nombre_producto: name_product,
-                descripcion_producto: description,
-                precio_producto: price,
-                cantidad_producto : amount,
-                foto_producto:image,
-                id_categoria : {
-                    id_categoria : idCategory,
-                    nombre_categoria : nameCategory
+        if(tokenAdmin == "" || tokenAdmin == null){
+            alert("Por favor registrese")
+        }else{             
+            fetch(urlRegister, {
+                method: 'POST',
+                headers: {
+                    "Content-type": "application/json",
+                    "Authorization" : "Bearer " + tokenAdmin
                 },
-                nombre_proveedor_producto : name_supplier_product
+                body: JSON.stringify({
+                    codigo_producto : code,
+                    nombre_producto: name_product,
+                    descripcion_producto: description,
+                    precio_producto: price,
+                    cantidad_producto : amount,
+                    foto_producto:image,
+                    id_categoria : {
+                        id_categoria : idCategory,
+                        nombre_categoria : nameCategory
+                    },
+                    nombre_proveedor_producto : name_supplier_product
+                })
             })
-        })
-            .then(response => response)
-            .then(json => check(json.ok))
-            console.log(name_supplier_product);
+                .then(response => response)
+                .then(json => check(json.ok))
+                console.log(name_supplier_product);
+        }
     }
     
     function check(element) {
