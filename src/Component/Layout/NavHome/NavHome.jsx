@@ -170,7 +170,7 @@ export const NavHome = () => {
                 <button className='icon' onClick={() => onHide(onHide)} ><i className="pi pi-user ico"><p  className='name-icon' id='nameAccount'>Mi Cuenta</p></i></button>
             </div>
 
-            <Dialog header={header} className='-login' visible={visible} modal onHide={onHide} style={{ width: '30%', height: '30%' }}>
+            <Dialog header={header} className='-login' visible={visible} modal onHide={onHide} style={{ width: '30%', height: '50%' }}>
 
                     <div className='content-login'>
                         <div>
