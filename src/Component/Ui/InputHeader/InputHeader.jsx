@@ -10,44 +10,7 @@ export const InputHeader = () => {
   // const [category, setCategory] = useState('');
   const [search, setSearch] = useState('');
   const [filter, setFilters] = useState('');
-  
-//   const [globalFilterValue, setGlobalFilterValue] = useState('');
-
-//   const [filters, setFilters] = useState({
-//     'global': { value: null, matchMode: FilterMatchMode.CONTAINS },
-//     'nombre_producto': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-//     'id_categoria.nombre_categoria': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-// });
-
-
-// const onGlobalFilterChange = (e) => {
-//   const value = e.target.value;
-//   let _filters = { ...filters };
-//   _filters['global'].value = value;
-//   setFilters(_filters);
-//   setGlobalFilterValue(value);
-// }
-
-// // value={products} paginator className="p-datatable-customers" header={header} rows={5}
-// // paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" rowsPerPageOptions={[5, 10, 15]}
-// // dataKey="id" rowHover onSelectionChange={e => setSelectedProduct(e.value)}
-// // filters={filters} filterDisplay="menu" loading={loading} responsiveLayout="scroll"
-// // globalFilterFields={['nombre_producto', 'codigo_producto', 'cantidad_producto', 'descripcion_producto', 'precio_producto', 'id_categoria.nombre_categoria', 'nombre_proveedor_producto']} emptyMessage="No se encontraron productos."
-// // currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} productos">
-
-//   const names=[
-    
-//       "muebles",
-//       "salas",
-//       "comedores",
-//       "armarios",
-//       "peinadores",
-//       "fruteros",
-//       "base camas",
-//       "mesas",
-//       "sillas"
-// value={globalFilterValue} onChange={onGlobalFilterChange}
-//   ]
+  const [products, setProducts] = useState([]);
 
 function filtersCategory(category) {
 
@@ -62,6 +25,27 @@ function filtersCategory(category) {
       .then(response => response.json())
       .then(categori => setFilters(categori))
 }
+
+function listProducts() {
+
+  console.log("LISTANDO PRODUCTOS")
+  const urlRegister = 'http://localhost:8080/producto/listaProductos';
+  fetch(urlRegister, {
+      method: 'GET',
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  })
+      .then(response => response.json())
+      .then(product => setProducts(product))
+  setLoading(false)
+}
+array.forEach(element => {
+  if (products.id_categoria == filter.id_categoria) {
+  
+
+  }
+});
 
   const searcher = (e) =>{
   }
