@@ -63,6 +63,7 @@ export const NavHome = () => {
     }
 
     const catchToken = (token) => {
+        console.log("TOKEN " +token);
         if(token.nombre == "" || token.nombre == null){
             return (
                 toast("Correo o contraseña incorrecto, Por favor verifique o registrese")
@@ -97,6 +98,7 @@ export const NavHome = () => {
         const urlEndpoint = 'http://localhost:8080/oauth/token';
         console.log("ENTRA AL LOGIN");
         const credenciales = btoa('reactapp' + ':' + '12345');
+        console.log("CORREO " + email);
         const params = new URLSearchParams();
         params.append('username', email);
         params.append('password', password);

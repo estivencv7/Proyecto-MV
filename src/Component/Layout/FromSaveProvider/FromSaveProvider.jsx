@@ -54,7 +54,7 @@ export const FromSaveProvider = ({onChange1,onChange2,onchange3,onchange4,onChan
                 
                 <InputText className='input-register' onChange={onChange1} placeholder="Documento"/>
                 <InputText className='input-register'onChange={onChange2} placeholder="Nombre"/>
-                <InputNumber className='input-register'onChange={onChange5} placeholder="Telefono"/>
+                <InputText type='number' className='input-register'onChange={onChange5} placeholder="Telefono"/>
             </div>
             <div className='button-save-Product'>
                 <Button onClick={onchange4}>Guardar</Button> 
