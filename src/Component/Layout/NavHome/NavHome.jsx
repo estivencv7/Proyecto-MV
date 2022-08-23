@@ -169,6 +169,7 @@ export const NavHome = () => {
 
 
             <div className='favoritos'>
+                <p className='cantidad-producto' id='favorites'></p>
                 <button className='icon' onClick={() => onHide(onHide)} ><i className="pi pi-user ico"><p  className='name-icon' id='nameAccount'>Mi Cuenta</p></i></button>
             </div>
 

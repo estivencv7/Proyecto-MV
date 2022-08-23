@@ -29,11 +29,11 @@ export const GetCards = ({ getCards = [], onClick }) => {
                         
                         <div key={index} >
 
-                            {/* <div className='sud-content' > */}
-                            <div className='car' style={{ position: 'relative' }}>
-                                <ServicioRegistrar_Favoritos codigoP={item.codigo_producto} nameP={item.nombre_producto} descripcionP={item.descripcion_producto} precioP={item.precio_producto} imagenP={item.foto_producto}/>
-                            
-                                <div >
+                        {/* <div className='sud-content' > */}
+                        <div className='car' style={{ position: 'relative' }}>
+                            <ServicioRegistrar_Favoritos codigoF={item.codigo_producto} nameP={item.nombre_producto} descripcionP={item.descripcion_producto} precioP={item.precio_producto} imagenP={item.foto_producto}/>
+                           
+                            <div >
 
                                     <img className='img-cardGif' src={item.foto_producto} alt="" />
 

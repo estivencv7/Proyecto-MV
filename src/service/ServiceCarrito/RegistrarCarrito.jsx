@@ -26,13 +26,7 @@ export const RegistrarCarrito = ({ codigoP ,nameP = '', descripcionP = '', preci
                 
             })
         })
-            .then(response =>{
-                if(response.status==201){
-                    setVisible2(true)  
-                }
-            })
-            .then(data => data)
-
+            .then(response =>response.json())
     }
 
     //esta funcion le llega por parametro el tiempo de espera
