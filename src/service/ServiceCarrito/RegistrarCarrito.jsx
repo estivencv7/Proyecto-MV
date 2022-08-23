@@ -1,4 +1,4 @@
-import { act } from '@testing-library/react'
+// import { act } from '@testing-library/react'
 import { Button } from 'primereact/button'
 import React, { useEffect, useState } from 'react'
 import { ContentShoppingCart } from '../../Component/Layout/ShoppingCart/ContentShoppingCart'
@@ -26,7 +26,12 @@ export const RegistrarCarrito = ({ codigoP ,nameP = '', descripcionP = '', preci
                 
             })
         })
-            .then(response =>response.json())
+            .then(response =>{
+                if(response.status==201){
+                    setVisible2(true)
+                }
+
+            })
     }
 
     //esta funcion le llega por parametro el tiempo de espera
