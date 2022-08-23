@@ -1,26 +1,60 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import { FilterMatchMode, FilterOperator } from 'primereact/api';
 import {AutoComplete}from 'rsuite'
+
+import { InputText } from 'primereact/inputtext';
 import './style.css'
+import { Input } from '@material-ui/core';
 export const InputHeader = () => {
-  const names=[
-    
-      "muebles",
-      "salas",
-      "comedores",
-      "armarios",
-      "peinadores",
-      "fruteros",
-      "base camas",
-      "mesas",
-      "sillas"
-    
-    
-  ]
+  
+  // const [category, setCategory] = useState('');
+  const [search, setSearch] = useState('');
+  const [filter, setFilters] = useState('');
+  const [products, setProducts] = useState([]);
+
+function filtersCategory(category) {
+
+  console.log("LISTANDO PRODUCTOS")
+  const urlRegister = 'http://localhost:8080/producto/filtrarCategoria/' + category;
+  fetch(urlRegister, {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  })
+      .then(response => response.json())
+      .then(categori => setFilters(categori))
+}
+
+function listProducts() {
+
+  console.log("LISTANDO PRODUCTOS")
+  const urlRegister = 'http://localhost:8080/producto/listaProductos';
+  fetch(urlRegister, {
+      method: 'GET',
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  })
+      .then(response => response.json())
+      .then(product => setProducts(product))
+  setLoading(false)
+}
+array.forEach(element => {
+  if (products.id_categoria == filter.id_categoria) {
+  
+
+  }
+});
+
+  const searcher = (e) =>{
+  }
+
   
   return (
     <div className='input-wrapper'>
       <i className="pi pi-search input-icon"></i>
-     <AutoComplete placeholder='¿Qué estás buscando?' className='autoInput' data={names}></AutoComplete>
+     <InputText onChange={e => filtersCategory(e.target.value)} placeholder='¿Qué estás buscando?' className='autoInput' ></InputText>
     </div>
   )
 }

@@ -9,7 +9,6 @@ export const RegistrarCarrito = ({ codigoP ,nameP = '', descripcionP = '', preci
     const [visible, setVisible] = useState(false)
     function saveCart() {
         let cantidad=1
-        
         const url = 'http://localhost:8080/carritoCompras'
         fetch(url, {
             method: 'POST',
