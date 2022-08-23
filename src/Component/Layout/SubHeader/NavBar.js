@@ -7,12 +7,26 @@ import { Button } from 'primereact/button'
 import { Dialog } from 'primereact/dialog'
 import './style.css'
 import { Emblema } from '../../Ui/Logo/Emblema';
+import { Service_ProductFilter } from '../../../service/ServiceProduct/Service_ProductFilter';
+
 export const NavBar = () => {
 
     const [visible1, setVisible1] = useState(false)
     const [visible2, setVisible2] = useState(false)
     const [visible3, setVisible3] = useState(false)
+    const [minimum2 , setMinimum]  = useState(0)
+    const [maximum2 , setMaximum] = useState(0)
 
+    const catchMinimum = (event) => {
+        console.log(event.target.value);
+        setMinimum(event.target.value)
+    }
+
+    const catchMaximum = (event) => {
+        console.log(event.target.value);
+        setMaximum(event.target.value)
+    }
+    
     const header = () => {
         return "Preguntas Frecuentes"
     }
@@ -88,10 +102,13 @@ export const NavBar = () => {
                         <hr></hr>
                         <div className='filtro'>
                             <p>---Filtrar por precio Maximo---</p>
-                            <input className='filtro-Input' type="number" placeholder='Maximo'></input>
+                            <input className='filtro-Input' type="number" placeholder='Minimo' onChange={e => catchMinimum(e)}></input>
                            
                             <p>---Filtrar por precio Minimo---</p>
-                            <input className='filtro-Input' type="number" placeholder='Minimo'></input>
+                            <input className='filtro-Input' type="number" placeholder='Maximo' onChange={e => catchMaximum(e)}></input>
+
+                            <p>---Filtrar---</p>
+                            <Service_ProductFilter minimum={minimum2} maximum={maximum2}/>
                         </div>
                         <hr/>
                         <div>
