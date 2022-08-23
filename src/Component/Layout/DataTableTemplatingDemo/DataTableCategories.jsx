@@ -124,7 +124,7 @@ export const DataTableCategories = () => {
 
     return (
         <div className="datatable-doc-demo">
-            <div className='contentTheTable'>
+         
                 <DataTable value={categories} paginator className="p-datatable-customers" header={header} rows={5}
                     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" rowsPerPageOptions={[10, 25, 50]}
                     dataKey="id" rowHover selection={selectedCategories} onSelectionChange={e => setSelectedCategories(e.id_categoria)}
@@ -135,7 +135,6 @@ export const DataTableCategories = () => {
                     <Column field="id_categoria" header="Codigo" sortable filterField="id_categoria" body={codeBodyTemplate} filter filterPlaceholder="Search by code" />
                     <Column field="nombre_categoria" header=" Nombre" sortable filter filterPlaceholder="Search by name" body={nameBodyTemplate}/>
                 </DataTable>
-            </div>
         </div>
     );
 }

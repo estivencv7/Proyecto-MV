@@ -111,17 +111,16 @@ export const Service_UpdateProvider = ({codeProviderUpdate}) => {
 return (
   <>
       <Button onClick={()=>seew(seew)}><i className='pi pi-user-edit icons-registerProduct'></i></Button>
-      <Dialog header={header} visible={visible} modal onHide={seew} style={{ width: '30em',bordeRadius:'100%'}} className='dialogoRegisterProduct' >     
+      <Dialog header={header} visible={visible} modal onHide={seew} style={{ width: '30em',bordeRadius:'100%'}} className='dialogoRegisterProduct tabla' >     
           
-              <div className='cont-update'>     
-              
-                  <div className='form'>
-                        <InputText id='inputName' className='input-update' placeholder={provider.nombre_proveedor}/>
-                        <InputText type="number" id='inputPhone' className='input-update inputpress' placeholder={provider.telefono_proveedor}/>
+       
+            
+            <div className='content-provider'>
+                <InputText id='inputName' className='input-update' placeholder={provider.nombre_proveedor}/>
+                <InputText type="number" id='inputPhone' className='input-update' placeholder={provider.telefono_proveedor}/>
 
-                      </div>
-                  </div>
-          <div className='save-edit'>
+            </div>
+        <div className='save-edit'>
               <Button onClick={editProvider} >Guardar</Button>
           </div>
       </Dialog>

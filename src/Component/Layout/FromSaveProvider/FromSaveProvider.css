@@ -111,3 +111,15 @@ option{
     height: 45px;
     border-radius: 35px;
 }
+.button-save-Product{
+    text-align: center;
+    width: 120%;
+    display: flex;
+    gap:12px;
+    justify-content: center
+}
+.cont-Register {
+    display: flex !important;
+    flex-direction: column;
+    width: 50%;
+}
