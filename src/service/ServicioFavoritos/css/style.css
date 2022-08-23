@@ -1,0 +1,11 @@
+.heart{
+    position: absolute;
+    top: 19px;
+    right: 25px;
+    
+    background: none;
+    border: none;
+}
+.heart-icon {
+    font-size: 30px;
+}

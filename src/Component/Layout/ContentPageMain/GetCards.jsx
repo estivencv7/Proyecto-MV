@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react'
-import { Button } from 'primereact/button';
+// import { useEffect, useState } from 'react'
+// import { Button } from 'primereact/button';
 // import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
-import { Dialog } from 'primereact/dialog'
+// import { Dialog } from 'primereact/dialog'
 import { Modal } from './Modal';
 import { RegistrarCarrito } from '../../../service/ServiceCarrito/RegistrarCarrito';
+// import { Favorites } from '../Favorites/Favorites';
+import { ServicioRegistrar_Favoritos } from '../../../service/ServicioFavoritos/ServicioRegistrar_Favoritos';
 // import { RegistrarCarrito } from '../../../service/ServiceCarrito/RegistrarCarrito';
 // import { get } from 'jquery';
 // import { Modal } from './Modal';
@@ -29,7 +31,8 @@ export const GetCards = ({ getCards = [], onClick }) => {
 
                         {/* <div className='sud-content' > */}
                         <div className='car' style={{ position: 'relative' }}>
-                            <button onClick={onClick} className='heart'><i className='pi pi-heart heart-icon'></i></button>
+                            <ServicioRegistrar_Favoritos codigoP={item.codigo_producto} nameP={item.nombre_producto} descripcionP={item.descripcion_producto} precioP={item.precio_producto} imagenP={item.foto_producto}/>
+                           
                             <div >
 
                                 <img className='img-cardGif' src={item.foto_producto} alt="" />
