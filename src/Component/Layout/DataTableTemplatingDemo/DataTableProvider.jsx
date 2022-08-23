@@ -167,8 +167,8 @@ export const DataTableProvider = () => {
 
     return (
         <div className="datatable-doc-demo">
-            
-            <div className="card">
+            <div className="contentTheTable">
+            {/* <div className="card">
             <div>
                 <label htmlFor="">Correo</label>
                 <input type="text" onChange={e => setEmailUser(e.target.value)}/>
@@ -176,7 +176,7 @@ export const DataTableProvider = () => {
                 <label htmlFor="">Nombre</label>
                 <input type="text" onChange={e => setUsername(e.target.value)}/>
                 <button onClick={sendEmail}>Enviar</button>
-            </div>
+            </div> */}
                 <main>
                     <DataTable value={provider} paginator className="p-datatable-customers" header={header} rows={5}
                         paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" rowsPerPageOptions={[10, 25, 50]}
@@ -190,7 +190,8 @@ export const DataTableProvider = () => {
                         <Column field="telefono_proveedor" header="Telefono" sortable filter filterPlaceholder="Search by amount" body={amountBodyTemplate}/>
                     </DataTable>
                 </main>
-            </div>
+                </div>
+            {/* </div> */}
         </div>
     );
 }
