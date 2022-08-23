@@ -10,6 +10,8 @@
 
 .icons {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .logoAdmin{
   justify-content: space-around;
@@ -40,3 +42,4 @@
   background-color:  #008031;
   margin: 0 0 10px 0;
 }
+
