@@ -3,28 +3,27 @@ import { Button } from 'primereact/button'
 // import React, { useEffect, useState } from 'react'
 // import { ContentShoppingCart } from '../../Component/Layout/ShoppingCart/ContentShoppingCart'
 import '../ServicioFavoritos/css/style.css'
-export const ServicioRegistrar_Favoritos = ({ codigoP ,nameP = '', descripcionP = '', precioP = 0, imagenP }) => {
+export const ServicioRegistrar_Favoritos = ({ codigoF ,nameP = '', descripcionP = '', precioP = 0, imagenP }) => {
     
         // const [visible2, setVisible2] = useState(false)
         // const [visible, setVisible] = useState(false)
-        function saveCart() {
+        function saveFavorite() {
             let cantidad=1
-            
+            console.log( codigoF ,nameP,descripcionP , precioP, imagenP)
             const url = 'http://localhost:8080/favoritos'
-            
             fetch(url, {
                 method: 'POST',
                 headers: {
                     "Content-type": "application/json"
                 },
                 body: JSON.stringify({
-                    codigo_Carrito: codigoP,
-                    nombre__producto: nameP,
-                    descripcion_producto: descripcionP,
-                    imagen_producto: imagenP,
-                    cantidad_cart:cantidad,
-                    precio_producto:precioP,
-                    precio_total:precioP*cantidad,
+                    codigo:codigoF,
+                    nombreProducto:nameP,
+                    descripcionProducto:descripcionP,
+                    imagenProducto: imagenP,
+                    cantidadCart:cantidad,
+                    precioProducto:precioP,
+                    precioTotal:precioP*cantidad,
                     
                 })
             })
@@ -55,7 +54,7 @@ export const ServicioRegistrar_Favoritos = ({ codigoP ,nameP = '', descripcionP 
         
         return (
             <>
-                <button onClick={(e)=>saveCart()} className='button-cart-register'><i className='pi pi-heart heart-icon'></i></button>
+                <button onClick={(e)=>saveFavorite()} className='button-cart-register'><i className='pi pi-heart heart-icon'></i></button>
             </>
     
         )
