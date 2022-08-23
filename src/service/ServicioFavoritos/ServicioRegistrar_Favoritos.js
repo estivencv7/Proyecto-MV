@@ -18,7 +18,7 @@ export const ServicioRegistrar_Favoritos = ({ codigoP ,nameP = '', descripcionP 
                     "Content-type": "application/json"
                 },
                 body: JSON.stringify({
-                    codigo_Carrito: codigoP,
+                    codigo_favoritos: codigoP,
                     nombre__producto: nameP,
                     descripcion_producto: descripcionP,
                     imagen_producto: imagenP,
