@@ -10,6 +10,8 @@ import { Divider } from 'primereact/divider';
 import { classNames } from 'primereact/utils';
 import { Panel } from 'primereact/panel';
 import './FormDemo.css';
+import toast, { Toaster } from 'react-hot-toast';
+import { useNavigate } from "react-router-dom";
 
 export const FormRegister = () => {
     const [showMessage, setShowMessage] = useState(false);
@@ -21,7 +23,7 @@ export const FormRegister = () => {
     const [dateBirthClient , setDateBirthClient] = useState(Date)
     const [nameClient , setNameClient] = useState("")
     const [emailClient , setEmailClient] = useState("")
-    
+    let navigate = useNavigate();
     
     const catchSurnameClient = (event) => {
         formik.values.surname = event.target.value
@@ -148,10 +150,16 @@ export const FormRegister = () => {
     }
 
     function check(element) {
-        if (element == true) {
-            alert("Registro exitoso")
+        if (element == true) {     
+            return (
+                toast("Registro exitoso")
+                (setTimeout(() => {
+                    (navigate("/"))
+                  }, 1000))
+            )
         } else {
-            alert("hubo un error al momento de registrar")
+            return(
+                toast("hubo un error al momento de registrar"))
         }
     }
     
@@ -176,18 +184,7 @@ export const FormRegister = () => {
     );
 
     return (
-        <div className="form-demo">
-            <Dialog visible={showMessage} onHide={() => setShowMessage(false)} position="top" footer={dialogFooter} showHeader={false} breakpoints={{ '960px': '80vw' }} style={{ width: '30vw' }}>
-                <div className="flex align-items-center flex-column pt-6 px-3">
-                    <i className="pi pi-check-circle" style={{ fontSize: '5rem', color: 'var(--green-500)' }}></i>
-                    <h5>Registro Exitoso!</h5>
-                    <p style={{ lineHeight: 1.5, textIndent: '1rem' }}>
-                        Tu cuenta esta registrada bajo el nombre de <b>{formData.name}</b> ; Va a ser valida durante 30 dias sin activacion. Por favor revisa <b>{formData.email}</b> para activar tu cuenta.
-                    </p>
-                </div>
-            </Dialog>
-
-            
+        <div className="form-demo">        
                 <div className="card">
                    
                     <form onSubmit={formik.handleSubmit} className="p-fluid">
@@ -264,6 +261,10 @@ export const FormRegister = () => {
                         que muebles valencia tiene para ti 😉 
                     </p>         
                 </Panel>
+                <Toaster reverseOrder={true} toastOptions={{
+                className: 'k',
+                duration: '100'
+            }} />
         </div>
     );
 }

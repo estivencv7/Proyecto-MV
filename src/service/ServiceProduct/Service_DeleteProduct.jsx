@@ -4,7 +4,8 @@ import { Dialog } from 'primereact/dialog';
 import { Button,} from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
 import './css/registerProduct.css'
-export const Service_DeleteProduct = () => {
+import { Toaster } from 'react-hot-toast';
+export const Service_DeleteProduct = ({style}) => {
   
     const [visible, setVisible] = useState(false)
     const [image, setImageProduct] = useState("");
@@ -72,7 +73,7 @@ export const Service_DeleteProduct = () => {
         console.log(price)
         console.log(amount)
         const urlRegister = 'http://localhost:8080/producto';
-
+        let tokenAdmin = localStorage.getItem('admin')
         if(tokenAdmin == "" || tokenAdmin == null){
             alert("Por favor registrese")
         }else{             

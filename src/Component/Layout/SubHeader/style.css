@@ -174,3 +174,12 @@ p.preguntas3{
 .titlte-cart{
     padding: 5px;
 }
+
+.btnFiltro{
+    background-color: #008037;
+    color: white;
+    width: 20%;
+    height: 4rem;
+    border-radius: 100%;
+    border: solid 4px white;
+}

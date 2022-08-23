@@ -4,6 +4,8 @@ import { NavHome } from '../NavHome/NavHome'
 import { Sidebar } from 'primereact/sidebar/';
 import { Emblema } from '../../Ui/Logo/Emblema'
 import './NavigationAdmin.css'
+import { useNavigate } from 'react-router';
+import toast, { Toaster } from 'react-hot-toast';
 
 export const NavigationAdmin = () => {
 
@@ -12,7 +14,7 @@ export const NavigationAdmin = () => {
     const [carrito, setCarrito] = useState([])
     const [nameAdmin , setNameAdmin] = useState("")
     let [tokenAccess , setAccessToken] = useState("")
-
+    let navigate = useNavigate()
     const onHide = () => {
         if (visible == false) {
             buscarAdminRegistrado()
@@ -61,14 +63,18 @@ export const NavigationAdmin = () => {
     }
 
     const logout = () => {
-        console.log("TOKEN DE ACCESO " + tokenAccess);
         localStorage.setItem('admin' , "")
         adminActivo = null;
         // sessionStorage.clear();
         sessionStorage.removeItem('admin');
         sessionStorage.removeItem('token');
         document.getElementById("nameAccount").textContent = "Mi Cuenta"
-        alert("Sesion cerrada con exito")
+        return (
+            toast("Sesion cerrada con exito")
+            (setTimeout(() => {
+                (navigate("/"))
+              }, 200))
+        )  
       }
 
   return (
@@ -84,6 +90,11 @@ export const NavigationAdmin = () => {
         </div>
         <div className='paredAdmin'></div>
         </header>
+              
+        <Toaster reverseOrder={true} toastOptions={{
+                className: 'k',
+                duration: '70'
+            }} />
     </div>
   )
 }
