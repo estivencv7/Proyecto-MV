@@ -362,3 +362,8 @@ code {
 .c{
   margin-top: 20%;
 }
+
+.hide{
+  visibility: hidden;
+  height: 0;
+}
