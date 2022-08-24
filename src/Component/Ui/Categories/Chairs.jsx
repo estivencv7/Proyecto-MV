@@ -1,12 +1,39 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import { RegistrarCarrito } from '../../../service/ServiceCarrito/RegistrarCarrito'
 import { ServicioRegistrar_Favoritos } from '../../../service/ServicioFavoritos/ServicioRegistrar_Favoritos'
-import { Modal } from './Modal'
+import { Modal } from '../../Layout/ContentPageMain/Modal'
+import { HeaderHome } from '../../Layout/HeaderHome/HeaderHome'
 
-export const GetCardsFilter = ({products = []}) => {
+export const Chairs = () => {
+    
+    const [products , setProducts] = useState([])
+
+    const getCategory = () => {
+        const urlSearch = "http://localhost:8080/categorias/buscarCategoria/" + 1
+        fetch(urlSearch, {
+          method: 'GET',
+          headers: {
+            "Content-type": "application/json"
+        },
+        })
+        .then(response => response.json())
+        .then(prods => {
+          setProducts(prods)
+          console.log("PROD EN GET CATEGORY " + prods);
+        })
+    }
+
+    useEffect(() => {
+        console.log("USE EFFECT EN CATEGORIES ");
+      getCategory()
+    }, [])
     
     return (
-        <div className='conter_car' id='prodContainer'>
+        <div className='conter_car c' id='prodContainer'>
+            <HeaderHome/>
+            <div className='space'>
+
+            </div>
             {
                 products.map((item, index,) => (
                     
