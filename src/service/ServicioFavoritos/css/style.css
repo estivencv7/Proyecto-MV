@@ -25,3 +25,92 @@
 .heartfill::before{
     color: red !important;
 }
+
+.button-cart-register-Favorites{
+ 
+}
+
+
+/* ¨================card favorites*/
+
+
+/* .cont-card-favorite{
+    background-color: #008031;
+    max-width: 100%;
+} */
+.content-img-favorite{
+    /* background-color: #008031; */
+    width: 100%;
+    height:50%; 
+    position: relative;
+}
+.conter_car-favorite {
+  padding-top: 70px;
+  width: 89%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1em;
+  
+}
+
+.car-favorite{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.conter_car-favorite .car-favorite {
+    text-align: center;
+    width: 24rem;
+    height: 27rem;
+    /* border-radius: 15px; */
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* margin: 3rem; */
+    /* gap: 8px; */
+    flex-wrap: wrap;
+    box-shadow: 0px 0px 40px #c9c8c8;
+    /* border: 1px solid ; */
+  
+}
+.img-cardGif-favorito {
+    width: 100%;
+    height: 24vh;
+    border-radius: 15px 15px 0 0;
+    object-fit: unset;
+    padding: 1rem;
+}
+.content-price-{
+    display: flex;
+    justify-content: space-around;
+    gap: 7em;
+}
+.button-observar-favoritos {
+    width: 100% !important;
+    text-align: center !important;
+    display: flex;
+    justify-content: center;
+    height: 70px !important;
+    font-size: 25px;
+    position: absolute;
+    bottom: 0;
+    background:#00803765!important;
+    border: none;
+    
+}
+.observar{
+    background-color: transparent;
+    width: 100% !important;
+    text-align: center !important;
+    display: flex;
+    justify-content: center;
+    height: 70px !important;
+    font-size: 25px;
+    position: absolute;
+    bottom: 0;
+    color: transparent;
+    border: none;
+}

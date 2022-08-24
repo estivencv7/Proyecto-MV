@@ -9,7 +9,7 @@ import { ContentPageMain } from '../../Component/Layout/ContentPageMain/ContentP
 // import { GetFavoritos } from '../../Component/Layout/Favorites/GetFavoritos'
 import { Toaster, toast } from 'react-hot-toast';
 import { green } from '@material-ui/core/colors'
-export const ServicioRegistrar_Favoritos = ({ codigoF ,nameP = '', descripcionP = '', precioP = 0, imagenP ,id }) => {
+export const ServicioRegistrar_Favoritos = ({ codigoF ,nameP = '', descripcionP = '', precioP = 0, imagenP ,id ,classN}) => {
     
         const [favorites, setFavorites] = useState(false)
 
@@ -69,7 +69,7 @@ export const ServicioRegistrar_Favoritos = ({ codigoF ,nameP = '', descripcionP 
         
         return (
             <>
-                <button   onClick={(e)=>saveFavorite()} className='button-cart-register'><i id={id} className='pi pi-heart  heart-icon'></i></button>    
+                <button    onClick={(e)=>saveFavorite()} className={classN}><i id={id} className='pi pi-heart  heart-icon'></i></button>    
             </>
     
         )

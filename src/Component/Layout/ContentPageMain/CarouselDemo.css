@@ -311,3 +311,11 @@
     font-size: 25px;
     
 }
+
+.button-cart-register-Favorites{
+    position: absolute;
+    top: 15;
+    right: 15;
+    border: none;
+    background:none;
+}
