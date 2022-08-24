@@ -8,6 +8,11 @@ import { Input } from '@material-ui/core';
 import { GetCardsCategory } from '../../Layout/ContentPageMain/GetCardsCategory';
 export const InputHeader = ({id}) => {
 
+  const [category, setCategory] = useState('');
+  const [search, setSearch] = useState('');
+  const [filter, setFilters] = useState('');
+  const [products, setProducts] = useState([]);
+
   function filtersCategory() {
     console.log("CATEGORIA " );
     console.log(document.getElementById("inpuText").value);
@@ -42,16 +47,13 @@ export const InputHeader = ({id}) => {
   }
   return (
     <div className='input-wrapper'>
-      <i className="pi pi-search input-icon" onClick={filtersCategory}></i>
-     <InputText  id='inpuText' placeholder='¿Qué estás buscando?' className='autoInput' ></InputText>
+      <div>
+        <i className="pi pi-search input-icon" onClick={filtersCategory}></i>
+      </div>
+      <div>
+        <InputText  id='inpuText' placeholder='¿Qué estás buscando?' className='autoInput' ></InputText>
+      </div>
      <GetCardsCategory getCards={products}/>
     </div>
   )
 }
-//   return (
-//     <div className='input-wrapper'>
-//       <i className="pi pi-search input-icon"></i>
-//      <InputText id={id} onChange={e => filtersCategory(e.target.value)} placeholder='¿Qué estás buscando?' className='autoInput' ></InputText>
-//      <GetCards getCards={products}/>
-//     </div>
-//   )
