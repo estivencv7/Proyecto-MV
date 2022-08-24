@@ -2,6 +2,7 @@ import React from 'react'
 import { RegistrarCarrito } from '../../../service/ServiceCarrito/RegistrarCarrito'
 import { ServicioRegistrar_Favoritos } from '../../../service/ServicioFavoritos/ServicioRegistrar_Favoritos'
 import { Modal } from './Modal'
+import './CarouselDemo.css'
 
 export const GetCardsFilter = ({products = []}) => {
     
@@ -13,7 +14,7 @@ export const GetCardsFilter = ({products = []}) => {
                     <div key={index} >
                         {/* <div className='sud-content' > */}
                         <div className='car' style={{ position: 'relative' }}>
-                            <ServicioRegistrar_Favoritos codigoP={item.codigo_producto} nameP={item.nombre_producto} descripcionP={item.descripcion_producto} precioP={item.precio_producto} imagenP={item.foto_producto}/>
+                            <ServicioRegistrar_Favoritos codigoP={item.codigo_producto} nameP={item.nombre_producto} descripcionP={item.descripcion_producto} precioP={item.precio_producto} imagenP={item.foto_producto} classN="iconHeart"/>
                            
                             <div >
 
@@ -34,7 +35,7 @@ export const GetCardsFilter = ({products = []}) => {
                             </div>
                            
                             <div >
-                                <Modal url={item.foto_producto} name={item.nombre_producto} description={item.descripcion_producto} press={item.precio_producto} />
+                                <Modal className='botonFilter' url={item.foto_producto} name={item.nombre_producto} description={item.descripcion_producto} press={item.precio_producto} />
                             </div>
 
                         </div>
