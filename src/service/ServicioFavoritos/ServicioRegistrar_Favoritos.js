@@ -1,13 +1,23 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import { Button } from 'primereact/button'
 // import React, { useEffect, useState } from 'react'
 // import { ContentShoppingCart } from '../../Component/Layout/ShoppingCart/ContentShoppingCart'
 import '../ServicioFavoritos/css/style.css'
-export const ServicioRegistrar_Favoritos = ({ codigoF ,nameP = '', descripcionP = '', precioP = 0, imagenP }) => {
+import { ServicioList_Favorites } from './ServicioList_Favorites'
+import { ConterFavorites } from '../../Component/Layout/Favorites/ConterFavorites'
+import { ContentPageMain } from '../../Component/Layout/ContentPageMain/ContentPageMain'
+// import { GetFavoritos } from '../../Component/Layout/Favorites/GetFavoritos'
+import { Toaster, toast } from 'react-hot-toast';
+import { green } from '@material-ui/core/colors'
+export const ServicioRegistrar_Favoritos = ({ codigoF ,nameP = '', descripcionP = '', precioP = 0, imagenP ,id }) => {
     
-        // const [visible2, setVisible2] = useState(false)
-        // const [visible, setVisible] = useState(false)
+        const [favorites, setFavorites] = useState(false)
+
         function saveFavorite() {
+            toast('👈 Nuevo Favorito',{
+                className:'save-favorite',
+                duration:'200'
+               })
             let cantidad=1
             console.log( codigoF ,nameP,descripcionP , precioP, imagenP)
             const url = 'http://localhost:8080/favoritos'
@@ -29,12 +39,17 @@ export const ServicioRegistrar_Favoritos = ({ codigoF ,nameP = '', descripcionP 
             })
                 .then(response =>{
                     if(response.status==201){
-                        // setVisible2(true)  
+                        setFavorites(true)
+                        // document.getElementById(codigoF).before.='blue'
                     }
                 })
                 .then(data => data)
     
         }
+
+        useEffect(()=>{
+
+        },[favorites])
     
         // //esta funcion le llega por parametro el tiempo de espera
         // function timeout(ms) { 
@@ -54,7 +69,7 @@ export const ServicioRegistrar_Favoritos = ({ codigoF ,nameP = '', descripcionP 
         
         return (
             <>
-                <button onClick={(e)=>saveFavorite()} className='button-cart-register'><i className='pi pi-heart heart-icon'></i></button>
+                <button   onClick={(e)=>saveFavorite()} className='button-cart-register'><i id={id} className='pi pi-heart  heart-icon'></i></button>    
             </>
     
         )

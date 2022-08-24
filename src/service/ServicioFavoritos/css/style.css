@@ -9,3 +9,19 @@
 .heart-icon {
     font-size: 30px;
 } */
+
+.save-favorite{
+  
+    margin-left: 65%;
+    margin-top: 2%;
+    font-size: 24px;
+    color: #008037;
+    background: none;
+    box-shadow: none;
+    border: none;
+    /* background: white; */
+}
+
+.heartfill::before{
+    color: red !important;
+}

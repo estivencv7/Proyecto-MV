@@ -142,7 +142,7 @@
     text-align: center;
     width: 24rem;
     height: 27rem;
-    border-radius: 15px;
+    /* border-radius: 15px; */
     
     display: flex;
     flex-direction: column;
@@ -304,5 +304,10 @@
 
 .button-observar{
     width: 100% !important;
+    text-align: center !important;
+    display: flex;
+    justify-content: center;
+    height:70px !important; 
+    font-size: 25px;
     
 }
