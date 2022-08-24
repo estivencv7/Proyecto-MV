@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { FilterMatchMode, FilterOperator } from 'primereact/api';
 import {AutoComplete}from 'rsuite'
-
 import { InputText } from 'primereact/inputtext';
 import './style.css'
 import { Input } from '@material-ui/core';
-export const InputHeader = () => {
+import { GetCards } from '../../Layout/ContentPageMain/GetCards';
+export const InputHeader = ({id}) => {
   
   // const [category, setCategory] = useState('');
   const [search, setSearch] = useState('');
@@ -23,11 +23,25 @@ function filtersCategory(category) {
       }
   })
       .then(response => response.json())
-      .then(categori => setFilters(categori))
+      .then(data => setProducts(data))
+
+
 }
 
-function listProducts() {
+// function listProducts() {
 
+//   console.log("LISTANDO PRODUCTOS")
+//   const urlRegister = 'http://localhost:8080/producto/listaProductos';
+//   fetch(urlRegister, {
+//       method: 'GET',
+//       headers: {
+//           'Content-Type': 'application/json'
+//       }
+//   })
+//       .then(response => response.json())
+//       .then(product => setProducts(product))
+// }
+// products.forEach(element => {
   console.log("LISTANDO PRODUCTOS")
   const urlRegister = 'http://localhost:8080/producto/listaProductos';
   fetch(urlRegister, {
@@ -39,7 +53,6 @@ function listProducts() {
       .then(response => response.json())
       .then(product => setProducts(product))
   // setLoading(false)
-}
 // array.forEach(element => {
 //   if (products.id_categoria == filter.id_categoria) {
   
@@ -47,14 +60,15 @@ function listProducts() {
 //   }
 // });
 
-  const searcher = (e) =>{
-  }
+//   const searcher = (e) =>{
+//   }
 
   
   return (
     <div className='input-wrapper'>
       <i className="pi pi-search input-icon"></i>
-     <InputText onChange={e => filtersCategory(e.target.value)} placeholder='¿Qué estás buscando?' className='autoInput' ></InputText>
+     <InputText id={id} onChange={e => filtersCategory(e.target.value)} placeholder='¿Qué estás buscando?' className='autoInput' ></InputText>
+     <GetCards getCards={products}/>
     </div>
   )
 }
