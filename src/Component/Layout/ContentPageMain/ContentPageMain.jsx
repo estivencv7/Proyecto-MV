@@ -18,7 +18,9 @@ export const ContentPageMain = () => {
          <div className='car' id='containerProd'>
             <Service_ListProduct/>
          </div>
+         <div id='containerFilter'>
 
+         </div>
       </div> 
 
    )
