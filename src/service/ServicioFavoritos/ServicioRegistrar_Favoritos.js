@@ -68,9 +68,9 @@ export const ServicioRegistrar_Favoritos = ({ codigoF ,nameP = '', descripcionP 
     
         
         return (
-            <>
+            < div >
                 <button    onClick={(e)=>saveFavorite()} className={classN}><i id={id} className='pi pi-heart  heart-icon'></i></button>    
-            </>
+            </div>
     
         )
     }

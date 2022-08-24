@@ -58,9 +58,9 @@ export const ServicioList_Favorites = ({ accion }) => {
                     <div>
 
                         <div id={item.codigo} className='car-favorite' style={{ position: 'relative' }} onMouseEnter={propiedades} onMouseLeave={propiedades2}>
-                            <ServicieDelete_Favorite codigo={item.codigo}/>
+                            <div></div>
+                            <ServicieDelete_Favorite className={'delete-product-cart'} codigo={item.codigo}/>
                             <div  className='content-img-favorite'>
-
                                 <img className='img-cardGif-favorito' src={item.imagenProducto} alt="" />
                                 <div id='propiedad' >
                                 { fa==true ? <Modal classN='button-observar-favoritos' url={item.imagenProducto} name={item.nombreProducto} description={item.descripcionProducto} press={item.precioProducto}/>:<Modal  classN='observar' url={item.imagenProducto} name={item.nombreProducto} description={item.descripcionProducto} press={item.precioProducto}/> }
@@ -85,6 +85,8 @@ export const ServicioList_Favorites = ({ accion }) => {
                     </div>
                 ))
             }
+
+            
         </div>
     )
 }

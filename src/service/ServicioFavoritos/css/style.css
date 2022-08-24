@@ -58,6 +58,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 .conter_car-favorite .car-favorite {
@@ -113,4 +114,17 @@
     bottom: 0;
     color: transparent;
     border: none;
+}
+.deleteFavorite{
+    background-color: #008037 !important;
+    position: relative;
+    font-size: 40px;
+    right: 0;
+    width: 100%;
+}
+
+.conte-buttom-favorite{
+    position: absolute;
+    top: 0;
+    right: 0;
 }
