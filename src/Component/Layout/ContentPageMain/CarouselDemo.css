@@ -319,3 +319,13 @@
     border: none;
     background:none;
 }
+
+.iconHeart{
+    background-color: white;
+    border: none;
+    margin-right: -79%;
+}
+.botonFilter{
+    background: red !important;
+    bottom: 0;
+}

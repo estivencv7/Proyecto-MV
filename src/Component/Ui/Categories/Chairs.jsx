@@ -3,7 +3,7 @@ import { RegistrarCarrito } from '../../../service/ServiceCarrito/RegistrarCarri
 import { ServicioRegistrar_Favoritos } from '../../../service/ServicioFavoritos/ServicioRegistrar_Favoritos'
 import { Modal } from '../../Layout/ContentPageMain/Modal'
 import { HeaderHome } from '../../Layout/HeaderHome/HeaderHome'
-
+import "./style.css"
 export const Chairs = () => {
     
     const [products , setProducts] = useState([])
@@ -61,8 +61,9 @@ export const Chairs = () => {
                             </div>
                            
                             <div >
-                                <Modal url={item.foto_producto} name={item.nombre_producto} description={item.descripcion_producto} press={item.precio_producto} />
+                                <Modal classN='filterB' url={item.foto_producto} name={item.nombre_producto} description={item.descripcion_producto} press={item.precio_producto} />
                             </div>
+
 
                         </div>
 
