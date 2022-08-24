@@ -11,6 +11,7 @@ import { RegisterProduct } from './Component/Page/RegisterProduct/RegisterProduc
 import { PageMainAdmin } from './Component/Page/PageMainAdmin/PageMainAdmin';
 import { RegisterProvider } from './Component/Page/RegisterProvider/RegisterProvider';
 import { RegisterCategories } from './Component/Page/RegisterCategories/RegisterCategories';
+import { Chairs } from './Component/Ui/Categories/Chairs';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path='PageAdminMain' element={<PageMainAdmin />}/>
         <Route path='registerProvider' element={<RegisterProvider/>}/>
         <Route path='registerCategories' element={<RegisterCategories/>}/>
+        <Route path='chairs' element={<Chairs/>}/>
       </Routes>
     </div>
   );

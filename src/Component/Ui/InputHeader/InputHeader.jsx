@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FilterMatchMode, FilterOperator } from 'primereact/api';
 import {AutoComplete}from 'rsuite'
-
 import { InputText } from 'primereact/inputtext';
 import './style.css'
 import { Input } from '@material-ui/core';
@@ -43,6 +42,18 @@ function filtersCategory(category) {
 //       .then(product => setProducts(product))
 // }
 // products.forEach(element => {
+  console.log("LISTANDO PRODUCTOS")
+  const urlRegister = 'http://localhost:8080/producto/listaProductos';
+  fetch(urlRegister, {
+      method: 'GET',
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  })
+      .then(response => response.json())
+      .then(product => setProducts(product))
+  // setLoading(false)
+// array.forEach(element => {
 //   if (products.id_categoria == filter.id_categoria) {
   
 
