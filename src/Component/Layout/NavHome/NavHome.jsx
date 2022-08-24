@@ -83,7 +83,6 @@ export const NavHome = () => {
                 console.log("TOKEN USER "  + tokenUser);
                 guardarUsuario(token.access_token)
                 setVisible(false)
-                navigate("/")
             }else {
                 console.log("TOKEN PARA REGISTRAR EN ADMIN " + token.access_token);
                 localStorage.setItem('admin' , token.access_token)
@@ -94,6 +93,19 @@ export const NavHome = () => {
         }    
     }
 
+    useEffect(() => {
+        const user = sessionStorage.getItem("usuario")
+        if(user == null){
+          document.getElementById("logout").classList.add("logoutHide")
+        }else{
+          const user2 = JSON.parse(user.toString());
+          console.log("ENTRA AL COMPARATIVO DEL PAGE FAVORITO " + JSON.parse(user.toString()));
+          document.getElementById("nameAccount").textContent = user2.nameU
+          document.getElementById("logout").classList.remove("logoutHide")
+        }
+        console.log("USUARIO " + user);
+      }, [])
+    
     function login() {
         const urlEndpoint = 'http://localhost:8080/oauth/token';
         console.log("ENTRA AL LOGIN");

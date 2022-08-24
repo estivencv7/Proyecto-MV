@@ -10,8 +10,7 @@ export const ServicioList_Favorites = ({ accion }) => {
 
     const [favorites, setFavorites] = useState([])
     const [fa, setFa] = useState(false)
-
-
+    
     const getFavorites = () => {
         console.log("kkkk")
         const url = 'http://localhost:8080/favoritos/listfavoritos';
