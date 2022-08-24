@@ -192,7 +192,7 @@ export const NavHome = () => {
             </Dialog>
 
             <div className='favoritos'>
-                <button className='icon'><i className='pi pi-heart heart-icon ico'> <p className='name-icon'>Favoritos</p></i></button>
+                <Link to="/pageFavorito" className='icon'><i className='pi pi-heart heart-icon ico'> <p className='name-icon'>Favoritos</p></i></Link>
             </div>
             
             <div className='logoutHide' id='logout'>

@@ -53,7 +53,12 @@ function filtersCategory(category) {
       .then(response => response.json())
       .then(product => setProducts(product))
   // setLoading(false)
+<<<<<<< HEAD
+}
+// // array.forEach(element => {
+=======
 // array.forEach(element => {
+>>>>>>> c949f52334d9f7ff28d044e264adc819eeff776d
 //   if (products.id_categoria == filter.id_categoria) {
   
 

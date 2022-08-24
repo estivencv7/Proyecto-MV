@@ -1,7 +1,7 @@
 import { Dialog } from 'primereact/dialog'
 import React, { useState } from 'react'
 import { Button } from 'primereact/button';
-export const Modal = ({ url,name,description,press }) => {
+export const Modal = ({ url,name,description,press,classN='button-observar',id }) => {
 
     const [visible, setVisible] = useState(false);
     const [vis, setVis] = useState(false);
@@ -110,7 +110,7 @@ export const Modal = ({ url,name,description,press }) => {
 
     return (
         <div>
-            <Button onClick={() => onHide(onHide)} className='button-observar'>Observar</Button>
+            <Button onClick={() => onHide(onHide)}    className={classN}>Observar</Button>
 
             <Dialog visible={visible} onHide={onHide} style={{ width: '70%', height: '70%' }}  >
 
