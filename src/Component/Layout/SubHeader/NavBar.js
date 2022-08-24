@@ -2,12 +2,14 @@ import 'primeicons/primeicons.css';
 import React, { useState, useEffect } from 'react'
 import { Sidebar } from 'primereact/sidebar/';
 // import { Link } from 'react-router-dom'
-
 import { Button } from 'primereact/button'
 import { Dialog } from 'primereact/dialog'
 import './style.css'
 import { Emblema } from '../../Ui/Logo/Emblema';
 import { Service_ProductFilter } from '../../../service/ServiceProduct/Service_ProductFilter';
+import { Service_ListProductFilter } from '../../../service/ServiceProduct/Service_ListProductFilter';
+import { Categories } from '../../Ui/Categories/Chairs';
+import { useNavigate } from 'react-router';
 
 export const NavBar = () => {
 
@@ -16,7 +18,8 @@ export const NavBar = () => {
     const [visible3, setVisible3] = useState(false)
     const [minimum2 , setMinimum]  = useState(0)
     const [maximum2 , setMaximum] = useState(0)
-
+    const [codeCategory , setCodeCategory] = useState(0)
+    let navigate = useNavigate()
     const catchMinimum = (event) => {
         console.log(event.target.value);
         setMinimum(event.target.value)
@@ -89,7 +92,13 @@ export const NavBar = () => {
         }
         ubicacionPrincipal = desplazamientoActual;
     }
-
+    
+    const catchCodeCategory = (category) => {
+        console.log(category);
+        if(category == "Salas"){
+            navigate("/chairs")
+        }
+    }
     window.addEventListener('scroll', changeBackgroud)
     return (
         <>
@@ -108,12 +117,12 @@ export const NavBar = () => {
                             <input className='filtro-Input' type="number" placeholder='Maximo' onChange={e => catchMaximum(e)}></input>
 
                             <p>---Filtrar---</p>
-                            <Service_ProductFilter minimum={minimum2} maximum={maximum2}/>
+                            <Service_ListProductFilter minimum={minimum2} maximum={maximum2}/>
                         </div>
                         <hr/>
                         <div>
                             <p>---Categorias---</p>
-                            <select className='content-select'  style={{width:'70%',height:'6%',textAlign:'center'}} inlist='Categoria' > 
+                            <select className='content-select' onChange={e => catchCodeCategory(e.target.value)} style={{width:'70%',height:'6%',textAlign:'center'}} inlist='Categoria' > 
                                 <option>Categorias</option>
                                 <option>Salas</option>
                                 <option>Basecamas</option>
@@ -122,8 +131,6 @@ export const NavBar = () => {
                             </select>
                         </div>
                         <hr/>
-                       
-
 
                     </Sidebar>
 

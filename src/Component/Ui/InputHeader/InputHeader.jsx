@@ -38,14 +38,14 @@ function listProducts() {
   })
       .then(response => response.json())
       .then(product => setProducts(product))
-  setLoading(false)
+  // setLoading(false)
 }
-array.forEach(element => {
-  if (products.id_categoria == filter.id_categoria) {
+// array.forEach(element => {
+//   if (products.id_categoria == filter.id_categoria) {
   
 
-  }
-});
+//   }
+// });
 
   const searcher = (e) =>{
   }

@@ -2,7 +2,6 @@ import React,{useState,useEffect} from 'react'
 import { GetCards } from '../../Component/Layout/ContentPageMain/GetCards';
 
 export const Service_ListProduct = () => {
-
   
   const [product, setProduct] = useState([])
   // const [save, setSave] = useState([])
