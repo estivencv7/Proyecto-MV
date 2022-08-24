@@ -11,10 +11,9 @@ import { RegisterProduct } from './Component/Page/RegisterProduct/RegisterProduc
 import { PageMainAdmin } from './Component/Page/PageMainAdmin/PageMainAdmin';
 import { RegisterProvider } from './Component/Page/RegisterProvider/RegisterProvider';
 import { RegisterCategories } from './Component/Page/RegisterCategories/RegisterCategories';
-
 import { PageFavorito } from './Component/Page/PageFavorito/PageFavorito';
-
 import { Chairs } from './Component/Ui/Categories/Chairs';
+import { PageProductsFilter } from './Component/Page/PageProductsFilter/PageProductsFilter';
 
 
 
@@ -29,6 +28,7 @@ function App() {
         <Route path='PageAdminMain' element={<PageMainAdmin />}/>
         <Route path='registerProvider' element={<RegisterProvider/>}/>
         <Route path='registerCategories' element={<RegisterCategories/>}/>
+        <Route path='/pageProductsFilter' element={<PageProductsFilter/>}/>
 
         <Route path='/pageFavorito' element={<PageFavorito/>}/>
 
