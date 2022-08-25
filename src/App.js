@@ -14,7 +14,9 @@ import { RegisterCategories } from './Component/Page/RegisterCategories/Register
 import { PageFavorito } from './Component/Page/PageFavorito/PageFavorito';
 import { Chairs } from './Component/Ui/Categories/Chairs';
 import { PageProductsFilter } from './Component/Page/PageProductsFilter/PageProductsFilter';
-
+import { BaseBeds } from './Component/Ui/Categories/BaseBeds';
+import { Furniture } from './Component/Ui/Categories/Furniture';
+import { Mattresses } from './Component/Ui/Categories/Mattresses';
 
 
 function App() {
@@ -29,9 +31,10 @@ function App() {
         <Route path='registerProvider' element={<RegisterProvider/>}/>
         <Route path='registerCategories' element={<RegisterCategories/>}/>
         <Route path='/pageProductsFilter' element={<PageProductsFilter/>}/>
-
+        <Route path='/baseBeds' element={<BaseBeds/>}/>
         <Route path='/pageFavorito' element={<PageFavorito/>}/>
-
+        <Route path='furniture' element={<Furniture/>}/>
+        <Route path='mattresses' element={<Mattresses/>}/>
         <Route path='chairs' element={<Chairs/>}/>
       </Routes>
     </div>

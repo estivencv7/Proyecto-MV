@@ -4,12 +4,12 @@ import { ServicioRegistrar_Favoritos } from '../../../service/ServicioFavoritos/
 import { Modal } from '../../Layout/ContentPageMain/Modal'
 import { HeaderHome } from '../../Layout/HeaderHome/HeaderHome'
 import "./style.css"
-export const Chairs = () => {
+export const Mattresses = () => {
     
     const [products , setProducts] = useState([])
 
     const getCategory = () => {
-        const urlSearch = "http://localhost:8080/categorias/buscarCategoria/" + 1
+        const urlSearch = "http://localhost:8080/categorias/buscarCategoria/" + 4
         fetch(urlSearch, {
           method: 'GET',
           headers: {
@@ -31,6 +31,9 @@ export const Chairs = () => {
     return (
         <div className='conter_car c' id='prodContainer'>
             <HeaderHome/>
+            <div className='space'>
+
+            </div>
             {
                 products.map((item, index,) => (
                     
