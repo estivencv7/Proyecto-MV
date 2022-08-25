@@ -6,7 +6,7 @@ import { InputText } from 'primereact/inputtext';
 import './style.css'
 import { Input } from '@material-ui/core';
 import { GetCardsCategory } from '../../Layout/ContentPageMain/GetCardsCategory';
-export const InputHeader = ({id}) => {
+export const InputHeader = () => {
 
   const [category, setCategory] = useState('');
   const [search, setSearch] = useState('');
@@ -33,17 +33,11 @@ export const InputHeader = ({id}) => {
       }
   function createElements(){
     <GetCardsCategory getCards={products}/>
+    const containerFilter = document.getElementById("containerFilter")
     const categoryContainer = document.getElementById("categoryContainer")
-    if(document.getElementById("conter_car") == null){
-    const div = document.createElement("div")
-    if(document.getElementById("categoryContainer") == null){
-        document.getElementById("conter_car").replaceWith(div)
-    }else if(document.getElementById("conter_car") == null){
-        document.getElementById("categoryContainer").replaceWith(div)
-    }
-    }else{
-      document.getElementById("conter_car").replaceWith(categoryContainer)
-    }
+    containerFilter.appendChild(categoryContainer)
+    document.getElementById("containerProd").classList.add("hide")
+    
   }
   return (
     <div className='input-wrapper'>
