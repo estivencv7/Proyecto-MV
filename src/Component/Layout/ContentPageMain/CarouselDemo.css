@@ -15,10 +15,10 @@
     
     color: transparent !important;
 }
-.img,svg{
+/* .img,svg{
     width: 75% !important;
     height: 32em !important;
-} 
+}  */
 .carousel-control-next-icon, .carousel-control-prev-icon{
     background-color: #008031 !important;
     border-radius: 100px;

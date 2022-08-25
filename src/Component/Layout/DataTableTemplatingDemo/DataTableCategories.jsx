@@ -27,7 +27,7 @@ export const DataTableCategories = () => {
     useEffect(() => {
         listCategory()
         
-    }, [])
+    }, [selectedCategories])
 
     function listCategory() {
 

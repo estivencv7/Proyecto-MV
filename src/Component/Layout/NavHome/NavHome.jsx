@@ -134,6 +134,8 @@ export const NavHome = () => {
         console.log("TOKEN DE ACCESO " + accessToken);
         accessToken = null;
         usuarioActivo = null;
+        localStorage.setItem("user" , null)
+        localStorage.setItem("admin" , null)
         // sessionStorage.clear();
         sessionStorage.removeItem('usuario');
         sessionStorage.removeItem('token');

@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button } from 'primereact/button'
 // import React, { useEffect, useState } from 'react'
 // import { ContentShoppingCart } from '../../Component/Layout/ShoppingCart/ContentShoppingCart'
@@ -9,70 +9,76 @@ import { ContentPageMain } from '../../Component/Layout/ContentPageMain/ContentP
 // import { GetFavoritos } from '../../Component/Layout/Favorites/GetFavoritos'
 import { Toaster, toast } from 'react-hot-toast';
 import { green } from '@material-ui/core/colors'
-export const ServicioRegistrar_Favoritos = ({ codigoF ,nameP = '', descripcionP = '', precioP = 0, imagenP ,id ,classN}) => {
-    
-        const [favorites, setFavorites] = useState(false)
+export const ServicioRegistrar_Favoritos = ({ codigoF, nameP = '', descripcionP = '', precioP = 0, imagenP, id, classN }) => {
 
-        function saveFavorite() {
-            toast('👈 Nuevo Favorito',{
-                className:'save-favorite',
-                duration:'200'
-               })
-            let cantidad=1
-            console.log( codigoF ,nameP,descripcionP , precioP, imagenP)
-            const url = 'http://localhost:8080/favoritos'
+    const [favorites, setFavorites] = useState(false)
+
+    function saveFavorite() {
+        
+        let cantidad = 1
+        console.log(codigoF, nameP, descripcionP, precioP, imagenP)
+        const url = 'http://localhost:8080/favoritos'
+        let tokenAdmin = localStorage.getItem('user')
+        if (tokenAdmin == "" || tokenAdmin == null) {
+            alert("Por favor registrese")
+        } else {
+
             fetch(url, {
                 method: 'POST',
                 headers: {
-                    "Content-type": "application/json"
+                    "Content-type": "application/json",
+                    "Authorization" : "Bearer " + tokenAdmin
                 },
                 body: JSON.stringify({
-                    codigo:codigoF,
-                    nombreProducto:nameP,
-                    descripcionProducto:descripcionP,
+                    codigo: codigoF,
+                    nombreProducto: nameP,
+                    descripcionProducto: descripcionP,
                     imagenProducto: imagenP,
-                    cantidadCart:cantidad,
-                    precioProducto:precioP,
-                    precioTotal:precioP*cantidad,
-                    
+                    cantidadCart: cantidad,
+                    precioProducto: precioP,
+                    precioTotal: precioP * cantidad,
+
                 })
             })
-                .then(response =>{
-                    if(response.status==201){
+                .then(response => {
+                    if (response.status == 201) {
                         setFavorites(true)
-                        // document.getElementById(codigoF).before.='blue'
+                        toast('👈 Nuevo Favorito', {
+                            className: 'save-favorite',
+                            duration: '200'
+                        })
                     }
                 })
                 .then(data => data)
-    
-        }
 
-        useEffect(()=>{
+        }}
 
-        },[favorites])
-    
+        useEffect(() => {
+
+        }, [favorites])
+
         // //esta funcion le llega por parametro el tiempo de espera
         // function timeout(ms) { 
         //     return new Promise((resolve) => setTimeout(resolve, ms));
         // }
-        
+
         // //esta funcion nos permite actualizar el carrito 
         // const re=async()=>{
         //     setVisible2(false)
         //     await timeout(400)//se le envia por parametro los el tiempo que se requier
-    
+
         //     if(visible==false){
         //         setVisible2(true)
         //     }
         // }
-    
-        
+
+
         return (
             < div >
-                <button    onClick={(e)=>saveFavorite()} className={classN}><i id={id} className='pi pi-heart  heart-icon'></i></button>    
+                <button onClick={(e) => saveFavorite()} className={classN}><i id={id} className='pi pi-heart  heart-icon'></i></button>
             </div>
-    
+
         )
     }
-    
+
 
