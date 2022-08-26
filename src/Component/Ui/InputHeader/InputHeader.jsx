@@ -72,10 +72,11 @@ export const InputHeader = () => {
 
   return (
     <div className='input-wrapper'>
+     
       <div>
+      
           <i className="pi pi-search input-icon"></i>
-      </div>
-      <div>
+      
         <InputText id='inpuText' placeholder='¿Qué estás buscando?' className='autoInput' onChange={filtersCategory}></InputText>
       </div>
       <GetCardsCategory getCards={products}/>

@@ -13,7 +13,7 @@ export const PageProductsFilter = () => {
   const filterPrice = () => {
     const urlFilter = "http://localhost:8080/producto/filtrar/" + localStorage.getItem("minimo") + "/" + localStorage.getItem("maximo")
     fetch(urlFilter, {
-      method: 'GET',
+      method: 'POST',
       headers: {
         "Content-type": "application/json"
       },
@@ -34,7 +34,7 @@ export const PageProductsFilter = () => {
   useEffect(() => {
     console.log("MINIMO " + localStorage.getItem("minimo"));
     filterPrice()
-  }, [products])
+  }, [])
   
   return (
     <div>

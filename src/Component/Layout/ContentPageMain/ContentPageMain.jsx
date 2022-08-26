@@ -4,7 +4,6 @@ import './CarouselDemo.css'
 import { Service_ListProduct } from '../../../service/ServiceProduct/Service_ListProduct'
 // import { CarouselPrime } from './CarouselPrime'
 import { ServicioList_Favorites } from '../../../service/ServicioFavoritos/ServicioList_Favorites.js'
-import { GetCardsFilter } from './GetCardsFilter'
 import { Service_ListProductFilter } from '../../../service/ServiceProduct/Service_ListProductFilter'
 
 
