@@ -26,22 +26,6 @@ export const ServicioList_Favorites = ({ accion }) => {
 
     }
    
-    const propiedades=(e)=>{
-        if(fa==false){
-            setFa(true)
-            console.log(+2)
-        }
-    }
-
-    const propiedades2=()=>{
-        if(fa==true){
-            setFa(false)
-            console.log(+8)
-        }
-    }
-
-  
-
     useEffect(() => {
         getFavorites()
       
@@ -57,13 +41,14 @@ export const ServicioList_Favorites = ({ accion }) => {
 
                     <div>
 
-                        <div id={item.codigo} className='car-favorite' style={{ position: 'relative' }} onMouseEnter={propiedades} onMouseLeave={propiedades2}>
-                            <div></div>
+                        <div id={item.codigo} className='car' style={{ position: 'relative' }}>
+                
                             <ServicieDelete_Favorite className={'delete-product-cart'} codigo={item.codigo}/>
+                            
                             <div  className='content-img-favorite'>
-                                <img className='img-cardGif-favorito' src={item.imagenProducto} alt="" />
+                                <img className='img-cardGif' src={item.imagenProducto} alt=""   />
                                 <div id='propiedad' >
-                                { fa==true ? <Modal classN='button-observar-favoritos' url={item.imagenProducto} name={item.nombreProducto} description={item.descripcionProducto} press={item.precioProducto}/>:<Modal  classN='observar' url={item.imagenProducto} name={item.nombreProducto} description={item.descripcionProducto} press={item.precioProducto}/> }
+                                    <Modal  classN='observar' url={item.imagenProducto} name={item.nombreProducto} description={item.descripcionProducto} press={item.precioProducto}/> 
                                </div>
                             </div>
 
@@ -71,10 +56,8 @@ export const ServicioList_Favorites = ({ accion }) => {
                                 <h2>{item.nombreProducto}</h2>
                             </div>
                             <hr />
-                            <div className='content-price-'>
-                                <h2 className='preci'>${item.precioProducto}</h2>
-
-                                
+                            <div className='content-price'>
+                                <h2 className='preci'>${item.precioProducto}</h2>                                
                                 <RegistrarCarrito codigoP={item.codigo} nameP={item.nombreProducto} descripcionP={item.descripcionProducto} imagenP={item.imagenProducto} precioP={item.precioProducto} />
 
                             </div>

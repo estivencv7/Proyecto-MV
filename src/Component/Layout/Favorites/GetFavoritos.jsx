@@ -1,4 +1,5 @@
 import React from 'react'
+import { RegistrarCarrito } from '../../../service/ServiceCarrito/RegistrarCarrito'
 import { Modal } from '../ContentPageMain/Modal'
 
 // import './style.css'

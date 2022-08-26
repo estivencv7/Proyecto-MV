@@ -41,7 +41,7 @@ export const GetCards = ({ getCards = [], onClick }) => {
 
                         {/* <div className='sud-content' > */}
                         <div className='car' style={{ position: 'relative' }}>
-                            <ServicioRegistrar_Favoritos classN='button-cart-register-Favorites' codigoF={item.codigo_producto} nameP={item.nombre_producto} descripcionP={item.descripcion_producto} precioP={item.precio_producto} imagenP={item.foto_producto}/>
+                            <ServicioRegistrar_Favoritos classN='' codigoF={item.codigo_producto} nameP={item.nombre_producto} descripcionP={item.descripcion_producto} precioP={item.precio_producto} imagenP={item.foto_producto}/>
                             <GiPriceTag className='etiqueta'/>
                             <div >
 

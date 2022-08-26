@@ -1,14 +1,3 @@
-/* .heart{
-    position: absolute;
-    top: 19px;
-    right: 25px;
-    
-    background: none;
-    border: none;
-}
-.heart-icon {
-    font-size: 30px;
-} */
 
 .save-favorite{
   
@@ -25,24 +14,24 @@
     color: red !important;
 }
 
-.button-cart-register-Favorites{
- 
-}
+
 
 
 /* ¨================card favorites*/
 
+.car{
+    flex-direction: column;
+}
 
-/* .cont-card-favorite{
-    background-color: #008031;
-    max-width: 100%;
-} */
 .content-img-favorite{
     /* background-color: #008031; */
     width: 100%;
     height:50%; 
     position: relative;
+    
 }
+
+
 .conter_car-favorite {
   padding-top: 70px;
   width: 89%;
@@ -83,24 +72,15 @@
     object-fit: unset;
     padding: 1rem;
 }
-.content-price-{
+.content-price{
     display: flex;
     justify-content: space-around;
     gap: 7em;
 }
-.button-observar-favoritos {
-    width: 100% !important;
-    text-align: center !important;
-    display: flex;
-    justify-content: center;
-    height: 70px !important;
-    font-size: 25px;
-    position: absolute;
-    bottom: 0;
-    background:#00803765!important;
-    border: none;
-    
-}
+
+
+
+
 .observar{
     background-color: transparent;
     width: 100% !important;
@@ -115,16 +95,20 @@
     border: none;
 }
 
-.deleteFavorite{
-    background-color: #008037 !important;
-    position: relative;
-    font-size: 40px;
-    right: 0;
-    width: 100%;
-}
+
+
 
 .conte-buttom-favorite{
     position: absolute;
     top: 0;
-    right: 0;
+   
+    
+}
+.content-img-favorite:hover .observar{
+background:rgba(255, 0, 0, 0.644) ;
+color: white;
+}
+
+.deleteFavorite{
+    color: #008037;
 }
