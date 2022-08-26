@@ -4,6 +4,13 @@
     
 } 
 .input-icon{
+    border-bottom: none;
+    border: none;
+    background: #008037;
+    width: 30px;
+    height: 25px;
+    color: white;
+    border-radius: 10px;
 }
 
 .input-wrapper{
@@ -13,6 +20,7 @@
 }
 
 .autoInput{
+    margin: 0 0 0 45px;
     width: 400px;
     border-radius: 20px;
 

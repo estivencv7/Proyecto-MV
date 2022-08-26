@@ -1,11 +1,12 @@
 
 import React, { useState, useEffect } from 'react';
 import { FilterMatchMode, FilterOperator } from 'primereact/api';
-import {AutoComplete}from 'rsuite'
+import {AutoComplete, Button}from 'rsuite'
 import { InputText } from 'primereact/inputtext';
 import './style.css'
 import { Input } from '@material-ui/core';
 import { GetCardsCategory } from '../../Layout/ContentPageMain/GetCardsCategory';
+import { data } from 'jquery';
 export const InputHeader = ({id}) => {
 
   const [category, setCategory] = useState('');
@@ -27,33 +28,49 @@ export const InputHeader = ({id}) => {
         .then(response => response.json())
         .then(data => {
           setProducts(data)
-          createElements()
+          console.log("data" + data)
+          if (data != null ){
+            alert("ingrese algo")
+            console.log("entro a create Element")
+            createElements()
+            
+
+          }
+          else{
+            alert("ingrese algo")
+          }
         })
 
       }
   function createElements(){
-    <GetCardsCategory getCards={products}/>
     const categoryContainer = document.getElementById("categoryContainer")
-    if(document.getElementById("conter_car") == null){
-    const div = document.createElement("div")
-    if(document.getElementById("categoryContainer") == null){
-        document.getElementById("conter_car").replaceWith(div)
-    }else if(document.getElementById("conter_car") == null){
-        document.getElementById("categoryContainer").replaceWith(div)
-    }
+    if (data != null){
+ 
+      if(document.getElementById("conter_car") == null){
+      const div = document.createElement("div")
+      if(document.getElementById("categoryContainer") == null){
+          document.getElementById("conter_car").replaceWith(div)
+      }else if(document.getElementById("conter_car") == null){
+          document.getElementById("categoryContainer").replaceWith(div)
+      }
+      }else{
+        document.getElementById("conter_car").replaceWith(categoryContainer)
+      }
     }else{
-      document.getElementById("conter_car").replaceWith(categoryContainer)
+      alert("entro al else")
     }
   }
+
+  //onClick={filtersCategory}
   return (
     <div className='input-wrapper'>
       <div>
-        <i className="pi pi-search input-icon" onClick={filtersCategory}></i>
+         <button className="pi pi-search input-icon" onClick={filtersCategory}></button>
       </div>
       <div>
-        <InputText  id='inpuText' placeholder='¿Qué estás buscando?' className='autoInput' ></InputText>
+        <InputText id='inpuText' placeholder='¿Qué estás buscando?' className='autoInput' ></InputText>
       </div>
-     <GetCardsCategory getCards={products}/>
+      <GetCardsCategory getCards={products}/>
     </div>
   )
 }
