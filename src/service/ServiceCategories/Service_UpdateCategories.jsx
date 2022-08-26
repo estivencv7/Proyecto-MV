@@ -1,7 +1,11 @@
+
 import { Button } from 'primereact/button'
 import { Dialog } from 'primereact/dialog'
 import React,{useState,useEffect}from 'react'
 import { InputText } from 'primereact/inputtext';
+import { InputTextarea } from 'primereact/inputtextarea';
+import { RadioGroup } from 'rsuite';
+import { InputNumber } from 'primereact/inputnumber';
 
 export const Service_UpdateCategories = ({codeCategoriUpdate}) => {
     const [visible, setVisible] = useState(false);
@@ -66,6 +70,7 @@ export const Service_UpdateCategories = ({codeCategoriUpdate}) => {
                     alert("Actualizacion Exitosa")
                 }
             })
+
         let tokenAdmin = localStorage.getItem('admin')
         if(tokenAdmin == "" || tokenAdmin == null){
           alert("Por favor registrese")
