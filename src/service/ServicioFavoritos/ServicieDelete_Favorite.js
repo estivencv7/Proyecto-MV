@@ -36,9 +36,9 @@ export const ServicieDelete_Favorite = ({codigo,className}) => {
     return (
 
 
-        <div  className='conte-buttom-favorite'>
+        < >
             <Button onClick={deleteProduct} className={className} codigo><i className='pi pi-times-circle deleteFavorite'></i></Button>
-        </div>
+        </>
     )
 }
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import { RegistrarCarrito } from '../../../service/ServiceCarrito/RegistrarCarrito'
 import { Modal } from '../ContentPageMain/Modal'
 // import './style.css'
 export const GetFavoritos = ({ listFavorites=[] }) => {
@@ -31,7 +32,7 @@ export const GetFavoritos = ({ listFavorites=[] }) => {
 
 
                                 {/* <RegistrarCarrito codigoP={item.codigo_producto} nameP={item.nombre_producto} descripcionP={item.descripcion_producto} imagenP={item.foto_producto} precioP={item.precio_producto} /> */}
-
+                                <RegistrarCarrito   codigoP={item.codigo_producto} nameP={item.nombre_producto} descripcionP={item.descripcion_producto} imagenP={item.foto_producto} precioP={item.precio_producto}/>
                             </div>
 
                             <div >
