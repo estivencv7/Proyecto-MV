@@ -1,105 +1,11 @@
-<<<<<<< HEAD
-import React from 'react'
 
-export const Service_UpdateCategories = () => {
-  return (
-    <div>Service_UpdateCategories</div>
-  )
-}
-/*
-=======
->>>>>>> e2d38c079916f9341638001afa918e1ed1b1876f
 import { Button } from 'primereact/button'
 import { Dialog } from 'primereact/dialog'
 import React,{useState,useEffect}from 'react'
 import { InputText } from 'primereact/inputtext';
-<<<<<<< HEAD
 import { InputTextarea } from 'primereact/inputtextarea';
 import { RadioGroup } from 'rsuite';
 import { InputNumber } from 'primereact/inputnumber';
-import './css/registerProvider.css'
-
-export const Service_UpdateProvider = ({codeProviderUpdate}) => {
-  
-  const [visible, setVisible] = useState(false);
-  const [name_supplier_product, setNameSupplierProduct] = useState("")
-  const [code , setCodeProvider] = useState("")
-  const [provider, setProvider] = useState("")
-
-  function searchProvider () {
-    console.log("entro a buscar un proveedor")
-    console.log(codeProviderUpdate)
-      const urlRegister = 'http://localhost:8080/proveedores/buscarProveedor/' + codeProviderUpdate;
-      fetch(urlRegister, {
-          method: 'GET',
-          headers: {
-              "Content-type": "application/json"
-          }
-      })
-          .then(response => response.json())
-          .then(provider => guardarProvider(provider))
-          console.log(provider)
-  }    
-
-  const guardarProvider = (provi) =>{
-      setProvider(provi)
-      setCodeProvider(provi.cedula_proveedor)
-  }
-  
-  const seew=()=>{
-     
-      if (visible == false) {
-        console.log("entro al if")
-        console.log(codeProviderUpdate+"fsd")
-          searchProvider()
-          setVisible(true)
-      } else {
-        console.log("entro al else")
-          setVisible(false)
-      } 
-  }
-
-  function editProvider() {
-      console.log("estoy editando un proveedor")
-      const name_provider = document.getElementById("inputName").value
-      console.log(name_provider)
-      const phone = document.getElementById("inputPhone").value
-      console.log(phone)
-      const urlRegister = 'http://localhost:8080/proveedores/actualizarProveedor/' + codeProviderUpdate;
-      fetch(urlRegister, {
-          method: 'PUT',
-          headers: {
-              "Content-type": "application/json"
-          },
-          body: JSON.stringify({
-                cedula_proveedor: code,
-                nombre_proveedor: name_provider,
-                telefono_proveedor: phone
-          })
-      })
-          .then(response => response.json())
-          .then(json => {
-              if(json.ok){
-                  alert("Actualizacion Exitosa")
-              }else{
-                  alert("Actualizacion Exitosa")
-              }
-          })
-      let tokenAdmin = localStorage.getItem('admin')
-      if(tokenAdmin == "" || tokenAdmin == null){
-        alert("Por favor registrese")
-      }else{
-        fetch(urlRegister, {
-            method: 'PUT',
-            headers: {
-                "Content-type": "application/json",
-                "Authorization" : "Bearer " + tokenAdmin
-            },
-            body: JSON.stringify({
-                  cedula_proveedor: code,
-                  nombre_proveedor: name_provider,
-                  telefono_proveedor: phone
-=======
 
 export const Service_UpdateCategories = ({codeCategoriUpdate}) => {
     const [visible, setVisible] = useState(false);
@@ -154,7 +60,6 @@ export const Service_UpdateCategories = ({codeCategoriUpdate}) => {
             body: JSON.stringify({
                     id_categoria: code,
                     nombre: name_categori
->>>>>>> e2d38c079916f9341638001afa918e1ed1b1876f
             })
         })
             .then(response => response.json())
@@ -165,42 +70,7 @@ export const Service_UpdateCategories = ({codeCategoriUpdate}) => {
                     alert("Actualizacion Exitosa")
                 }
             })
-<<<<<<< HEAD
-      }
-  }
 
-
-
-  const header=(
-      <div className='div-update'>
-         Editar Proveedores
-     </div>
-  )
-
-return (
-  <>
-      <Button onClick={()=>seew(seew)}><i className='pi pi-user-edit icons-registerProduct'></i></Button>
-      <Dialog header={header} visible={visible} modal onHide={seew} style={{ width: '30em',bordeRadius:'100%'}} className='dialogoRegisterProduct tabla' >     
-          
-       
-            
-            <div className='content-provider'>
-                <InputText id='inputName' className='input-update' placeholder={provider.nombre_proveedor}/>
-                <InputText type="number" id='inputPhone' className='input-update' placeholder={provider.telefono_proveedor}/>
-
-            </div>
-        <div className='save-edit'>
-              <Button onClick={editProvider} >Guardar</Button>
-          </div>
-      </Dialog>
-  </>
-)
-}
-
-
-
-*/
-=======
         let tokenAdmin = localStorage.getItem('admin')
         if(tokenAdmin == "" || tokenAdmin == null){
           alert("Por favor registrese")
@@ -253,4 +123,3 @@ return (
     </>
   )
 }
->>>>>>> e2d38c079916f9341638001afa918e1ed1b1876f

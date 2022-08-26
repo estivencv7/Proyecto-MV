@@ -4,9 +4,11 @@ import { Dialog } from 'primereact/dialog';
 import { Button,} from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
 import { Toaster, toast } from 'react-hot-toast';
+import { Navigate, useNavigate } from 'react-router'
 import './css/registerProduct.css'
 export const Service_ProductRegis = ({style}) => {
 
+    // let navigate = useNavigate()
     const [visible, setVisible] = useState(false)
     const [image, setImageProduct] = useState("");
     const [loading, setLoading] = useState(true);
@@ -43,6 +45,7 @@ export const Service_ProductRegis = ({style}) => {
         )
     }
 
+    
     const catchNameProduct = (even) => {
         setNameProduct(even.target.value)
     }
@@ -102,15 +105,16 @@ export const Service_ProductRegis = ({style}) => {
                 console.log(name_supplier_product);
         }
     }
-    
+    // if(response.status==201){
+    //     toast("Save ")
+    // }
     function check(element) {
         if (element == true) {
-            <Toaster reverseOrder={true} toastOptions={{
+            // <Toaster reverseOrder={true} toastOptions={{
             
-            }} />
-            
-            
-            //alert("Registro exitoso")
+            // }} />
+            // navigate("/registerProduct")
+            alert("Registro exitoso")
         } else {
             alert("hubo un error al momento de registrar")
         }
