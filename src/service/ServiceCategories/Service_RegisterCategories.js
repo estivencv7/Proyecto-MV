@@ -25,6 +25,7 @@ export const Service_RegisterCategories = ({style}) => {
           const urlRegister = 'http://localhost:8080/categorias';
           console.log(urlRegister)
           let tokenAdmin = localStorage.getItem('admin')
+          console.log(tokenAdmin)
           if(tokenAdmin == "" || tokenAdmin == null){
             alert("Por favor registrese")
           }else{

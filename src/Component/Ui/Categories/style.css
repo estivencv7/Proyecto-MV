@@ -1,3 +1,8 @@
 .filterB{
     background-color: red !important;
 }
+
+.btnHeart{
+    background-color: white;
+    border: solid 4px white;
+}

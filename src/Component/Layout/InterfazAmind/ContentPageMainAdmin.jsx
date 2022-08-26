@@ -1,34 +1,52 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import inventario from '../../../Images/inventario1.jpg'
+// import inventario from '../../../Images/inventario1.jpg'
 import manos from '../../../Images/manos.png'
 import carpetas from '../../../Images/carpetas.png'
-import etiqueta from '../../../Images/etiqueta.png'
+// import etiqueta from '../../../Images/etiqueta.png'
+// import {MdOutlineInventory} from 'react-icons';
+import { MdInventory2 } from "react-icons/md";
+import { FaPeopleCarry } from "react-icons/fa"
+import {MdCategory } from "react-icons/md"
+
 import './style.css'
+
 export const ContentPageMainAdmin = () => {
     return (
         <div className='link-card' >
+
             <Link className='card-section' to='/registerProduct' >
-                <img className='invetario-card' src={inventario} ></img>
-                <p>Inventario Productos</p>
+               
+                <div className='MdInventory2'>
+                <MdInventory2 className='inventariosproductos' stroke='' fill=''/>
+                </div>
+                <h2>Inventario Productos</h2>
+                    <p>Maneje el Invetario de sus productos Registre,Busque ,Actualice y Elimine con gran facilidad.
+                </p>
             </Link>
 
             <Link className='card-section' to='/registerProvider' >
-                <img className='invetario-card' src={manos} ></img>
-                <p className='colorP'>Inventario Proveedores</p>
+               
+                <div  className='MdInventory2'>
+                    <FaPeopleCarry className='inventariosproductos'/>
+                </div>
+                <h2>Inventario Proveedores</h2>
+                <p>Ten un manejo de los Proveedores como sus datos y maneje el inventario y las operaciones respectivas.</p>
             </Link>
 
             <Link className='card-section' to='/registerCategories' >
-                <img className='invetario-card' src={carpetas} ></img>
-                <p className='colorP'>Inventario Categorias</p>
+              
+                <div className='MdInventory2' >
+                    <MdCategory  className='inventariosproductos'/>
+                </div>
+                <h2>Inventario Categorias</h2>
+                <p>Separe por Categorias sus productos aqui puede manejar el Inventario de categorias.</p>
             </Link>
-            <Link className='card-section' to='' >
+            
+            {/* <Link className='card-section' to='' >
                 <i  className='invetario-card style pi pi-eye'></i>
                 <p className='colorP'>vista de todos los productos</p>
-            </Link>
-
-           
-
+            </Link> */}        
         </div>
     )
 }

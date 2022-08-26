@@ -7,7 +7,7 @@ import { Button } from 'primereact/button'
 // import './css/Style.css'
 // import { ListsCart } from './ListsCart'
 
-export const ServicieDelete_Favorite = ({codigo}) => {
+export const ServicieDelete_Favorite = ({codigo,className}) => {
 
 
     function deleteProduct() {
@@ -36,8 +36,8 @@ export const ServicieDelete_Favorite = ({codigo}) => {
     return (
 
 
-        <div>
-            <Button onClick={deleteProduct} className='delete-product-cart' codigo>💔</Button>
+        <div  className='conte-buttom-favorite'>
+            <Button onClick={deleteProduct} className={className} codigo><i className='pi pi-times-circle deleteFavorite'></i></Button>
         </div>
     )
 }

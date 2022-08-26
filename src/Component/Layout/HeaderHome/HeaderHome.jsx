@@ -17,7 +17,7 @@ export const HeaderHome = () => {
           <Logo classN="title-main" />
          
         </div>
-        {/* <InputHeader /> */}
+        <InputHeader />
         <NavHome />
       </header>
       <NavBar />

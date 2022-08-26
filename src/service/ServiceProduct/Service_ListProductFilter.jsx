@@ -4,53 +4,18 @@ import { ContentPageMain } from '../../Component/Layout/ContentPageMain/ContentP
 import { GetCardsFilter } from '../../Component/Layout/ContentPageMain/GetCardsFilter'
 import { PageProductsFilter } from '../../Component/Page/PageProductsFilter/PageProductsFilter'
 
-
 export const Service_ListProductFilter = ({minimum , maximum}) => {
-    
-    const [products , setProducts] = useState([])
-    
-    const filterPrice = () => {
-        const urlFilter = "http://localhost:8080/producto/filtrar/" + minimum + "/" + maximum
-        fetch(urlFilter, {
-          method: 'GET',
-          headers: {
-            "Content-type": "application/json"
-        },
-        })
-        .then(response => response.json())
-        .then(prods => {
-          console.log(prods);
-          try {
-            setProducts(prods)   
-            createElements() 
-          } catch (error) {
-            console.log("entra al catch " + error);  
-          }    
-        })
-    }
+    let navigate = useNavigate()
 
-    const ret = () => {
-      if(products == null){
-        return (
-          <div></div>
-        )
-      }else{
-        return (
-          <GetCardsFilter products={products}/>
-        )
-      }
-    }
-    function createElements(){
-      const containerFilter = document.getElementById("containerFilter");
-      const prodContainer = document.getElementById("prodContainer")
-      containerFilter.appendChild(ret)
-      document.getElementById("containerProd").classList.add("hide")
+    const redirect = () => {
+      localStorage.setItem("minimo" , minimum)
+      localStorage.setItem("maximo" , maximum)
+      navigate("/pageProductsFilter")
     }
 
     return (
     <div>
-        <button onClick={filterPrice} className='btnFiltro'>Filtrar</button>
-        {ret}
+        <button onClick={redirect} className='btnFiltro'>Filtrar</button>
     </div>
   )
 }

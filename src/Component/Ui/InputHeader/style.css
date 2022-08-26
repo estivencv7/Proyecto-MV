@@ -1,4 +1,19 @@
 .autoInput::before{
     position: relative;
     top:0px;
+    
 } 
+.input-icon{
+}
+
+.input-wrapper{
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.autoInput{
+    width: 400px;
+    border-radius: 20px;
+
+}
