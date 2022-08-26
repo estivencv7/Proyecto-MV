@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import { Navigate, Route, Routes, useNavigate } from 'react-router'
-import { GetCardsFilter } from '../../Component/Layout/ContentPageMain/GetCardsFilter'
+import { ContentPageMain } from '../../Component/Layout/ContentPageMain/ContentPageMain'
 import { PageProductsFilter } from '../../Component/Page/PageProductsFilter/PageProductsFilter'
 
 export const Service_ListProductFilter = ({minimum , maximum}) => {

@@ -9,6 +9,7 @@ import { ContentShoppingCart } from '../ShoppingCart/ContentShoppingCart';
 import { useNavigate } from "react-router-dom";
 import { InputText } from 'primereact/inputtext';
 import { Toaster, toast } from 'react-hot-toast';
+import { PageReservesClient } from '../../Page/PageReservesClient/PageReservesClient';
 
 export const NavHome = () => {
     const [email , setEmail] = useState("")
@@ -21,6 +22,7 @@ export const NavHome = () => {
     const [stateUser , setStateUser] = useState(0)
     const [surnameUser , setSurnameUser] = useState("")
     const [emailUser , setEmailUser] = useState("")
+    const [idUser , setIdUser] = useState("")
     let navigate = useNavigate();
     
     const onHide = () => {
@@ -35,7 +37,8 @@ export const NavHome = () => {
         nameU : nameUser,
         stateU : stateUser,
         surnameU : surnameUser,
-        emailU : emailUser 
+        emailU : emailUser,
+        idU : idUser
     }
 
     const catchEmail = (event) => {
@@ -57,6 +60,7 @@ export const NavHome = () => {
         usuarioActivo.emailU = payload.email;
         usuarioActivo.surnameU = payload.apellido;
         usuarioActivo.stateU = payload.Estado;
+        usuarioActivo.idU = payload.cedula;
         sessionStorage.setItem("usuario", JSON.stringify(usuarioActivo))
         console.log("Usuario en el sesion storage " + sessionStorage.getItem("usuario"));
         console.log(usuarioActivo);
@@ -174,7 +178,7 @@ export const NavHome = () => {
 
     return (
         <nav className='icons'>
-             
+            <PageReservesClient/> 
             <Link className='icon' to="/"><i className="pi pi-home ico" ><p  className='name-icon'> Inicio </p></i></Link>
             <ContentShoppingCart onHide={()=>setVisible2(false)} visible2={visible2} onClick={re} />
 

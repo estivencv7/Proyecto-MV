@@ -1,6 +1,7 @@
 import React from 'react'
 import { RegistrarCarrito } from '../../../service/ServiceCarrito/RegistrarCarrito'
 import { Modal } from '../ContentPageMain/Modal'
+
 // import './style.css'
 export const GetFavoritos = ({ listFavorites=[] }) => {
 
@@ -29,17 +30,11 @@ export const GetFavoritos = ({ listFavorites=[] }) => {
                             <hr />
                             <div className='content-press'>
                                 <h2 className='press'>${item.precioProducto}</h2>
-
-
-                                {/* <RegistrarCarrito codigoP={item.codigo_producto} nameP={item.nombre_producto} descripcionP={item.descripcion_producto} imagenP={item.foto_producto} precioP={item.precio_producto} /> */}
-                                <RegistrarCarrito   codigoP={item.codigo_producto} nameP={item.nombre_producto} descripcionP={item.descripcion_producto} imagenP={item.foto_producto} precioP={item.precio_producto}/>
                             </div>
 
                             <div >
-                               
                                 <Modal url={item.imagenProducto} name={item.nombreProducto} description={item.descripcionProducto} press={item.precioProducto} /> 
                             </div>
-
                         </div>
 
                     </div>

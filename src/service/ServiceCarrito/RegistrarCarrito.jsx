@@ -8,6 +8,7 @@ export const RegistrarCarrito = ({ codigoP ,nameP = '', descripcionP = '', preci
     const [visible2, setVisible2] = useState(false)
     const [visible, setVisible] = useState(false)
     function saveCart() {
+        console.log("hholaflfafafafafa")
         let cantidad=1
         const url = 'http://localhost:8080/carritoCompras'
         fetch(url, {

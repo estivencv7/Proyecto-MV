@@ -1,0 +1,49 @@
+.botonFilter{
+    background-color: #4CAF50 !important;
+    position: absolute !important;
+    top: 433px !important;
+    height: 70px !important;
+    right: 0px !important;
+    width: 100% !important;
+    border: none;
+    font-size:25px !important;
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.iconHeart{
+    position: absolute !important;
+    top: 3 !important;
+    left: 20 !important;
+    border: none !important;
+    background: none !important;
+}
+
+.etiqueta2{
+    font-size: 50px !important;
+    position: absolute !important;
+    top: 0 !important;
+    left:-35 !important;
+    border: none !important;
+    background:none !important;
+    color:chocolate !important;
+}
+
+.conter_car{
+    width:96% !important;
+}
+
+.car2{
+    text-align: center !important;
+    width: 24rem !important;
+    height: 31rem !important;
+    /* border-radius: 15px; */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    /* margin: 3rem; */
+    gap: 8px !important;
+    flex-wrap: wrap !important;
+    box-shadow: 0px 0px 40px #c9c8c8 !important;
+    /* border: 1px solid;*/
+}

@@ -1,8 +1,31 @@
 .filterB{
-    background-color: red !important;
+    background-color: #4CAF50 !important;
+    position: absolute !important;
+    top: 433px !important;
+    height: 70px !important;
+    right: 0px !important;
+    width: 100% !important;
+    border: none;
+    font-size:25px !important;
+    display: flex !important;
+    justify-content: center !important;
 }
 
+
 .btnHeart{
-    background-color: white;
-    border: solid 4px white;
+    position: absolute !important;
+    top: 3 !important;
+    left: 20 !important;
+    border: none !important;
+    background: none !important;
+}
+
+.etiqueta3{
+    font-size: 50px !important;
+    position: absolute;
+    top: 0;
+    left:-35;
+    border: none;
+    background:none;
+    color:chocolate;
 }
