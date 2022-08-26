@@ -4,9 +4,11 @@ import './CarouselDemo.css'
 import { Service_ListProduct } from '../../../service/ServiceProduct/Service_ListProduct'
 // import { CarouselPrime } from './CarouselPrime'
 import { ServicioList_Favorites } from '../../../service/ServicioFavoritos/ServicioList_Favorites.js'
+import { GetCardsFilter } from './GetCardsFilter'
+import { Service_ListProductFilter } from '../../../service/ServiceProduct/Service_ListProductFilter'
 
 
-export const ContentPageMain = () => {
+export const ContentPageMain = ({prods}) => {
 
    
 
@@ -19,7 +21,7 @@ export const ContentPageMain = () => {
             <Service_ListProduct/>
          </div >
          <div id='containerFilter'>
-
+            {/* <Service_ListProductFilter/>             */}
          </div>
       </div> 
 
