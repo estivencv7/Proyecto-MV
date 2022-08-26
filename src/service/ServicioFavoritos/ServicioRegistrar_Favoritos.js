@@ -43,9 +43,9 @@ export const ServicioRegistrar_Favoritos = ({ codigoF, nameP = '', descripcionP 
                 .then(response => {
                     if (response.status == 201) {
                         setFavorites(true)
-                        toast('👈 Nuevo Favorito', {
+                        toast('Nuevo Favorito', {
                             className: 'save-favorite',
-                            duration: '200'
+                            duration: '100'
                         })
                     }
                 })

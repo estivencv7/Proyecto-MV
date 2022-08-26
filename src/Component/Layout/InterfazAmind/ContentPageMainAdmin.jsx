@@ -21,7 +21,7 @@ export const ContentPageMainAdmin = () => {
                 <MdInventory2 className='inventariosproductos' stroke='' fill=''/>
                 </div>
                 <h2>Inventario Productos</h2>
-                    <p>Maneje el Invetario de sus productos Registre,Busque ,actualize y elimine con gran facilidad.
+                    <p>Maneje el Invetario de sus productos Registre,Busque ,Actualice y Elimine con gran facilidad.
                 </p>
             </Link>
 
@@ -30,8 +30,8 @@ export const ContentPageMainAdmin = () => {
                 <div  className='MdInventory2'>
                     <FaPeopleCarry className='inventariosproductos'/>
                 </div>
-                <h2>Inventario Provedores</h2>
-                <p>Ten un manejo de los Socios como sus datos y maneje el inventario y las operaciones repectivas.</p>
+                <h2>Inventario Proveedores</h2>
+                <p>Ten un manejo de los Proveedores como sus datos y maneje el inventario y las operaciones respectivas.</p>
             </Link>
 
             <Link className='card-section' to='/registerCategories' >

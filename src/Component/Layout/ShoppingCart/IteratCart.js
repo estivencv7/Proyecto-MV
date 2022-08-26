@@ -105,7 +105,7 @@ export const IteratCart = ({ listsCart = [], conut }) => {//resive como parametr
 
 
                                         <div className=''>
-                                            <select className='select' onChange={e => editCart(e, item.codigo_Carrito, item.nombre__producto, item.precio_producto, item.imagen_producto, item.precio_total)} onClick={() => toast('Actualize precios 👇')} >
+                                            <select className='select' onChange={e => editCart(e, item.codigo_Carrito, item.nombre__producto, item.precio_producto, item.imagen_producto, item.precio_total)} onClick={() => toast('Actualice precios 👇')} >
                                                 <option>{item.cantidad_cart}</option>
                                                 {item.cantidad_cart == 1 ? <div></div> : <option value={1} >1</option>}
                                                 {item.cantidad_cart == 2 ? <div></div> : <option value={2}>2</option>}

@@ -176,7 +176,7 @@ export const DataTableProducts = () => {
     return (
         <div className="datatable-doc-demo">
             <div className="contentTheTable">
-                <DataTable value={products} paginator className="p-datatable-customers" header={header} rows={5}
+                <DataTable value={products} paginator className="p-datatable-customers" header={header} rows={4}
                     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" rowsPerPageOptions={[5, 10, 15]}
                     dataKey="id" rowHover onSelectionChange={e => setSelectedProduct(e.value)}
                     filters={filters} filterDisplay="menu" loading={loading} responsiveLayout="scroll"

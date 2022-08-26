@@ -11,6 +11,7 @@ import { ServicioList_Favorites } from '../../../service/ServicioFavoritos/Servi
 // import { RegistrarCarrito } from '../../../service/ServiceCarrito/RegistrarCarrito';
 // import { get } from 'jquery';
 // import { Modal } from './Modal';
+import {GiPriceTag} from 'react-icons/gi'
 export const GetCards = ({ getCards = [], onClick }) => {
 
     const [visible2, setVisible2] = useState(false);
@@ -40,8 +41,8 @@ export const GetCards = ({ getCards = [], onClick }) => {
 
                         {/* <div className='sud-content' > */}
                         <div className='car' style={{ position: 'relative' }}>
-                            <ServicioRegistrar_Favoritos classN='button-cart-register-Favorites' codigoF={item.codigo_producto} nameP={item.nombre_producto} descripcionP={item.descripcion_producto} precioP={item.precio_producto} imagenP={item.foto_producto} />
-
+                            <ServicioRegistrar_Favoritos classN='button-cart-register-Favorites' codigoF={item.codigo_producto} nameP={item.nombre_producto} descripcionP={item.descripcion_producto} precioP={item.precio_producto} imagenP={item.foto_producto}/>
+                            <GiPriceTag className='etiqueta'/>
                             <div >
 
                                 <img className='img-cardGif' src={item.foto_producto} alt="" />
