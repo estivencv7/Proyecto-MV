@@ -17,6 +17,7 @@ import { PageProductsFilter } from './Component/Page/PageProductsFilter/PageProd
 import { BaseBeds } from './Component/Ui/Categories/BaseBeds';
 import { Furniture } from './Component/Ui/Categories/Furniture';
 import { Mattresses } from './Component/Ui/Categories/Mattresses';
+import { Service_ListReservesAdmin } from './service/ServiceReserve/Service_ListReservesAdmin';
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
         <Route path='/pageFavorito' element={<PageFavorito/>}/>
         <Route path='furniture' element={<Furniture/>}/>
         <Route path='mattresses' element={<Mattresses/>}/>
+        <Route path='listReserves' element={<Service_ListReservesAdmin/>}/>
         <Route path='chairs' element={<Chairs/>}/>
       </Routes>
     </div>

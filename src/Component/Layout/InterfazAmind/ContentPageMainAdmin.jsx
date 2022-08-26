@@ -8,7 +8,6 @@ import carpetas from '../../../Images/carpetas.png'
 import { MdInventory2 } from "react-icons/md";
 import { FaPeopleCarry } from "react-icons/fa"
 import {MdCategory } from "react-icons/md"
-
 import './style.css'
 
 export const ContentPageMainAdmin = () => {
@@ -43,6 +42,15 @@ export const ContentPageMainAdmin = () => {
                 <p>Separe por Categorias sus productos aqui puede manejar el Inventario de categorias.</p>
             </Link>
             
+            <Link className='card-section' to='/listReserves' >
+               
+                <div className='MdInventory2'>
+                <MdInventory2 className='inventariosproductos' stroke='' fill=''/>
+                </div>
+                <h2>Gestion Reservas</h2>
+                    <p>Maneje las reservas de sus productos Registre,Busque ,Actualice y Elimine con gran facilidad.
+                </p>
+            </Link>
             {/* <Link className='card-section' to='' >
                 <i  className='invetario-card style pi pi-eye'></i>
                 <p className='colorP'>vista de todos los productos</p>

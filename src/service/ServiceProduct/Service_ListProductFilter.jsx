@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import { Navigate, Route, Routes, useNavigate } from 'react-router'
+import { ContentPageMain } from '../../Component/Layout/ContentPageMain/ContentPageMain'
 import { GetCardsFilter } from '../../Component/Layout/ContentPageMain/GetCardsFilter'
 import { PageProductsFilter } from '../../Component/Page/PageProductsFilter/PageProductsFilter'
 
