@@ -17,7 +17,7 @@ export const ContentPageMain = () => {
          {/*==============card=====================*/}
          <div className='car' id='containerProd'>
             <Service_ListProduct/>
-         </div>
+         </div >
          <div id='containerFilter'>
 
          </div>

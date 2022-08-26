@@ -1,60 +1,60 @@
-import React from 'react'
-import { RegistrarCarrito } from '../../../service/ServiceCarrito/RegistrarCarrito'
-import { ServicioRegistrar_Favoritos } from '../../../service/ServicioFavoritos/ServicioRegistrar_Favoritos'
-import { Modal } from './Modal'
-import './CarouselDemo.css'
+// import React from 'react'
+// import { RegistrarCarrito } from '../../../service/ServiceCarrito/RegistrarCarrito'
+// import { ServicioRegistrar_Favoritos } from '../../../service/ServicioFavoritos/ServicioRegistrar_Favoritos'
+// import { Modal } from './Modal'
+// import './CarouselDemo.css'
 
-export const GetCardsFilter = ({products = []}) => {
-    const containerProd = document.getElementById("containerProd")
-    console.log(products);
-    try {
-            return (
-                <div className='conter_car' id='prodContainer'>
-                    {
-                        products.map((item, index,) => (
+// export const GetCardsFilter = ({products = []}) => {
+//     const containerProd = document.getElementById("containerProd")
+//     console.log(products);
+//     try {
+//             return (
+//                 <div className='conter_car' id='prodContainer'>
+//                     {
+//                         products.map((item, index,) => (
                             
-                            <div key={index} >
-                                {/* <div className='sud-content' > */}
-                                <div className='car' style={{ position: 'relative' }}>
-                                    <ServicioRegistrar_Favoritos codigoP={item.codigo_producto} nameP={item.nombre_producto} descripcionP={item.descripcion_producto} precioP={item.precio_producto} imagenP={item.foto_producto} classN="iconHeart"/>
+//                             <div key={index} >
+//                                 {/* <div className='sud-content' > */}
+//                                 <div className='ca' style={{ position: 'relative' }}>
+//                                     <ServicioRegistrar_Favoritos codigoP={item.codigo_producto} nameP={item.nombre_producto} descripcionP={item.descripcion_producto} precioP={item.precio_producto} imagenP={item.foto_producto} classN="iconHeart"/>
                                    
-                                    <div >
+//                                     <div >
         
-                                        <img className='img-cardGif' src={item.foto_producto} alt="" />
+//                                         <img className='img-cardGif' src={item.foto_producto} alt="" />
         
-                                    </div>
+//                                     </div>
         
-                                    <div>
-                                        <h2>{item.nombre_producto}</h2>
-                                    </div>
-                                    <hr />
-                                    <div className='content-press'>
-                                        <h2 className='press'>${item.precio_producto}</h2>
+//                                     <div>
+//                                         <h2>{item.nombre_producto}</h2>
+//                                     </div>
+//                                     <hr />
+//                                     <div className='content-press'>
+//                                         <h2 className='press'>${item.precio_producto}</h2>
         
                                         
-                                        <RegistrarCarrito  codigoP={item.codigo_producto} nameP={item.nombre_producto} descripcionP={item.descripcion_producto} imagenP={item.foto_producto} precioP={item.precio_producto}/>
+//                                         <RegistrarCarrito  codigoP={item.codigo_producto} nameP={item.nombre_producto} descripcionP={item.descripcion_producto} imagenP={item.foto_producto} precioP={item.precio_producto}/>
         
-                                    </div>
+//                                     </div>
                                    
-                                    <div >
-                                        <Modal className='botonFilter' url={item.foto_producto} name={item.nombre_producto} description={item.descripcion_producto} press={item.precio_producto} />
-                                    </div>
+//                                     <div  >
+//                                         <Modal  className='' url={item.foto_producto} name={item.nombre_producto} description={item.descripcion_producto} press={item.precio_producto} />
+//                                     </div>
         
-                                </div>
+//                                 </div>
         
-                            </div>
+//                             </div>
         
-                            // </div>
+//                             // </div>
                             
-                        ))
-                    }
+//                         ))
+//                     }
                
-                </div>
-            )   
-    } catch (error) {
-        console.log("CATCH EN EL CARDS FILTER " + error);
-        document.getElementById("containerProd").classList.remove("hide")
-        document.getElementById("containerFilter").classList.add("hide")  
-    }
+//                 </div>
+//             )   
+//     } catch (error) {
+//         console.log("CATCH EN EL CARDS FILTER " + error);
+//         document.getElementById("containerProd").classList.remove("hide")
+//         document.getElementById("containerFilter").classList.add("hide")  
+//     }
     
-}
+// }
