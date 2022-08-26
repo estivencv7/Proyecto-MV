@@ -34,7 +34,7 @@ export const PageProductsFilter = () => {
   useEffect(() => {
     console.log("MINIMO " + localStorage.getItem("minimo"));
     filterPrice()
-  }, [products])
+  }, [])
   
   return (
     <div>
