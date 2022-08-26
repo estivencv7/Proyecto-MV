@@ -12,11 +12,10 @@
 
 .save-favorite{
   
-    margin-left: 65%;
-    margin-top: 2%;
+    
     font-size: 24px;
-    color: #008037;
-    background: none;
+    color: white;
+    background:red;
     box-shadow: none;
     border: none;
     /* background: white; */
@@ -58,6 +57,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 .conter_car-favorite .car-favorite {
@@ -115,6 +115,16 @@
     border: none;
 }
 
-.iconHeart{
-    
+.deleteFavorite{
+    background-color: #008037 !important;
+    position: relative;
+    font-size: 40px;
+    right: 0;
+    width: 100%;
+}
+
+.conte-buttom-favorite{
+    position: absolute;
+    top: 0;
+    right: 0;
 }

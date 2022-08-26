@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { FilterMatchMode, FilterOperator } from 'primereact/api';
 import {AutoComplete, Button}from 'rsuite'
@@ -6,8 +5,8 @@ import { InputText } from 'primereact/inputtext';
 import './style.css'
 import { Input } from '@material-ui/core';
 import { GetCardsCategory } from '../../Layout/ContentPageMain/GetCardsCategory';
-import { data } from 'jquery';
-export const InputHeader = ({id}) => {
+
+export const InputHeader = () => {
 
   const [category, setCategory] = useState('');
   const [search, setSearch] = useState('');
@@ -43,25 +42,13 @@ export const InputHeader = ({id}) => {
 
       }
   function createElements(){
+    <GetCardsCategory getCards={products}/>
+    const containerFilter = document.getElementById("containerFilter")
     const categoryContainer = document.getElementById("categoryContainer")
-    if (data != null){
- 
-      if(document.getElementById("conter_car") == null){
-      const div = document.createElement("div")
-      if(document.getElementById("categoryContainer") == null){
-          document.getElementById("conter_car").replaceWith(div)
-      }else if(document.getElementById("conter_car") == null){
-          document.getElementById("categoryContainer").replaceWith(div)
-      }
-      }else{
-        document.getElementById("conter_car").replaceWith(categoryContainer)
-      }
-    }else{
-      alert("entro al else")
-    }
+    containerFilter.appendChild(categoryContainer)
+    document.getElementById("containerProd").classList.add("hide")
   }
 
-  //onClick={filtersCategory}
   return (
     <div className='input-wrapper'>
       <div>

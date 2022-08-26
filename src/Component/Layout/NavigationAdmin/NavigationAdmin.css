@@ -22,14 +22,15 @@
   font-family: 'Water Brush', cursive;
   width: 110px;
   height: 70px;
-  gap: 200PX;
+  /* gap: 200PX; */
 }
 
 .iconAdmin {
   color: #008031;
-  padding: 10px 10px;
+  /* padding: 10px 10px; */
   border: none;
-  background-color: white;
+  /* background-color: white; */
+  background-color: transparent;
   
 }
 .iconAdmin:hover {
@@ -39,7 +40,7 @@
 .paredAdmin{
   height: 1%;
   width: 100%;
-  background-color:  #008031;
+  /* background-color:  #008031; */
   margin: 0 0 10px 0;
 }
 

@@ -17,7 +17,7 @@ export const NavBar = () => {
     const [visible2, setVisible2] = useState(false)
     const [visible3, setVisible3] = useState(false)
     const [minimum2 , setMinimum]  = useState(0)
-    const [maximum2 , setMaximum] = useState(0)
+    const [maximum2 , setMaximum] = useState(1000000)
     const [codeCategory , setCodeCategory] = useState(0)
     let navigate = useNavigate()
     const catchMinimum = (event) => {
@@ -97,6 +97,14 @@ export const NavBar = () => {
         console.log(category);
         if(category == "Salas"){
             navigate("/chairs")
+        }else if(category == "Basecamas"){
+            navigate("/baseBeds")
+        }else if(category == "Muebles"){
+            navigate("/furniture")
+        }else if(category == "Colchones"){
+            navigate("/mattresses")
+        }else if(category == "Categorias"){
+            navigate("/")
         }
     }
     window.addEventListener('scroll', changeBackgroud)
@@ -111,10 +119,10 @@ export const NavBar = () => {
                         <hr></hr>
                         <div className='filtro'>
                             <p>---Filtrar por precio Maximo---</p>
-                            <input className='filtro-Input' type="number" placeholder='Minimo' onChange={e => catchMinimum(e)}></input>
+                            <input className='filtro-Input' type="number" min={0} placeholder='Minimo' onChange={e => catchMinimum(e)}></input>
                            
                             <p>---Filtrar por precio Minimo---</p>
-                            <input className='filtro-Input' type="number" placeholder='Maximo' onChange={e => catchMaximum(e)}></input>
+                            <input className='filtro-Input' type="number" max={10000000} placeholder='Maximo' onChange={e => catchMaximum(e)}></input>
 
                             <p>---Filtrar---</p>
                             <Service_ListProductFilter minimum={minimum2} maximum={maximum2}/>
@@ -127,7 +135,7 @@ export const NavBar = () => {
                                 <option>Salas</option>
                                 <option>Basecamas</option>
                                 <option>Muebles</option>
-                                <option>Colchones</option>
+                                <option>Armarios</option>
                             </select>
                         </div>
                         <hr/>
