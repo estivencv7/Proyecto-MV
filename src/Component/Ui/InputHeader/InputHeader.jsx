@@ -35,7 +35,7 @@ export const InputHeader = () => {
     const value = document.getElementById("inpuText").value
     console.log(document.getElementById("inpuText").value);
     console.log("LISTANDO PRODUCTOS")
-    const urlRegister = 'http://localhost:8080/producto/filtrarCategoria/' + document.getElementById("inpuText").value;
+    const urlRegister = 'http://localhost:8080/producto/filtrarNombre/' + document.getElementById("inpuText").value;
     fetch(urlRegister, {
         method: 'POST',
         headers: {
@@ -55,6 +55,7 @@ export const InputHeader = () => {
             listProducts()
           }
         })
+
       }
   function createElements(){
     try {
