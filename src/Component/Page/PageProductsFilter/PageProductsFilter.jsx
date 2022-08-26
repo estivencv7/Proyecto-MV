@@ -4,7 +4,8 @@ import { Service_ListProductFilter } from '../../../service/ServiceProduct/Servi
 import { ServicioRegistrar_Favoritos } from '../../../service/ServicioFavoritos/ServicioRegistrar_Favoritos'
 import { Modal } from '../../Layout/ContentPageMain/Modal'
 import { HeaderHome } from '../../Layout/HeaderHome/HeaderHome'
-
+import'./style.css'
+import {GiPriceTag} from 'react-icons/gi'
 export const PageProductsFilter = () => {
 
   const [products, setProducts] = useState([])
@@ -38,18 +39,18 @@ export const PageProductsFilter = () => {
   return (
     <div>
       <div>
-      <HeaderHome/>
+        <HeaderHome/>
       </div>
-      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       <div className='conter_car' id='prodContainer'>  
         {
           products.map((item, index,) => (
 
             <div key={index} >
               {/* <div className='sud-content' > */}
-              <div className='car' style={{ position: 'relative' }}>
+              <div className='car2' style={{ position: 'relative' }}>
                 <ServicioRegistrar_Favoritos codigoP={item.codigo_producto} nameP={item.nombre_producto} descripcionP={item.descripcion_producto} precioP={item.precio_producto} imagenP={item.foto_producto} classN="iconHeart" />
-
+                <GiPriceTag className='etiqueta2'/>
                 <div >
 
                   <img className='img-cardGif' src={item.foto_producto} alt="" />
@@ -69,7 +70,7 @@ export const PageProductsFilter = () => {
                 </div>
 
                 <div >
-                  <Modal className='botonFilter' url={item.foto_producto} name={item.nombre_producto} description={item.descripcion_producto} press={item.precio_producto} />
+                  <Modal classN='botonFilter' url={item.foto_producto} name={item.nombre_producto} description={item.descripcion_producto} press={item.precio_producto} />
                 </div>
 
               </div>
