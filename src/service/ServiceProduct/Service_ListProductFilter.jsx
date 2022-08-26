@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import { Navigate, Route, Routes, useNavigate } from 'react-router'
+import { ContentPageMain } from '../../Component/Layout/ContentPageMain/ContentPageMain'
 import { GetCardsFilter } from '../../Component/Layout/ContentPageMain/GetCardsFilter'
 import { PageProductsFilter } from '../../Component/Page/PageProductsFilter/PageProductsFilter'
 
@@ -23,24 +24,33 @@ export const Service_ListProductFilter = ({minimum , maximum}) => {
             setProducts(prods)   
             createElements() 
           } catch (error) {
-            console.log("entra al catch " + error);
-            document.getElementById("containerProd").classList.remove("hide")
-            document.getElementById("containerFilter").classList.add("hide")  
+            console.log("entra al catch " + error);  
           }    
         })
     }
 
+    const ret = () => {
+      if(products == null){
+        return (
+          <div></div>
+        )
+      }else{
+        return (
+          <GetCardsFilter products={products}/>
+        )
+      }
+    }
     function createElements(){
       const containerFilter = document.getElementById("containerFilter");
       const prodContainer = document.getElementById("prodContainer")
-      containerFilter.appendChild(prodContainer)
+      containerFilter.appendChild(ret)
       document.getElementById("containerProd").classList.add("hide")
     }
 
     return (
     <div>
         <button onClick={filterPrice} className='btnFiltro'>Filtrar</button>
-        <GetCardsFilter products={products}/>
+        {ret}
     </div>
   )
 }

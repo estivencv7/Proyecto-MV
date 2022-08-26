@@ -1,13 +1,11 @@
 import React from 'react'
-import { RegistrarCarrito } from '../../../service/ServiceCarrito/RegistrarCarrito'
+// import { RegistrarCarrito } from '../../../service/ServiceCarrito/RegistrarCarrito'
 import { ServicioRegistrar_Favoritos } from '../../../service/ServicioFavoritos/ServicioRegistrar_Favoritos'
 import { Modal } from './Modal'
 import './CarouselDemo.css'
+import { RegistrarCarrito } from '../../../service/ServiceCarrito/RegistrarCarrito'
 
 export const GetCardsFilter = ({products = []}) => {
-    const containerProd = document.getElementById("containerProd")
-    console.log(products);
-    try {
             return (
                 <div className='conter_car' id='prodContainer'>
                     {
@@ -32,8 +30,8 @@ export const GetCardsFilter = ({products = []}) => {
                                         <h2 className='press'>${item.precio_producto}</h2>
         
                                         
+                                        {/* <RegistrarCarrito  codigoP={item.codigo_producto} nameP={item.nombre_producto} descripcionP={item.descripcion_producto} imagenP={item.foto_producto} precioP={item.precio_producto}/> */}
                                         <RegistrarCarrito  codigoP={item.codigo_producto} nameP={item.nombre_producto} descripcionP={item.descripcion_producto} imagenP={item.foto_producto} precioP={item.precio_producto}/>
-        
                                     </div>
                                    
                                     <div >
@@ -51,10 +49,4 @@ export const GetCardsFilter = ({products = []}) => {
                
                 </div>
             )   
-    } catch (error) {
-        console.log("CATCH EN EL CARDS FILTER " + error);
-        document.getElementById("containerProd").classList.remove("hide")
-        document.getElementById("containerFilter").classList.add("hide")  
-    }
-    
 }
