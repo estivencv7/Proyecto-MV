@@ -135,7 +135,7 @@ export const NavBar = () => {
                                 <option>Salas</option>
                                 <option>Basecamas</option>
                                 <option>Muebles</option>
-                                <option>Colchones</option>
+                                <option>Armarios</option>
                             </select>
                         </div>
                         <hr/>

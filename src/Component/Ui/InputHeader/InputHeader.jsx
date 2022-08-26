@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { FilterMatchMode, FilterOperator } from 'primereact/api';
 import {AutoComplete}from 'rsuite'
@@ -40,14 +39,16 @@ export const InputHeader = () => {
     
   }
   return (
-    <div className='input-wrapper'>
-      <div>
-        <i className="pi pi-search input-icon" onClick={filtersCategory}></i>
-      </div>
-      <div>
-        <InputText  id='inpuText' placeholder='¿Qué estás buscando?' className='autoInput' ></InputText>
-      </div>
-     <GetCardsCategory getCards={products}/>
-    </div>
+    <div></div>
+  //   <div className='input-wrapper'>
+  //     <div>
+  //       <i className="pi pi-search input-icon" onClick={filtersCategory}></i>
+  //     </div>
+  //     <div>
+  //       <InputText  id='inpuText' placeholder='¿Qué estás buscando?' className='autoInput' ></InputText>
+  //     </div>
+  //    <GetCardsCategory getCards={products}/>
+  //   </div>
+  // )
   )
 }

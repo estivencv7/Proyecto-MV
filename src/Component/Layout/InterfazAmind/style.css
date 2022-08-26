@@ -1,35 +1,23 @@
+
+
+
 .card-section{
-    
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
-    text-align: center;
-    width: 335px;
-    height: 300px;
-    padding: 5%;
+    flex-wrap: wrap;
     text-decoration: none;
-    color: #008037;
-    /*background: #efefef;
-    border-radius: 25px;*/
-    
-  
+    color:black;
+    /* background: #efefef;  */
+    width: 15%;
+
 }
 
 .card-section:hover{
-    /* box-shadow: 0px 0px 40px #008037; */
-    background-color: rgba(241, 243, 244, 1);
    border-radius: 5px;
-
+   color: red;
+   
 }
 
-.link-card{
-    display: flex;
-    gap: 50%;
-    flex-wrap: wrap;
-    height: 5em;
-    margin-top: 5%;
-}
 
 
 .style{
@@ -40,4 +28,42 @@
     width: 300px;
     height: 250px;
     color: #008037;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 7rem;
+}
+
+.inventariosproductos{
+    font-size: 120px !important;
+    color: none !important;
+    background-color: #e4fae4;
+    border-radius:47%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem;
+    margin-top: 50px;
+}
+
+/* .inventariosproductos:hover{
+    background: none !important;
+    color: black !important;
+
+} */
+
+.inventariosproductos::before{
+    border: none !important;
+    outline: none !important;
+}
+
+.link-card{
+    display: flex;
+    justify-content: space-around;
+    /* align-items: center; */
+    height: 56%;
+    flex-wrap: wrap;
+    margin: 1rem;
+    /* padding: 100px; */
+    gap: 100px;
+    
 }
