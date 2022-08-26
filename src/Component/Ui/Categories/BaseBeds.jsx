@@ -4,6 +4,8 @@ import { ServicioRegistrar_Favoritos } from '../../../service/ServicioFavoritos/
 import { Modal } from '../../Layout/ContentPageMain/Modal'
 import { HeaderHome } from '../../Layout/HeaderHome/HeaderHome'
 import "./style.css"
+import {GiPriceTag} from 'react-icons/gi'
+
 export const BaseBeds = () => {
     
     const [products , setProducts] = useState([])
@@ -41,7 +43,7 @@ export const BaseBeds = () => {
                         {/* <div className='sud-content' > */}
                         <div className='car' style={{ position: 'relative' }}>
                             <ServicioRegistrar_Favoritos codigoP={item.codigo_producto} nameP={item.nombre_producto} descripcionP={item.descripcion_producto} precioP={item.precio_producto} imagenP={item.foto_producto} classN="btnHeart"/>
-                           
+                            <GiPriceTag className='etiqueta3'/>
                             <div >
 
                                 <img className='img-cardGif' src={item.foto_producto} alt="" />
