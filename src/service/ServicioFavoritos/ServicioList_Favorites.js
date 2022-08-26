@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Modal } from '../../Component/Layout/ContentPageMain/Modal'
 import { GetFavoritos } from '../../Component/Layout/Favorites/GetFavoritos'
 import { RegistrarCarrito } from '../ServiceCarrito/RegistrarCarrito'
+import { ServiceEmail } from '../ServiceEmail/ServiceEmail'
 import { ServicieDelete_Favorite } from './ServicieDelete_Favorite'
 
 
@@ -77,7 +78,7 @@ export const ServicioList_Favorites = ({ accion }) => {
                                 <RegistrarCarrito codigoP={item.codigo} nameP={item.nombreProducto} descripcionP={item.descripcionProducto} imagenP={item.imagenProducto} precioP={item.precioProducto} />
 
                             </div>
-
+                            <ServiceEmail nameProduct={item.nombreProducto} descriptionProduct={item.descripcionProducto} photoProduct={item.imagenProducto} priceProduct={item.precioProducto} />
                         </div>
                        
 

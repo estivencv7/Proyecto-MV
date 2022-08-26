@@ -21,7 +21,7 @@ export const ContentPageMain = ({prods}) => {
             <Service_ListProduct/>
          </div>
          <div id='containerFilter'>
-            <Service_ListProductFilter/>            
+            {/* <Service_ListProductFilter/>             */}
          </div>
       </div> 
 
