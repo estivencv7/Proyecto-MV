@@ -55,13 +55,16 @@ export const ServicioList_Favorites = ({ accion }) => {
                             <div>
                                 <h2>{item.nombreProducto}</h2>
                             </div>
+                            <div>
+                                
+                                <ServiceEmail nameProduct={item.nombreProducto} descriptionProduct={item.descripcionProducto} photoProduct={item.imagenProducto} priceProduct={item.precioProducto} />
+                            </div>
                             <hr />
                             <div className='content-price'>
                                 <h2 className='preci'>${item.precioProducto}</h2>                                
                                 <RegistrarCarrito codigoP={item.codigo} nameP={item.nombreProducto} descripcionP={item.descripcionProducto} imagenP={item.imagenProducto} precioP={item.precioProducto} />
-
                             </div>
-                            <ServiceEmail nameProduct={item.nombreProducto} descriptionProduct={item.descripcionProducto} photoProduct={item.imagenProducto} priceProduct={item.precioProducto} />
+                            
                         </div>
                        
 
