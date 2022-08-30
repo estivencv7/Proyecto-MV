@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
-import { Modal } from '../../Component/Layout/ContentPageMain/Modal'
-import { RegistrarCarrito } from '../ServiceCarrito/RegistrarCarrito'
-import { ServicioRegistrar_Favoritos } from '../ServicioFavoritos/ServicioRegistrar_Favoritos'
+// import { Modal } from '../../Component/Layout/ContentPageMain/Modal'
+// import { RegistrarCarrito } from '../ServiceCarrito/RegistrarCarrito'
+// import { ServicioRegistrar_Favoritos } from '../ServicioFavoritos/ServicioRegistrar_Favoritos'
 
 export const Service_ProductFilter = ({minimum , maximum}) => {
 

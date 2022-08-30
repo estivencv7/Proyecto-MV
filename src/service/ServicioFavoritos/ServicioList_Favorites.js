@@ -4,16 +4,16 @@ import { GetFavoritos } from '../../Component/Layout/Favorites/GetFavoritos'
 import { RegistrarCarrito } from '../ServiceCarrito/RegistrarCarrito'
 import { ServiceEmail } from '../ServiceEmail/ServiceEmail'
 import { ServicieDelete_Favorite } from './ServicieDelete_Favorite'
-
+import { GiPriceTag } from 'react-icons/gi'
 
 export const ServicioList_Favorites = ({ accion }) => {
 
 
     const [favorites, setFavorites] = useState([])
     const [fa, setFa] = useState(false)
-    
+
     const getFavorites = () => {
-        
+
         const url = 'http://localhost:8080/favoritos/listfavoritos';
         fetch(url)
             .then(response => response.json())
@@ -25,54 +25,58 @@ export const ServicioList_Favorites = ({ accion }) => {
             })
 
     }
-   
+
     useEffect(() => {
         getFavorites()
-      
+
         console.log(accion)
     }, [fa])
 
 
     return (
         //    <GetFavoritos listFavorites={favorites} />
-        <div className='conter_car-favorite' id='conter_car'>
+        <div className='conter_car-favorite' >
             {
-                favorites.map((item) => (
+                favorites.map((item, index) => (
 
                     <div>
 
-                        <div id={item.codigo} className='car' style={{ position: 'relative' }}>
-                
-                            <ServicieDelete_Favorite className={'delete-product-cart'} codigo={item.codigo}/>
-                            
-                            <div  className='content-img-favorite'>
-                                <img className='img-cardGif' src={item.imagenProducto} alt=""   />
+                        <div id={item.codigo} className='car-product-favorite' style={{ position: 'relative' }}>
+                           
+
+                            <ServicieDelete_Favorite className='delete-favoritos' codigo={item.codigo} />
+                            <div style={{ position: 'relative' }}  className='content-card-m-favorite'>
+                            <GiPriceTag className='etiqueta' />
+                                <img className='img-cardGif' src={item.imagenProducto} alt="" />
                                 <div id='propiedad' >
-                                    <Modal  classN='observar' url={item.imagenProducto} name={item.nombreProducto} description={item.descripcionProducto} press={item.precioProducto}/> 
-                               </div>
+                                    <Modal classN='observar-m-favorite' url={item.imagenProducto} name={item.nombreProducto} description={item.descripcionProducto} press={item.precioProducto} />
+                                </div>
+                            
                             </div>
 
+                           
+                           
+
                             <div>
-                                <h2>{item.nombreProducto}</h2>
+                                <h2 className='card-name-img'>{item.nombreProducto}</h2>
                             </div>
-                            <div>
-                                
-                                <ServiceEmail nameProduct={item.nombreProducto} descriptionProduct={item.descripcionProducto} photoProduct={item.imagenProducto} priceProduct={item.precioProducto} />
-                            </div>
-                            <hr />
-                            <div className='content-price'>
-                                <h2 className='preci'>${item.precioProducto}</h2>                                
+
+                            <div className='content-press'>
+                                <h2 className='press'>${item.precioProducto}</h2>
                                 <RegistrarCarrito codigoP={item.codigo} nameP={item.nombreProducto} descripcionP={item.descripcionProducto} imagenP={item.imagenProducto} precioP={item.precioProducto} />
                             </div>
-                            
+
                         </div>
-                       
+                        <div style={{width:'100%'}}>
+                            <ServiceEmail classN='reservar' nameProduct={item.nombreProducto} descriptionProduct={item.descripcionProducto} photoProduct={item.imagenProducto} priceProduct={item.precioProducto} />
+                        </div>
+
 
                     </div>
                 ))
             }
 
-            
+
         </div>
     )
 }

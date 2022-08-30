@@ -41,7 +41,7 @@ export const PageProductsFilter = () => {
       <div>
         <HeaderHome/>
       </div>
-      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+     
       <div className='conter_car' id='prodContainer'>  
         {
           products.map((item, index,) => (

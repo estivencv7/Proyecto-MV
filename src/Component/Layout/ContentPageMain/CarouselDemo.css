@@ -132,13 +132,13 @@
   
 }
 
-.car{
+.car-product{
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.conter_car .car {
+.conter_car .car-product {
     text-align: center;
     width: 24rem;
     height: 27rem;
@@ -149,17 +149,38 @@
     /* margin: 3rem; */
     /* gap: 8px; */
     flex-wrap: wrap;
-    box-shadow: 0px 0px 40px #c9c8c8;
+    /* box-shadow: 0px 0px 40px #c9c8c8; */
     /* border: 1px solid ; */
   
 }
 .img-cardGif {
-    width: 100%;
-    height: 24vh;
+    width: 71%;
+    height: 32vh;
     border-radius: 15px 15px 0 0;
     object-fit: unset;
     padding: 1rem;
 }
+
+.content-card-m{
+    width: 100%;
+    /* box-shadow: 0 0 40px rgb(168, 166, 166); */
+    border-radius:15px ;
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid; */
+    border-bottom-style:inset ;
+    box-shadow: 4px 6px 13px rgb(171, 168, 168);
+    background-color: #fff ;
+    /* border:20px transparent; */
+}
+
+.card-name-img{
+    margin-top: 27px;
+}
+
 .content-press{
     display: flex;
     justify-content: space-around;
@@ -186,7 +207,7 @@
 	flex-wrap: wrap;
 	justify-content: space-around;
 	align-items: center;
-}
+}   
 
 .column{
 	width: 600px;
@@ -284,14 +305,18 @@
 }
 .heart{
     position: absolute;
-    top: 19px;
-    right: 25px;
-    
+    top:1px;
+    left: 14px;
+    z-index: 7;
     background: none;
     border: none;
 }
+
 .heart-icon {
     font-size: 35px;
+}
+.heart-icon:hover{
+    color: red;
 }
 
 .press{
@@ -302,14 +327,26 @@
 /* font-family: 'Rubik Moonrocks', cursive; */
 }
 
-.button-observar{
+.observar-m{
     width: 100% !important;
     text-align: center !important;
     display: flex;
     justify-content: center;
     height:70px !important; 
     font-size: 25px;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    bottom:  -4;
+    left: 0;
+    border-bottom-left-radius:15px ;
+    border-bottom-right-radius:15px ;
+    color: transparent;
     
+}
+.car-product:hover .observar-m{
+    background:rgba(137, 134, 134, 0.509);
+    color: #fff;
 }
 
 .button-cart-register-Favorites{
@@ -339,11 +376,12 @@
 .etiqueta{
     font-size: 50px !important;
     position: absolute;
-    top: 0;
+    top: 1px;
     left:-35;
     border: none;
     background:none;
     color:chocolate;
+    z-index: 7;
 }
 
 

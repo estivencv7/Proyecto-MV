@@ -4,6 +4,7 @@ import { ServicioRegistrar_Favoritos } from '../../../service/ServicioFavoritos/
 import { Modal } from '../../Layout/ContentPageMain/Modal'
 import { HeaderHome } from '../../Layout/HeaderHome/HeaderHome'
 import "./style.css"
+import { GiPriceTag } from 'react-icons/gi'
 export const Chairs = () => {
     
     const [products , setProducts] = useState([])
@@ -36,19 +37,22 @@ export const Chairs = () => {
                     
                     <div key={index} >
                         {/* <div className='sud-content' > */}
-                        <div className='car' style={{ position: 'relative' }}>
-                            <ServicioRegistrar_Favoritos codigoP={item.codigo_producto} nameP={item.nombre_producto} descripcionP={item.descripcion_producto} precioP={item.precio_producto} imagenP={item.foto_producto} classN="btnHeart"/>
+                        <div className='car-product' style={{ position: 'relative' }}>
                            
-                            <div >
+                            <div style={{ position: 'relative' }} className='content-card-m' >
+                                <ServicioRegistrar_Favoritos classN='heart' codigoP={item.codigo_producto} nameP={item.nombre_producto} descripcionP={item.descripcion_producto} precioP={item.precio_producto} imagenP={item.foto_producto} />
+                                <GiPriceTag className='etiqueta' />
 
                                 <img className='img-cardGif' src={item.foto_producto} alt="" />
-
+                                <div >
+                                    <Modal classN='observar-m' url={item.foto_producto} name={item.nombre_producto} description={item.descripcion_producto} press={item.precio_producto} />
+                                </div>
                             </div>
 
                             <div>
-                                <h2>{item.nombre_producto}</h2>
+                                <h2  className='card-name-img'>{item.nombre_producto}</h2>
                             </div>
-                            <hr />
+                          
                             <div className='content-press'>
                                 <h2 className='press'>${item.precio_producto}</h2>
 
@@ -57,9 +61,7 @@ export const Chairs = () => {
 
                             </div>
                            
-                            <div >
-                                <Modal classN='filterB' url={item.foto_producto} name={item.nombre_producto} description={item.descripcion_producto} press={item.precio_producto} />
-                            </div>
+                           
 
 
                         </div>

@@ -85,4 +85,60 @@
 
 .logoutHide{
     visibility: hidden;
+   
+   
 }
+
+.SplitButton-reservas .p-button{
+    background: white !important;
+    border: none;
+    color: red;
+   padding: 0;
+   margin-top: 7px;
+    
+}
+.SplitButton-reservas .p-button:hover{
+  
+  
+    color: red;
+   
+    
+}
+
+.SplitButton-reservas .p-button:focus{
+   box-shadow: none !important;
+
+}
+.pi-list::before{
+    font-size: 25px !important;
+    color: #008037;
+}
+
+#logout{ 
+    position: relative;
+    /* justify-content: center; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 75px;
+}
+#logout:hover .opciones { 
+    color: red ;
+}
+
+#logout:hover .pi-list::before { 
+    color: red !important;
+}
+
+.opciones{
+    position: absolute;
+    bottom: 7px;
+    color: #008031;
+    left: -17px;
+}
+
+/* .opciones:hover{
+    position: absolute;
+    bottom: 7px;
+    color:red;
+} */

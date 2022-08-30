@@ -1,99 +1,44 @@
-
-.save-favorite{
-  
-    
-    font-size: 24px;
-    color: white;
-    background:red;
-    box-shadow: none;
-    border: none;
-    /* background: white; */
-}
-
-.heartfill::before{
-    color: red !important;
-}
-
-
-
-
-/* ¨================card favorites*/
-
-.car{
-    flex-direction: column;
-}
-
-.content-img-favorite{
-    /* background-color: #008031; */
-    width: 100%;
-    height:50%; 
-    position: relative;
-    
-}
-
-
 .conter_car-favorite {
-  padding-top: 70px;
-  width: 89%;
+  padding-top:300px;
+  width: 100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 1em;
+  gap: 3em;
+  /* margin-top:50%; */
+ 
   
 }
 
-.car-favorite{
+
+.content-price-favoritos{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+    justify-content: space-around;
+    gap: 7em;
 }
 
-.conter_car-favorite .car-favorite {
+.conter_car-favorite .car-product-favorite {
     text-align: center;
     width: 24rem;
-    height: 27rem;
+    height: 28rem;
     /* border-radius: 15px; */
-    
     display: flex;
     flex-direction: column;
     align-items: center;
     /* margin: 3rem; */
     /* gap: 8px; */
     flex-wrap: wrap;
-    box-shadow: 0px 0px 40px #c9c8c8;
+    /* box-shadow: 0px 0px 40px #c9c8c8; */
     /* border: 1px solid ; */
   
 }
-.img-cardGif-favorito {
-    width: 100%;
-    height: 24vh;
-    border-radius: 15px 15px 0 0;
-    object-fit: unset;
-    padding: 1rem;
-}
-.content-price{
+
+.car-product-favorite{
     display: flex;
-    justify-content: space-around;
-    gap: 7em;
-}
-
-
-
-
-.observar{
-    background-color: transparent;
-    width: 100% !important;
-    text-align: center !important;
-    display: flex;
+    align-items: center;
     justify-content: center;
-    height: 70px !important;
-    font-size: 25px;
-    position: absolute;
-    bottom: 0;
-    color: transparent;
-    border: none;
 }
+
 
 
 
@@ -104,11 +49,116 @@
    
     
 }
-.content-img-favorite:hover .observar{
-background:rgba(255, 0, 0, 0.644) ;
-color: white;
-}
+
 
 .deleteFavorite{
-    color: #008037;
+    color: #008037 !important;
+    position: absolute !important;
+    right: 7;
+    top: 10;
+    z-index: 4;
+}
+.deleteFavorite:hover{
+    color: red !important;
+}
+
+.deleteFavorite::before{
+    font-size: 27px !important;
+}
+
+
+.delete-favoritos{
+    
+    border: none;
+    position: absolute;
+    right: 1;
+    top: 10;
+    background-color: transparent;
+}
+
+.car-product-favorite:hover .observar-m-favorite{
+    background:rgba(137, 134, 134, 0.509);
+    color: #fff;
+}
+
+.content-card-m-favorite{
+    width: 100%;
+    /* box-shadow: 0 0 40px rgb(168, 166, 166); */
+    border-radius:15px ;
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid; */
+    border-bottom-style:inset ;
+    box-shadow: 4px 6px 13px rgb(171, 168, 168);
+    background-color: #fff ;
+    /* border:20px transparent; */
+}
+
+.card-name-img{
+    margin-top: 27px;
+}
+
+.content-press{
+    display: flex;
+    justify-content: space-around;
+    gap: 7em;
+}
+
+.sud-content{
+    /* border: 1px solid #008031; */
+    display: flex ;
+    flex-direction:column;
+    width: 116%;
+    box-shadow: 0 0 40px rgb(233, 235, 236);
+    
+}
+
+.observar-m-favorite{
+    width: 100% !important;
+    text-align: center !important;
+    display: flex;
+    justify-content: center;
+    height:70px !important; 
+    font-size: 25px;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    bottom: -4;
+    left: 0;
+    border-bottom-left-radius:15px ;
+    border-bottom-right-radius:15px ;
+    color: transparent;   
+}
+
+.messageDelete{
+    color:#fff ;
+    background: blue;
+    width: 33%;
+    height:60px;
+    font-size: 27px;
+}
+.reservar{
+    width: 100%;
+    height: 55px;
+    border-radius: 15px;
+    box-shadow: 4px 6px 13px rgb(171, 168, 168);
+    border: none;
+   font-size: 26px;
+   background: rgba(245, 241, 241, 0.646);
+   color: red;
+}
+
+.reservar:hover{
+background-color: #008037;
+transition:all ;
+}
+.save-favorite{
+    background-color: blue;
+    color: white;
+    width: 57%;
+    height: 55px;
+    font-size: 27px;
 }

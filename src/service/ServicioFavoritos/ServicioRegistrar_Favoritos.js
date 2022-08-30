@@ -44,6 +44,7 @@ export const ServicioRegistrar_Favoritos = ({ codigoF, nameP = '', descripcionP 
                     if (response.status == 201) {
                         setFavorites(true)
                         toast('Nuevo Favorito', {
+                            position:'bottom-right',
                             className: 'save-favorite',
                             duration: '100'
                         })
@@ -74,9 +75,9 @@ export const ServicioRegistrar_Favoritos = ({ codigoF, nameP = '', descripcionP 
 
 
         return (
-            < div >
+            <  >
                 <button onClick={(e) => saveFavorite()} className={classN}><i id={id} className='pi pi-heart  heart-icon'></i></button>
-            </div>
+            </>
 
         )
     }
