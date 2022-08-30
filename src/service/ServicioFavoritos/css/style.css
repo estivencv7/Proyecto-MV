@@ -1,47 +1,3 @@
-
-/* .save-favorite{
-  
-    
-    font-size: 24px;
-    color: white;
-    background:red;
-    box-shadow: none;
-    border: none;
-    /* background: white; */
-
-/*}*/
-/*.heartfill::before{
-    /* color: red !important;
-}  */ 
-
-
-
-
-/* ¨================card favorites*/
-
-.car-favorite{
-    position: relative;
-    width: 20% ;
-    display: flex;
-    border-radius: 10px;
-    
-}
-
-.content-img-favorite{
-    /* background-color: #008031; */
-    width: 100%;
-    height:50%; 
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 26px;
-    margin-bottom: 37px;
-    
-}
-
-
 .conter_car-favorite {
   padding-top:300px;
   width: 100%;
@@ -55,57 +11,34 @@
 }
 
 
-
-.conter_car-favorite .car-favorite {
-    text-align: center;
-    width: 24rem;
-    height: 30rem;
- 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* margin: 3rem; */
-    /* gap: 8px; */
-    /* flex-wrap: wrap; */
-    box-shadow:0px 0px 40px #cdcaca;
-    margin-bottom: 100px;
-    /* border: 1px solid ; */
-  
-}
-.img-favorito {
-    width: 70%;
-    height: 24vh;
-    border-radius: 15px 15px 0 0;
-    object-fit: unset;
-    /* padding: 1rem; */
-}
 .content-price-favoritos{
     display: flex;
     justify-content: space-around;
     gap: 7em;
 }
 
-
-
-
-.observar{
-    background-color: transparent;
-    width: 100% !important;
-    text-align: center !important;
+.conter_car-favorite .car-product-favorite {
+    text-align: center;
+    width: 24rem;
+    height: 28rem;
+    /* border-radius: 15px; */
     display: flex;
-    justify-content: center;
-    height: 55px !important;
-    font-size: 25px;
-    position: absolute;
-    bottom: -40;
-    color: transparent;
-    border: none;
-    left: 0;
-   
-    border-radius:10px ;
-    transition:2s ;
-
+    flex-direction: column;
+    align-items: center;
+    /* margin: 3rem; */
+    /* gap: 8px; */
+    flex-wrap: wrap;
+    /* box-shadow: 0px 0px 40px #c9c8c8; */
+    /* border: 1px solid ; */
+  
 }
+
+.car-product-favorite{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 
 
 
@@ -116,10 +49,7 @@
    
     
 }
-.car-favorite:hover .observar{
-background:rgb(239, 239, 3) ;
-color: red;
-}
+
 
 .deleteFavorite{
     color: #008037 !important;
@@ -128,16 +58,14 @@ color: red;
     top: 10;
     z-index: 4;
 }
+.deleteFavorite:hover{
+    color: red !important;
+}
+
 .deleteFavorite::before{
     font-size: 27px !important;
 }
-/* .delete-product-cart{
-    position: absolute;
-    right: -8px;
-    top: 5;
-    z-index: 300;
-    font-size: 50px !important;
-} */
+
 
 .delete-favoritos{
     
@@ -146,4 +74,91 @@ color: red;
     right: 1;
     top: 10;
     background-color: transparent;
+}
+
+.car-product-favorite:hover .observar-m-favorite{
+    background:rgba(137, 134, 134, 0.509);
+    color: #fff;
+}
+
+.content-card-m-favorite{
+    width: 100%;
+    /* box-shadow: 0 0 40px rgb(168, 166, 166); */
+    border-radius:15px ;
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid; */
+    border-bottom-style:inset ;
+    box-shadow: 4px 6px 13px rgb(171, 168, 168);
+    background-color: #fff ;
+    /* border:20px transparent; */
+}
+
+.card-name-img{
+    margin-top: 27px;
+}
+
+.content-press{
+    display: flex;
+    justify-content: space-around;
+    gap: 7em;
+}
+
+.sud-content{
+    /* border: 1px solid #008031; */
+    display: flex ;
+    flex-direction:column;
+    width: 116%;
+    box-shadow: 0 0 40px rgb(233, 235, 236);
+    
+}
+
+.observar-m-favorite{
+    width: 100% !important;
+    text-align: center !important;
+    display: flex;
+    justify-content: center;
+    height:70px !important; 
+    font-size: 25px;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    bottom: -4;
+    left: 0;
+    border-bottom-left-radius:15px ;
+    border-bottom-right-radius:15px ;
+    color: transparent;   
+}
+
+.messageDelete{
+    color:#fff ;
+    background: blue;
+    width: 33%;
+    height:60px;
+    font-size: 27px;
+}
+.reservar{
+    width: 100%;
+    height: 55px;
+    border-radius: 15px;
+    box-shadow: 4px 6px 13px rgb(171, 168, 168);
+    border: none;
+   font-size: 26px;
+   background: rgba(245, 241, 241, 0.646);
+   color: red;
+}
+
+.reservar:hover{
+background-color: #008037;
+transition:all ;
+}
+.save-favorite{
+    background-color: blue;
+    color: white;
+    width: 57%;
+    height: 55px;
+    font-size: 27px;
 }

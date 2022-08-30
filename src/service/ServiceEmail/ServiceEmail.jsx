@@ -3,7 +3,7 @@ import { Calendar } from 'primereact/calendar';
 import { Dialog } from 'primereact/dialog';
 import { Button } from 'reactstrap';
 
-export const ServiceEmail = ({ nameProduct , descriptionProduct , priceProduct  , photoProduct}) => {
+export const ServiceEmail = ({ nameProduct , descriptionProduct , priceProduct  , photoProduct,classN }) => {
     
     const [visible1, setVisible1] = useState(false)
     const [datePickup , setDatePickup] = useState("")
@@ -70,12 +70,12 @@ export const ServiceEmail = ({ nameProduct , descriptionProduct , priceProduct  
     }
     
     return (
-        <div>
-            <Button onClick={() => open(open)}>Reservar</Button>
+        <>
+            <Button className={classN} onClick={() => open(open)}>Reservar</Button>
             <Dialog className='cuadro'  visible={visible1} style={{ width: '30%' }} style1={{ height: '30%' }} onHide={open} header={header3}>
                 <Calendar id="date" name="date" onChange={e => catchDateBirthClient(e)} dateFormat="dd/mm/yy" mask="99/99/9999" showIcon />
                 <button onClick={sendEmail}>Reservar</button>
             </Dialog>
-        </div>
+        </>
   )
 }

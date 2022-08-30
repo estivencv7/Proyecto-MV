@@ -10,6 +10,8 @@ import { useNavigate } from "react-router-dom";
 import { InputText } from 'primereact/inputtext';
 import { Toaster, toast } from 'react-hot-toast';
 import { PageReservesClient } from '../../Page/PageReservesClient/PageReservesClient';
+// import { useNavigate } from 'react-router-dom'
+import { SplitButton } from 'primereact/splitbutton';
 
 export const NavHome = () => {
     const [email , setEmail] = useState("")
@@ -176,9 +178,34 @@ export const NavHome = () => {
 
     },[visible2])
 
+    let navigat =  useNavigate()
+   
+    const redirect = () => {
+        navigat("/listReservesClient")
+    }
+
+    const items = [
+        
+        {
+            label: 'Reservas',
+            icon: 'pi pi-folder-open',
+            command: () => {
+              redirect()
+            }
+        },
+
+        {
+            label: 'Cerrar Sesion',
+            icon: 'pi pi-sign-out ico',
+            command: (e) => {
+                logout()    
+            }
+        }
+    ]
+
     return (
         <nav className='icons'>
-            <PageReservesClient/> 
+           
             <Link className='icon' to="/"><i className="pi pi-home ico" ><p  className='name-icon'> Inicio </p></i></Link>
             <ContentShoppingCart onHide={()=>setVisible2(false)} visible2={visible2} onClick={re} />
 
@@ -213,8 +240,9 @@ export const NavHome = () => {
                 <Link to="/pageFavorito" className='icon'><i className='pi pi-heart heart-icon ico'> <p className='name-icon'>Favoritos</p></i></Link>
             </div>
             
-            <div className='logoutHide' id='logout'>
-                <button className='icon' onClick={logout} onMouseDown={() => toast('Sesion cerrada ')}><i className='pi pi-sign-out ico'><p>Cerrar sesion</p></i></button>
+            <div className='logoutHide' id='logout' style={{position:'relative'}}>
+                <SplitButton label={<i className='pi pi-list'></i>} model={items} className="SplitButton-reservas"></SplitButton>
+                <p className='opciones' >opciones</p>
             </div>
             
             <Toaster reverseOrder={true} toastOptions={{

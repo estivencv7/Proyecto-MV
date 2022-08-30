@@ -1,5 +1,6 @@
 
 import { Button } from 'primereact/button'
+import toast from 'react-hot-toast';
 
 // import { useState } from 'react'
 // import { useEffect } from 'react'
@@ -33,11 +34,19 @@ export const ServicieDelete_Favorite = ({codigo,className}) => {
             })
     }
 
+   const messageDelete=()=>{
+    toast("Quitar de favoritos",{
+        position:'bottom-left',
+        className:'messageDelete'
+        
+    })
+   }
+
     return (
 
 
         < div>
-            <button onClick={deleteProduct} className={className}><i className='pi pi-times-circle deleteFavorite'></i></button>
+            <button onClick={deleteProduct} className={className} ><i className='pi pi-times-circle deleteFavorite' onMouseEnter={messageDelete}></i></button>
         </div>
     )
 }
