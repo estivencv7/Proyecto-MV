@@ -9,6 +9,7 @@ import { Service_RegisterProvider } from '../ServiceProvider/Service_RegisterPro
 import{Image} from 'primereact/image'
 import { Service_UpdateProvider } from '../ServiceProvider/Service_UpdateProvider';
 import '../../Component/Layout/DataTableTemplatingDemo/DataTableDemo.css'
+import { Servicie_DeleteReserve } from './Service_DeleteReserve';
 
 export const Service_ListReservesAdmin = () => {
     
@@ -56,8 +57,7 @@ export const Service_ListReservesAdmin = () => {
                 <div className="flex justify-content-between align-items-center">
                     <div className='buttons'>
                         <Service_RegisterProvider style='' />
-                        <Button className='' ><i className='pi pi-trash icons-registerProduct'></i></Button>
-
+                        <Servicie_DeleteReserve codigo={0}/>
                         <Service_UpdateProvider codeProviderUpdate={0} />
                         <span className="p-input-icon-left">
                             <i className="pi pi-search" />
@@ -68,14 +68,14 @@ export const Service_ListReservesAdmin = () => {
                 </div>
             )
         } else {
-            console.log(selectedReserve[0].cedula_cliente_reserva);
+            console.log(selectedReserve[0].codigo_reserva);
             return (
                 <div className="flex justify-content-between align-items-center">
                     <div className='buttons'>
                         
                         <Service_RegisterProvider style='' />
-                        <Button className='' ><i className='pi pi-trash icons-registerProduct'></i></Button>
-                        <Service_UpdateProvider codeProviderUpdate={selectedReserve[0].cedula_cliente_reserva} />
+                        {/* <Service_UpdateProvider codeProviderUpdate={selectedReserve[0].cedula_cliente_reserva} /> */}
+                        <Servicie_DeleteReserve codigo={selectedReserve[0].codigo_reserva}/>
                         <span className="p-input-icon-left">
                             <i className="pi pi-search" />
                             <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre proveedor" />
