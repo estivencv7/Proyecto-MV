@@ -18,10 +18,10 @@ export const PageMainFavorito = () => {
   }, [])
   
   return (
-    <div>
-        <div className='setionFavoritos'>
-           <ServicioList_Favorites/> 
-        </div>
-    </div>
+    <>
+        
+      <ServicioList_Favorites/> 
+        
+    </>
   )
 }

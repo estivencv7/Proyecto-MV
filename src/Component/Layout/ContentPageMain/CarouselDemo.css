@@ -284,8 +284,8 @@
 }
 .heart{
     position: absolute;
-    top: 19px;
-    right: 25px;
+    top: 3px;
+    left: 14px;
     
     background: none;
     border: none;
