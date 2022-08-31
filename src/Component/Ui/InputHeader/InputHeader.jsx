@@ -75,7 +75,7 @@ export const InputHeader = () => {
      
       <div>
       
-          <i className="pi pi-search input-icon"></i>
+          <i className="pi pi-search icon-search"></i>
       
         <InputText id='inpuText' placeholder='¿Qué estás buscando?' className='autoInput' onChange={filtersCategory}></InputText>
       </div>

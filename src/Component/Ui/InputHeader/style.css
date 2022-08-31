@@ -3,10 +3,10 @@
     top:0px;
     
 } 
-.input-icon{
-    margin: 7px 0 0 0;
-    width: 30px;
-    height: 25px;
+
+.icon-search{
+    position:absolute;
+    margin: 14px 0px 0px 15px;
 }
 
 .input-wrapper{
