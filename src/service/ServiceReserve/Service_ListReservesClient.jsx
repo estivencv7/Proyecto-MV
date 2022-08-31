@@ -7,8 +7,8 @@ import { MultiSelect } from 'primereact/multiselect';
 import { Button } from 'primereact/button'
 import { Service_RegisterProvider } from '../ServiceProvider/Service_RegisterProvider';
 import{Image} from 'primereact/image'
-import { Service_UpdateProvider } from '../ServiceProvider/Service_UpdateProvider';
 import '../../Component/Layout/DataTableTemplatingDemo/DataTableDemo.css'
+import { Service_EditReserve } from './Service_EditReserve';
 
 export const Service_ListReservesClient = () => {
     
@@ -66,24 +66,24 @@ export const Service_ListReservesClient = () => {
                         <Service_RegisterProvider style='' />
                         <Button className='' ><i className='pi pi-trash icons-registerProduct'></i></Button>
 
-                        <Service_UpdateProvider codeProviderUpdate={0} />
+                        <Service_EditReserve codeReserve={0} />
                         <span className="p-input-icon-left">
                             <i className="pi pi-search" />
-                            <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre proveedor" />
+                            <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre cliente reservado" />
                         </span>
                     
                     </div>
                 </div>
             )
         } else {
-            console.log(selectedReserve[0].cedula_cliente_reserva);
+            console.log(selectedReserve[0].codigo_reserva);
             return (
                 <div className="flex justify-content-between align-items-center">
                     <div className='buttons'>
                         
                         <Service_RegisterProvider style='' />
                         <Button className='' ><i className='pi pi-trash icons-registerProduct'></i></Button>
-                        <Service_UpdateProvider codeProviderUpdate={selectedReserve[0].cedula_cliente_reserva} />
+                        <Service_EditReserve codeReserve={selectedReserve[0].codigo_reserva} />
                         <span className="p-input-icon-left">
                             <i className="pi pi-search" />
                             <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre proveedor" />

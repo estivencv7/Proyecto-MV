@@ -5,11 +5,10 @@ import { Column } from 'primereact/column';
 import { InputText } from 'primereact/inputtext';
 import { MultiSelect } from 'primereact/multiselect';
 import { Button } from 'primereact/button'
-import { Service_RegisterProvider } from '../ServiceProvider/Service_RegisterProvider';
 import{Image} from 'primereact/image'
-import { Service_UpdateProvider } from '../ServiceProvider/Service_UpdateProvider';
 import '../../Component/Layout/DataTableTemplatingDemo/DataTableDemo.css'
 import { Servicie_DeleteReserve } from './Service_DeleteReserve';
+import { Service_EditReserve } from './Service_EditReserve';
 
 export const Service_ListReservesAdmin = () => {
     
@@ -56,12 +55,11 @@ export const Service_ListReservesAdmin = () => {
             return (
                 <div className="flex justify-content-between align-items-center">
                     <div className='buttons'>
-                        <Service_RegisterProvider style='' />
                         <Servicie_DeleteReserve codigo={0}/>
-                        <Service_UpdateProvider codeProviderUpdate={0} />
+                        <Service_EditReserve codeReserve={0} />
                         <span className="p-input-icon-left">
                             <i className="pi pi-search" />
-                            <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre proveedor" />
+                            <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre cliente reservado" />
                         </span>
                     
                     </div>
@@ -73,12 +71,11 @@ export const Service_ListReservesAdmin = () => {
                 <div className="flex justify-content-between align-items-center">
                     <div className='buttons'>
                         
-                        <Service_RegisterProvider style='' />
-                        {/* <Service_UpdateProvider codeProviderUpdate={selectedReserve[0].cedula_cliente_reserva} /> */}
+                        <Service_EditReserve codeReserve={selectedReserve[0].codigo_reserva} />
                         <Servicie_DeleteReserve codigo={selectedReserve[0].codigo_reserva}/>
                         <span className="p-input-icon-left">
                             <i className="pi pi-search" />
-                            <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre proveedor" />
+                            <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre cliente reservado" />
                         </span>
                         
 
@@ -121,7 +118,7 @@ export const Service_ListReservesAdmin = () => {
 
     useEffect(() => {
       getReserves()
-    }, [])
+    }, [selectedReserve])
     
     const header = renderHeader()
     return (
