@@ -47,7 +47,7 @@ export const GetCards = ({ getCards = [], onClick }) => {
                                 <GiPriceTag className='etiqueta' />
                                 <img className='img-cardGif' src={item.foto_producto} alt="" />
                                 <div >
-                                    <Modal classN='observar-m' url={item.foto_producto} name={item.nombre_producto} description={item.descripcion_producto} press={item.precio_producto} />
+                                    <Modal classN='observar-m' url={item.foto_producto} name={item.nombre_producto} description={item.descripcion_producto} press={item.precio_producto} codigo={item.codigo_producto} />
                                 </div>
                             </div>
 

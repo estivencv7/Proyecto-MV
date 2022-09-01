@@ -19,6 +19,10 @@
     width: 75% !important;
     height: 32em !important;
 }  */
+
+.car{
+    padding-bottom: 70px;
+}
 .carousel-control-next-icon, .carousel-control-prev-icon{
     background-color: #008031 !important;
     border-radius: 100px;
