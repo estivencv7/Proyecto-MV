@@ -13,7 +13,7 @@ export const PageProductsFilter = () => {
   const filterPrice = () => {
     const urlFilter = "http://localhost:8080/producto/filtrar/" + localStorage.getItem("minimo") + "/" + localStorage.getItem("maximo")
     fetch(urlFilter, {
-      method: 'POST',
+      method: 'GET',
       headers: {
         "Content-type": "application/json"
       },
