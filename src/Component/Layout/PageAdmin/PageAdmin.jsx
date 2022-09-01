@@ -8,11 +8,9 @@ export const PageAdmin = () => {
   return (
     <div>
       <NavigationAdmin/>
-      
          <div>
           <ContentPageMainAdmin/>
          </div>
-      
       </div>
   )
 }
