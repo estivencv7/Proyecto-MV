@@ -9,6 +9,7 @@ import{Image} from 'primereact/image'
 import '../../Component/Layout/DataTableTemplatingDemo/DataTableDemo.css'
 import { Servicie_DeleteReserve } from './Service_DeleteReserve';
 import { Service_EditReserve } from './Service_EditReserve';
+import { PageReservesExpired } from '../../Component/Page/PageReservesExpired/PageReservesExpired';
 
 export const Service_ListReservesAdmin = () => {
     
@@ -17,7 +18,7 @@ export const Service_ListReservesAdmin = () => {
     let [selectedReserve, setReserveSelected] = useState(null);
     const getReserves = () => {
         let tokenAdmin = localStorage.getItem("admin")
-        const url = 'http://localhost:8080/reserva/listarTodasReservas';
+        const url = 'http://localhost:8080/reserva/listarReservasPendientes';
         fetch(url, {
             method: 'GET',
             headers: {
@@ -57,6 +58,7 @@ export const Service_ListReservesAdmin = () => {
                     <div className='buttons'>
                         <Servicie_DeleteReserve codigo={0}/>
                         <Service_EditReserve codeReserve={0} />
+                        <PageReservesExpired />
                         <span className="p-input-icon-left">
                             <i className="pi pi-search" />
                             <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre cliente reservado" />
@@ -73,6 +75,7 @@ export const Service_ListReservesAdmin = () => {
                         
                         <Service_EditReserve codeReserve={selectedReserve[0].codigo_reserva} />
                         <Servicie_DeleteReserve codigo={selectedReserve[0].codigo_reserva}/>
+                        <PageReservesExpired/>
                         <span className="p-input-icon-left">
                             <i className="pi pi-search" />
                             <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre cliente reservado" />
@@ -116,32 +119,51 @@ export const Service_ListReservesAdmin = () => {
         return reserve.cedula_cliente_reserva;
     }
 
+    const stateReserveTemplate = (reserve) => {
+        return reserve.estado_reserva;
+    }
+
+    const reservesExpiredTemplate = (reserve) => {
+        return <PageReservesExpired/>;
+    }
+
     useEffect(() => {
       getReserves()
     }, [selectedReserve])
     
     const header = renderHeader()
-    return (
-        <div className="datatable-doc-demo">
-            <div className="contentTheTable">
-                <main>
-                    <DataTable value={reserves} paginator className="p-datatable-customers" header={header} rows={5}
-                        paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" rowsPerPageOptions={[10, 25, 50]}
-                        dataKey="id" rowHover onSelectionChange={e => setReserveSelected(e.value)}
-                        filters={filters} filterDisplay="menu" responsiveLayout="scroll"
-                        globalFilterFields={['codigo_reserva', 'cedula_cliente_reserva', 'fecha_creacion_reserva' , 'fecha_recoger_reserva' , 'nombre_cliente_reserva']} emptyMessage="No se encontraron reservas."
-                        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
-                        <Column selectionMode="multiple" headerStyle={{ width: '3em' }}></Column>
-                        <Column field="codigo_reserva" header="Codigo Reserva" sortable filterField="codigo_reserva" body={codeBodyTemplate} filterPlaceholder="Search by code" />
-                        <Column field="nombre_cliente_reserva" header="Nombre Cliente Reserva" sortable filterPlaceholder="Search by name" body={nameBodyTemplate}/>
-                        <Column field="cedula_cliente_reserva" header="Cedula Cliente Reserva" sortable filterPlaceholder="Search by name" body={identificationClientTemplate}/>
-                        <Column field="fecha_creacion_reserva" header="Fecha creacion de la reserva" sortable filterPlaceholder="Search by amount" body={dateCreateReserve}/>
-                        <Column field="fecha_recoger_reserva" header="Fecha recoge reserva" sortable filterPlaceholder="Search by amount" body={dateFinalReserve}/>
-                        <Column field="foto_producto_reserva" header="Fecha creacion de la reserva" sortable filterPlaceholder="Search by amount" body={imageBodyTemplate}/>
-                    </DataTable>
-                </main>
+
+        if(reserves == null){
+            return (
+                <div>
+                    <h1>NO SE ENCONTRARON RESERVES</h1>
                 </div>
-            {/* </div> */}
-        </div>
-    )
+            )
+        }else{
+            return (
+                <div className="datatable-doc-demo">
+                    <div className="contentTheTable">
+                        <main>
+                            <DataTable value={reserves} paginator className="p-datatable-customers" header={header} rows={5}
+                                paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" rowsPerPageOptions={[10, 25, 50]}
+                                dataKey="id" rowHover onSelectionChange={e => setReserveSelected(e.value)}
+                                filters={filters} filterDisplay="menu" responsiveLayout="scroll"
+                                globalFilterFields={['codigo_reserva', 'cedula_cliente_reserva', 'fecha_creacion_reserva' , 'fecha_recoger_reserva' , 'nombre_cliente_reserva']} emptyMessage="No se encontraron reservas."
+                                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+                                <Column selectionMode="multiple" headerStyle={{ width: '3em' }}></Column>
+                                <Column field="codigo_reserva" header="Codigo Reserva" sortable filterField="codigo_reserva" body={codeBodyTemplate} filterPlaceholder="Search by code" />
+                                <Column field="nombre_cliente_reserva" header="Nombre Cliente Reserva" sortable filterPlaceholder="Search by name" body={nameBodyTemplate}/>
+                                <Column field="cedula_cliente_reserva" header="Cedula Cliente Reserva" sortable filterPlaceholder="Search by name" body={identificationClientTemplate}/>
+                                <Column field="fecha_creacion_reserva" header="Fecha creacion de la reserva" sortable filterPlaceholder="Search by amount" body={dateCreateReserve}/>
+                                <Column field="fecha_recoger_reserva" header="Fecha recoge reserva" sortable filterPlaceholder="Search by amount" body={dateFinalReserve}/>
+                                <Column field="foto_producto_reserva" header="Fecha creacion de la reserva" sortable filterPlaceholder="Search by amount" body={imageBodyTemplate}/>
+                                <Column field="estado_reserva" header="Estado reserva" sortable filterPlaceholder="Search by amount" body={stateReserveTemplate}/>
+                            </DataTable>
+                        </main>
+                        </div>
+                    {/* </div> */}
+                </div>
+            )
+        }
+
 }
