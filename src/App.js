@@ -19,6 +19,7 @@ import { Furniture } from './Component/Ui/Categories/Furniture';
 import { Mattresses } from './Component/Ui/Categories/Mattresses';
 import { Service_ListReservesAdmin } from './service/ServiceReserve/Service_ListReservesAdmin';
 import { Service_ListReservesClient } from './service/ServiceReserve/Service_ListReservesClient';
+import { Service_ReserveExpired } from './service/ServiceReserve/Service_ReserveExpired';
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
         <Route path='listReserves' element={<Service_ListReservesAdmin/>}/>
         <Route path='listReservesClient' element={<Service_ListReservesClient/>}/>
         <Route path='chairs' element={<Chairs/>}/>
+        <Route path='reservesExpired' element={<Service_ReserveExpired/>}/>
       </Routes>
     </div>
   );

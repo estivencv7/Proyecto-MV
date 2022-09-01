@@ -9,6 +9,8 @@ import { Service_RegisterProvider } from '../ServiceProvider/Service_RegisterPro
 import{Image} from 'primereact/image'
 import '../../Component/Layout/DataTableTemplatingDemo/DataTableDemo.css'
 import { Service_EditReserve } from './Service_EditReserve';
+import { Modal } from '../../Component/Layout/ContentPageMain/Modal'
+import { PageReservesExpired } from '../../Component/Page/PageReservesExpired/PageReservesExpired';
 
 export const Service_ListReservesClient = () => {
     
@@ -25,7 +27,7 @@ export const Service_ListReservesClient = () => {
         const user = sessionStorage.getItem("usuario")
         const user2 = JSON.parse(user.toString());
         console.log("CEDULA " +user2.idU);
-        const url = 'http://localhost:8080/reserva/buscarReservas/' + user2.idU;
+        const url = 'http://localhost:8080/reserva/reservasPendientesCliente/' + user2.idU;
         fetch(url, {
             method: 'GET',
             headers: {
@@ -103,56 +105,46 @@ export const Service_ListReservesClient = () => {
         );
     }
 
-    const imageBodyTemplate = (reserve) => {
-        return (
-            <React.Fragment>
-                <Image template={<i className='pi pi-eye eye'></i>} preview={true}  alt="ImagenMuebleria" src={reserve.foto_producto_reserva} onError={(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} width='100%' height='100%' style={{ verticalAlign: 'middle' }} className='product-image' />
-            </React.Fragment>
-        );
-    }
-
-    const nameBodyTemplate = (reserve) => {
-        return reserve.nombre_cliente_reserva;
-    }
-
-    const dateCreateReserve = (reserve) => {
-        return reserve.fecha_creacion_reserva;
-    }
-
-    const dateFinalReserve = (reserve) => {
-        return reserve.fecha_recoger_reserva;
-    }
-
-    const identificationClientTemplate = (reserve) => {
-        return reserve.cedula_cliente_reserva;
-    }
-
     useEffect(() => {
       getReserves()
     }, [])
     
     const header = renderHeader()
     return (
-        <div className="datatable-doc-demo">
-            <div className="contentTheTable">
-                <main>
-                    <DataTable value={reserves} paginator className="p-datatable-customers" header={header} rows={5}
-                        paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" rowsPerPageOptions={[10, 25, 50]}
-                        dataKey="id" rowHover onSelectionChange={e => setReserveSelected(e.value)}
-                        filters={filters} filterDisplay="menu" responsiveLayout="scroll"
-                        globalFilterFields={['codigo_reserva', 'cedula_cliente_reserva', 'fecha_creacion_reserva' , 'fecha_recoger_reserva' , 'nombre_cliente_reserva']} emptyMessage="No se encontraron reservas."
-                        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
-                        <Column selectionMode="multiple" headerStyle={{ width: '3em' }}></Column>
-                        <Column field="codigo_reserva" header="Codigo Reserva" sortable filterField="codigo_reserva" body={codeBodyTemplate} filterPlaceholder="Search by code" />
-                        <Column field="nombre_cliente_reserva" header="Nombre Cliente Reserva" sortable filterPlaceholder="Search by name" body={nameBodyTemplate}/>
-                        <Column field="cedula_cliente_reserva" header="Cedula Cliente Reserva" sortable filterPlaceholder="Search by name" body={identificationClientTemplate}/>
-                        <Column field="fecha_creacion_reserva" header="Fecha creacion de la reserva" sortable filterPlaceholder="Search by amount" body={dateCreateReserve}/>
-                        <Column field="fecha_recoger_reserva" header="Fecha recoge reserva" sortable filterPlaceholder="Search by amount" body={dateFinalReserve}/>
-                        <Column field="foto_producto_reserva" header="Fecha creacion de la reserva" sortable filterPlaceholder="Search by amount" body={imageBodyTemplate}/>
-                    </DataTable>
-                </main>
+        <div className='conter_car' id='conter_car'>
+        {
+            reserves.map((item, index,) => (
+
+                <div >
+
+
+                    <div className='car-product' style={{ position: 'relative' }}>
+
+                        <div style={{ position: 'relative' }} className='content-card-m'>
+                            <img className='img-cardGif' src={item.foto_producto_reserva} alt="" />
+                            <div >
+                                <Modal classN='observar-m' url={item.foto_producto_reserva} name={item.fecha_creacion_reserva} description={item.fecha_recoger_reserva} press={item.estado_reserva} />
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 className='card-name-img'>{item.nombre_cliente_reserva}</h2>
+                        </div>
+
+                        <div className='content-press'>
+                            <h2 className='press'>{item.estado_reserva}</h2>
+                         </div>
+
+
+                    </div>
+                    <PageReservesExpired/>
+
                 </div>
-            {/* </div> */}
-        </div>
+
+                // </div>
+
+            ))
+        }
+    </div>
     )
 }
