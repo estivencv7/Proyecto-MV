@@ -1,7 +1,8 @@
 import { Dialog } from 'primereact/dialog'
 import React, { useState } from 'react'
 import { Button } from 'primereact/button';
-export const Modal = ({ url,name,description,press,classN='button-observar',id }) => {
+import { RegistrarCarrito } from '../../../service/ServiceCarrito/RegistrarCarrito';
+export const Modal = ({ url,name,description,press,classN='button-observar',id,codigo }) => {
 
     const [visible, setVisible] = useState(false);
     const [vis, setVis] = useState(false);
@@ -132,8 +133,8 @@ export const Modal = ({ url,name,description,press,classN='button-observar',id }
                         <br /><br />
                         <hr />
                         <div className='divQuantity'>
-                            <input className='Quantity' type="number"  placeholder='Cantidad'/>
-                            <Button>AGREGAR AL CARRITO</Button>
+                            {/* <input className='Quantity' type="number"  placeholder='Cantidad'/> */}
+                           <RegistrarCarrito  codigoP={codigo} nameP={name}  descripcionP={description}  precioP={press} imagenP={url} text='AGREGAR AL CARRITO' classN='modal-observar'></RegistrarCarrito >
                         </div>
                        
 
