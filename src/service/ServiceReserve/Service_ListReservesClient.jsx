@@ -11,6 +11,8 @@ import '../../Component/Layout/DataTableTemplatingDemo/DataTableDemo.css'
 import { Service_EditReserve } from './Service_EditReserve';
 import { Modal } from '../../Component/Layout/ContentPageMain/Modal'
 import { PageReservesExpired } from '../../Component/Page/PageReservesExpired/PageReservesExpired';
+import { HeaderHome } from '../../Component/Layout/HeaderHome/HeaderHome';
+import './ServiceReserve.css'
 
 export const Service_ListReservesClient = () => {
     
@@ -111,6 +113,8 @@ export const Service_ListReservesClient = () => {
     
     const header = renderHeader()
     return (
+        <>
+        <HeaderHome/>
         <div className='conter_car' id='conter_car'>
         {
             reserves.map((item, index,) => (
@@ -135,9 +139,10 @@ export const Service_ListReservesClient = () => {
                             <h2 className='press'>{item.estado_reserva}</h2>
                          </div>
 
-
                     </div>
+                    <div className='PageReservesExpired'>
                     <PageReservesExpired/>
+                    </div>
 
                 </div>
 
@@ -146,5 +151,6 @@ export const Service_ListReservesClient = () => {
             ))
         }
     </div>
+    </>
     )
 }

@@ -1,8 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Button } from 'primereact/button';
+import '../../../service/ServiceReserve/ServiceReserve.css'
+
 
 export const PageReservesExpired = () => {
   return (
-    <button><Link to="/reservesExpired">Ir a reservas expiradas</Link></button>
+    <Button className='PageReservesExpired'><Link to="/reservesExpired" className='ReservesExpired'>Ir a reservas expiradas</Link></Button>
   )
 }

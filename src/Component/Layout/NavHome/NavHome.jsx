@@ -224,10 +224,10 @@ export const NavHome = () => {
 
                     <div className='content-login'>
                         <div>
-                            <InputText className='inputs' type="email" onChange={e => catchEmail(e)} id='email' style={{ width: '20em' }} placeholder='email' />
+                            <InputText className='inputs' type="email" onChange={e => catchEmail(e)} id='email' style={{ width: '20em' }} placeholder='Correo' />
                         </div>
                         <div>
-                            <InputText className='inputs' type="password" id='password' onChange={e => setPassword(e.target.value)} placeholder='password' style={{ width: '20em' }} />
+                            <InputText className='inputs' type="password" id='password' onChange={e => setPassword(e.target.value)} placeholder='Contraseña' style={{ width: '20em' }} />
                         </div>
                     </div>
                     <div className='divLink'>
