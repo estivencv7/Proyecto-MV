@@ -61,7 +61,7 @@ export const Service_ReserveExpired = () => {
                             <h2 className='press'>{item.estado_reserva}</h2>
                          </div>
 
-                        <button><Link to="/listReservesClient">Ir a reservas pendientes</Link></button>
+                        <button className='PageReservesExpired2' ><Link className='ReservesExpired2' to="/listReservesClient">Ir a reservas pendientes</Link></button>
                     </div>
             
                 </div>
