@@ -134,8 +134,8 @@
 }
 
 .messageDelete{
-    color:#fff ;
-    background: blue;
+    color:#008037 ;
+    background: white;
     width: 33%;
     height:60px;
     font-size: 27px;
@@ -156,8 +156,8 @@ background-color: #008037;
 transition:all ;
 }
 .save-favorite{
-    background-color: blue;
-    color: white;
+    background-color:white;
+    color:#008037;
     width: 57%;
     height: 55px;
     font-size: 27px;
