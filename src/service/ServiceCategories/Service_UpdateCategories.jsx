@@ -12,11 +12,11 @@ export const Service_UpdateCategories = ({codeCategoriUpdate}) => {
     const [name_supplier_product, setNameSupplierProduct] = useState("")
     const [code , setCodeCategori] = useState("")
     const [categori, setCategori] = useState("")
-  
+    const [listC , setListC] = useState([])
     function searchCategori () {
       console.log("entro a buscar una categoria")
-      console.log(codeCategoriUpdate)
-        const urlRegister = 'http://localhost:8080/categorias/buscarCategoria/' + codeCategoriUpdate;
+      console.log("codigo"+codeCategoriUpdate)
+        const urlRegister = 'http://localhost:8080/categorias/buscarCategoriaCodigo/' + codeCategoriUpdate;
         fetch(urlRegister, {
             method: 'GET',
             headers: {
@@ -24,14 +24,16 @@ export const Service_UpdateCategories = ({codeCategoriUpdate}) => {
             }
         })
             .then(response => response.json())
-            .then(category => guardarProvider(category))
-            
+            .then(category => {
+                guardarProvider(category)
+            })
     }    
   
-    const guardarProvider = (category) =>{
-        console.log("rtrr"+ category)
-        setCategori(category)
-        setCodeCategori(category.id_categoria)
+    const guardarProvider = (list) =>{
+        console.log("rtrr " + list.nombre_categoria)
+        
+        setCategori(list)
+        setCodeCategori(list.id_categoria)
     }
     
     const seew=()=>{
@@ -50,7 +52,7 @@ export const Service_UpdateCategories = ({codeCategoriUpdate}) => {
     function editCategori() {
         console.log("estoy editando un proveedor")
         const name_categori = document.getElementById("inputName").value
-        console.log(name_categori)
+        console.log("nombre"+name_categori)
         const urlRegister = 'http://localhost:8080/categorias/actualizarCategoria/' + codeCategoriUpdate;
         fetch(urlRegister, {
             method: 'PUT',
@@ -59,13 +61,13 @@ export const Service_UpdateCategories = ({codeCategoriUpdate}) => {
             },
             body: JSON.stringify({
                     id_categoria: code,
-                    nombre: name_categori
+                    nombre_categoria: name_categori
             })
         })
             .then(response => response.json())
             .then(json => {
                 if(json.ok){
-                    alert("Actualizacion Exitosa")
+                    alert("Actualizacion Fallida")
                 }else{
                     alert("Actualizacion Exitosa")
                 }
@@ -89,9 +91,9 @@ export const Service_UpdateCategories = ({codeCategoriUpdate}) => {
               .then(response => response.json())
               .then(json => {
                   if(json.ok){
-                      alert("Actualizacion Exitosa")
+                    //   alert("Actualizacion Fallida")
                   }else{
-                      alert("Actualizacion Exitosa")
+                    //   alert("Actualizacion Exitosa")
                   }
               })
         }
@@ -113,7 +115,7 @@ export const Service_UpdateCategories = ({codeCategoriUpdate}) => {
          
               
               <div className='content-provider'>
-                  <InputText id='inputName' className='input-update' placeholder={categori.nombre}/>
+                  <InputText id='inputName' className='input-update' placeholder={categori.nombre_categoria}/>
   
               </div>
           <div className='save-edit'>

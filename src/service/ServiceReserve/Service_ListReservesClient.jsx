@@ -38,7 +38,10 @@ export const Service_ListReservesClient = () => {
             }
         })
             .then(response => response.json())
-            .then(provider => setReserves(provider))
+            .then(provider => {
+                setReserves(provider)
+                console.log(provider);
+            })
             console.log("RESERVAS " + reserves);
     }
 
@@ -115,7 +118,7 @@ export const Service_ListReservesClient = () => {
     return (
         <>
         <HeaderHome/>
-        <div className='conter_car' id='conter_car'>
+        <div className='conter_car reserve-card' id='conter_car'>
         {
             reserves.map((item, index,) => (
 
@@ -132,7 +135,7 @@ export const Service_ListReservesClient = () => {
                         </div>
 
                         <div>
-                            <h2 className='card-name-img'>{item.nombre_cliente_reserva}</h2>
+                            <h2 className='card-name-img'>{item.nombre_producto_reserva}</h2>
                         </div>
 
                         <div className='content-press'>
@@ -140,8 +143,8 @@ export const Service_ListReservesClient = () => {
                          </div>
 
                     </div>
-                    <div className='PageReservesExpired'>
-                    <PageReservesExpired/>
+                    <div style={{width:'100%'}}>
+                    <PageReservesExpired text="Ir a reservas expiradas" direction="/reservesExpired"/>
                     </div>
 
                 </div>
