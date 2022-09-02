@@ -1,11 +1,19 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { Button } from 'primereact/button';
+import { Link, useNavigate } from 'react-router-dom'
+import { Button } from 'reactstrap';
 import '../../../service/ServiceReserve/ServiceReserve.css'
 
 
-export const PageReservesExpired = () => {
+export const PageReservesExpired = ({text}) => {
+  
+  let navigate = useNavigate()
+  const redirec = () => {
+    navigate("/reservesExpired")
+  }
+  
   return (
-    <Button className='PageReservesExpired'><Link to="/reservesExpired" className='ReservesExpired'>Ir a reservas expiradas</Link></Button>
+
+    
+    <Button className='PageReservesExpired' onClick={redirec}>{text}</Button>
   )
 }
