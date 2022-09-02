@@ -1,8 +1,10 @@
-.conter_car .car-product{
-    margin: 300px 0 0 0;
+.reserve-card{
+    padding-top: 300px;
 }
 .reservesExpired {
-    text-align: center;
+    color: red;
+    margin: 0 0 0 50px;
+    text-decoration: none
 
 }
 .PageReservesExpired{
@@ -18,6 +20,7 @@
 }
 
 .PageReservesExpired:hover{
-background-color: #008037;
-transition:all ;
+    background-color: #008037;
+    transition:all ;
 }
+
