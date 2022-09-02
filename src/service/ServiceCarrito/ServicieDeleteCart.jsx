@@ -7,7 +7,7 @@ import './css/Style.css'
 import { ListsCart } from './ListsCart'
 
 
-export const ServicieDeleteCart = ({ codigo, press }) => {//tiene como propiedad codigo y precio para capturar su valor en la carperta ShoppingCart(iteratCart)
+export const ServicieDeleteCart = ({ codigo, press}) => {//tiene como propiedad codigo y precio para capturar su valor en la carperta ShoppingCart(iteratCart)
   // const [status,setStatus]=useState(0)
 
 

@@ -7,6 +7,15 @@ export const RegistrarCarrito = ({ codigoP ,nameP = '', descripcionP = '', preci
                                                                                                         //en la Carpeta(GetCart)
     const [visible2, setVisible2] = useState(false)
     const [visible, setVisible] = useState(false)
+    const product1 = {
+        codigo_producto : codigoP,
+        nombre__producto : nameP,
+        descripcion_producto : descripcionP,
+        precio_producto : precioP,
+        imagen_producto : imagenP
+    }
+    const productsList = []
+    localStorage.setItem("listaProduct" , productsList)
     function saveCart() {
         console.log("hholaflfafafafafa")
         let cantidad=1
@@ -30,6 +39,7 @@ export const RegistrarCarrito = ({ codigoP ,nameP = '', descripcionP = '', preci
             .then(response =>{
                 if(response.status==201){
                     setVisible2(true)
+                    productsList.push(product1)
                 }
 
             })
