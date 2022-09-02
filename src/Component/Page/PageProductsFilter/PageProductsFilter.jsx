@@ -41,7 +41,7 @@ export const PageProductsFilter = () => {
       <div>
         <HeaderHome/>
       </div>
-     
+      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       <div className='conter_car' id='prodContainer'>  
         {
           products.map((item, index,) => (
@@ -59,6 +59,7 @@ export const PageProductsFilter = () => {
 
                 <div>
                   <h2>{item.nombre_producto}</h2>
+            
                 </div>
                 <hr />
                 <div className='content-press'>
@@ -66,10 +67,9 @@ export const PageProductsFilter = () => {
 
 
                   <RegistrarCarrito codigoP={item.codigo_producto} nameP={item.nombre_producto} descripcionP={item.descripcion_producto} imagenP={item.foto_producto} precioP={item.precio_producto} />
-
+                  
                 </div>
-
-                <div >
+                <div>
                   <Modal classN='botonFilter' url={item.foto_producto} name={item.nombre_producto} description={item.descripcion_producto} press={item.precio_producto} />
                 </div>
 

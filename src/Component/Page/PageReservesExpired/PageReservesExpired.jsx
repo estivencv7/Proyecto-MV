@@ -12,8 +12,6 @@ export const PageReservesExpired = ({text}) => {
   }
   
   return (
-
-    
     <Button className='PageReservesExpired' onClick={redirec}>{text}</Button>
   )
 }

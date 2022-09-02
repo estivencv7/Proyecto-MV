@@ -9,8 +9,6 @@ import { Link } from 'react-router-dom'
 
 export const ContentPageMain = ({prods}) => {
 
-   
-
    return (
 
       <div className='content-page-main'>
@@ -22,6 +20,7 @@ export const ContentPageMain = ({prods}) => {
          <div id='containerFilter'>
             {/* <Service_ListProductFilter/>             */}
          </div>
+
         <footer>
            <a href="https://instagram.com/venta_de_muebles_en_armenia?igshid=YmMyMTA2M2Y=">ñññ</a>
         </footer>
