@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../../Component/Layout/DataTableTemplatingDemo/DataTableDemo.css'
 import { Modal } from '../../Component/Layout/ContentPageMain/Modal'
 import { Service_ListReservesClient } from './Service_ListReservesClient';
-
+import { HeaderHome } from '../../Component/Layout/HeaderHome/HeaderHome';
 import { PageReservesExpired } from '../../Component/Page/PageReservesExpired/PageReservesExpired';
 import { Link } from 'react-router-dom';
 
@@ -41,7 +41,7 @@ export const Service_ReserveExpired = () => {
     return (
         <>
          <HeaderHome/>
-        <div className='conter_car' id='conter_car'>
+        <div className='conter_car reserve-card' id='conter_car'>
         {
             reserves.map((item, index,) => (
 
@@ -58,7 +58,7 @@ export const Service_ReserveExpired = () => {
                         </div>
 
                         <div>
-                            <h2 className='card-name-img'>{item.nombre_cliente_reserva}</h2>
+                            <h2 className='card-name-img'>{item.nombre_producto_reserva}</h2>
                         </div>
 
                         <div className='content-press'>

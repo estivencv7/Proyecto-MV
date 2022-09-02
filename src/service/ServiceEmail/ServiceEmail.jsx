@@ -3,7 +3,7 @@ import { Calendar } from 'primereact/calendar';
 import { Dialog } from 'primereact/dialog';
 import { Button } from 'reactstrap';
 
-export const ServiceEmail = ({ nameProduct , descriptionProduct , priceProduct  , photoProduct,classN }) => {
+export const ServiceEmail = ({ nameProduct ,nameProduct2 ,  descriptionProduct , priceProduct  , photoProduct,classN }) => {
     
     const [visible1, setVisible1] = useState(false)
     const [datePickup , setDatePickup] = useState("")
