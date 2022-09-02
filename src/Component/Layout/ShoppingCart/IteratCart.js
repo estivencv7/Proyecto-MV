@@ -13,19 +13,74 @@ import './style.css'
 
 export const IteratCart = ({ listsCart = [], conut }) => {//resive como parametro una lista y una cantidad(de productos que llevan en el carriro de compras)
 
-
-
-
+    let carrito = []
+    const peticion = () => {
+    const url = 'http://localhost:8080/carritoCompras/listarcarrito';
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        carrito = data
+        console.log("ENTRA A LISTAR TODO EL CARRITO " + carrito);
+      //  m.lista.push(data)
+      })
+  }
 
     // const [visible, setvible] = useState(false);
 
     const [visible2, setVisible2] = useState(false)
     const [visible, setVisible] = useState(false)
-    const [pretotal, setPretotal] = useState([])
-
+    const [pretotal, setPretotal] = useState("")
     let guardar = [];
+    let prods = []
     let t = 0;
+    let prodsUpdate = []
+    const [amountProd , setAmountProd] = useState(0)
 
+    const simulateBuy = () => {
+        // console.log(listsCart.toString());
+        const user = sessionStorage.getItem("usuario")
+        const user2 = JSON.parse(user.toString());
+        const nameUser = user2.nameU
+        let idUser = user2.idU
+        console.log("ID USER " + idUser);
+        const cellphoneNumberUser = user2.cellphoneNumberU
+        const priceTotal = t
+        const urlRegisterInvoice = "http://localhost:8080/facturas/registrarFactura/"+ 1
+       
+        carrito.forEach(element => {
+            console.log("ELEMENTO " + element.nombre__producto);
+            fetch(urlRegisterInvoice, {
+                method: 'POST',
+                headers: {
+                    "Content-type": "application/json",
+                    'Access-Control-Allow-Origin': '*' 
+                },
+                body: JSON.stringify({
+                    cantidad_producto: amountProd,
+                    nombre_cliente: nameUser,
+                    cedula_cliente: idUser,
+                    telefono_cliente: cellphoneNumberUser,
+                    productos : element.nombre__producto,
+                    nombre_producto: element.nombre__producto,
+                    total_a_pagar : priceTotal
+                })
+    
+            })
+                .then(response => console.log("RESPONSE " + response))
+    
+        })
+        // const lista = localStorage.getItem("listaProduct");
+
+        // console.log("LISTA PRODS " + lista);
+        
+    }
+
+    
+    const saveAmount = (amount) => {
+        toast('Actualice precios 👇')
+        setAmountProd(amount)
+        console.log(amount);
+    }
 
     useEffect(() => {
         // set2(listsCart)
@@ -41,7 +96,6 @@ export const IteratCart = ({ listsCart = [], conut }) => {//resive como parametr
     const editCart = async (e, codigo, nameP, precioP, imagenP, precio_total) => {//la (e) es el valor que captura (1234)
         let cantidad = e.target.value;
         precioTotal = precioP * cantidad
-
         // toast.current.show({severity: 'success', summary: 'Success Message', detail: 'Order submitted'});
 
 
@@ -94,18 +148,19 @@ export const IteratCart = ({ listsCart = [], conut }) => {//resive como parametr
                                     <div className='con-imgP'>
                                         {item.imagen_producto ? <img src={item.imagen_producto} alt="" className='img-cart' id='h2' /> : <img></img>}
                                     </div>
-
+                                    {prods.push(item)}
 
                                     <div className='content-cart-nameProduct' id='h3'>
                                        
                                        
                                         <div className='content-nameP'>
                                             <p className='p'>{item.nombre__producto}</p>
+                                            {localStorage.setItem("nombreProducto" , item.nombre__producto)}
                                         </div>
 
 
                                         <div className='' >
-                                            <select id='selector' className='select' onChange={e => editCart(e, item.codigo_Carrito, item.nombre__producto, item.precio_producto, item.imagen_producto, item.precio_total)} onClick={() => toast('Actualice precios 👇')}>
+                                            <select id='selector' className='select' onChange={e => editCart(e, item.codigo_Carrito, item.nombre__producto, item.precio_producto, item.imagen_producto, item.precio_total)} onClick={e => saveAmount(e.target.value)}>
                                                 <option>{item.cantidad_cart}</option>
                                                 {item.cantidad_cart == 1 ? <div></div> : <option value={1} >1</option>}
                                                 {item.cantidad_cart == 2 ? <div></div> : <option value={2}>2</option>}
@@ -118,8 +173,6 @@ export const IteratCart = ({ listsCart = [], conut }) => {//resive como parametr
                                             {item.precio_total > item.precio_producto ? <h4 id='precio'>${item.precio_producto} unidad</h4> : <h4 id='precio'>${item.precio_producto}</h4>}
                                             {item.precio_total <= item.precio_producto ? <h2></h2> : <h2 id={item.nombre__producto}>{item.precio_producto * item.cantidad_cart}</h2>}
                                         </div>
-
-
                                     </div>
 
                                     <div className='content-delete-cart' id='h6'>
@@ -137,8 +190,8 @@ export const IteratCart = ({ listsCart = [], conut }) => {//resive como parametr
 
                 {
                     guardar.forEach(total => {
-                        console.log("total de compra" + `${t += total}`)//sumaos los precios total y los guardamos en una variable
-
+                        console.log("total de compra" + `${t += total}`)
+                        //sumaos los precios total y los guardamos en una variable
                     })
                 }
             </div>
@@ -151,7 +204,7 @@ export const IteratCart = ({ listsCart = [], conut }) => {//resive como parametr
                         <p className='item-total' id='press'>{t}</p>
                     </div>
 
-                    <Button>FINALIZAR COMPRA</Button>
+                    <Button onMouseEnter={peticion} onClick={simulateBuy}>FINALIZAR COMPRA</Button>
 
                 </div>
                 // // :
