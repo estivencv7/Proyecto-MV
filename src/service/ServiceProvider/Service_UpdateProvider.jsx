@@ -26,7 +26,6 @@ export const Service_UpdateProvider = ({codeProviderUpdate}) => {
       })
           .then(response => response.json())
           .then(provider => guardarProvider(provider))
-          console.log(provider)
   }    
 
   const guardarProvider = (provi) =>{
@@ -70,7 +69,7 @@ export const Service_UpdateProvider = ({codeProviderUpdate}) => {
               if(json.ok){
                   alert("Actualizacion Exitosa")
               }else{
-                  alert("Actualizacion Exitosa")
+                  alert("Actualizacion Fallida")
               }
           })
       let tokenAdmin = localStorage.getItem('admin')
@@ -94,7 +93,7 @@ export const Service_UpdateProvider = ({codeProviderUpdate}) => {
                 if(json.ok){
                     alert("Actualizacion Exitosa")
                 }else{
-                    alert("Actualizacion Exitosa")
+                    alert("Actualizacion Fallida")
                 }
             })
       }
@@ -115,14 +114,13 @@ return (
           
        
             
-            <div className='content-provider'>
-                <InputText id='inputName' className='input-update' placeholder={provider.nombre_proveedor}/>
-                <InputText type="number" id='inputPhone' className='input-update' placeholder={provider.telefono_proveedor}/>
-
-            </div>
+        <div className='content-provider'>
+            <InputText id='inputName' className='input-update' placeholder={provider.nombre_proveedor}/>
+            <InputText type="number" id='inputPhone' className='input-update' placeholder={provider.telefono_proveedor}/>
+        </div>
         <div className='save-edit'>
-              <Button onClick={editProvider} >Guardar</Button>
-          </div>
+          <Button onClick={editProvider} >Guardar</Button>
+        </div>
       </Dialog>
   </>
 )
