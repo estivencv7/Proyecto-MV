@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import '../../Component/Layout/DataTableTemplatingDemo/DataTableDemo.css'
 import { Modal } from '../../Component/Layout/ContentPageMain/Modal'
 import { Service_ListReservesClient } from './Service_ListReservesClient';
+
+import { PageReservesExpired } from '../../Component/Page/PageReservesExpired/PageReservesExpired';
 import { Link } from 'react-router-dom';
 
 export const Service_ReserveExpired = () => {
@@ -60,8 +62,9 @@ export const Service_ReserveExpired = () => {
                         <div className='content-press'>
                             <h2 className='press'>{item.estado_reserva}</h2>
                          </div>
-
-                        <button className='PageReservesExpired2' ><Link className='ReservesExpired2' to="/listReservesClient">Ir a reservas pendientes</Link></button>
+                    </div>
+                    <div style={{width:'100%'}}>
+                    <PageReservesExpired text="Ir a reservas pendientes"/>
                     </div>
             
                 </div>
