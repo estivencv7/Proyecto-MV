@@ -3,7 +3,7 @@ import { Button } from 'primereact/button'
 import React, { useEffect, useState } from 'react'
 import { ContentShoppingCart } from '../../Component/Layout/ShoppingCart/ContentShoppingCart'
 
-export const RegistrarCarrito = ({ codigoP ,nameP = '', descripcionP = '', precioP = 0, imagenP }) => {//le damos como propiedades al componente Para capturar su valor y registar 
+export const RegistrarCarrito = ({ codigoP ,nameP = '', descripcionP = '', precioP = 0, imagenP ,text=<i className='pi pi-shopping-cart cart-shopping' cantidad></i>,classN='button-cart-register'} ) => {//le damos como propiedades al componente Para capturar su valor y registar 
                                                                                                         //en la Carpeta(GetCart)
     const [visible2, setVisible2] = useState(false)
     const [visible, setVisible] = useState(false)
@@ -53,7 +53,7 @@ export const RegistrarCarrito = ({ codigoP ,nameP = '', descripcionP = '', preci
     
     return (
         <>
-            <Button onClick={(e)=>saveCart()}codigoP namePb descripcionP precioP imagenP  press className='button-cart-register'><i className='pi pi-shopping-cart cart-shopping' cantidad></i></Button>
+            <Button onClick={(e)=>saveCart()}codigoP namePb descripcionP precioP imagenP  press className={classN}>{text}</Button>
             <ContentShoppingCart visible2={visible2} onHide={() => { setVisible2(false) }}   onClick={re}/>
         </>
 

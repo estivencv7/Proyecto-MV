@@ -5,7 +5,7 @@ import { Service_ListProduct } from '../../../service/ServiceProduct/Service_Lis
 // import { CarouselPrime } from './CarouselPrime'
 import { ServicioList_Favorites } from '../../../service/ServicioFavoritos/ServicioList_Favorites.js'
 import { Service_ListProductFilter } from '../../../service/ServiceProduct/Service_ListProductFilter'
-
+import { Link } from 'react-router-dom'
 
 export const ContentPageMain = ({prods}) => {
 
@@ -20,7 +20,10 @@ export const ContentPageMain = ({prods}) => {
          <div id='containerFilter'>
             {/* <Service_ListProductFilter/>             */}
          </div>
-         <a href='https://instagram.com/venta_de_muebles_en_armenia?igshid=YmMyMTA2M2Y='>ppppp</a>
+
+        <footer>
+           <a href="https://instagram.com/venta_de_muebles_en_armenia?igshid=YmMyMTA2M2Y=">ñññ</a>
+        </footer>
       </div> 
 
    )
