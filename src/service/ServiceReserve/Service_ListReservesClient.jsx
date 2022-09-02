@@ -115,7 +115,7 @@ export const Service_ListReservesClient = () => {
     return (
         <>
         <HeaderHome/>
-        <div className='conter_car' id='conter_car'>
+        <div className='conter_car reserve-card' id='conter_car'>
         {
             reserves.map((item, index,) => (
 
