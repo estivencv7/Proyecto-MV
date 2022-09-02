@@ -140,8 +140,8 @@ export const Service_ListReservesClient = () => {
                          </div>
 
                     </div>
-                    <div className='PageReservesExpired'>
-                    <PageReservesExpired/>
+                    <div style={{width:'100%'}}>
+                    <PageReservesExpired text="Ir a reservas expiradas"/>
                     </div>
 
                 </div>
