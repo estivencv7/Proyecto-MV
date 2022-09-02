@@ -4,16 +4,14 @@ import { Button } from 'reactstrap';
 import '../../../service/ServiceReserve/ServiceReserve.css'
 
 
-export const PageReservesExpired = ({text}) => {
+export const PageReservesExpired = ({text, direction}) => {
   
   let navigate = useNavigate()
   const redirec = () => {
-    navigate("/reservesExpired")
+    navigate(direction)
   }
   
-  return (
-
-    
+  return (  
     <Button className='PageReservesExpired' onClick={redirec}>{text}</Button>
   )
 }

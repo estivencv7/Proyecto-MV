@@ -141,7 +141,7 @@ export const Service_ListReservesClient = () => {
 
                     </div>
                     <div style={{width:'100%'}}>
-                    <PageReservesExpired text="Ir a reservas expiradas"/>
+                    <PageReservesExpired text="Ir a reservas expiradas" direction="/reservesExpired"/>
                     </div>
 
                 </div>
