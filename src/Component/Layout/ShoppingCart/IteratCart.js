@@ -45,7 +45,7 @@ export const IteratCart = ({ listsCart = [], conut }) => {//resive como parametr
         console.log("ID USER " + idUser);
         const cellphoneNumberUser = user2.cellphoneNumberU
         const priceTotal = t
-        const urlRegisterInvoice = "http://localhost:8080/facturas/registrarFactura/"+ 1
+        const urlRegisterInvoice = "http://localhost:8080/facturas/registrarFactura"
        
         carrito.forEach(element => {
             console.log("ELEMENTO " + element.nombre__producto);
@@ -66,7 +66,7 @@ export const IteratCart = ({ listsCart = [], conut }) => {//resive como parametr
                 })
     
             })
-                .then(response => console.log("RESPONSE " + response))
+                .then(response => response)
     
         })
         // const lista = localStorage.getItem("listaProduct");

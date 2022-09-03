@@ -12,6 +12,7 @@ import { Toaster, toast } from 'react-hot-toast';
 import { PageReservesClient } from '../../Page/PageReservesClient/PageReservesClient';
 // import { useNavigate } from 'react-router-dom'
 import { SplitButton } from 'primereact/splitbutton';
+import { Service_ListInvoices } from '../../../service/ServiceInvoice/Service_ListInvoices';
 
 export const NavHome = () => {
     const [email , setEmail] = useState("")
@@ -241,6 +242,7 @@ export const NavHome = () => {
             </Dialog>
 
             <div className='favoritos'>
+                <Service_ListInvoices/>
                 <Link to="/pageFavorito" className='icon'><i className='pi pi-heart heart-icon ico'> <p className='name-icon'>Favoritos</p></i></Link>
             </div>
             
