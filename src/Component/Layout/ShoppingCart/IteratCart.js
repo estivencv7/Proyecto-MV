@@ -34,7 +34,7 @@ export const IteratCart = ({ listsCart = [], conut }) => {//resive como parametr
     let prods = []
     let t = 0;
     let prodsUpdate = []
-    const [amountProd , setAmountProd] = useState(0)
+    const [amountProd , setAmountProd] = useState(1)
 
     const simulateBuy = () => {
         // console.log(listsCart.toString());
@@ -46,29 +46,32 @@ export const IteratCart = ({ listsCart = [], conut }) => {//resive como parametr
         const cellphoneNumberUser = user2.cellphoneNumberU
         const priceTotal = t
         const urlRegisterInvoice = "http://localhost:8080/facturas/registrarFactura"
-       
-        carrito.forEach(element => {
-            console.log("ELEMENTO " + element.nombre__producto);
-            fetch(urlRegisterInvoice, {
-                method: 'POST',
-                headers: {
-                    "Content-type": "application/json",
-                    'Access-Control-Allow-Origin': '*' 
-                },
-                body: JSON.stringify({
-                    cantidad_producto: amountProd,
-                    nombre_cliente: nameUser,
-                    cedula_cliente: idUser,
-                    telefono_cliente: cellphoneNumberUser,
-                    productos : element.nombre__producto,
-                    nombre_producto: element.nombre__producto,
-                    total_a_pagar : priceTotal
+        let tokenAdmin = localStorage.getItem('user')
+        if (tokenAdmin == "" || tokenAdmin == null) {
+            alert("Por favor registrese")
+        }else{
+            carrito.forEach(element => {
+                console.log("ELEMENTO " + element.nombre__producto);
+                fetch(urlRegisterInvoice, {
+                    method: 'POST',
+                    headers: {
+                        "Content-type": "application/json",
+                        'Access-Control-Allow-Origin': '*' 
+                    },
+                    body: JSON.stringify({
+                        cantidad_producto: amountProd,
+                        nombre_cliente: nameUser,
+                        cedula_cliente: idUser,
+                        telefono_cliente: cellphoneNumberUser,
+                        productos : element.nombre__producto,
+                        nombre_producto: element.nombre__producto,
+                        total_a_pagar : priceTotal
+                    })
+        
                 })
-    
-            })
-                .then(response => response)
-    
+                    .then(response => response)    
         })
+    }
         // const lista = localStorage.getItem("listaProduct");
 
         // console.log("LISTA PRODS " + lista);

@@ -189,6 +189,10 @@ export const NavHome = () => {
         navigat("/listReservesClient")
     }
 
+    const redirectInvoices = () => {
+        navigat("/listInvoices")
+    }
+
     const items = [
         
         {
@@ -198,7 +202,13 @@ export const NavHome = () => {
               redirect()
             }
         },
-
+        {
+            label: 'Facturas',
+            icon: 'pi pi-wallet',
+            command: () => {
+              redirectInvoices()
+            }
+        },
         {
             label: 'Cerrar Sesion',
             icon: 'pi pi-sign-out ico',
@@ -242,7 +252,6 @@ export const NavHome = () => {
             </Dialog>
 
             <div className='favoritos'>
-                <Service_ListInvoices/>
                 <Link to="/pageFavorito" className='icon'><i className='pi pi-heart heart-icon ico'> <p className='name-icon'>Favoritos</p></i></Link>
             </div>
             
