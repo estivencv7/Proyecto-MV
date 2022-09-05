@@ -10,8 +10,6 @@ import { FooterMain } from '../../Ui/FooterMain/FooterMain'
 
 export const ContentPageMain = ({prods}) => {
 
-   
-
    return (
 
       <div className='content-page-main'>
@@ -23,10 +21,11 @@ export const ContentPageMain = ({prods}) => {
          <div id='containerFilter'>
             {/* <Service_ListProductFilter/>             */}
          </div>
+
          <div className='section-footer'>
             <FooterMain></FooterMain>
          </div>
-        
+      
       </div> 
 
    )

@@ -12,6 +12,7 @@ import { Toaster, toast } from 'react-hot-toast';
 import { PageReservesClient } from '../../Page/PageReservesClient/PageReservesClient';
 // import { useNavigate } from 'react-router-dom'
 import { SplitButton } from 'primereact/splitbutton';
+import { Service_ListInvoices } from '../../../service/ServiceInvoice/Service_ListInvoices';
 
 export const NavHome = () => {
     const [email , setEmail] = useState("")
@@ -25,6 +26,8 @@ export const NavHome = () => {
     const [surnameUser , setSurnameUser] = useState("")
     const [emailUser , setEmailUser] = useState("")
     const [idUser , setIdUser] = useState("")
+    const [cellphoneNumberUser , setcellphoneNumberUser] = useState("")
+    
     let navigate = useNavigate();
     
     const onHide = () => {
@@ -40,7 +43,8 @@ export const NavHome = () => {
         stateU : stateUser,
         surnameU : surnameUser,
         emailU : emailUser,
-        idU : idUser
+        idU : idUser,
+        cellphoneNumberU : cellphoneNumberUser 
     }
 
     const catchEmail = (event) => {
@@ -63,6 +67,7 @@ export const NavHome = () => {
         usuarioActivo.surnameU = payload.apellido;
         usuarioActivo.stateU = payload.Estado;
         usuarioActivo.idU = payload.cedula;
+        usuarioActivo.cellphoneNumberU = payload.telefono;
         sessionStorage.setItem("usuario", JSON.stringify(usuarioActivo))
         console.log("Usuario en el sesion storage " + sessionStorage.getItem("usuario"));
         console.log(usuarioActivo);
@@ -184,6 +189,10 @@ export const NavHome = () => {
         navigat("/listReservesClient")
     }
 
+    const redirectInvoices = () => {
+        navigat("/listInvoices")
+    }
+
     const items = [
         
         {
@@ -193,7 +202,13 @@ export const NavHome = () => {
               redirect()
             }
         },
-
+        {
+            label: 'Facturas',
+            icon: 'pi pi-wallet',
+            command: () => {
+              redirectInvoices()
+            }
+        },
         {
             label: 'Cerrar Sesion',
             icon: 'pi pi-sign-out ico',

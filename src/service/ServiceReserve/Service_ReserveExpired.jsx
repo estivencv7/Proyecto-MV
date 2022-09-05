@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import '../../Component/Layout/DataTableTemplatingDemo/DataTableDemo.css'
 import { Modal } from '../../Component/Layout/ContentPageMain/Modal'
 import { Service_ListReservesClient } from './Service_ListReservesClient';
+import { HeaderHome } from '../../Component/Layout/HeaderHome/HeaderHome';
+import { PageReservesExpired } from '../../Component/Page/PageReservesExpired/PageReservesExpired';
 import { Link } from 'react-router-dom';
 
 export const Service_ReserveExpired = () => {
@@ -37,7 +39,9 @@ export const Service_ReserveExpired = () => {
     }, [])
     
     return (
-        <div className='conter_car' id='conter_car'>
+        <>
+         <HeaderHome/>
+        <div className='conter_car reserve-card' id='conter_car'>
         {
             reserves.map((item, index,) => (
 
@@ -54,14 +58,15 @@ export const Service_ReserveExpired = () => {
                         </div>
 
                         <div>
-                            <h2 className='card-name-img'>{item.nombre_cliente_reserva}</h2>
+                            <h2 className='card-name-img'>{item.nombre_producto_reserva}</h2>
                         </div>
 
                         <div className='content-press'>
                             <h2 className='press'>{item.estado_reserva}</h2>
                          </div>
-
-                        <button><Link to="/listReservesClient">Ir a reservas pendientes</Link></button>
+                    </div>
+                    <div style={{width:'100%'}}>
+                    <PageReservesExpired text="Ir a reservas pendientes" direction="/listReservesClient"/>
                     </div>
             
                 </div>
@@ -71,5 +76,6 @@ export const Service_ReserveExpired = () => {
             ))
         }
     </div>
+    </>
     )
 }
