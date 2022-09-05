@@ -1,0 +1,75 @@
+.footermain{
+   display: flex;
+   
+   height: 40px;
+   background: #008037;
+   align-items: center;
+   box-shadow: 0 0 40px black;
+   position:fixed;
+   bottom: 0;
+   z-index: 100;
+   overflow: hidden;
+   /* box-shadow: -1px -5px 4px #008037; */
+   border-top-left-radius:50px ;
+   border-top-right-radius:50px ;
+   color: white;
+   gap: 5%;
+
+
+   
+   
+}
+.footermain:hover {
+    height: 270px;
+    color: black;
+    background: white;
+}
+
+.instagram{
+    width: 50px;
+    /* background-color: white; */
+    
+}
+
+.whatsapp{
+    width: 42px;
+    
+}
+.redes-sociales{
+    /* background-color: #008037; */
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+}
+
+.detalles{
+    /* background-color: #008037; */
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    
+}
+
+.a1{
+    overflow: hidden;
+}
+.ubicados{
+    font-size: 25px;
+}
+
+.title-question{
+   color: #008037;
+    overflow: hidden;
+}
+
+.footermain:hover .title-question{
+    color: black;
+}

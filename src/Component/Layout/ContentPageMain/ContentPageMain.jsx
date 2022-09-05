@@ -6,6 +6,7 @@ import { Service_ListProduct } from '../../../service/ServiceProduct/Service_Lis
 import { ServicioList_Favorites } from '../../../service/ServicioFavoritos/ServicioList_Favorites.js'
 import { Service_ListProductFilter } from '../../../service/ServiceProduct/Service_ListProductFilter'
 import { Link } from 'react-router-dom'
+import { FooterMain } from '../../Ui/FooterMain/FooterMain'
 
 export const ContentPageMain = ({prods}) => {
 
@@ -22,9 +23,10 @@ export const ContentPageMain = ({prods}) => {
          <div id='containerFilter'>
             {/* <Service_ListProductFilter/>             */}
          </div>
-        <footer>
-           <a href="https://instagram.com/venta_de_muebles_en_armenia?igshid=YmMyMTA2M2Y=">ñññ</a>
-        </footer>
+         <div className='section-footer'>
+            <FooterMain></FooterMain>
+         </div>
+        
       </div> 
 
    )
