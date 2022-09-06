@@ -193,6 +193,10 @@ export const NavHome = () => {
         navigat("/listInvoices")
     }
 
+    const EditProfile = () => {
+        navigat("/pageEditProfile")
+    }
+
     const items = [
         
         {
@@ -207,6 +211,13 @@ export const NavHome = () => {
             icon: 'pi pi-wallet',
             command: () => {
               redirectInvoices()
+            }
+        },
+        {
+            label: 'Editar Perfil',
+            icon: 'pi pi-user-edit',
+            command: () => {
+                EditProfile()
             }
         },
         {

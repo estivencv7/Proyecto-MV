@@ -20,13 +20,13 @@ export const ContentPageMain = ({ prods }) => {
          <div className='car' id='containerProd'>
             <Service_ListProduct />
          </div >
-         <div className='setion-proximos'>
-            <CarouselPrime></CarouselPrime>
-         </div>
          <div id='containerFilter'>
             {/* <Service_ListProductFilter/>             */}
          </div>
-
+         <div className='setion-proximos'>
+            <CarouselPrime></CarouselPrime>
+         </div>
+         
          <br /><br /><br /><br /><br /><br /><br /><br /><br />
 
          <div className='section-footer'>
