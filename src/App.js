@@ -21,6 +21,8 @@ import { Service_ListReservesAdmin } from './service/ServiceReserve/Service_List
 import { Service_ListReservesClient } from './service/ServiceReserve/Service_ListReservesClient';
 import { Service_ReserveExpired } from './service/ServiceReserve/Service_ReserveExpired';
 import { Service_ListInvoices } from './service/ServiceInvoice/Service_ListInvoices';
+import { Service_ReserveExpiredAdmin } from './service/ServiceReserve/Service_ReserveExpiredAdmin';
+import { DataTableAdmins } from './Component/Layout/DataTableTemplatingDemo/DataTableAdmins';
 
 function App() {
   return (
@@ -43,6 +45,8 @@ function App() {
         <Route path='chairs' element={<Chairs/>}/>
         <Route path='reservesExpired' element={<Service_ReserveExpired/>}/>
         <Route path='listInvoices' element={<Service_ListInvoices/>}/>
+        <Route path='/reservesExpiredAdmin' element={<Service_ReserveExpiredAdmin/>}/>
+        <Route path='/tableAdmins' element={<DataTableAdmins/>}/>
       </Routes>
     </div>
   );

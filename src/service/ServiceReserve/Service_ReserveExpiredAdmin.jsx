@@ -12,14 +12,14 @@ import { Service_EditReserve } from './Service_EditReserve';
 import { PageReservesExpired } from '../../Component/Page/PageReservesExpired/PageReservesExpired';
 import { Service_ChangeStateReserve } from './Service_ChangeStateReserve';
 
-export const Service_ListReservesAdmin = () => {
+export const Service_ReserveExpiredAdmin = () => {
     
     const [globalFilterValue, setGlobalFilterValue] = useState('');
     const [reserves , setReserves] = useState([])
     let [selectedReserve, setReserveSelected] = useState(null);
     const getReserves = () => {
         let tokenAdmin = localStorage.getItem("admin")
-        const url = 'http://localhost:8080/reserva/listarReservasPendientes';
+        const url = 'http://localhost:8080/reserva/listarReservasExpiradas';
         fetch(url, {
             method: 'GET',
             headers: {
@@ -59,7 +59,7 @@ export const Service_ListReservesAdmin = () => {
                     <div className='buttons'>
                         <Servicie_DeleteReserve codigo={0}/>
                         <Service_EditReserve codeReserve={0} />
-                        <PageReservesExpired text="Ir a expiradas" direction="/reservesExpiredAdmin"/>
+                        <PageReservesExpired text="Ir a pendientes" direction="/listReserves"/>
                         <span className="p-input-icon-left">
                             <i className="pi pi-search" />
                             <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre cliente reservado" />
@@ -76,7 +76,7 @@ export const Service_ListReservesAdmin = () => {
                         
                         <Service_EditReserve codeReserve={selectedReserve[0].codigo_reserva} />
                         <Servicie_DeleteReserve codigo={selectedReserve[0].codigo_reserva}/>
-                        <PageReservesExpired text="Ir a expiradas" direction="/reservesExpiredAdmin"/>
+                        <PageReservesExpired text="Ir a pendientes" direction="/listReserves"/>
                         <span className="p-input-icon-left">
                             <i className="pi pi-search" />
                             <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre cliente reservado" />
@@ -96,6 +96,12 @@ export const Service_ListReservesAdmin = () => {
         );
     }
 
+    const changeStateBodyTemplate = (reserve) => {
+      return (
+          <Service_ChangeStateReserve code={reserve.codigo_reserva} text="Cambiar a pendiente"/>
+      );
+    }
+
     const imageBodyTemplate = (reserve) => {
         return (
             <React.Fragment>
@@ -106,12 +112,6 @@ export const Service_ListReservesAdmin = () => {
 
     const nameBodyTemplate = (reserve) => {
         return reserve.nombre_cliente_reserva;
-    }
-
-    const changeStateBodyTemplate = (reserve) => {
-        return (
-            <Service_ChangeStateReserve code={reserve.codigo_reserva} text="Cambiar a expirada"/>
-        );
     }
 
     const dateCreateReserve = (reserve) => {

@@ -13,7 +13,14 @@ import './style.css'
 export const ContentPageMainAdmin = () => {
     return (
         <div className='link-card' >
-
+            <Link className='card-section' to="/tableAdmins">
+                <div className='MdInventory2'>
+                    <MdInventory2 className='inventariosproductos' stroke='' fill=''/>
+                </div>
+                <h2>Gestion Administradores</h2>
+                    <p>Gestione los administradores Registre,Busque ,Actualice y Elimine con gran facilidad.
+                </p>
+            </Link>
             <Link className='card-section' to='/registerProduct' >
                
                 <div className='MdInventory2'>
