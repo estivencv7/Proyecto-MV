@@ -21,6 +21,7 @@ import { Service_ListReservesAdmin } from './service/ServiceReserve/Service_List
 import { Service_ListReservesClient } from './service/ServiceReserve/Service_ListReservesClient';
 import { Service_ReserveExpired } from './service/ServiceReserve/Service_ReserveExpired';
 import { Service_ListInvoices } from './service/ServiceInvoice/Service_ListInvoices';
+import { Service_UpdateUser } from './service/ServiceUser/Service_UpdateUser';
 import { PageComingSoon } from './Component/Page/PagerComingSoon/PageComingSoon';
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
         <Route path='chairs' element={<Chairs/>}/>
         <Route path='reservesExpired' element={<Service_ReserveExpired/>}/>
         <Route path='listInvoices' element={<Service_ListInvoices/>}/>
+        <Route path='pageEditProfile' element={<Service_UpdateUser/>}/>
         <Route path='/registerProximo' element={<PageComingSoon/>}/>
       </Routes>
     </div>
