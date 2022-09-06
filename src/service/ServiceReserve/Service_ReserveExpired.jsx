@@ -66,7 +66,6 @@ export const Service_ReserveExpired = () => {
                          </div>
                     </div>
                     <div style={{width:'100%'}}>
-                    <PageReservesExpired text="Ir a reservas pendientes" direction="/listReservesClient"/>
                     </div>
             
                 </div>
@@ -76,6 +75,7 @@ export const Service_ReserveExpired = () => {
             ))
         }
     </div>
+        <PageReservesExpired text="Ir a reservas pendientes" direction="/listReservesClient"/>       
     </>
     )
 }

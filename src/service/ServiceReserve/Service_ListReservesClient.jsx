@@ -115,45 +115,51 @@ export const Service_ListReservesClient = () => {
     }, [])
     
     const header = renderHeader()
-    return (
-        <>
-        <HeaderHome/>
-        <div className='conter_car reserve-card' id='conter_car'>
-        {
-            reserves.map((item, index,) => (
-
-                <div >
-
-
-                    <div className='car-product' style={{ position: 'relative' }}>
-
-                        <div style={{ position: 'relative' }} className='content-card-m'>
-                            <img className='img-cardGif' src={item.foto_producto_reserva} alt="" />
-                            <div >
-                                <Modal classN='observar-m' url={item.foto_producto_reserva} name={item.fecha_creacion_reserva} description={item.fecha_recoger_reserva} press={item.estado_reserva} />
+        return (
+            <>
+            <HeaderHome/>
+            
+            <PageReservesExpired text="Ir a reservas expiradas" direction="/reservesExpired"/>
+            <div className='conter_car reserve-card' id='conter_car'>
+                
+            
+            {   
+                
+                reserves.map((item, index,) => (
+    
+                    <div >
+    
+    
+                        <div className='car-product' style={{ position: 'relative' }}>
+    
+                            <div style={{ position: 'relative' }} className='content-card-m'>
+                                <img className='img-cardGif' src={item.foto_producto_reserva} alt="" />
+                                <div >
+                                    <Modal classN='observar-m' url={item.foto_producto_reserva} name={item.fecha_creacion_reserva} description={item.fecha_recoger_reserva} press={item.estado_reserva} />
+                                </div>
                             </div>
+    
+                            <div>
+                                <h2 className='card-name-img'>{item.nombre_producto_reserva}</h2>
+                            </div>
+    
+                            <div className='content-press'>
+                                <h2 className='press'>{item.estado_reserva}</h2>
+                             </div>
+    
                         </div>
-
-                        <div>
-                            <h2 className='card-name-img'>{item.nombre_producto_reserva}</h2>
+                        <div style={{width:'100%'}}>
                         </div>
-
-                        <div className='content-press'>
-                            <h2 className='press'>{item.estado_reserva}</h2>
-                         </div>
-
+    
                     </div>
-                    <div style={{width:'100%'}}>
-                    <PageReservesExpired text="Ir a reservas expiradas" direction="/reservesExpired"/>
-                    </div>
-
-                </div>
-
-                // </div>
-
-            ))
-        }
-    </div>
-    </>
-    )
+    
+                    // </div>
+    
+                ))
+            }
+        </div>
+            <PageReservesExpired text="Ir a reservas expiradas" direction="/reservesExpired"/>
+            
+        </>    
+        )
 }
