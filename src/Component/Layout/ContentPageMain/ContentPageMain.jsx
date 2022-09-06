@@ -7,26 +7,33 @@ import { ServicioList_Favorites } from '../../../service/ServicioFavoritos/Servi
 import { Service_ListProductFilter } from '../../../service/ServiceProduct/Service_ListProductFilter'
 import { Link } from 'react-router-dom'
 import { FooterMain } from '../../Ui/FooterMain/FooterMain'
+import { CarouselPrime } from './CarouselPrime'
 
-export const ContentPageMain = ({prods}) => {
+export const ContentPageMain = ({ prods }) => {
 
    return (
 
       <div className='content-page-main'>
+
          <CarouselDemo />
          {/*==============card=====================*/}
          <div className='car' id='containerProd'>
-            <Service_ListProduct/>
+            <Service_ListProduct />
          </div >
+         <div className='setion-proximos'>
+            <CarouselPrime></CarouselPrime>
+         </div>
          <div id='containerFilter'>
             {/* <Service_ListProductFilter/>             */}
          </div>
 
+         <br /><br /><br /><br /><br /><br /><br /><br /><br />
+
          <div className='section-footer'>
             <FooterMain></FooterMain>
          </div>
-      
-      </div> 
+
+      </div>
 
    )
 }
