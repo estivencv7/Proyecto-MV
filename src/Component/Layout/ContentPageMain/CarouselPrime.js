@@ -1,29 +1,38 @@
-import React, { useEffect, useState } from 'react'
+// import React, { useEffect, useState } from 'react'
+// import { Carousel } from 'primereact/carousel';
+// import { Button } from 'primereact/button';
+// import { GetCards } from './GetCards';
+// import { Modal } from './Modal';
+
+import React,{useState,useEffect}from 'react'
 import { Carousel } from 'primereact/carousel';
-import { Button } from 'primereact/button';
-import { GetCards } from './GetCards';
+import {Button}from 'primereact/button'
+import './styleCarouselPrime.css'
 import { Modal } from './Modal';
 
 export const CarouselPrime = () => {
-
     const [product, setProduct] = useState([])
-    // const [save, setSave] = useState([])
-
     const getProducts = () => {
         const url = 'http://localhost:8080/producto/listaProductos';
-        fetch(url)
+          fetch(url)
             .then(response => response.json())
-            .then(data => {
-                console.log("esta es la sista que llega\n" + data)
-                setProduct(data)
-            })
-    }
-
-    useEffect(() => {
-        getProducts()
-        //saveObj.push(objProduct)
-        //setProductFound(saveObj)
-    }, [])
+            .then(data =>{
+                console.log("carol")
+                data.forEach(element => {
+                productTemplate(element)
+                    
+                });
+                
+             setProduct(data)
+           
+            } )
+      }
+    
+      useEffect(() => {
+          getProducts()
+      }, [])
+    
+    
 
     const responsiveOptions = [
         {
@@ -32,68 +41,44 @@ export const CarouselPrime = () => {
             numScroll: 3
         },
         {
-            breakpoint: '600px',
+            breakpoint: '768px',
             numVisible: 2,
             numScroll: 2
         },
         {
-            breakpoint: '480px',
+            breakpoint: '560px',
             numVisible: 1,
             numScroll: 1
         }
     ];
 
 
-    // const [save, setSave] = useState([])
-
-
-
-
-    //   useEffect(() => {
-    //       getProducts()
-    //       //saveObj.push(objProduct)
-    //       //setProductFound(saveObj)
-    //   }, [])
-
-    const productTemplate = () => {
+    const productTemplate = (produ) => {
         return (
-            <div className="product-item">
-                <div className="product-item-content">
-                    <div className="mb-3">
-                   {
-                    product.map((item) => (
-                        // <div key={index}>
-                            <img src={item.foto_producto} className='product-image'></img>
-                        // </div>
-                        
-                    ))
-                   } 
-
-                        <div>
-                            {/* <h2>{item.nombre_producto}</h2> */}
-                        </div>
-                        <hr />
-                        <div className='content-press'>
-                            {/* <h2>${item.precio_producto}</h2> */}
-                            {/* <i className="pi pi-shopping-cart ico"></i> */}
-                        </div>
-                        {/* <Modal url={item.foto_producto} name={item.nombre_producto} description={item.descripcion_producto} press={item.precio_producto} /> */}
+            <div className="product-item-c-prime">
+                <div className="product-item-content2">
+                    <div className="content-card-m">
+                        <img src={produ.foto_producto} className="img-cardGif"/>
                     </div>
-
-
-
-
+                    <div>
+                        <h4 className="mb-1">{produ.nombre_producto}</h4>
+                        <h6 className="mt-0 mb-3">${produ.precio_producto}</h6>
+                        {/* <span className={`product-badge status-${product.inventoryStatus.toLowerCase()}`}>{product.inventoryStatus}</span> */}
+                        <div className="car-buttons mt-5">
+                            {/* <Button icon="pi pi-search" className="p-button p-button-rounded mr-2" />
+                            <Button icon="pi pi-star-fill" className="p-button-success p-button-rounded mr-2" />
+                            <Button icon="pi pi-cog" className="p-button-help p-button-rounded" /> */}
+                            {/* <Modal url={produ.foto_producto}></Modal> */}
+                        </div>
+                    </div>
                 </div>
             </div>
-        )
-
+        );
     }
 
     return (
-        <>
-            <Carousel value={product} numVisible={1} numScroll={1} responsiveOptions={responsiveOptions} className="custom-carousel" circular
-                    autoplayInterval={3000} itemTemplate={productTemplate} header={<h5>Circular, AutoPlay, 3 Items per Page and Scroll by 1</h5>} />
-        </>
-
+        <div style={{width:'90%'}}> 
+            <Carousel className='carouselP' autoplayInterval={3000}  value={product} header={<h1>Proximamente</h1>}   itemTemplate={productTemplate} numVisible={3} numScroll={1} responsiveOptions={responsiveOptions}></Carousel>
+        </div>
     )
 }
