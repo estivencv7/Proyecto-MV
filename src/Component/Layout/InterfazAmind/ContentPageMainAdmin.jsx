@@ -8,6 +8,7 @@ import carpetas from '../../../Images/carpetas.png'
 import { MdInventory2 } from "react-icons/md";
 import { FaPeopleCarry } from "react-icons/fa"
 import {MdCategory } from "react-icons/md"
+import {BsCloudUploadFill} from "react-icons/bs"
 import './style.css'
 
 export const ContentPageMainAdmin = () => {
@@ -54,7 +55,17 @@ export const ContentPageMainAdmin = () => {
             {/* <Link className='card-section' to='' >
                 <i  className='invetario-card style pi pi-eye'></i>
                 <p className='colorP'>vista de todos los productos</p>
-            </Link> */}        
+            </Link> */}  
+
+             <Link className='card-section' to='/registerProximo'>
+               
+                <div className='MdInventory2'>
+                <BsCloudUploadFill className='inventariosproductos' stroke='' fill=''/>
+                </div>
+                <h2>EN ESPERA</h2>
+                    <p>Aqui prodras manejar los registro de los productos que estan por llegar a la muebleria.
+                </p>
+            </Link>      
         </div>
     )
 }
