@@ -1,0 +1,30 @@
+.content-updateUser{
+    margin-top: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.cont-update {
+    display: flex !important;
+    gap: 30px;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 25px;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+}
+.div-update{
+    color: green;
+    font-size: 40px;
+}
+/*
+.input-update{
+}*/
