@@ -21,13 +21,11 @@ import { Service_ListReservesAdmin } from './service/ServiceReserve/Service_List
 import { Service_ListReservesClient } from './service/ServiceReserve/Service_ListReservesClient';
 import { Service_ReserveExpired } from './service/ServiceReserve/Service_ReserveExpired';
 import { Service_ListInvoices } from './service/ServiceInvoice/Service_ListInvoices';
-<<<<<<< HEAD
 import { Service_ReserveExpiredAdmin } from './service/ServiceReserve/Service_ReserveExpiredAdmin';
 import { DataTableAdmins } from './Component/Layout/DataTableTemplatingDemo/DataTableAdmins';
-=======
 import { Service_UpdateUser } from './service/ServiceUser/Service_UpdateUser';
 import { PageComingSoon } from './Component/Page/PagerComingSoon/PageComingSoon';
->>>>>>> d53756e0e4bf27f1fd89098cadb9ff99f98a9793
+
 
 function App() {
   return (

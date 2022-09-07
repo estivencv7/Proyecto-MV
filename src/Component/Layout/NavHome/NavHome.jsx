@@ -142,7 +142,6 @@ export const NavHome = () => {
     }
 
     const logout = () => {
-        console.log("TOKEN DE ACCESO " + accessToken);
         accessToken = null;
         usuarioActivo = null;
         localStorage.setItem("user" , null)
@@ -152,7 +151,6 @@ export const NavHome = () => {
         sessionStorage.removeItem('token');
         document.getElementById("logout").classList.add("logoutHide")
         document.getElementById("nameAccount").textContent = "Mi Cuenta"
-        
       }
     
     const header = (
