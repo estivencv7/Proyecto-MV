@@ -6,25 +6,25 @@
 
 .cont-update {
     display: flex !important;
-    gap: 30px;
+    gap: 0;
     flex-direction: column;
     width: 50%;
     align-items: center;
 }
-
-.form {
-    width: 100%;
+.label-update{
     display: flex;
-    flex-direction: column;
-    margin: 25px;
-    justify-content: center;
-    text-align: center;
-    gap: 20px;
+    align-items: initial;
 }
 .div-update{
     color: green;
     font-size: 40px;
 }
-/*
-.input-update{
-}*/
+.save-edit{
+    margin-top: 20px;
+}
+.input-update {
+    margin: 0;
+    width: 48% !important;
+    height: 45px;
+    border-radius: 35px;
+}

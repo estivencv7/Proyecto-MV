@@ -26,7 +26,6 @@ import { DataTableAdmins } from './Component/Layout/DataTableTemplatingDemo/Data
 import { Service_UpdateUser } from './service/ServiceUser/Service_UpdateUser';
 import { PageComingSoon } from './Component/Page/PagerComingSoon/PageComingSoon';
 
-
 function App() {
   return (
     <div className="App">
