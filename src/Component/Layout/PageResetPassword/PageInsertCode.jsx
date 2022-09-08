@@ -1,0 +1,89 @@
+import { Button } from 'primereact/button'
+import { InputText } from 'primereact/inputtext'
+import React, { useState } from 'react'
+import { useNavigate } from "react-router-dom";
+
+export const PageInsertCode = () => {
+    
+    const [valueInput1 , setValueInput1] = useState("")
+    const [valueInput2 , setValueInput2] = useState("")
+    const [valueInput3 , setValueInput3] = useState("")
+    const [valueInput4 , setValueInput4] = useState("")
+    const [valueInput5 , setValueInput5] = useState("")
+    const [valueInput6 , setValueInput6] = useState("")
+    const [code , setFinalCode] = useState("")
+    let navigate = useNavigate()
+
+    const catchValueInput1 = (event) => {
+        setValueInput1(event.target.value)
+        getFinalCode()
+        
+    }
+
+    const catchValueInput2 = (event) => {
+        setValueInput2(event.target.value)
+        getFinalCode()
+        
+    }
+
+    const catchValueInput3 = (event) => {
+        setValueInput3(event.target.value)
+        getFinalCode()
+        
+    }
+
+    const catchValueInput4 = (event) => {
+        setValueInput4(event.target.value)
+        getFinalCode()
+        
+    }
+
+    const catchValueInput5 = (event) => {
+        setValueInput5(event.target.value)
+        getFinalCode()
+        
+    }
+    
+    const catchValueInput6 = (event) => {
+        setValueInput6(event.target.value)
+        getFinalCode()
+        
+    }
+
+    const getFinalCode = () => {
+        setFinalCode(valueInput1 + valueInput2 + valueInput3 + valueInput4 + valueInput5 + valueInput6)
+        console.log(valueInput1 + "" + valueInput2 + "" + valueInput3 +"" + valueInput4 +"" + valueInput5 + "" + valueInput6);
+        console.log(code);
+    }
+
+    function insertCode() {
+        getFinalCode()
+        const URL = 'http://localhost:8080/clientes/compararCodigo/' + code;
+        fetch(URL, {
+            method: 'GET'
+        })
+            .then(response => response.json())
+            .then(res => checkRes(res))
+    }
+
+    const checkRes = (result) => {
+        if(result == "ACCEPTED"){
+            navigate("/insertNewPassword")
+        }else{
+            alert("CODIGO INCORRECTO")
+        }
+    }
+
+    return (
+        <div>
+            <h4>Ingresa el codigo que ha llegado al correo que has registrado</h4>
+            <InputText onChange={e=> setValueInput1(e.target.value)} />
+            <InputText onChange={e=> setValueInput2(e.target.value)} />
+            <InputText onChange={e=> setValueInput3(e.target.value)} />
+            <InputText onChange={e=> setValueInput4(e.target.value)} />
+            <InputText onChange={e=> setValueInput5(e.target.value)} />
+            <InputText onChange={e=> setValueInput6(e.target.value)} />
+            <Button onClick={insertCode} onMouseDown={getFinalCode}>Ingresar</Button>
+        </div>
+   )
+}
