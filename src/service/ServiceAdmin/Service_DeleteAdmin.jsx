@@ -1,0 +1,35 @@
+import React from 'react'
+
+export const Service_DeleteAdmin = ({codeAdmin}) => {
+    
+    function deleteAdmin() {
+        console.log("eliminando un admin")
+        const urlDelete = "http://localhost:8080/administradores/eliminarAdministrador/" + codeAdmin;
+        let tokenAdmin = localStorage.getItem('admin')
+        if(tokenAdmin == "" || tokenAdmin == null){
+            alert("Por favor registrese")
+        }else{             
+            fetch(urlDelete, {
+                method: 'DELETE',
+                headers: {
+                    "Content-type": "application/json",
+                    "Authorization" : "Bearer " + tokenAdmin
+                }
+            })
+                .then(response => response)
+                .then(json => check(json.ok))
+        }
+    }
+    
+    function check(element) {
+        if (element == true) {
+            alert("Eliminacion exitosa")
+        } else {
+            alert("hubo un error al momento de registrar")
+        }
+    }
+
+  return (
+    <button onClick={deleteAdmin}><i className='pi pi-trash'></i></button>
+  )
+}
