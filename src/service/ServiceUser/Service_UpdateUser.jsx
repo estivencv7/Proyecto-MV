@@ -108,17 +108,17 @@ export const Service_UpdateUser = ({}) => {
             <div className='content-updateUser'>
                 <div className='cont-update'>     
                     <h2 className='div-update'>Editar Perfil</h2>
-                    
+                    <label htmlFor="" className='label-update'>Nombre</label>
                     <InputText type='text' id='inputName' className='input-update' placeholder={user.nombre}/>
-                    
+                    <label htmlFor="" className='label-update'>Apellido</label>
                     <InputText type='' id='inputLastName' className='input-update' placeholder={user.apellido_cliente}/>
-                    
+                    <label htmlFor="" className='label-update'>Numero</label>
                     <InputText type='number' id='inputPhone' className='input-update inputpress' placeholder={user.celular_cliente}/>
-                    
+                    <label htmlFor="" className='label-update'>Correo</label>
                     <InputText type='email' id='inputEmail' className='input-update inputpress' placeholder={user.correo}/>
-                
+                    <label htmlFor="" className='label-update'>Fecha de Nacimiento</label>
                     <InputText type='date' id='inputDate' className='input-update'/>
-                    
+                    <label htmlFor="" className='label-update'>Contraseña</label>
                     <InputText type='password' id='inputpassword' className='input-update'/>
                     {/* placeholder={user.contraseña_cliente}*/}
                         

@@ -7,6 +7,7 @@ import './DataTableDemo.css';
 import { Service_RegisterAdmin } from '../../../service/ServiceAdmin/Service_RegisterAdmin';
 import { NavigationAdmin } from '../NavigationAdmin/NavigationAdmin';
 import { Service_UpdateAdmin } from '../../../service/ServiceAdmin/Service_UpdateAdmin';
+import { Service_DeleteAdmin } from '../../../service/ServiceAdmin/Service_DeleteAdmin';
 
 export const DataTableAdmins = () => {
 
@@ -104,10 +105,16 @@ export const DataTableAdmins = () => {
         return admns.nombre_administrador;
     }
 
-    const emmailBodyTemplate = (admns) => {
+    const emailBodyTemplate = (admns) => {
         return admns.correo_administrador;
     }
 
+    const btnDeleteBodyTemplate = (admns) => {
+        console.log("BTN DELETE " + admns.codigo_administrador);
+        return (
+            <Service_DeleteAdmin codeAdmin={admns.codigo_administrador}/>
+        )
+    }
 
     const header = renderHeader();
 
@@ -124,7 +131,8 @@ export const DataTableAdmins = () => {
                         <Column selectionMode="multiple" headerStyle={{ width: '3em' }}></Column>
                         <Column field="codigo_administrador" header="Codigo Administrador" sortable filterField="id_categoria" body={codeBodyTemplate} filterPlaceholder="Search by code" />
                         <Column field="nombre_administrador" header="Nombre Administrador" sortable filterPlaceholder="Search by name" body={nameBodyTemplate}/>
-                        <Column field="correo_administrador" header="Correo Administrador" sortable filterPlaceholder="Search by name" body={emmailBodyTemplate}/>
+                        <Column field="correo_administrador" header="Correo Administrador" sortable filterPlaceholder="Search by name" body={emailBodyTemplate}/>                        
+                        <Column field='eliminar' header='Eliminar Administrador' body={btnDeleteBodyTemplate}/>
                     </DataTable>
             </div>
         </div>

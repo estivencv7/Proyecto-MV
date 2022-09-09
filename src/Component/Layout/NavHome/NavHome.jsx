@@ -110,25 +110,18 @@ export const NavHome = () => {
           document.getElementById("logout").classList.add("logoutHide")
         }else{
           const user2 = JSON.parse(user.toString());
-          console.log("ENTRA AL COMPARATIVO DEL PAGE FAVORITO " + JSON.parse(user.toString()));
           document.getElementById("nameAccount").textContent = user2.nameU
           document.getElementById("logout").classList.remove("logoutHide")
         }
-        console.log("USUARIO " + user);
       }, [])
     
     function login() {
         const urlEndpoint = 'http://localhost:8080/oauth/token';
-        console.log("ENTRA AL LOGIN");
         const credenciales = btoa('reactapp' + ':' + '12345');
-        console.log("CORREO " + email);
         const params = new URLSearchParams();
         params.append('username', email);
         params.append('password', password);
         params.append('grant_type', 'password');
-        console.log("PARAMETROS " + params);
-        console.log(credenciales);
-        console.log(params.toString());
         fetch(urlEndpoint ,  {
             method: 'POST',
             headers: {
@@ -142,7 +135,6 @@ export const NavHome = () => {
     }
 
     const logout = () => {
-        console.log("TOKEN DE ACCESO " + accessToken);
         accessToken = null;
         usuarioActivo = null;
         localStorage.setItem("user" , null)
@@ -152,7 +144,6 @@ export const NavHome = () => {
         sessionStorage.removeItem('token');
         document.getElementById("logout").classList.add("logoutHide")
         document.getElementById("nameAccount").textContent = "Mi Cuenta"
-        
       }
     
     const header = (
@@ -195,6 +186,10 @@ export const NavHome = () => {
 
     const EditProfile = () => {
         navigat("/pageEditProfile")
+    }
+
+    const resetPassword = () => {
+        navigat("/pageSendCode")
     }
 
     const items = [
@@ -258,6 +253,7 @@ export const NavHome = () => {
                     </div>
                     <div className='divLink'>
                         <Link to="/registerUser">¿No tienes una cuenta? Registrar</Link>
+                        <Link to="/pageSendCode">¿Olvidaste tu contraseña?</Link>
                         <div><Button className='button-login' onClick={login}>Iniciar Sesión</Button></div>
                     </div>
             </Dialog>

@@ -1,0 +1,54 @@
+.cont-Register-admin{
+    display: flex !important;
+    gap: 30px;
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
+    /* background-color: red; */
+    
+}
+
+.dialogoRegisterAdmin {
+    height: 58vh !important;
+    width: 100vh !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.dialogoRegisterAdmin .p-dialog-header{
+    background: #008031 !important;
+    width: 100%;
+}
+
+.p-dialog .p-dialog-content{
+    width: 100%;
+}
+
+.button-save-admin{
+    text-align: end;
+    width: 120%;
+    display: flex;
+    gap:12px;
+    justify-content: end;
+    /* margin: 100px 0 0 0; */
+}
+
+.input-update-admin{
+    margin: 15px 0 0 0;
+    width: 48% !important;
+    height: 45px;
+    border-radius: 35px;
+}
+
+.content-admin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 200px;
+}
+
+.div-update-admin{
+    text-align: center;
+    font-size: 25px;
+    color: white;
+}

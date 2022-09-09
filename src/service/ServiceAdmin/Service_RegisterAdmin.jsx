@@ -83,7 +83,7 @@ export const Service_RegisterAdmin = ({style}) => {
         <div className={style}>
             <div>
                 <Button className='' onClick={() => onHide(onHide)} ><i className='pi pi-save'></i></Button>
-                <Dialog header={header}   className='dialogoRegisterProduct' visible={visible} style={{ width: '30em',bordeRadius:'100%'}} modal onHide={onHide}>
+                <Dialog header={header}   className='dialogoRegisterAdmin' visible={visible} style={{ width: '30em',bordeRadius:'100%'}} modal onHide={onHide}>
                 
                 <div className='content-image'>
                     

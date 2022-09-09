@@ -5,6 +5,7 @@ import { InputText } from 'primereact/inputtext';
 import { InputTextarea } from 'primereact/inputtextarea';
 import { RadioGroup } from 'rsuite';
 import { InputNumber } from 'primereact/inputnumber';
+import '../../Component/Layout/FormSaveAdmin/formAdmin.css'
 
 export const Service_UpdateAdmin = ({codeAdminUpdate}) => {
     const [visible, setVisible] = useState(false);
@@ -49,7 +50,7 @@ export const Service_UpdateAdmin = ({codeAdminUpdate}) => {
         const password_admin = document.getElementById("inputPassword").value
 
         console.log("nombre "+ name_admin)
-        const urlRegister = 'http://localhost:8080/administradores/actualizarAdministrador/' + codeAdminUpdate;
+        const urlRegister = 'http://localhost:8080/administradores/actualizarAdministrador/' + codeAdminUpdate + "/" + adm.correo_administrador;
         fetch(urlRegister, {
             method: 'PUT',
             headers: {
@@ -75,7 +76,7 @@ export const Service_UpdateAdmin = ({codeAdminUpdate}) => {
   
   
     const header=(
-        <div className='div-update'>
+        <div className='div-update-admin'>
            Editar Administrador
        </div>
     )
@@ -83,14 +84,14 @@ export const Service_UpdateAdmin = ({codeAdminUpdate}) => {
   return (
     <>
         <Button onClick={()=>seew(seew)}><i className='pi pi-user-edit icons-registerProduct'></i></Button>
-        <Dialog header={header} visible={visible} modal onHide={seew} style={{ width: '30em',bordeRadius:'100%'}} className='dialogoRegisterProduct tabla' >     
+        <Dialog className='dialogoRegisterAdmin' header={header} visible={visible} modal onHide={seew} style={{ width: '30em',bordeRadius:'100%'}}  >     
             
          
               
-              <div className='content-provider'>
-                  <InputText id='inputName' className='input-update' placeholder={"Nombre " + adm.nombre_administrador}/>
-                  <InputText id='inputEmail' className='input-update' placeholder={"Correo " + adm.correo_administrador}/>
-                  <InputText id='inputPassword' className='input-update' placeholder={"Contraseña"}/>
+              <div className='content-admin'>
+                  <InputText id='inputName' className='input-update-admin' placeholder={"Nombre " + adm.nombre_administrador}/>
+                  <InputText id='inputEmail' className='input-update-admin' placeholder={"Correo " + adm.correo_administrador}/>
+                  <InputText id='inputPassword' className='input-update-admin' placeholder={"Contraseña"}/>
               </div>
           <div className='save-edit'>
                 <Button onClick={editAdmin} >Guardar</Button>
