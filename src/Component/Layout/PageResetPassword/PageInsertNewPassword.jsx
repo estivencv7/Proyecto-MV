@@ -3,6 +3,8 @@ import { InputText } from 'primereact/inputtext'
 import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
+import { FooterMain } from '../../Ui/FooterMain/FooterMain';
+import { HeaderHome } from '../HeaderHome/HeaderHome';
 import '../PageResetPassword/PageResetPassword.css'
 
 export const PageInsertNewPassword = () => {
@@ -37,16 +39,20 @@ export const PageInsertNewPassword = () => {
     }
 
     return (
-        <div className='change-password'>
-            <h4>Cambia tu contraseña</h4>
-            <br />
-            <label htmlFor="">Ingresa la nueva contraseña</label>
-            <InputText type="password" onChange={e => setNewPassword(e.target.value)}/>
-            <br /><br />
-            <label htmlFor="">Confirma la contraseña</label>
-            <InputText type="password" onChange={e => setVerifyNewPassword(e.target.value)}/>
-            <br />
-            <Button onClick={insertNewPassword}>Guardar</Button>
-        </div>
+        <>
+        <HeaderHome/>
+            <div className='changepassword'>
+                <div className='change-password'>
+                    <h4>Cambia tu contraseña</h4>
+                    <label htmlFor="">Ingresa la nueva contraseña</label>
+                    <InputText type="password" onChange={e => setNewPassword(e.target.value)}/>
+                    <label htmlFor="">Confirma la contraseña</label>
+                    <InputText type="password" onChange={e => setVerifyNewPassword(e.target.value)}/>
+
+                    <Button onClick={insertNewPassword}>Guardar</Button>
+                </div>
+            </div>
+            <FooterMain/>
+        </>
     )
 }

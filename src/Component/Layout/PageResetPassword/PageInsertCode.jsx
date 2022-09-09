@@ -2,7 +2,9 @@ import { Button } from 'primereact/button'
 import { InputText } from 'primereact/inputtext'
 import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
+import { Dialog } from 'primereact/dialog';
 import '../PageResetPassword/PageResetPassword.css'
+import { Home } from '../../Page/Home/Home';
 
 export const PageInsertCode = () => {
     
@@ -13,6 +15,7 @@ export const PageInsertCode = () => {
     const [valueInput5 , setValueInput5] = useState("")
     const [valueInput6 , setValueInput6] = useState("")
     const [code , setFinalCode] = useState("")
+    const [visible, setVisible] = useState(true)
     let navigate = useNavigate()
 
     const catchValueInput1 = (event) => {
@@ -75,8 +78,46 @@ export const PageInsertCode = () => {
         }
     }
 
+    const header = (
+        <div className='div-login'>
+            <h2>El codigo llego al correo</h2>
+        </div>
+    )
+
+    const onHide = () => {
+        if (visible == true) {
+            setVisible(false)
+            navigate("/")
+        } else {
+            setVisible(true)
+        }
+    }
+
     return (
-        <div className='code-password'>
+        <>
+            <Home/>
+            <Dialog header={header} className='-login' visible={visible} modal onHide={onHide} style={{ width: '30%', height: '30%' }}>
+
+                <div className='input-password'>
+                    <label htmlFor="">Ingrese el Codigo </label>
+                    <div>
+                    <InputText onChange={e=> setValueInput1(e.target.value)} className='input-code' />
+                    <InputText onChange={e=> setValueInput2(e.target.value)} className='input-code' />
+                    <InputText onChange={e=> setValueInput3(e.target.value)} className='input-code' />
+                    <InputText onChange={e=> setValueInput4(e.target.value)} className='input-code' />
+                    <InputText onChange={e=> setValueInput5(e.target.value)} className='input-code' />
+                    <InputText onChange={e=> setValueInput6(e.target.value)} className='input-code' />
+                    </div>
+                </div>
+                <div className='divLink'>
+                    <div><Button onClick={insertCode} onMouseDown={getFinalCode}>Ingresar</Button></div>
+                </div>
+            </Dialog>
+        </>
+        
+   )
+}
+{/* <div className='code-password'>
             <h4>Ingresa el codigo que ha llegado al correo que has registrado</h4>
             <div className='input-password'>
                 <InputText onChange={e=> setValueInput1(e.target.value)} className='input-code' />
@@ -87,6 +128,4 @@ export const PageInsertCode = () => {
                 <InputText onChange={e=> setValueInput6(e.target.value)} className='input-code' />
             </div>
             <Button onClick={insertCode} onMouseDown={getFinalCode}>Ingresar</Button>
-        </div>
-   )
-}
+        </div> */}
