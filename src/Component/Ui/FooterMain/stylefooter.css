@@ -1,7 +1,7 @@
 .footermain{
    display: flex;
    
-   height: 40px;
+   height: 22px;
    background: #008037;
    align-items: center;
    box-shadow: 0 0 40px black;
@@ -14,16 +14,15 @@
    border-top-right-radius:50px ;
    color: white;
    gap: 5%;
-
-
-   
-   
+  
 }
 .footermain:hover {
     height: 270px;
     color: black;
     background: white;
+   
 }
+
 
 .instagram{
     width: 50px;
@@ -72,4 +71,13 @@
 
 .footermain:hover .title-question{
     color: black;
+}
+
+.arrow{
+    position: absolute;
+    top: -7px;
+    left:30px ;
+    color: red;
+    font-size: 39px;
+    z-index: 500;
 }

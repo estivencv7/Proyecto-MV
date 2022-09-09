@@ -19,7 +19,7 @@ export const FooterMain = () => {
 
   return (
     <footer className='footermain' style={{ width: '95%' }}>
-      
+      {/* <p className='pi pi-angle-double-down arrow' ></p> */}
       <div style={{marginLeft:'30px'}}>
         <Button className='sunbNavLink buttom1 title-question'  onClick={() => open2(open2)}><h4>Preguntas Frecuentes</h4></Button>
         <Dialog className='cuadro' visible={visible3} style={{ width: '30%' }} style1={{ height: '30%' }} onHide={open2} >
