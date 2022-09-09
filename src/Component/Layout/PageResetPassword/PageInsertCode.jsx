@@ -2,6 +2,7 @@ import { Button } from 'primereact/button'
 import { InputText } from 'primereact/inputtext'
 import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
+import '../PageResetPassword/PageResetPassword.css'
 
 export const PageInsertCode = () => {
     
@@ -75,14 +76,16 @@ export const PageInsertCode = () => {
     }
 
     return (
-        <div>
+        <div className='code-password'>
             <h4>Ingresa el codigo que ha llegado al correo que has registrado</h4>
-            <InputText onChange={e=> setValueInput1(e.target.value)} />
-            <InputText onChange={e=> setValueInput2(e.target.value)} />
-            <InputText onChange={e=> setValueInput3(e.target.value)} />
-            <InputText onChange={e=> setValueInput4(e.target.value)} />
-            <InputText onChange={e=> setValueInput5(e.target.value)} />
-            <InputText onChange={e=> setValueInput6(e.target.value)} />
+            <div className='input-password'>
+                <InputText onChange={e=> setValueInput1(e.target.value)} className='input-code' />
+                <InputText onChange={e=> setValueInput2(e.target.value)} className='input-code' />
+                <InputText onChange={e=> setValueInput3(e.target.value)} className='input-code' />
+                <InputText onChange={e=> setValueInput4(e.target.value)} className='input-code' />
+                <InputText onChange={e=> setValueInput5(e.target.value)} className='input-code' />
+                <InputText onChange={e=> setValueInput6(e.target.value)} className='input-code' />
+            </div>
             <Button onClick={insertCode} onMouseDown={getFinalCode}>Ingresar</Button>
         </div>
    )
