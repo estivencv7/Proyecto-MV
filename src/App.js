@@ -25,13 +25,9 @@ import { Service_ReserveExpiredAdmin } from './service/ServiceReserve/Service_Re
 import { DataTableAdmins } from './Component/Layout/DataTableTemplatingDemo/DataTableAdmins';
 import { Service_UpdateUser } from './service/ServiceUser/Service_UpdateUser';
 import { PageComingSoon } from './Component/Page/PagerComingSoon/PageComingSoon';
-<<<<<<< HEAD
-
-=======
 import { PageSendCode } from './Component/Layout/PageResetPassword/PageSendCode';
 import { PageInsertCode } from './Component/Layout/PageResetPassword/PageInsertCode';
 import { PageInsertNewPassword } from './Component/Layout/PageResetPassword/PageInsertNewPassword';
->>>>>>> 664f7ccb389f32e324926b5d6d3be940f328b051
 
 function App() {
   return (
