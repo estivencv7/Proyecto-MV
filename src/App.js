@@ -18,7 +18,6 @@ import { BaseBeds } from './Component/Ui/Categories/BaseBeds';
 import { Furniture } from './Component/Ui/Categories/Furniture';
 import { Mattresses } from './Component/Ui/Categories/Mattresses';
 import { Service_ListReservesAdmin } from './service/ServiceReserve/Service_ListReservesAdmin';
-import { Service_ListReservesClient } from './service/ServiceReserve/Service_ListReservesClient';
 import { Service_ReserveExpired } from './service/ServiceReserve/Service_ReserveExpired';
 import { Service_ListInvoices } from './service/ServiceInvoice/Service_ListInvoices';
 import { Service_ReserveExpiredAdmin } from './service/ServiceReserve/Service_ReserveExpiredAdmin';
@@ -28,6 +27,8 @@ import { PageComingSoon } from './Component/Page/PagerComingSoon/PageComingSoon'
 import { PageSendCode } from './Component/Layout/PageResetPassword/PageSendCode';
 import { PageInsertCode } from './Component/Layout/PageResetPassword/PageInsertCode';
 import { PageInsertNewPassword } from './Component/Layout/PageResetPassword/PageInsertNewPassword';
+import { PageAdmin } from './Component/Layout/PageAdmin/PageAdmin';
+import { PageReservesClient } from './Component/Page/PageReservesClient/PageReservesClient';
 
 function App() {
   return (
@@ -46,7 +47,7 @@ function App() {
         <Route path='furniture' element={<Furniture/>}/>
         <Route path='mattresses' element={<Mattresses/>}/>
         <Route path='listReserves' element={<Service_ListReservesAdmin/>}/>
-        <Route path='listReservesClient' element={<Service_ListReservesClient/>}/>
+        <Route path='listReservesClient' element={<PageReservesClient/>}/>
         <Route path='chairs' element={<Chairs/>}/>
         <Route path='reservesExpired' element={<Service_ReserveExpired/>}/>
         <Route path='listInvoices' element={<Service_ListInvoices/>}/>
@@ -57,6 +58,7 @@ function App() {
         <Route path='/pageSendCode' element={<PageSendCode/>}/>
         <Route path='/pageInsertCode' element={<PageInsertCode/>}/>
         <Route path='/insertNewPassword' element={<PageInsertNewPassword/>}/>
+        <Route path='/pageAdmin' element={<PageAdmin/>}/>
       </Routes>
     </div>
   );

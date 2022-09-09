@@ -48,3 +48,22 @@
 .header-content{
     border-bottom: 1px solid #008031;
 }
+
+.link-card{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr ;
+    margin-left: 10%;
+}
+
+.link-card p{
+    text-align: center;
+}
+
+.link-card h2{
+    text-align: center;
+} 
+
+.res{
+    margin-top: -45%;
+}

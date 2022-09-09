@@ -11,6 +11,7 @@ import { ListInvoicesPerClient } from './ListInvoicesPerClient';
 import { NavHome } from '../../Component/Layout/NavHome/NavHome';
 import { NavBar } from '../../Component/Layout/SubHeader/NavBar';
 import { Logo } from '../../Component/Ui/Logo/Logo';
+import { FooterMain } from '../../Component/Ui/FooterMain/FooterMain';
 
 export const Service_ListInvoices = () => {
 

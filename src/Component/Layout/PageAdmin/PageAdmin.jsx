@@ -6,11 +6,16 @@ import { NavigationAdmin } from '../NavigationAdmin/NavigationAdmin'
 import './style.css'
 
 export const PageAdmin = () => {
+  useEffect(() => {
+    const admin = sessionStorage.getItem("administrador")
+    const admin2 = JSON.parse(admin.toString());
+    document.getElementById("nameAccount").textContent = admin2.nameU
+  }, [])
   
   return (
     <div>
       <NavigationAdmin/>
-         <div>
+         <div className='contentPageAdmin'>
           <ContentPageMainAdmin/>
          </div>
          <Toaster reverseOrder={true} toastOptions={{
