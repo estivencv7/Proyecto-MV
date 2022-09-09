@@ -76,6 +76,10 @@ export const DataTableTemplatingDemo = () => {
     let i = products.length;
     useEffect(() => {
         listProducts()
+        const admin = sessionStorage.getItem("administrador")
+        const admin2 = JSON.parse(admin.toString());
+        document.getElementById("nameAccount").textContent = admin2.nameU
+
     }, [i])
     
     const onGlobalFilterChange = (e) => {
