@@ -3,6 +3,7 @@ import { InputText } from 'primereact/inputtext'
 import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
+import '../PageResetPassword/PageResetPassword.css'
 
 export const PageInsertNewPassword = () => {
     
@@ -36,8 +37,8 @@ export const PageInsertNewPassword = () => {
     }
 
     return (
-        <div>
-            <h3>Cambia tu contraseña</h3>
+        <div className='change-password'>
+            <h4>Cambia tu contraseña</h4>
             <br />
             <label htmlFor="">Ingresa la nueva contraseña</label>
             <InputText type="password" onChange={e => setNewPassword(e.target.value)}/>

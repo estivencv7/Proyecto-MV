@@ -3,6 +3,7 @@ import { InputText } from 'primereact/inputtext';
 import React from 'react'
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import '../PageResetPassword/PageResetPassword.css'
 
 export const PageSendCode = () => {
     
@@ -28,10 +29,10 @@ export const PageSendCode = () => {
     }
 
     return (
-        <div>
+        <div className='recover-password'>
             <label htmlFor="">Ingrese el correo para reestablecer la contraseña</label>
             <InputText  onChange={catchEmail} type="text" placeholder='Correo' id='emailInput'/>
-            <Button value="Enviar" onClick={sendCode}/>
+            <Button value="Enviar" onClick={sendCode}>Enviar</Button>
         </div>
     )
 }
