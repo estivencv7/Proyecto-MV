@@ -90,7 +90,8 @@ export const DataTableProvider = () => {
     const renderHeader = () => {
 
         if (selectedProvider == null) {
-            console.log(selectedProvider);
+            console.log("dfghjkjknhk.")
+            console.log(selectedProvider+"fffffffffffffffff");
             return (
                 <div className="flex justify-content-between align-items-center">
                     <div className='buttons'>
@@ -107,7 +108,7 @@ export const DataTableProvider = () => {
                 </div>
             )
         } else {
-            console.log(selectedProvider[0].cedula_proveedor);
+            console.log(selectedProvider[0].cedula_proveedor+"oooooooooooooooooooo");
             return (
                 <div className="flex justify-content-between align-items-center">
                     <div className='buttons'>

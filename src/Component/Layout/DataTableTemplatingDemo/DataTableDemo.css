@@ -78,7 +78,7 @@
 .buttons{
     display: flex;
     justify-content: space-around;
-    gap: 300px;
+    /* gap: 300px; */
 }
     
 .hide{
@@ -106,4 +106,8 @@
 
 .contentTheTable{
     width: 90%;
+}
+
+.button-header-tabla-demo{
+    display: flex;
 }

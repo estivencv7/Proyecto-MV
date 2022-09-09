@@ -26,8 +26,6 @@ export const ContentPageMain = ({ prods }) => {
          <div className='setion-proximos'>
             <CarouselPrime></CarouselPrime>
          </div>
-         
-         <br /><br /><br /><br /><br /><br /><br /><br /><br />
 
          <div className='section-footer'>
             <FooterMain></FooterMain>

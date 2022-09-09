@@ -13,7 +13,7 @@ import { Modal } from './Modal';
 export const CarouselPrime = () => {
     const [product, setProduct] = useState([])
     const getProducts = () => {
-        const url = 'http://localhost:8080/producto/listaProductos';
+        const url = 'http://localhost:8080/proximos/listaProximos';
           fetch(url)
             .then(response => response.json())
             .then(data =>{
@@ -58,7 +58,7 @@ export const CarouselPrime = () => {
             <div className="product-item-c-prime">
                 <div className="product-item-content2">
                     <div className="content-card-m">
-                        <img src={produ.foto_producto} className="img-cardGif"/>
+                        <img src={produ.imagen_producto} className="img-cardGif"/>
                     </div>
                     <div>
                         <h4 className="mb-1">{produ.nombre_producto}</h4>

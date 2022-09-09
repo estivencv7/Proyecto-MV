@@ -11,9 +11,6 @@ export const PageComingSoon = () => {
   return (
     <div>
       <InterfazRegisterComingSoon/>
-
-     
-       {/* <Service_ProductRegis/>  */}
     </div>
   )
 }

@@ -20,6 +20,7 @@ export const Service_Update = ({codeProductUpdate}) => {
     const [product, setProductos] = useState("")
 
     function searchProduct () {
+        console.log("buscarproducto")
         const urlRegister = 'http://localhost:8080/producto/buscar/' + codeProductUpdate;
         fetch(urlRegister, {
             method: 'GET',
@@ -33,6 +34,7 @@ export const Service_Update = ({codeProductUpdate}) => {
     }    
 
     const guardarProduc = (prod) =>{
+        console.log("guardarP")
         setProductos(prod)
         setCodeProduct(prod.codigo_producto)
         setImageProduct(prod.foto_producto)
@@ -131,14 +133,14 @@ export const Service_Update = ({codeProductUpdate}) => {
         }
     }
 
-       const seew=()=>{
-       
+    const seew = () => {
+
         if (visible == false) {
             searchProduct()
             setVisible(true)
         } else {
             setVisible(false)
-        } 
+        }
     }
 
     function editProduct() {
