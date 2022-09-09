@@ -11,6 +11,7 @@ import { Servicie_DeleteReserve } from './Service_DeleteReserve';
 import { Service_EditReserve } from './Service_EditReserve';
 import { PageReservesExpired } from '../../Component/Page/PageReservesExpired/PageReservesExpired';
 import { Service_ChangeStateReserve } from './Service_ChangeStateReserve';
+import { NavigationAdmin } from '../../Component/Layout/NavigationAdmin/NavigationAdmin';
 
 export const Service_ListReservesAdmin = () => {
     
@@ -49,6 +50,12 @@ export const Service_ListReservesAdmin = () => {
         setFilters(_filters);
         setGlobalFilterValue(value);
     }
+    
+    const renderFooter = () => {
+        return(
+            <PageReservesExpired text="Ir a expiradas" direction="/reservesExpiredAdmin"/>
+        )
+    }
 
     const renderHeader = () => {
 
@@ -59,7 +66,6 @@ export const Service_ListReservesAdmin = () => {
                     <div className='buttons'>
                         <Servicie_DeleteReserve codigo={0}/>
                         <Service_EditReserve codeReserve={0} />
-                        <PageReservesExpired text="Ir a expiradas" direction="/reservesExpiredAdmin"/>
                         <span className="p-input-icon-left">
                             <i className="pi pi-search" />
                             <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre cliente reservado" />
@@ -76,7 +82,6 @@ export const Service_ListReservesAdmin = () => {
                         
                         <Service_EditReserve codeReserve={selectedReserve[0].codigo_reserva} />
                         <Servicie_DeleteReserve codigo={selectedReserve[0].codigo_reserva}/>
-                        <PageReservesExpired text="Ir a expiradas" direction="/reservesExpiredAdmin"/>
                         <span className="p-input-icon-left">
                             <i className="pi pi-search" />
                             <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre cliente reservado" />
@@ -136,9 +141,13 @@ export const Service_ListReservesAdmin = () => {
 
     useEffect(() => {
       getReserves()
+      const admin = sessionStorage.getItem("administrador")
+      const admin2 = JSON.parse(admin.toString());
+      document.getElementById("nameAccount").textContent = admin2.nameU
     }, [selectedReserve])
     
     const header = renderHeader()
+    const footer = renderFooter()
 
         if(reserves == null){
             return (
@@ -150,8 +159,9 @@ export const Service_ListReservesAdmin = () => {
             return (
                 <div className="datatable-doc-demo">
                     <div className="contentTheTable">
+                    <NavigationAdmin/>
                         <main>
-                            <DataTable value={reserves} paginator className="p-datatable-customers" header={header} rows={5}
+                            <DataTable value={reserves} paginator className="p-datatable-customers" footer={footer} header={header} rows={5}
                                 paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" rowsPerPageOptions={[10, 25, 50]}
                                 dataKey="id" rowHover onSelectionChange={e => setReserveSelected(e.value)}
                                 filters={filters} filterDisplay="menu" responsiveLayout="scroll"
