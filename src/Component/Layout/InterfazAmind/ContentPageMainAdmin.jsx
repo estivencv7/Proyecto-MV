@@ -5,7 +5,7 @@ import manos from '../../../Images/manos.png'
 import carpetas from '../../../Images/carpetas.png'
 // import etiqueta from '../../../Images/etiqueta.png'
 // import {MdOutlineInventory} from 'react-icons';
-import { MdInventory2 } from "react-icons/md";
+import { MdInventory2, MdOutlineEventNote, MdPerson } from "react-icons/md";
 import { FaPeopleCarry } from "react-icons/fa"
 import {MdCategory } from "react-icons/md"
 import {BsCloudUploadFill} from "react-icons/bs"
@@ -16,7 +16,7 @@ export const ContentPageMainAdmin = () => {
         <div className='link-card' >
             <Link className='card-section' to="/tableAdmins">
                 <div className='MdInventory2'>
-                    <MdInventory2 className='inventariosproductos' stroke='' fill=''/>
+                    <MdPerson className='inventariosproductos' stroke='' fill=''/>
                 </div>
                 <h2>Gestion Administradores</h2>
                     <p>Gestione los administradores Registre,Busque ,Actualice y Elimine con gran facilidad.
@@ -50,10 +50,10 @@ export const ContentPageMainAdmin = () => {
                 <p>Separe por Categorias sus productos aqui puede manejar el Inventario de categorias.</p>
             </Link>
             
-            <Link className='card-section' to='/listReserves' >
+            <Link className='card-section res' to='/listReserves' >
                
                 <div className='MdInventory2'>
-                <MdInventory2 className='inventariosproductos' stroke='' fill=''/>
+                <MdOutlineEventNote className='inventariosproductos' stroke='' fill=''/>
                 </div>
                 <h2>Gestion Reservas</h2>
                     <p>Maneje las reservas de sus productos Registre,Busque ,Actualice y Elimine con gran facilidad.
@@ -64,7 +64,7 @@ export const ContentPageMainAdmin = () => {
                 <p className='colorP'>vista de todos los productos</p>
             </Link> */}  
 
-             <Link className='card-section' to='/registerProximo'>
+             <Link className='card-section res' to='/registerProximo'>
                
                 <div className='MdInventory2'>
                 <BsCloudUploadFill className='inventariosproductos' stroke='' fill=''/>
