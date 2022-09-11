@@ -37,9 +37,10 @@ export const DataTableComingsoon = () => {
     
     useEffect(() => {
         listProximos()
-        const admin = sessionStorage.getItem("administrador")
-        const admin2 = JSON.parse(admin.toString());
-        document.getElementById("nameAccount").textContent = admin2.nameU
+
+        // const admin = sessionStorage.getItem("administrador")
+        // const admin2 = JSON.parse(admin.toString());
+        // document.getElementById("nameAccount").textContent = admin2.nameU
 
     }, [selectedProximos])
 

@@ -28,9 +28,11 @@ export const DataTableCategories = () => {
 
     useEffect(() => {
         listCategory()
-        const admin = sessionStorage.getItem("administrador")
-        const admin2 = JSON.parse(admin.toString());
-        document.getElementById("nameAccount").textContent = admin2.nameU
+
+        //====================nome funciona con esto================
+        // const admin = sessionStorage.getItem("administrador")
+        // const admin2 = JSON.parse(admin.toString());
+        // document.getElementById("nameAccount").textContent = admin2.nameU
 
     }, [selectedCategories])
 

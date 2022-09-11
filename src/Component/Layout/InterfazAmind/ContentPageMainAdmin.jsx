@@ -18,7 +18,7 @@ export const ContentPageMainAdmin = () => {
         <div className='link-card' >
             <Link className='card-section' to="/tableAdmins">
                 <div className='MdInventory2'>
-                    <MdPerson className='inventariosproductos' stroke='' fill=''/>
+                    <GrUserSettings className='inventariosproductos' />
                 </div>
                 <h2>Gestion Administradores</h2>
                     <p>Gestione los administradores Registre,Busque ,Actualice y Elimine con gran facilidad.
@@ -55,7 +55,7 @@ export const ContentPageMainAdmin = () => {
             <Link className='card-section res' to='/listReserves' >
                
                 <div className='MdInventory2'>
-                <MdOutlineEventNote className='inventariosproductos' stroke='' fill=''/>
+                <VscBook className='inventariosproductos' stroke='' fill=''/>
                 </div>
                 <h2>Gestion Reservas</h2>
                     <p>Maneje las reservas de sus productos Registre,Busque ,Actualice y Elimine con gran facilidad.

@@ -11,12 +11,8 @@ import { Servicie_DeleteReserve } from './Service_DeleteReserve';
 import { Service_EditReserve } from './Service_EditReserve';
 import { PageReservesExpired } from '../../Component/Page/PageReservesExpired/PageReservesExpired';
 import { Service_ChangeStateReserve } from './Service_ChangeStateReserve';
-<<<<<<< HEAD
 import { FooterMain } from '../../Component/Ui/FooterMain/FooterMain';
 import { HeaderDataTables } from '../../Component/Ui/HeaderDataTables/HeaderDataTables';
-=======
-import { NavigationAdmin } from '../../Component/Layout/NavigationAdmin/NavigationAdmin';
->>>>>>> e5699f10706aa8b44d6c05e28ed06242f0bead5c
 
 export const Service_ReserveExpiredAdmin = () => {
 
@@ -69,16 +65,11 @@ export const Service_ReserveExpiredAdmin = () => {
             return (
                 <div className="flex justify-content-between align-items-center">
                     <div className='buttons'>
-<<<<<<< HEAD
                         <div className='button-header-tabla-demo'>
                             <Servicie_DeleteReserve codigo={0}  className='button-book'/>
                             <Service_EditReserve codeReserve={0} />
                         </div>
                         <PageReservesExpired text="Ir a pendientes" direction="/listReserves" />
-=======
-                        <Servicie_DeleteReserve codigo={0}/>
-                        <Service_EditReserve codeReserve={0} />
->>>>>>> e5699f10706aa8b44d6c05e28ed06242f0bead5c
                         <span className="p-input-icon-left">
                             <i className="pi pi-search" />
                             <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre cliente reservado" />
@@ -92,7 +83,6 @@ export const Service_ReserveExpiredAdmin = () => {
             return (
                 <div className="flex justify-content-between align-items-center">
                     <div className='buttons'>
-<<<<<<< HEAD
                         <div className='button-header-tabla-demo'>
                             <Service_EditReserve codeReserve={selectedReserve[0].codigo_reserva} className='button-book'/>
                             <Servicie_DeleteReserve codigo={selectedReserve[0].codigo_reserva} />
@@ -101,11 +91,6 @@ export const Service_ReserveExpiredAdmin = () => {
                         <PageReservesExpired text="Ir a pendientes" direction="/listReserves" />
 
 
-=======
-                        
-                        <Service_EditReserve codeReserve={selectedReserve[0].codigo_reserva} />
-                        <Servicie_DeleteReserve codigo={selectedReserve[0].codigo_reserva}/>
->>>>>>> e5699f10706aa8b44d6c05e28ed06242f0bead5c
                         <span className="p-input-icon-left">
                             <i className="pi pi-search" />
                             <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre cliente reservado" />
@@ -164,14 +149,10 @@ export const Service_ReserveExpiredAdmin = () => {
     }
 
     useEffect(() => {
-<<<<<<< HEAD
-        getReserves()
-=======
       getReserves()
-      const admin = sessionStorage.getItem("administrador")
-      const admin2 = JSON.parse(admin.toString());
-      document.getElementById("nameAccount").textContent = admin2.nameU
->>>>>>> e5699f10706aa8b44d6c05e28ed06242f0bead5c
+    //   const admin = sessionStorage.getItem("administrador")
+    //   const admin2 = JSON.parse(admin.toString());
+    //   document.getElementById("nameAccount").textContent = admin2.nameU
     }, [selectedReserve])
 
     const header = renderHeader()
@@ -189,7 +170,6 @@ export const Service_ReserveExpiredAdmin = () => {
                 <HeaderDataTables text={<h1>Reservas Expiradas</h1>} />
                 <div className="datatable-doc-demo">
                     <div className="contentTheTable">
-                    <NavigationAdmin/>
                         <main>
                             <DataTable value={reserves} paginator className="p-datatable-customers" footer={footer} header={header} rows={5}
                                 paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" rowsPerPageOptions={[10, 25, 50]}
