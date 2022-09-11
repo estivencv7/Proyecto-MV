@@ -3,8 +3,8 @@ import { PageAdmin } from '../../Layout/PageAdmin/PageAdmin'
 
 export const InterfazPageAdmin = () => {
   return (
-    <div>
-        <PageAdmin/>
-    </div>
+    // <div>
+    //   <PageAdmin/>
+    // </div>
   )
 }

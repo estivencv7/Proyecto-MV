@@ -39,12 +39,18 @@
 
 
 }
-.section-card{
+/* .section-card{
     display: flex;
     justify-content: center;
     
-}
+} */
 
 .header-content{
     border-bottom: 1px solid #008031;
+}
+
+.div-ContentPageMainAdmin{
+    display: flex;
+    justify-content: center;
+    /* background-color: #008031; */
 }

@@ -3,6 +3,7 @@ import { FromSaveProvider } from '../../Component/Layout/FromSaveProvider/FromSa
 import { Dialog } from 'primereact/dialog';
 import { Button,} from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
+import {IoIosSave} from 'react-icons/io'
 import { FormSaveCategories } from '../../Component/Layout/FormSaveCategories/FormSaveCategories';
 
 export const Service_RegisterCategories = ({style}) => {
@@ -69,7 +70,7 @@ export const Service_RegisterCategories = ({style}) => {
       )
     return (
       <div className={style}>
-          <Button className='' onClick={() => onHide(onHide)} ><i className='pi pi-save'></i></Button>
+          <Button className='button-book' onClick={() => onHide(onHide)} ><IoIosSave className='Book'/></Button>
           <Dialog header={header}   className='dialogoRegisterProduct' visible={visible} style={{ width: '30em',bordeRadius:'100%'}} modal onHide={onHide}>
 
           <div className='content-provider'>

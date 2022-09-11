@@ -6,6 +6,7 @@ import { InputText } from 'primereact/inputtext';
 import { InputTextarea } from 'primereact/inputtextarea';
 import { RadioGroup } from 'rsuite';
 import { InputNumber } from 'primereact/inputnumber';
+import {FaUserEdit} from 'react-icons/fa'
 
 export const Service_UpdateCategories = ({codeCategoriUpdate}) => {
     const [visible, setVisible] = useState(false);
@@ -109,7 +110,7 @@ export const Service_UpdateCategories = ({codeCategoriUpdate}) => {
   
   return (
     <>
-        <Button onClick={()=>seew(seew)}><i className='pi pi-user-edit icons-registerProduct'></i></Button>
+        <Button onClick={()=>seew(seew)} className='button-book'><FaUserEdit className='Book'/></Button>
         <Dialog header={header} visible={visible} modal onHide={seew} style={{ width: '30em',bordeRadius:'100%'}} className='dialogoRegisterProduct tabla' >     
             
          

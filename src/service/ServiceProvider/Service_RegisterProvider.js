@@ -3,7 +3,7 @@ import { Dialog } from 'primereact/dialog';
 import { Button,} from 'primereact/button';
 import './css/registerProvider.css'
 import { FromSaveProvider } from '../../Component/Layout/FromSaveProvider/FromSaveProvider';
-
+import {IoIosSave} from 'react-icons/io'
 export const Service_RegisterProvider = ({style}) => {
   const [visible, setVisible] = useState(false)
   const [id, setIdProvider] = useState("")
@@ -97,7 +97,7 @@ export const Service_RegisterProvider = ({style}) => {
     )
   return (
     <div className={style}>
-        <Button className='' onClick={() => onHide(onHide)} ><i className='pi pi-save'></i></Button>
+        <Button className='button-book' onClick={() => onHide(onHide)} ><IoIosSave className='Book'/></Button>
         <Dialog header={header}   className='dialogoRegisterProduct' visible={visible} style={{ width: '30em',bordeRadius:'100%'}} modal onHide={onHide}>
         
         <div className='content-provider'>

@@ -1,0 +1,56 @@
+.link-headerDataTables{
+    font-size: 45px;
+    
+}
+
+.main-link-headerDataTables{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+   justify-content: center;
+  
+}
+
+.card-section2{
+   
+    display: flex;
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    /* background: rgb(228, 226, 226); */
+    padding: 4px;
+    border-radius: 7px;
+    box-shadow: 0 0 7px;
+    align-items: center;
+    gap: 1rem;
+}
+.card-section2:hover{
+    background-color: rebeccapurple;
+    color: white;
+}
+
+.card-section2:active{
+    background: #008037;
+}
+/* .sidebar-page-tablas-demo .p-sidebar-content{
+    
+}  */
+
+.button-biwrench{
+    display: flex;
+    height: 79px;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 3px;
+    justify-content: center;
+   
+}
+.icons-link-button-biwrench{
+    text-decoration: none;
+    color: #008037;
+}
+
+.icons-link-button-biwrench:hover{
+    color:red;
+}

@@ -8,9 +8,10 @@ import './DataTableDemo.css';
 import { Service_Update } from '../../../service/ServiceProduct/Service_Update';
 import { Service_ProductRegis } from '../../../service/ServiceProduct/Service_ProductRegis'
 import { Button } from 'primereact/button'
-import{Image} from 'primereact/image'
+import { Image } from 'primereact/image'
 import { Service_RegisterCategories } from '../../../service/ServiceCategories/Service_RegisterCategories';
 import { Service_UpdateCategories } from '../../../service/ServiceCategories/Service_UpdateCategories';
+import {AiFillDelete} from 'react-icons/ai'
 
 export const DataTableCategories = () => {
 
@@ -27,7 +28,7 @@ export const DataTableCategories = () => {
 
     useEffect(() => {
         listCategory()
-        
+
     }, [selectedCategories])
 
     function listCategory() {
@@ -71,44 +72,48 @@ export const DataTableCategories = () => {
     }
 
     const renderHeader = () => {
-            if (selectedCategories == null) {
-                console.log("eee"+selectedCategories)
-                return (
-                    
-                    <div className="flex justify-content-between align-items-center">
-                        <div className='buttons'>
+        if (selectedCategories == null) {
+            console.log("eee" + selectedCategories)
+            return (
+
+                <div className="flex justify-content-between align-items-center">
+                    <div className='buttons'>
+
+                        <div className='button-header-tabla-demo'>
                             <Service_RegisterCategories style='' />
-                            <Button className='' onClick={inputSarch}><i className='pi pi-trash icons-registerProduct'></i></Button>
-    
-                            <Service_UpdateCategories  codeCategoriUpdate={0}/>
-                            <span className="p-input-icon-left">
-                                <i className="pi pi-search" />
-                                <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre Categoria" />
-                            </span>
-                        
+                            <Service_UpdateCategories codeCategoriUpdate={0} />
+                            <Button className='button-book' onClick={inputSarch}><AiFillDelete className='Book'/></Button>
                         </div>
+
+                        <span className="p-input-icon-left">
+                            <i className="pi pi-search" />
+                            <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre Categoria" />
+                        </span>
+
                     </div>
-                )
-            } else {
-                console.log("aaa"+selectedCategories[0].id_categoria)
-                return (
-                    <div className="flex justify-content-between align-items-center">
-                        <div className='buttons'>
-                            
+                </div>
+            )
+        } else {
+            console.log("aaa" + selectedCategories[0].id_categoria)
+            return (
+                <div className="flex justify-content-between align-items-center">
+                    <div className='buttons'>
+                        <div className='button-header-tabla-demo'>
                             <Service_RegisterCategories style='' />
-                            <Button className='' onClick={inputSarch}><i className='pi pi-trash icons-registerProduct'></i></Button>
-    
                             <Service_UpdateCategories codeCategoriUpdate={selectedCategories[0].id_categoria} />
-                            <span className="p-input-icon-left">
-                                <i className="pi pi-search" />
-                                <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre producto" />
-                            </span>
-                            
-    
+                            <Button className='button-book' onClick={inputSarch}><AiFillDelete className='Book'/></Button>
+
                         </div>
+                        <span className="p-input-icon-left">
+                            <i className="pi pi-search" />
+                            <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre producto" />
+                        </span>
+
+
                     </div>
-                )
-            }
+                </div>
+            )
+        }
     }
 
     const codeBodyTemplate = (categories) => {
@@ -128,8 +133,8 @@ export const DataTableCategories = () => {
 
     return (
         <div className="datatable-doc-demo">
-         
-                <DataTable value={categories} paginator className="p-datatable-customers" header={header} rows={5}
+            <div className="contentTheTable">
+                <DataTable value={categories} paginator className="p-datatable-customers" header={header} rows={5} scrollHeight='400px'
                     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" rowsPerPageOptions={[10, 25, 50]}
                     dataKey="id" rowHover onSelectionChange={e => setSelectedCategories(e.value)}
                     filters={filters} filterDisplay="menu" loading={loading} responsiveLayout="scroll"
@@ -137,8 +142,9 @@ export const DataTableCategories = () => {
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
                     <Column selectionMode="multiple" headerStyle={{ width: '3em' }}></Column>
                     <Column field="id_categoria" header="Codigo" sortable filterField="id_categoria" body={codeBodyTemplate} filter filterPlaceholder="Search by code" />
-                    <Column field="nombre_categoria" header=" Nombre" sortable filter filterPlaceholder="Search by name" body={nameBodyTemplate}/>
+                    <Column field="nombre_categoria" header=" Nombre" sortable filter filterPlaceholder="Search by name" body={nameBodyTemplate} />
                 </DataTable>
+            </div>
         </div>
     );
 }

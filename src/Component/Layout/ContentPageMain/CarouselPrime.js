@@ -61,8 +61,8 @@ export const CarouselPrime = () => {
                         <img src={produ.imagen_producto} className="img-cardGif"/>
                     </div>
                     <div>
-                        <h4 className="mb-1">{produ.nombre_producto}</h4>
-                        <h6 className="mt-0 mb-3">${produ.precio_producto}</h6>
+                        <h2 className="mb-1">{produ.nombre_producto}</h2>
+                        <h2 className="mt-0 m">${produ.precioProducto}</h2>
                         {/* <span className={`product-badge status-${product.inventoryStatus.toLowerCase()}`}>{product.inventoryStatus}</span> */}
                         <div className="car-buttons mt-5">
                             {/* <Button icon="pi pi-search" className="p-button p-button-rounded mr-2" />

@@ -9,6 +9,8 @@ import { MdInventory2 } from "react-icons/md";
 import { FaPeopleCarry } from "react-icons/fa"
 import {MdCategory } from "react-icons/md"
 import {BsCloudUploadFill} from "react-icons/bs"
+import {GrUserSettings} from "react-icons/gr"
+import {VscBook} from "react-icons/vsc"
 import './style.css'
 
 export const ContentPageMainAdmin = () => {
@@ -16,7 +18,7 @@ export const ContentPageMainAdmin = () => {
         <div className='link-card' >
             <Link className='card-section' to="/tableAdmins">
                 <div className='MdInventory2'>
-                    <MdInventory2 className='inventariosproductos' stroke='' fill=''/>
+                    <GrUserSettings className='inventariosproductos' />
                 </div>
                 <h2>Gestion Administradores</h2>
                     <p>Gestione los administradores Registre,Busque ,Actualice y Elimine con gran facilidad.
@@ -53,7 +55,7 @@ export const ContentPageMainAdmin = () => {
             <Link className='card-section' to='/listReserves' >
                
                 <div className='MdInventory2'>
-                <MdInventory2 className='inventariosproductos' stroke='' fill=''/>
+                <VscBook className='inventariosproductos' stroke='' fill=''/>
                 </div>
                 <h2>Gestion Reservas</h2>
                     <p>Maneje las reservas de sus productos Registre,Busque ,Actualice y Elimine con gran facilidad.
@@ -69,7 +71,7 @@ export const ContentPageMainAdmin = () => {
                 <div className='MdInventory2'>
                 <BsCloudUploadFill className='inventariosproductos' stroke='' fill=''/>
                 </div>
-                <h2>EN ESPERA</h2>
+                <h2>Próximos Lanzamientos</h2>
                     <p>Aqui prodras manejar los registro de los productos que estan por llegar a la muebleria.
                 </p>
             </Link>      

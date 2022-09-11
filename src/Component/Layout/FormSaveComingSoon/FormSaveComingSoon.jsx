@@ -123,8 +123,8 @@ export const FormSaveComingSoon = ({ onChange1, onChange2, onchange3, onchange4,
                 <InputTextarea type='' className='' onChange={onChange2} placeholder="Des" />
 
                 <div className='cantidad'>
-                    {/* <InputNumber className='input-register inputpress input-number' placeholder="$" onChange={onChange5} />
-                    <InputNumber className='input-register inputpress input-number' placeholder="cantidad" onChange={onChange6} /> */}
+                    <InputNumber className='input-register inputpress input-number' placeholder="$" onChange={onChange5} />
+                    {/* <InputNumber className='input-register inputpress input-number' placeholder="cantidad" onChange={onChange6} /> */} 
                 </div>
                 <div className='optionsProduc'>
 
