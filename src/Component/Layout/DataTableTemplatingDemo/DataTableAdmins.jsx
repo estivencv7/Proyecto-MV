@@ -27,7 +27,9 @@ export const DataTableAdmins = () => {
 
     useEffect(() => {
         listAdmins()
-
+        const admin = sessionStorage.getItem("administrador")
+        const admin2 = JSON.parse(admin.toString());
+        document.getElementById("nameAccount").textContent = admin2.nameU
     }, [selectedAdmin])
 
     function listAdmins() {

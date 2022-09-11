@@ -39,38 +39,45 @@ export const IteratCart = ({ listsCart = [], conut }) => {//resive como parametr
     const simulateBuy = () => {
         // console.log(listsCart.toString());
         const user = sessionStorage.getItem("usuario")
-        const user2 = JSON.parse(user.toString());
-        const nameUser = user2.nameU
-        let idUser = user2.idU
-        console.log("ID USER " + idUser);
-        const cellphoneNumberUser = user2.cellphoneNumberU
-        const priceTotal = t
-        const urlRegisterInvoice = "http://localhost:8080/facturas/registrarFactura"
-        let tokenAdmin = localStorage.getItem('user')
-        if (tokenAdmin == "" || tokenAdmin == null) {
-            alert("Por favor registrese")
+        if(user == null){
+            toast("Por favor inicie sesion")
         }else{
-            carrito.forEach(element => {
-                console.log("ELEMENTO " + element.nombre__producto);
-                fetch(urlRegisterInvoice, {
-                    method: 'POST',
-                    headers: {
-                        "Content-type": "application/json",
-                        'Access-Control-Allow-Origin': '*' 
-                    },
-                    body: JSON.stringify({
-                        cantidad_producto: amountProd,
-                        nombre_cliente: nameUser,
-                        cedula_cliente: idUser,
-                        telefono_cliente: cellphoneNumberUser,
-                        productos : element.nombre__producto,
-                        nombre_producto: element.nombre__producto,
-                        total_a_pagar : priceTotal
+            const user2 = JSON.parse(user.toString());
+            const nameUser = user2.nameU
+            let idUser = user2.idU
+            console.log("ID USER " + idUser);
+            const cellphoneNumberUser = user2.cellphoneNumberU
+            const priceTotal = t
+            const urlRegisterInvoice = "http://localhost:8080/facturas/registrarFactura"
+            let tokenAdmin = localStorage.getItem('user')
+            console.log("TOKEN ADMIN");
+            if (tokenAdmin == "" || tokenAdmin == null) {
+                toast("Por favor inicie sesion")
+            }else{
+                carrito.forEach(element => {
+                    console.log("ELEMENTO " + element.nombre__producto);
+                    fetch(urlRegisterInvoice, {
+                        method: 'POST',
+                        headers: {
+                            "Content-type": "application/json",
+                            'Access-Control-Allow-Origin': '*' 
+                        },
+                        body: JSON.stringify({
+                            cantidad_producto: amountProd,
+                            nombre_cliente: nameUser,
+                            cedula_cliente: idUser,
+                            telefono_cliente: cellphoneNumberUser,
+                            productos : element.nombre__producto,
+                            nombre_producto: element.nombre__producto,
+                            total_a_pagar : priceTotal
+                        })
+            
                     })
-        
-                })
-                    .then(response => response)    
-        })
+                        .then(response => {
+                            toast("Compra exitosa")
+                        })    
+            })
+        }
     }
         // const lista = localStorage.getItem("listaProduct");
 
@@ -217,7 +224,7 @@ export const IteratCart = ({ listsCart = [], conut }) => {//resive como parametr
             <Toaster toastOptions={{
 
                 className: 'k',
-                duration: '55'
+                duration: '100'
 
             }} />
 

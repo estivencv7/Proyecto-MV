@@ -1,8 +1,9 @@
 import React from 'react'
+import './ServiceInvoice.css'
 
 export const ListInvoicesPerClient = ({codeInvoice}) => {
     let URLDownloadPDF = "http://localhost:8080/facturas/consultarFactura/" + codeInvoice;
     return (
-        <button><a href={URLDownloadPDF}><i className='pi pi-file-pdf'></i></a></button>
+        <button className='btnDownloadPDF'><a href={URLDownloadPDF}><i className='pi pi-file-pdf pdfDownload'></i></a></button>
     )
 }

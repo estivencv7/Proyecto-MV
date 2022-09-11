@@ -13,6 +13,7 @@ import { Modal } from '../../Component/Layout/ContentPageMain/Modal'
 import { PageReservesExpired } from '../../Component/Page/PageReservesExpired/PageReservesExpired';
 import { HeaderHome } from '../../Component/Layout/HeaderHome/HeaderHome';
 import './ServiceReserve.css'
+import { FooterMain } from '../../Component/Ui/FooterMain/FooterMain';
 
 export const Service_ListReservesClient = () => {
     
@@ -118,7 +119,6 @@ export const Service_ListReservesClient = () => {
         return (
             <>
             <HeaderHome/>
-            
             <PageReservesExpired text="Ir a reservas expiradas" direction="/reservesExpired"/>
             <div className='conter_car reserve-card' id='conter_car'>
                 
@@ -159,7 +159,6 @@ export const Service_ListReservesClient = () => {
             }
         </div>
             <PageReservesExpired text="Ir a reservas expiradas" direction="/reservesExpired"/>
-            
         </>    
         )
 }

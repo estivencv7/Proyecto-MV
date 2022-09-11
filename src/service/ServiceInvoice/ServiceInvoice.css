@@ -1,0 +1,9 @@
+.btnDownloadPDF{
+    background-color: white;
+    border: none;
+    margin-left: 30%;
+}
+
+.pdfDownload{
+    color: red;
+}

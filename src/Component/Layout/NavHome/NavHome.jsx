@@ -19,15 +19,19 @@ export const NavHome = () => {
     const [password, setPassword] = useState("")
     const [visible, setVisible] = useState(false)
     const [visible2, setVisible2] = useState(false)
-    let [accessToken, setAccessToken] = useState("")
-    let [user, setUser] = useState(null)
-    const [nameUser, setNameUser] = useState("")
-    const [stateUser, setStateUser] = useState(0)
-    const [surnameUser, setSurnameUser] = useState("")
-    const [emailUser, setEmailUser] = useState("")
-    const [idUser, setIdUser] = useState("")
-    const [cellphoneNumberUser, setcellphoneNumberUser] = useState("")
-
+    let [accessToken , setAccessToken] = useState("")
+    let [user , setUser] = useState(null)
+    const [nameUser , setNameUser] = useState("")
+    const [stateUser , setStateUser] = useState(0)
+    const [surnameUser , setSurnameUser] = useState("")
+    const [emailUser , setEmailUser] = useState("")
+    const [idUser , setIdUser] = useState("")
+    const [cellphoneNumberUser , setcellphoneNumberUser] = useState("")
+    const [nameAdmin , setNameAdmin] = useState("")
+    const [stateAdmin , setStateAdmin] = useState(0)
+    const [emailAdmin , setEmailAdmin] = useState("")
+    const [idAdmin , setIdAdmin] = useState("")
+    
     let navigate = useNavigate();
 
     const onHide = () => {
@@ -45,6 +49,13 @@ export const NavHome = () => {
         emailU: emailUser,
         idU: idUser,
         cellphoneNumberU: cellphoneNumberUser
+    }
+
+    let adminActivo = {
+        nameA : nameAdmin,
+        stateA : stateAdmin,
+        emailU : emailAdmin,
+        idU : idAdmin,
     }
 
     const catchEmail = (event) => {
@@ -69,8 +80,18 @@ export const NavHome = () => {
         usuarioActivo.idU = payload.cedula;
         usuarioActivo.cellphoneNumberU = payload.telefono;
         sessionStorage.setItem("usuario", JSON.stringify(usuarioActivo))
-        console.log("Usuario en el sesion storage " + sessionStorage.getItem("usuario"));
-        console.log(usuarioActivo);
+
+    }
+
+    const guardarAdmin = (accessToken = "") => {
+
+        let payload = obtenerDatosToken(accessToken);
+        adminActivo.nameU = payload.nombre;
+        adminActivo.emailU = payload.email;
+        adminActivo.stateU = payload.Estado;
+        adminActivo.idU = payload.cedula;
+        sessionStorage.setItem("administrador", JSON.stringify(adminActivo))
+
     }
 
     const catchToken = (token) => {
@@ -86,20 +107,20 @@ export const NavHome = () => {
         } else {
             document.getElementById("logout").classList.remove("logoutHide")
             setAccessToken(token.access_token)
-            if (token.Estado == 1) {
-                localStorage.setItem('user', token.access_token)
-                let tokenUser = localStorage.getItem('user')
+            if(token.Estado == 1){
+                localStorage.setItem('user' , token.access_token)
                 sessionStorage.setItem("token", token.access_token);
                 document.getElementById("nameAccount").textContent = token.nombre
-                console.log("TOKEN USER " + tokenUser);
                 guardarUsuario(token.access_token)
+                const user = sessionStorage.getItem("usuario")
+                const user2 = JSON.parse(user.toString());
+                toast("Has iniciado sesion, Bienvenido " + user2.nameU)
                 setVisible(false)
-            } else {
-                console.log("TOKEN PARA REGISTRAR EN ADMIN " + token.access_token);
-                localStorage.setItem('admin', token.access_token)
+            }else {
+                localStorage.setItem('admin' , token.access_token)
                 let tokenAdmin = localStorage.getItem('admin')
-                console.log("TOKEN ADMIN " + tokenAdmin);
-                navigate("/PageAdminMain")
+                guardarAdmin(token.access_token)
+                navigate("/PageAdminMain" )
             }
         }
     }
@@ -143,6 +164,7 @@ export const NavHome = () => {
         sessionStorage.removeItem('usuario');
         sessionStorage.removeItem('token');
         document.getElementById("logout").classList.add("logoutHide")
+        toast("Has cerrado sesion")
         document.getElementById("nameAccount").textContent = "Mi Cuenta"
     }
 
@@ -269,7 +291,7 @@ export const NavHome = () => {
 
             <Toaster reverseOrder={true} toastOptions={{
                 className: 'k',
-                duration: '100'
+                duration: '150'
             }} />
         </nav>
 

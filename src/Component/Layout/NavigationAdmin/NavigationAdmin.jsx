@@ -83,7 +83,8 @@ export const NavigationAdmin = () => {
       <div className='navegationAdmin'>
           <Emblema classN="title-admin" />
           <nav className='icons'>
-            <Link className='iconAdmin' to="/PageAdminMain"><i className="pi pi-home ico" ></i><p></p></Link>
+            <Link className='iconAdmin' to="/"><i className="pi pi-home ico" ></i><p></p></Link>
+            <Link className='iconAdmin' to="/pageAdmin"><i className='pi pi-backward'><p>Volver</p></i></Link>
             <button className='iconAdmin' onClick={() => onHide(onHide)} ><i className="pi pi-user ico"></i><p id='nameAccount'>{adminActivo.nameA}</p></button>
             <button className='iconAdmin' onClick={logout}><i className='pi pi-sign-out ico'><p>Cerrar sesion</p></i></button>
         </nav>

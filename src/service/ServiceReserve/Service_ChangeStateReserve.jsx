@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './ServiceReserve.css'
 export const Service_ChangeStateReserve = ({code , text}) => {
     
     const changeState = () => {
@@ -17,6 +17,6 @@ export const Service_ChangeStateReserve = ({code , text}) => {
     }
 
     return (
-        <button onClick={changeState}>{text}</button>
+        <button onClick={changeState} className='btnChangeState'>{text}</button>
     )
 }
