@@ -5,6 +5,7 @@ import { Button,} from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
 import './css/registerProduct.css'
 import { Toaster } from 'react-hot-toast';
+import {AiFillDelete} from 'react-icons/ai'
 export const Service_DeleteProduct = ({style}) => {
   
     const [visible, setVisible] = useState(false)
@@ -132,7 +133,7 @@ export const Service_DeleteProduct = ({style}) => {
 
     return (
         <div className={style}>
-            <Button className='' onClick={() => onHide(onHide)} ><i className='pi pi-save'></i></Button>
+            <Button className='button-book' onClick={() => onHide(onHide)}><AiFillDelete className='Book'/></Button>
             <Dialog header={header}   className='dialogoRegisterProduct' visible={visible} style={{ width: '30em',bordeRadius:'100%'}} modal onHide={onHide}>
             
             <div className='content-image'>

@@ -4,16 +4,16 @@
     justify-content: center;
     /* background-color: red; */
    height: 73%;
+   text-align: center;
     
 }
 .product-item-content2{
     /* border: 1px solid var(-}-surface-d); */ 
     margin: .3rem ;
     text-align: center;
-    padding: 2rem 0 ;
+    /* padding: 2rem 0 ; */
     /* box-shadow: 0 0 9px; */
     border-radius: 10px;
-   
     /* background: green; */
     width: 70%;
     display: flex;
@@ -21,8 +21,8 @@
     justify-content: center;
     align-items: center;
     /* height: 100%; */
-    
-
+    width: 100%;
+    gap: 24px;
 }
 
 .product-image-c-prime{
@@ -48,14 +48,15 @@
     /* background: gainsboro; */
     /* height: 100% !important; */
     
-}
-
-.carouselP{
     
 }
 
+.mt-0 .m{
+    font-size: 220px !important;
+}
+
 .register-cart-product{
-    background: #008037;
+    background: rebeccapurple;
     width: 70%;
    
     height: 47px;

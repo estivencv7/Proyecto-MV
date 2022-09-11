@@ -15,8 +15,8 @@ import { SplitButton } from 'primereact/splitbutton';
 import { Service_ListInvoices } from '../../../service/ServiceInvoice/Service_ListInvoices';
 
 export const NavHome = () => {
-    const [email , setEmail] = useState("")
-    const [password , setPassword] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
     const [visible, setVisible] = useState(false)
     const [visible2, setVisible2] = useState(false)
     let [accessToken , setAccessToken] = useState("")
@@ -33,7 +33,7 @@ export const NavHome = () => {
     const [idAdmin , setIdAdmin] = useState("")
     
     let navigate = useNavigate();
-    
+
     const onHide = () => {
         if (visible == false) {
             setVisible(true)
@@ -43,12 +43,12 @@ export const NavHome = () => {
     }
 
     let usuarioActivo = {
-        nameU : nameUser,
-        stateU : stateUser,
-        surnameU : surnameUser,
-        emailU : emailUser,
-        idU : idUser,
-        cellphoneNumberU : cellphoneNumberUser 
+        nameU: nameUser,
+        stateU: stateUser,
+        surnameU: surnameUser,
+        emailU: emailUser,
+        idU: idUser,
+        cellphoneNumberU: cellphoneNumberUser
     }
 
     let adminActivo = {
@@ -62,10 +62,10 @@ export const NavHome = () => {
         setEmail(event.target.value)
     }
 
-    const obtenerDatosToken = (accessToken = "" ) => {
+    const obtenerDatosToken = (accessToken = "") => {
 
         if (accessToken != null && accessToken.length > 0) {
-          return JSON.parse(atob(accessToken.split(".")[1]));
+            return JSON.parse(atob(accessToken.split(".")[1]));
         }
         return null;
     }
@@ -95,16 +95,16 @@ export const NavHome = () => {
     }
 
     const catchToken = (token) => {
-        console.log("TOKEN " +token);
-        if(token.nombre == "" || token.nombre == null){
+        console.log("TOKEN " + token);
+        if (token.nombre == "" || token.nombre == null) {
             return (
                 toast("Correo o contraseña incorrecto, Por favor verifique o registrese")
-                (setTimeout(() => {
-                    (navigate("/registerUser"))
-                  }, 1000))
-                
+                    (setTimeout(() => {
+                        (navigate("/registerUser"))
+                    }, 1000))
+
             )
-        }else{
+        } else {
             document.getElementById("logout").classList.remove("logoutHide")
             setAccessToken(token.access_token)
             if(token.Estado == 1){
@@ -122,20 +122,20 @@ export const NavHome = () => {
                 guardarAdmin(token.access_token)
                 navigate("/PageAdminMain" )
             }
-        }    
+        }
     }
 
     useEffect(() => {
         const user = sessionStorage.getItem("usuario")
-        if(user == null){
-          document.getElementById("logout").classList.add("logoutHide")
-        }else{
-          const user2 = JSON.parse(user.toString());
-          document.getElementById("nameAccount").textContent = user2.nameU
-          document.getElementById("logout").classList.remove("logoutHide")
+        if (user == null) {
+            document.getElementById("logout").classList.add("logoutHide")
+        } else {
+            const user2 = JSON.parse(user.toString());
+            document.getElementById("nameAccount").textContent = user2.nameU
+            document.getElementById("logout").classList.remove("logoutHide")
         }
-      }, [])
-    
+    }, [])
+
     function login() {
         const urlEndpoint = 'http://localhost:8080/oauth/token';
         const credenciales = btoa('reactapp' + ':' + '12345');
@@ -143,31 +143,31 @@ export const NavHome = () => {
         params.append('username', email);
         params.append('password', password);
         params.append('grant_type', 'password');
-        fetch(urlEndpoint ,  {
+        fetch(urlEndpoint, {
             method: 'POST',
             headers: {
-                'Access-Control-Allow-Origin': '*' ,
+                'Access-Control-Allow-Origin': '*',
                 'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-                'Authorization':  'Basic ' + credenciales,
-            },body : params.toString()
+                'Authorization': 'Basic ' + credenciales,
+            }, body: params.toString()
         })
-        .then(response => response.json())
-        .then(data => catchToken(data))
+            .then(response => response.json())
+            .then(data => catchToken(data))
     }
 
     const logout = () => {
         accessToken = null;
         usuarioActivo = null;
-        localStorage.setItem("user" , null)
-        localStorage.setItem("admin" , null)
+        localStorage.setItem("user", null)
+        localStorage.setItem("admin", null)
         // sessionStorage.clear();
         sessionStorage.removeItem('usuario');
         sessionStorage.removeItem('token');
         document.getElementById("logout").classList.add("logoutHide")
         toast("Has cerrado sesion")
         document.getElementById("nameAccount").textContent = "Mi Cuenta"
-      }
-    
+    }
+
     const header = (
         <div className='div-login'>
             <h2>Iniciar Sesion</h2>
@@ -176,28 +176,28 @@ export const NavHome = () => {
     )
 
     //========================estas funciones estan explicadas en el servicio registrar producto
-   
+
     function timeout(ms) {
         return new Promise((resolve) => setTimeout(resolve, ms));
     }
-    
-    const re=async()=>{
-        setVisible2(false)
-        await timeout( 1000)
 
-        if(visible==false){
-           
+    const re = async () => {
+        setVisible2(false)
+        await timeout(1000)
+
+        if (visible == false) {
+
             setVisible2(true)
         }
     }
     //==================================================================
 
-    useEffect(()=>{
+    useEffect(() => {
 
-    },[visible2])
+    }, [visible2])
 
-    let navigat =  useNavigate()
-   
+    let navigat = useNavigate()
+
     const redirect = () => {
         navigat("/listReservesClient")
     }
@@ -215,19 +215,19 @@ export const NavHome = () => {
     }
 
     const items = [
-        
+
         {
             label: 'Reservas',
             icon: 'pi pi-folder-open',
             command: () => {
-              redirect()
+                redirect()
             }
         },
         {
             label: 'Facturas',
             icon: 'pi pi-wallet',
             command: () => {
-              redirectInvoices()
+                redirectInvoices()
             }
         },
         {
@@ -241,16 +241,16 @@ export const NavHome = () => {
             label: 'Cerrar Sesion',
             icon: 'pi pi-sign-out ico',
             command: (e) => {
-                logout()    
+                logout()
             }
         }
     ]
 
     return (
         <nav className='icons'>
-           
-            <Link className='icon' to="/"><i className="pi pi-home ico" ><p  className='name-icon'> Inicio </p></i></Link>
-            <ContentShoppingCart onHide={()=>setVisible2(false)} visible2={visible2} onClick={re} />
+
+            <Link className='icon' to="/"><i className="pi pi-home ico" ><p className='name-icon'> Inicio </p></i></Link>
+            <ContentShoppingCart onHide={() => setVisible2(false)} visible2={visible2} onClick={re} />
 
             <div className="cart-conten">
                 <p className='cantidad-product' id='cantidad'></p> {/*Aqui va la cantidad de productos que llevamos en el carrito*/}
@@ -260,35 +260,35 @@ export const NavHome = () => {
 
             <div className='favoritos'>
                 <p className='cantidad-producto' id='favorites'></p>
-                <button className='icon' onClick={() => onHide(onHide)} ><i className="pi pi-user ico"><p  className='name-icon' id='nameAccount'>Mi Cuenta</p></i></button>
+                <button className='icon' onClick={() => onHide(onHide)} ><i className="pi pi-user ico"><p className='name-icon' id='nameAccount'>Mi Cuenta</p></i></button>
             </div>
 
             <Dialog header={header} className='-login' visible={visible} modal onHide={onHide} style={{ width: '30%', height: '50%' }}>
 
-                    <div className='content-login'>
-                        <div>
-                            <InputText className='inputs' type="email" onChange={e => catchEmail(e)} id='email' style={{ width: '20em' }} placeholder='Correo' />
-                        </div>
-                        <div>
-                            <InputText className='inputs' type="password" id='password' onChange={e => setPassword(e.target.value)} placeholder='Contraseña' style={{ width: '20em' }} />
-                        </div>
+                <div className='content-login'>
+                    <div>
+                        <InputText className='inputs' type="email" onChange={e => catchEmail(e)} id='email' style={{ width: '20em' }} placeholder='Correo' />
                     </div>
-                    <div className='divLink'>
-                        <Link to="/registerUser">¿No tienes una cuenta? Registrar</Link>
-                        <Link to="/pageSendCode">¿Olvidaste tu contraseña?</Link>
-                        <div><Button className='button-login' onClick={login}>Iniciar Sesión</Button></div>
+                    <div>
+                        <InputText className='inputs' type="password" id='password' onChange={e => setPassword(e.target.value)} placeholder='Contraseña' style={{ width: '20em' }} />
                     </div>
+                </div>
+                <div className='divLink'>
+                    <Link to="/pageSendCode">¿Olvidaste tu contraseña?</Link>
+                    <Link to="/registerUser">¿No tienes una cuenta? Registrar</Link>
+                    <div><Button className='button-login' onClick={login}>Iniciar Sesión</Button></div>
+                </div>
             </Dialog>
 
             <div className='favoritos'>
                 <Link to="/pageFavorito" className='icon'><i className='pi pi-heart heart-icon ico'> <p className='name-icon'>Favoritos</p></i></Link>
             </div>
-            
-            <div className='logoutHide' id='logout' style={{position:'relative'}}>
+
+            <div className='logoutHide' id='logout' style={{ position: 'relative' }}>
                 <SplitButton label={<i className='pi pi-list'></i>} model={items} className="SplitButton-reservas"></SplitButton>
                 <p className='opciones' >opciones</p>
             </div>
-            
+
             <Toaster reverseOrder={true} toastOptions={{
                 className: 'k',
                 duration: '150'

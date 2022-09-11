@@ -1,5 +1,5 @@
 import { Button } from 'primereact/button'
-
+import {AiFillDelete} from 'react-icons/ai'
 export const Servicie_DeleteReserve = ({codigo,className}) => {
 
     function deleteReserve() {
@@ -29,7 +29,7 @@ export const Servicie_DeleteReserve = ({codigo,className}) => {
 
 
         < >
-            <Button onClick={deleteReserve} className={className} ><i className='pi pi-trash icons-registerProduct'></i></Button>
+            <Button onClick={deleteReserve} className={className} ><AiFillDelete className='Book'/></Button>
         </>
     )
 }

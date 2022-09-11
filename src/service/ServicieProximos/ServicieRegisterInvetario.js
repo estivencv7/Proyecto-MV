@@ -5,8 +5,11 @@ import { Button, } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
 import { Toaster, toast } from 'react-hot-toast';
 import { Navigate, useNavigate } from 'react-router'
+import {IoIosSend} from 'react-icons/io'
+import './css/styleComing.css'
+import { set } from 'date-fns';
 // import './css/registerProduct.css'
-export const ServicieRegisterInventario = ({ style, code, nameP, descriptionP,imgP}) => {
+export const ServicieRegisterInventario = ({ style, code, nameP, descriptionP,imgP,price}) => {
 
     // let navigate = useNavigate()
     // const [visible, setVisible] = useState(false)
@@ -51,45 +54,53 @@ export const ServicieRegisterInventario = ({ style, code, nameP, descriptionP,im
 
 
     function registerProduct() {
-        console.log("estoy registrando un producto")
-        // console.log(price)
-        // console.log(amount)
-        const urlRegister = 'http://localhost:8080/producto';
-        let tokenAdmin = localStorage.getItem('admin')
-        if (tokenAdmin == "" || tokenAdmin == null) {
-            alert("Por favor registrese")
-        } else {
-            fetch(urlRegister, {
-                method: 'POST',
-                headers: {
-                    "Content-type": "application/json",
-                    "Authorization": "Bearer " + tokenAdmin
-                },
-                body: JSON.stringify({
-                    codigo_producto: null,
-                    nombre_producto: nameP,
-                    descripcion_producto: descriptionP,
-                    precio_producto: 0,
-                    foto_producto: imgP,
-                    id_categoria: {
-                        id_categoria: null,
-                        nombre_categoria: null
+        if(nameP!=null){
+            console.log("estoy registrando un producto")
+            // console.log(price)
+            // console.log(amount)
+            const urlRegister = 'http://localhost:8080/producto';
+            let tokenAdmin = localStorage.getItem('admin')
+            if (tokenAdmin == "" || tokenAdmin == null) {
+                alert("Por favor registrese")
+            } else {
+                fetch(urlRegister, {
+                    method: 'POST',
+                    headers: {
+                        "Content-type": "application/json",
+                        "Authorization": "Bearer " + tokenAdmin
                     },
-                    nombre_proveedor_producto: null
+                    body: JSON.stringify({
+                        codigo_producto: null,
+                        nombre_producto: nameP,
+                        descripcion_producto: descriptionP,
+                        precio_producto: price,
+                        foto_producto: imgP,
+                        id_categoria: {
+                            id_categoria: null,
+                            nombre_categoria: null
+                        },
+                        nombre_proveedor_producto: null
+                    })
                 })
-            })
-                .then(response =>{
-                    if(response.status==201){
-                        deleteProximo(code)
-                    }
-                })
-            // .then(json => check(json.ok))
-            // console.log(name_supplier_product);
+                    .then(response =>{
+                        if(response.status==201){
+                            toast("Enviado con éxito",{className:'send-toast',duration:'300',position:'bottom-left'})
+                            deleteProximo(code)
+                            nameP=null
+                            code=null
+                            descriptionP=null
+                            imgP=null
+                        }
+                    })
+                
+            }
+
+        }else{
+            toast("Seleccione un producto",{className:'send-toast',duration:'300',position:'bottom-left'})
         }
+
     }
-    // if(response.status==201){
-    //     toast("Save ")
-    // }
+   
 
     function deleteProximo(cod) {
         const urlRegister = 'http://localhost:8080/proximos/eliminarProximos/' + cod;
@@ -129,7 +140,7 @@ export const ServicieRegisterInventario = ({ style, code, nameP, descriptionP,im
 
     return (
 
-        <Button className='' onClick={registerProduct} code nameP descriptionP imgP ><i className='pi pi-save'></i></Button>
+        <Button className='send' onClick={registerProduct} code nameP descriptionP imgP price>Ingresar al Inventario</Button>
 
 
     )

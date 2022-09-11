@@ -8,7 +8,8 @@ import './DataTableDemo.css';
 import { Service_Update } from '../../../service/ServiceProduct/Service_Update';
 import { Service_ProductRegis } from '../../../service/ServiceProduct/Service_ProductRegis'
 import { Button } from 'primereact/button'
-import{Image} from 'primereact/image'
+import { Image } from 'primereact/image'
+import {AiFillDelete} from 'react-icons/ai'
 export const DataTableProducts = () => {
 
     const [seew, setSeew] = useState(false);
@@ -31,9 +32,11 @@ export const DataTableProducts = () => {
     let i = products.length;
     useEffect(() => {
         listProducts()
-        const admin = sessionStorage.getItem("administrador")
-        const admin2 = JSON.parse(admin.toString());
-        document.getElementById("nameAccount").textContent = admin2.nameU
+        
+        
+        // const admin = sessionStorage.getItem("administrador")
+        // const admin2 = JSON.parse(admin.toString());
+        // document.getElementById("nameAccount").textContent = admin2.nameU
 
     }, [selectedProducts])
 
@@ -70,15 +73,16 @@ export const DataTableProducts = () => {
             return (
                 <div className="flex justify-content-between align-items-center">
                     <div className='buttons'>
-                        <Service_ProductRegis style='' />
-                        <Button className='' onClick={inputSarch}><i className='pi pi-trash icons-registerProduct'></i></Button>
-
-                        <Service_Update codeProductUpdate={0} />
+                        <div className='button-header-tabla-demo'>
+                            <Service_ProductRegis style='' />
+                            <Service_Update codeProductUpdate={0} />
+                            <Button className='button-book' onClick={inputSarch}><AiFillDelete className='Book'/></Button>
+                        </div>
                         <span className="p-input-icon-left">
                             <i className="pi pi-search" />
                             <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre producto" />
                         </span>
-                    
+
                     </div>
                 </div>
             )
@@ -86,16 +90,18 @@ export const DataTableProducts = () => {
             return (
                 <div className="flex justify-content-between align-items-center">
                     <div className='buttons'>
-                        
-                        <Service_ProductRegis style='' />
-                        <Button className='' onClick={inputSarch}><i className='pi pi-trash icons-registerProduct'></i></Button>
+                        <div className='button-header-tabla-demo'>
+                            <Service_ProductRegis style='' />
+                            <Service_Update codeProductUpdate={selectedProducts.codigo_producto} />
+                            <Button className='button-book' onClick={inputSarch}><AiFillDelete className='Book'/></Button>
+                        </div>
 
-                        <Service_Update codeProductUpdate={selectedProducts.codigo_producto} />
+
                         <span className="p-input-icon-left">
                             <i className="pi pi-search" />
                             <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre producto" />
                         </span>
-                        
+
 
                     </div>
                 </div>
@@ -104,7 +110,7 @@ export const DataTableProducts = () => {
 
     }
 
-   
+
     const codeBodyTemplate = (product) => {
         return (
             <React.Fragment>
@@ -116,7 +122,7 @@ export const DataTableProducts = () => {
     const imageBodyTemplate = (product) => {
         return (
             <React.Fragment>
-                <Image template={<i className='pi pi-eye eye'></i>} preview={true}  alt="ImagenMuebleria" src={product.foto_producto} onError={(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} width='100%' height='100%' style={{ verticalAlign: 'middle' }} className='product-image' />
+                <Image template={<i className='pi pi-eye eye'></i>} preview={true} alt="ImagenMuebleria" src={product.foto_producto} onError={(e) => e.target.src = 'https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} width='100%' height='100%' style={{ verticalAlign: 'middle' }} className='product-image' />
             </React.Fragment>
         );
     }
@@ -180,7 +186,7 @@ export const DataTableProducts = () => {
     return (
         <div className="datatable-doc-demo">
             <div className="contentTheTable">
-                <DataTable value={products} paginator className="p-datatable-customers" header={header} rows={4}
+                <DataTable value={products} paginator className="p-datatable-customers" header={header} rows={3} scrollHeight='400px'
                     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" rowsPerPageOptions={[5, 10, 15]}
                     dataKey="id" rowHover onSelectionChange={e => setSelectedProduct(e.value)}
                     filters={filters} filterDisplay="menu" loading={loading} responsiveLayout="scroll"
