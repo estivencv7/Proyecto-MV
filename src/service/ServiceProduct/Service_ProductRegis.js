@@ -111,11 +111,8 @@ export const Service_ProductRegis = ({style}) => {
     // }
     function check(element) {
         if (element == true) {
-            // <Toaster reverseOrder={true} toastOptions={{
             
-            // }} />
-            // navigate("/registerProduct")
-            alert("Registro exitoso")
+            toast("Registro exitoso")
         } else {
             alert("hubo un error al momento de registrar")
         }
@@ -149,6 +146,10 @@ export const Service_ProductRegis = ({style}) => {
                     <InputText className='input-register'  id='catch' type='file' name='file' placeholder='subirImg' onChange={uploadimage}  />
                 </div>
             </div>
+            <Toaster toastOptions={{
+                    className: 'k',
+                    duration: '100'
+                }} />
             </Dialog>
             
         </div>
