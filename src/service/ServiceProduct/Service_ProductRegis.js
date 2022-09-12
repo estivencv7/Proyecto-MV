@@ -6,6 +6,7 @@ import { InputText } from 'primereact/inputtext';
 import { Toaster, toast } from 'react-hot-toast';
 import { Navigate, useNavigate } from 'react-router'
 import './css/registerProduct.css'
+import {IoIosSave} from 'react-icons/io'
 export const Service_ProductRegis = ({style}) => {
 
     // let navigate = useNavigate()
@@ -136,7 +137,7 @@ export const Service_ProductRegis = ({style}) => {
 
     return (
         <div className={style}>
-            <Button className='' onClick={() => onHide(onHide)} ><i className='pi pi-save'></i></Button>
+            <Button className='button-book' onClick={() => onHide(onHide)} ><IoIosSave className='Book'/></Button>
             <Dialog header={header}   className='dialogoRegisterProduct' visible={visible} style={{ width: '30em',bordeRadius:'100%'}} modal onHide={onHide}>
             
             <div className='content-image'>

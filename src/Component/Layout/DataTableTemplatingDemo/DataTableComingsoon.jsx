@@ -37,9 +37,10 @@ export const DataTableComingsoon = () => {
     
     useEffect(() => {
         listProximos()
-        const admin = sessionStorage.getItem("administrador")
-        const admin2 = JSON.parse(admin.toString());
-        document.getElementById("nameAccount").textContent = admin2.nameU
+
+        // const admin = sessionStorage.getItem("administrador")
+        // const admin2 = JSON.parse(admin.toString());
+        // document.getElementById("nameAccount").textContent = admin2.nameU
 
     }, [selectedProximos])
 
@@ -78,7 +79,6 @@ export const DataTableComingsoon = () => {
             return (
                 <div className="flex justify-content-between align-items-center">
                     <div className='buttons'>
-                    {console.log("fggggggk")}
                         <div className='button-header-tabla-demo'>
                             <ServicieRegisterProximos style='' />
                             <ServicieArriveProduct cod={0}></ServicieArriveProduct>
@@ -155,7 +155,7 @@ export const DataTableComingsoon = () => {
     }
 
     const priceBodyTemplate = (element) => {
-        return formatCurrency(element.precio_producto);
+        return element.precioProducto;
     }
 
     const categoryBodyTemplate = (element) => {
@@ -195,7 +195,7 @@ export const DataTableComingsoon = () => {
     return (
         <div className="datatable-doc-demo">
             <div className="contentTheTable">
-                <DataTable value={products} paginator className="p-datatable-customers" header={header} rows={4}
+                <DataTable value={products} paginator className="p-datatable-customers" header={header}  rows={3} scrollHeight='400px'
                     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" rowsPerPageOptions={[5, 10, 15]}
                     dataKey="id2" rowHover onSelectionChange={e => setSelectedProximos(e.value)}
                     filters={filters} filterDisplay="menu" loading={loading} responsiveLayout="scroll"
@@ -203,12 +203,11 @@ export const DataTableComingsoon = () => {
                     currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} productos">
                     {/* <Column selectionMode='multiple' headerStyle={{ width: '3em' }}></Column> */}
                     <Column selectionMode="single"></Column>
-                    <Column showAddButton='jjj'></Column>
-                    <Column field="codigo_producto" header="Codigo" sortable body={codeBodyTemplate} />
+                    <Column field="codigo_producto" header="Codigo" sortable body={codeBodyTemplate} className='column-descrition'/>
                     <Column field="nombre_producto" header="Nombre" sortable body={nameBodyTemplate} />
                     {/* <Column field="cantidad_producto" header="Cantidad" sortable body={amountBodyTemplate} /> */}
-                    <Column field="descripcion_producto" header="Descripcion" sortable sortField='descripcion_producto' body={descriptionBodyTemplate} />
-                    <Column field="precio_producto" header="Precio" sortable filterField="price" body={priceBodyTemplate} />
+                    <Column field="descripcion_producto" header="Descripcion" sortable sortField='descripcion_producto' className='column-descrition' body={descriptionBodyTemplate} />
+                    <Column field="precio_producto" header="Precio" sortable filterField="price" className='column-descrition' body={priceBodyTemplate} />
                     <Column header="Imagen producto" sortable sortField="foto_producto" filterField="foto" body={imageBodyTemplate} />
                     
                 </DataTable>

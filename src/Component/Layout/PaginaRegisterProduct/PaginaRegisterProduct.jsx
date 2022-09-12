@@ -7,8 +7,10 @@ import './style.css'
 import { DataTableProducts } from '../DataTableTemplatingDemo/DataTableProducts'
 import { Service_Update } from '../../../service/ServiceProduct/Service_Update'
 import { Service_DeleteProduct } from '../../../service/ServiceProduct/Service_DeleteProduct'
-import {Emblema} from '../../Ui/Logo/Emblema'
+import { Emblema } from '../../Ui/Logo/Emblema'
 import { NavigationAdmin } from '../NavigationAdmin/NavigationAdmin'
+import { HeaderDataTables } from '../../Ui/HeaderDataTables/HeaderDataTables'
+import { FooterMain } from '../../Ui/FooterMain/FooterMain'
 
 
 export const PaginaRegisterProduct = () => {
@@ -31,8 +33,12 @@ export const PaginaRegisterProduct = () => {
     <>
       <main className='content-Page'>
         <div className='content-main'>
-            <NavigationAdmin/>
-          <DataTableProducts/>
+          <HeaderDataTables text={<h1 style={{color:'#008037'}}>Inventario Productos</h1>} />
+          <DataTableProducts />
+          <div style={{ display: 'flex', justifyContent: 'center', background: 'red' }}>
+          <FooterMain></FooterMain>   
+          </div>
+         
         </div>
       </main>
     </>

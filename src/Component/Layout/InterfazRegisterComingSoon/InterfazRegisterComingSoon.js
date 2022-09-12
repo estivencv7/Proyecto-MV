@@ -8,7 +8,9 @@ import { Button } from 'primereact/button'
 
 import { NavigationAdmin } from '../NavigationAdmin/NavigationAdmin'
 import { DataTableComingsoon } from '../DataTableTemplatingDemo/DataTableComingsoon'
-
+import { FooterMain } from '../../Ui/FooterMain/FooterMain'
+import { HeaderDataTables } from '../../Ui/HeaderDataTables/HeaderDataTables'
+import { BsCloudUploadFill } from "react-icons/bs"
 
 export const InterfazRegisterComingSoon = () => {
 
@@ -26,14 +28,28 @@ export const InterfazRegisterComingSoon = () => {
     setValue(true)
 
   }
+
+  const text = () => {
+    return (
+      <div>
+        <h1>Proximos</h1>
+      </div>
+    )
+  }
   return (
-    <>
-      <main className='content-Page'>
-        <div className='content-main'>
-            <NavigationAdmin/>
-          <DataTableComingsoon/>
-        </div>
-      </main>
-    </>
+
+    <div className='content-main'>
+      <HeaderDataTables text={
+        
+          <h1 style={{color:'#008037'}}>Próximos Lanzamientos</h1>
+        
+      } />
+      <div>
+        <DataTableComingsoon />
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'center', background: 'red' }}>
+        <FooterMain />
+      </div>
+    </div>
   )
 }

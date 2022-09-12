@@ -8,6 +8,7 @@ import { Navigate, useNavigate } from 'react-router'
 import "../ServiceProduct/css/registerProduct.css"
 import { FormSaveAdmin } from '../../Component/Layout/FormSaveAdmin/FormSaveAdmin';
 import { NavigationAdmin } from '../../Component/Layout/NavigationAdmin/NavigationAdmin';
+import { IoIosSave } from 'react-icons/io';
 
 export const Service_RegisterAdmin = ({style}) => {
 
@@ -82,7 +83,7 @@ export const Service_RegisterAdmin = ({style}) => {
     return (
         <div className={style}>
             <div>
-                <Button className='' onClick={() => onHide(onHide)} ><i className='pi pi-save'></i></Button>
+                <Button className='button-book' onClick={() => onHide(onHide)} ><IoIosSave className='Book'/></Button>
                 <Dialog header={header}   className='dialogoRegisterAdmin' visible={visible} style={{ width: '30em',bordeRadius:'100%'}} modal onHide={onHide}>
                 
                 <div className='content-image'>

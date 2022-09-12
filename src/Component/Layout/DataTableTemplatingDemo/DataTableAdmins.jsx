@@ -8,6 +8,8 @@ import { Service_RegisterAdmin } from '../../../service/ServiceAdmin/Service_Reg
 import { NavigationAdmin } from '../NavigationAdmin/NavigationAdmin';
 import { Service_UpdateAdmin } from '../../../service/ServiceAdmin/Service_UpdateAdmin';
 import { Service_DeleteAdmin } from '../../../service/ServiceAdmin/Service_DeleteAdmin';
+import { HeaderDataTables } from '../../Ui/HeaderDataTables/HeaderDataTables'
+import { FooterMain } from '../../Ui/FooterMain/FooterMain';
 
 export const DataTableAdmins = () => {
 
@@ -25,9 +27,11 @@ export const DataTableAdmins = () => {
 
     useEffect(() => {
         listAdmins()
-        const admin = sessionStorage.getItem("administrador")
-        const admin2 = JSON.parse(admin.toString());
-        document.getElementById("nameAccount").textContent = admin2.nameU
+        //=================no me funciona con esto======================================
+        // const admin = sessionStorage.getItem("administrador")
+        // const admin2 = JSON.parse(admin.toString());
+        // document.getElementById("nameAccount").textContent = admin2.nameU
+
     }, [selectedAdmin])
 
     function listAdmins() {
@@ -39,7 +43,7 @@ export const DataTableAdmins = () => {
             method: 'GET',
             headers: {
                 "Content-type": "application/json",
-                "Authorization" : "Bearer " + tokenAdmin
+                "Authorization": "Bearer " + tokenAdmin
             }
         })
             .then(response => response.json())
@@ -57,42 +61,49 @@ export const DataTableAdmins = () => {
         setFilters(_filters);
         setGlobalFilterValue(value);
     }
-    
+
 
     const renderHeader = () => {
-            if (selectedAdmin == null) {
-                console.log("eee"+selectedAdmin)
-                return (
-                    
-                    <div className="flex justify-content-between align-items-center">
-                        <div className='buttons'>
-                            <Service_RegisterAdmin />
-                            <Service_UpdateAdmin codeAdminUpdate={0}/>
-                            <span className="p-input-icon-left">
-                                <i className="pi pi-search" />
-                                <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre Admin" />
-                            </span>
-                        
-                        </div>
-                    </div>
-                )
-            } else {
-                return (
-                    <div className="flex justify-content-between align-items-center">
-                        <div className='buttons'>
-                            
-                            <Service_RegisterAdmin style='' />
-                            <Service_UpdateAdmin codeAdminUpdate={selectedAdmin[0].codigo_administrador}/>
-                            <span className="p-input-icon-left">
-                                <i className="pi pi-search" />
-                                <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre Admin" />
-                            </span>
-                            
+        if (selectedAdmin == null) {
+            console.log("eee" + selectedAdmin)
+            return (
 
+                <div className="flex justify-content-between align-items-center">
+                    <div className='buttons'>
+
+                        <div className='button-header-tabla-demo'>
+                            <Service_RegisterAdmin className='button-header-tabla-demo' />
+                            <Service_UpdateAdmin codeAdminUpdate={0} />
                         </div>
+
+                        <span className="p-input-icon-left">
+                            <i className="pi pi-search" />
+                            <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre Admin" />
+                        </span>
+
                     </div>
-                )
-            }
+                </div>
+            )
+        } else {
+            return (
+                <div className="flex justify-content-between align-items-center">
+                    <div className='buttons'>
+
+                        <div className='button-header-tabla-demo'>
+                            <Service_RegisterAdmin style='' />
+                            <Service_UpdateAdmin codeAdminUpdate={selectedAdmin[0].codigo_administrador} />
+                        </div>
+
+                        <span className="p-input-icon-left">
+                            <i className="pi pi-search" />
+                            <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre Admin" />
+                        </span>
+
+
+                    </div>
+                </div>
+            )
+        }
     }
 
     const codeBodyTemplate = (admns) => {
@@ -114,7 +125,7 @@ export const DataTableAdmins = () => {
     const btnDeleteBodyTemplate = (admns) => {
         console.log("BTN DELETE " + admns.codigo_administrador);
         return (
-            <Service_DeleteAdmin codeAdmin={admns.codigo_administrador}/>
+            <Service_DeleteAdmin codeAdmin={admns.codigo_administrador} />
         )
     }
 
@@ -122,20 +133,25 @@ export const DataTableAdmins = () => {
 
     return (
         <div>
-            <NavigationAdmin/>
+            <HeaderDataTables text={<h1>Gestión Administrativa</h1>} />
             <div className="datatable-doc-demo">
-                    <DataTable value={admins} paginator className="p-datatable-customers" header={header} rows={5}
+                <div className="contentTheTable">
+                    <DataTable value={admins} paginator className="p-datatable-customers" header={header} rows={5} scrollHeight='400px'
                         paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" rowsPerPageOptions={[10, 25, 50]}
                         dataKey="id" rowHover onSelectionChange={e => setSelectedAdmin(e.value)}
                         filters={filters} filterDisplay="menu" loading={loading} responsiveLayout="scroll"
-                        globalFilterFields={['codigo_administrador', 'nombre_administrador' , 'correo_administrador']} emptyMessage="No se encontraron categorias."
+                        globalFilterFields={['codigo_administrador', 'nombre_administrador', 'correo_administrador']} emptyMessage="No se encontraron categorias."
                         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
                         <Column selectionMode="multiple" headerStyle={{ width: '3em' }}></Column>
                         <Column field="codigo_administrador" header="Codigo Administrador" sortable filterField="id_categoria" body={codeBodyTemplate} filterPlaceholder="Search by code" />
-                        <Column field="nombre_administrador" header="Nombre Administrador" sortable filterPlaceholder="Search by name" body={nameBodyTemplate}/>
-                        <Column field="correo_administrador" header="Correo Administrador" sortable filterPlaceholder="Search by name" body={emailBodyTemplate}/>                        
-                        <Column field='eliminar' header='Eliminar Administrador' body={btnDeleteBodyTemplate}/>
+                        <Column field="nombre_administrador" header="Nombre Administrador" sortable filterPlaceholder="Search by name" body={nameBodyTemplate} />
+                        <Column field="correo_administrador" header="Correo Administrador" sortable filterPlaceholder="Search by name" body={emailBodyTemplate} />
+                        <Column field='eliminar' header='Eliminar Administrador' body={btnDeleteBodyTemplate} />
                     </DataTable>
+                </div>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'center', background: 'red' }}>
+                <FooterMain></FooterMain>
             </div>
         </div>
     );

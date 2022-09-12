@@ -11,8 +11,8 @@ export const PageMainAdmin = () => {
     toast("Has iniciado sesion, Bienvenido " + admin2.nameU)
   }, [])
   return (
-    <div className='bodyPagemainAdmin'>
-        <PageAdmin/>
-    </div>
+
+    <PageAdmin />
+
   )
 }

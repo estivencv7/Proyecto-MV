@@ -1,48 +1,48 @@
-
-
+.link-card{
+    display: flex;
+    flex-wrap: wrap;    
+    width: 70%;
+    height: 100%;
+    justify-content: center;
+    gap: 0.9rem;
+    /* padding-top: 12rem; */
+}
 
 .card-section{
+   
+    display: flex;
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    /* background: rgb(228, 226, 226); */
+    padding: 4px;
+    border-radius: 7px;
+    box-shadow: 0 0 7px;
+}
+.card-section:hover{
+    background-color: #008037;
+    color: white;
+}
+
+.link-card .card-section{
+    /* text-align: center; */
+    width: 22rem;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    text-decoration: none;
-    color:black;
-    /* background: #efefef;  */
-    width: 15%;
-
 }
 
-.card-section:hover{
-   border-radius: 5px;
-   color: red;
-   
-}
-
-
-
-.style{
-   font-size:  100px !important;
-}
-
-.invetario-card{
-    width: 300px;
-    height: 250px;
-    color: #008037;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 7rem;
-}
 
 .inventariosproductos{
     font-size: 120px !important;
-    color: none !important;
+    /*color: none !important;
     background-color: #e4fae4;
     border-radius:47%;
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
     margin: 1rem;
-    margin-top: 50px;
+    margin-top: 50px; */
 }
 
 /* .inventariosproductos:hover{
@@ -56,14 +56,4 @@
     outline: none !important;
 }
 
-.link-card{
-    display: flex;
-    justify-content: space-around;
-    /* align-items: center; */
-    height: 56%;
-    flex-wrap: wrap;
-    margin: 1rem;
-    /* padding: 100px; */
-    gap: 100px;
-    
-}
+

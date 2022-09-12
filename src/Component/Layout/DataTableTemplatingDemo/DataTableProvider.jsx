@@ -8,14 +8,14 @@ import { Service_UpdateProvider } from '../../../service/ServiceProvider/Service
 import { Service_RegisterProvider } from '../../../service/ServiceProvider/Service_RegisterProvider'
 import { Button } from 'primereact/button'
 import './DataTableDemo.css';
-
+import { AiFillDelete } from 'react-icons/ai'
 export const DataTableProvider = () => {
 
     const [value, setValue] = useState(false);
     let [selectedProvider, setSelectedProvider] = useState(null);
     const [provider, setProvider] = useState([]);
-    const [emailUser , setEmailUser] = useState("");
-    const [username , setUsername] = useState("");
+    const [emailUser, setEmailUser] = useState("");
+    const [username, setUsername] = useState("");
     const [filters, setFilters] = useState({
         'global': { value: null, matchMode: FilterMatchMode.CONTAINS },
         'nombre_proveedor': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
@@ -28,9 +28,9 @@ export const DataTableProvider = () => {
     let i = provider.length;
     useEffect(() => {
         listSuppliers()
-        const admin = sessionStorage.getItem("administrador")
-        const admin2 = JSON.parse(admin.toString());
-        document.getElementById("nameAccount").textContent = admin2.nameU
+        // const admin = sessionStorage.getItem("administrador")
+        // const admin2 = JSON.parse(admin.toString());
+        // document.getElementById("nameAccount").textContent = admin2.nameU
 
     }, [selectedProvider])
 
@@ -59,7 +59,7 @@ export const DataTableProvider = () => {
             headers: {
                 "Content-type": "application/json"
             },
-            body: JSON.stringify({        
+            body: JSON.stringify({
                 codigo_producto: 1224,
                 nombre_producto: "Prod",
                 cantidad_producto: 1212,
@@ -72,7 +72,7 @@ export const DataTableProvider = () => {
                 },
                 foto_producto: "https://res.cloudinary.com/estivencloud/image/upload/v1660270263/images/mt4qrmfmfnwdgnu0dmb7.png"
             })
-        }) 
+        })
             .then(response => response)
             .then(json => json.ok)
     }
@@ -94,36 +94,43 @@ export const DataTableProvider = () => {
 
         if (selectedProvider == null) {
             console.log("dfghjkjknhk.")
-            console.log(selectedProvider+"fffffffffffffffff");
+            console.log(selectedProvider + "fffffffffffffffff");
             return (
                 <div className="flex justify-content-between align-items-center">
                     <div className='buttons'>
-                        <Service_RegisterProvider style='' />
-                        <Button className='' onClick={inputSarch}><i className='pi pi-trash icons-registerProduct'></i></Button>
 
-                        <Service_UpdateProvider codeProviderUpdate={0} />
+                        <div className='button-header-tabla-demo'>
+                            <Service_RegisterProvider style='' />
+                            <Service_UpdateProvider codeProviderUpdate={0} />
+                            <Button className='button-book' onClick={inputSarch}><AiFillDelete className='BooK' /></Button>
+
+                        </div>
+
                         <span className="p-input-icon-left">
                             <i className="pi pi-search" />
                             <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre proveedor" />
                         </span>
-                    
+
                     </div>
                 </div>
             )
         } else {
-            console.log(selectedProvider[0].cedula_proveedor+"oooooooooooooooooooo");
+            console.log(selectedProvider[0].cedula_proveedor + "oooooooooooooooooooo");
             return (
                 <div className="flex justify-content-between align-items-center">
                     <div className='buttons'>
                         
-                        <Service_RegisterProvider style='' />
-                        <Button className='' onClick={inputSarch}><i className='pi pi-trash icons-registerProduct'></i></Button>
-                        <Service_UpdateProvider codeProviderUpdate={selectedProvider[0].cedula_proveedor} />
+                        <div className='button-header-tabla-demo'>
+                            <Service_RegisterProvider style='' />
+                            <Service_UpdateProvider codeProviderUpdate={selectedProvider[0].cedula_proveedor} />
+                            <Button className='button-book' onClick={inputSarch}><AiFillDelete className='BooK' /></Button>
+                        </div>
+
                         <span className="p-input-icon-left">
                             <i className="pi pi-search" />
                             <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre proveedor" />
                         </span>
-                        
+
 
                     </div>
                 </div>
@@ -165,14 +172,14 @@ export const DataTableProvider = () => {
     const amountBodyTemplate = (element) => {
         return element.telefono_proveedor;
     }
-    
+
 
     const header = renderHeader();
 
     return (
         <div className="datatable-doc-demo">
             <div className="contentTheTable">
-            {/* <div className="card">
+                {/* <div className="card">
             <div>
                 <label htmlFor="">Correo</label>
                 <input type="text" onChange={e => setEmailUser(e.target.value)}/>
@@ -182,7 +189,7 @@ export const DataTableProvider = () => {
                 <button onClick={sendEmail}>Enviar</button>
             </div> */}
                 <main>
-                    <DataTable value={provider} paginator className="p-datatable-customers" header={header} rows={5}
+                    <DataTable value={provider} paginator className="p-datatable-customers" header={header} rows={5} scrollHeight='400px'
                         paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" rowsPerPageOptions={[10, 25, 50]}
                         dataKey="id" rowHover onSelectionChange={e => setSelectedProvider(e.value)}
                         filters={filters} filterDisplay="menu" loading={loading} responsiveLayout="scroll"
@@ -190,11 +197,11 @@ export const DataTableProvider = () => {
                         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
                         <Column selectionMode="multiple" headerStyle={{ width: '3em' }}></Column>
                         <Column field="cedula_proveedor" header="Documento" sortable filterField="cedula_proveedor" body={codeBodyTemplate} filter filterPlaceholder="Search by code" />
-                        <Column field="nombre_proveedor" header="Nombre" sortable filter filterPlaceholder="Search by name" body={nameBodyTemplate}/>
-                        <Column field="telefono_proveedor" header="Telefono" sortable filter filterPlaceholder="Search by amount" body={amountBodyTemplate}/>
+                        <Column field="nombre_proveedor" header="Nombre" sortable filter filterPlaceholder="Search by name" body={nameBodyTemplate} />
+                        <Column field="telefono_proveedor" header="Telefono" sortable filter filterPlaceholder="Search by amount" body={amountBodyTemplate} />
                     </DataTable>
                 </main>
-                </div>
+            </div>
             {/* </div> */}
         </div>
     );

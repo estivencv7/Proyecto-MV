@@ -59,11 +59,18 @@
 .datatable-doc-demo{
     display: flex;
     justify-content: center;
+    /* margin-top: 12rem; */
 }
 .card{
     width: 100% !important;
 }
 
+.p-input-icon-left > .p-inputtext{
+    height: 51px;
+}
+.p-input-icon-left{
+    margin-right: 15px;
+}
 .product-image{
     height: 7.5rem;
     width: 90%;
@@ -77,8 +84,9 @@
 /*prueba*/
 .buttons{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     /* gap: 300px; */
+    align-items: center;
 }
     
 .hide{
@@ -97,7 +105,7 @@
 }
 
 .p-datatable .p-datatable-tbody > tr > td {
-    padding: 20px 1px !important;
+    /* padding: 20px 1px !important; */
 }
 
 .eye{
@@ -106,8 +114,23 @@
 
 .contentTheTable{
     width: 90%;
+    box-shadow: 0 0 4px;
 }
 
 .button-header-tabla-demo{
     display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-left:15px ;
+}
+
+.column-descrition{
+    width: 20%;
+    /* background-color: red; */
+    text-align: center;
+    
+}
+.p-datatable .p-column-header-content{
+    /* display: none !important; */
+    text-align: center !important;
 }

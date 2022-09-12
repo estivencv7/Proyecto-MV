@@ -6,6 +6,7 @@ import { InputTextarea } from 'primereact/inputtextarea';
 import { RadioGroup } from 'rsuite';
 import { InputNumber } from 'primereact/inputnumber';
 import '../../Component/Layout/FormSaveAdmin/formAdmin.css'
+import { FaUserEdit } from 'react-icons/fa';
 
 export const Service_UpdateAdmin = ({codeAdminUpdate}) => {
     const [visible, setVisible] = useState(false);
@@ -83,7 +84,7 @@ export const Service_UpdateAdmin = ({codeAdminUpdate}) => {
   
   return (
     <>
-        <Button onClick={()=>seew(seew)}><i className='pi pi-user-edit icons-registerProduct'></i></Button>
+        <Button className='button-book' onClick={()=>seew(seew)}><FaUserEdit className='Book'/></Button>
         <Dialog className='dialogoRegisterAdmin' header={header} visible={visible} modal onHide={seew} style={{ width: '30em',bordeRadius:'100%'}}  >     
             
          
