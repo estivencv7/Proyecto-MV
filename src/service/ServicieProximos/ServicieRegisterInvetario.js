@@ -75,13 +75,13 @@ export const ServicieRegisterInventario = ({ style, code, nameP, descriptionP,im
                         descripcion_producto: descriptionP,
                         precio_producto: price,
                         foto_producto: imgP,
-                        id_categoria: category
+                       
                     })
                 })
                     .then(response =>{
                         if(response.status==201){
                             toast("Enviado con éxito",{className:'send-toast',duration:'300',position:'bottom-left'})
-                            // deleteProximo(code)
+                            deleteProximo(code)
                             nameP=null
                             code=null
                             descriptionP=null

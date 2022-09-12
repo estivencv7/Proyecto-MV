@@ -45,8 +45,8 @@ export const ServicioRegistrar_Favoritos = ({ codigoF, nameP = '', descripcionP 
                         setFavorites(true)
                         toast('Nuevo Favorito', {
                             position:'bottom-right',
-                            className: 'save-favorite',
-                            duration: '100'
+                            className: 'send-toast',
+                            duration: '220'
                         })
                     }
                 })

@@ -4,6 +4,7 @@ import React,{useState,useEffect}from 'react'
 import { InputText } from 'primereact/inputtext';
 import './css/serviceUser.css'
 import { HeaderHome } from '../../Component/Layout/HeaderHome/HeaderHome';
+import { FooterMain } from '../../Component/Ui/FooterMain/FooterMain';
 
 export const Service_UpdateUser = ({}) => {
 
@@ -128,89 +129,10 @@ export const Service_UpdateUser = ({}) => {
             <div className='save-edit'>
                 <Button onClick={editUser}  >Guardar</Button>
             </div>
-{/* 
-        <div className="form-demo">        
-                <div className="card">
-                   
-                    <form onSubmit={formik.handleSubmit} className="p-fluid">
-                        <div className="field">
-                            <span className="p-float-label">
-                                <InputText id="name" name="name" value={nameClient} onChange={e => catchNameClient(e)} autoFocus className={classNames({ 'p-invalid': isFormFieldValid('name') })} />
-                                <label htmlFor="name" className={classNames({ 'p-error': isFormFieldValid('name') })}>Nombres*</label>
-                            </span>
-                            {getFormErrorMessage('name')}
-                        </div>
-                        <br/>
-                        <div className="field">
-                            <span className="p-float-label">
-                                <InputText id="surname" name="surname" value={surnameClient} onChange={e => catchSurnameClient(e)} autoFocus className={classNames({ 'p-invalid': isFormFieldValid('surname') })} />
-                                <label htmlFor="surname" className={classNames({ 'p-error': isFormFieldValid('name') })}>Apellidos*</label>
-                            </span>
-                            {getFormErrorMessage('surname')}
-                        </div>
-                       
-                        <br/>
-                        <div className="field">
-                            <span className="p-float-label">
-                                <InputText id="identification" name="identification" value={idClient} onChange={e => catchIdClient(e)} autoFocus className={classNames({ 'p-invalid': isFormFieldValid('name') })} />
-                                <label htmlFor="identification" className={classNames({ 'p-error': isFormFieldValid('identification') })}>Cedula*</label>
-                            </span>
-                            {getFormErrorMessage('identification')}
-                        </div>
-                        <br/>
-                        <div className="field">
-                            <span className="p-float-label">
-                                <InputText id="cellphoneNumber" name="cellphoneNumber" value={cellphoneNumberClient} onChange={e => catchCellPhoneNumber(e)} autoFocus className={classNames({ 'p-invalid': isFormFieldValid('name') })} />
-                                <label htmlFor="cellphoneNumber" className={classNames({ 'p-error': isFormFieldValid('cellphoneNumber') })}>Numero celular*</label>
-                            </span>
-                            {getFormErrorMessage('cellphoneNumber')}
-                        </div>
-                        <br/>
-                        <div className="field">
-                            <span className="p-float-label p-input-icon-right">
-                                <i className="pi pi-envelope" />
-                                <InputText id="email" name="email" value={emailClient} onChange={e => catchEmailClient(e)} className={classNames({ 'p-invalid': isFormFieldValid('email') })} />
-                                <label htmlFor="email" className={classNames({ 'p-error': isFormFieldValid('email') })}>Email*</label>
-                            </span>
-                            {getFormErrorMessage('email')}
-                        </div>
-                        <br/>
-                        <div className="field">
-                            <span className="p-float-label">
-                                <Password id="password" name="password" value={passwordClient} onChange={e => catchPasswordClient(e)} toggleMask
-                                    className={classNames({ 'p-invalid': isFormFieldValid('password') })} header={passwordHeader} footer={passwordFooter} />
-                                <label htmlFor="password" className={classNames({ 'p-error': isFormFieldValid('password') })}>Password*</label>
-                            </span>
-                            {getFormErrorMessage('password')}
-                        </div>
-                        <br/>
-                        <div className="field">
-                            <span className="p-float-label">
-                                <Calendar id="date" name="date" value={dateBirthClient} onChange={e => catchDateBirthClient(e)} className={classNames({ 'p-invalid': isFormFieldValid('date') })} dateFormat="dd/mm/yy" mask="99/99/9999" showIcon />
-                                <label htmlFor="date" className={classNames({ 'p-error': isFormFieldValid('date') })}>Fecha De Nacimiento</label>
-                            </span>
-                            {getFormErrorMessage('date')}
-                        </div>
-                        <br/>
-                        <div className="field-checkbox">
-                            <Checkbox inputId="accept" name="accept" checked={formik.values.accept} onChange={formik.handleChange} className={classNames({ 'p-invalid': isFormFieldValid('accept') })} />
-                            <label htmlFor="accept" className={classNames({ 'p-error': isFormFieldValid('accept') })}>Acepto terminos y condiciones*</label>
-                            {getFormErrorMessage('accept')}
-                        </div>
 
-                        <Button type="submit" label="Registrar" onClick={registerClient} className="mt-2 buttom-register" />
-                    </form>
-                </div>
-                <Panel className='descrition' header="Hola 🙂" toggleable>  
-                    <p>Que esperas Registrate y disfruta de nuestros increibles precios y productos
-                        que muebles valencia tiene para ti 😉 
-                    </p>         
-                </Panel>
-                <Toaster reverseOrder={true} toastOptions={{
-                className: 'k',
-                duration: '100'
-            }} />
-        </div> */}
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <FooterMain></FooterMain>
+            </div>
         </>
   )
 }

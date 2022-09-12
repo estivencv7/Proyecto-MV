@@ -1,5 +1,5 @@
 .conter_car-favorite {
-  padding-top:300px;
+  padding-top:235px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -20,7 +20,7 @@
 .conter_car-favorite .car-product-favorite {
     text-align: center;
     width: 24rem;
-    height: 28rem;
+    height: 29rem;
     /* border-radius: 15px; */
     display: flex;
     flex-direction: column;
@@ -30,7 +30,6 @@
     flex-wrap: wrap;
     /* box-shadow: 0px 0px 40px #c9c8c8; */
     /* border: 1px solid ; */
-  
 }
 
 .car-product-favorite{
@@ -147,8 +146,8 @@
     box-shadow: 4px 6px 13px rgb(171, 168, 168);
     border: none;
    font-size: 26px;
-   background: rgba(245, 241, 241, 0.646);
-   color: red;
+   background: rebeccapurple;
+   
 }
 
 .reservar:hover{

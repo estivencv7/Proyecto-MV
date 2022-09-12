@@ -114,7 +114,7 @@ export const NavHome = () => {
                 guardarUsuario(token.access_token)
                 const user = sessionStorage.getItem("usuario")
                 const user2 = JSON.parse(user.toString());
-                toast("Bienvenido " + user2.nameU)
+                toast("Bienvenido " + user2.nameU,{className:'send-toast',duration:'300',position:'bottom-left'})
                 setVisible(false)
             }else {
                 localStorage.setItem('admin' , token.access_token)
@@ -164,7 +164,7 @@ export const NavHome = () => {
         sessionStorage.removeItem('usuario');
         sessionStorage.removeItem('token');
         document.getElementById("logout").classList.add("logoutHide")
-        toast("Has cerrado sesion")
+        toast("Has cerrado sesion",{className:'send-toast',duration:'300',position:'bottom-left'})
         document.getElementById("nameAccount").textContent = "Mi Cuenta"
     }
 
