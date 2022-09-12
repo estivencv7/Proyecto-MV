@@ -6,6 +6,7 @@ import { InputText } from 'primereact/inputtext';
 import { InputTextarea } from 'primereact/inputtextarea';
 import { RadioGroup } from 'rsuite';
 import { InputNumber } from 'primereact/inputnumber';
+import '../ServiceCategories/css/ServiceCategories.css'
 import {FaUserEdit} from 'react-icons/fa'
 
 export const Service_UpdateCategories = ({codeCategoriUpdate}) => {
@@ -14,6 +15,9 @@ export const Service_UpdateCategories = ({codeCategoriUpdate}) => {
     const [code , setCodeCategori] = useState("")
     const [categori, setCategori] = useState("")
     const [listC , setListC] = useState([])
+
+
+
     function searchCategori () {
       console.log("entro a buscar una categoria")
       console.log("codigo"+codeCategoriUpdate)
@@ -26,11 +30,11 @@ export const Service_UpdateCategories = ({codeCategoriUpdate}) => {
         })
             .then(response => response.json())
             .then(category => {
-                guardarProvider(category)
+                guardarCategory(category)
             })
     }    
   
-    const guardarProvider = (list) =>{
+    const guardarCategory = (list) =>{
         console.log("rtrr " + list.nombre_categoria)
         
         setCategori(list)
@@ -51,7 +55,7 @@ export const Service_UpdateCategories = ({codeCategoriUpdate}) => {
     }
   
     function editCategori() {
-        console.log("estoy editando un proveedor")
+        console.log("estoy editando una categoria")
         const name_categori = document.getElementById("inputName").value
         console.log("nombre"+name_categori)
         const urlRegister = 'http://localhost:8080/categorias/actualizarCategoria/' + codeCategoriUpdate;
@@ -112,14 +116,10 @@ export const Service_UpdateCategories = ({codeCategoriUpdate}) => {
     <>
         <Button onClick={()=>seew(seew)} className='button-book'><FaUserEdit className='Book'/></Button>
         <Dialog header={header} visible={visible} modal onHide={seew} style={{ width: '30em',bordeRadius:'100%'}} className='dialogoRegisterProduct tabla' >     
-            
-         
-              
-              <div className='content-provider'>
-                  <InputText id='inputName' className='input-update' placeholder={categori.nombre_categoria}/>
-  
-              </div>
-          <div className='save-edit'>
+            <div className='content-categori'>
+                <InputText id='inputName' className='input-update' placeholder={categori.nombre_categoria}/>
+            </div>
+            <div className='save-edit'>
                 <Button onClick={editCategori} >Guardar</Button>
             </div>
         </Dialog>

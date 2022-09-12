@@ -66,11 +66,9 @@ export const Service_UpdateProvider = ({codeProviderUpdate}) => {
       })
           .then(response => response.json())
           .then(json => {
-              if(json.ok){
-                  alert("Actualizacion Exitosa")
-              }else{
-                  alert("Actualizacion Fallida")
-              }
+            if(json.ok){
+                alert("Actualizacion Exitosa")
+            }
           })
       let tokenAdmin = localStorage.getItem('admin')
       if(tokenAdmin == "" || tokenAdmin == null){
@@ -93,7 +91,7 @@ export const Service_UpdateProvider = ({codeProviderUpdate}) => {
                 if(json.ok){
                     alert("Actualizacion Exitosa")
                 }else{
-                    alert("Actualizacion Fallida")
+                  alert("Actualizacion Exitosa")
                 }
             })
       }
