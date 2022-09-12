@@ -30,27 +30,27 @@ export const FooterMain = () => {
               Todos o casi todos los productos que vendemos estan hechos de MDF(Madera del futuro).
             </p>
             <p className='preguntas1'>
-              <span className='interogacion'>¿CUANTO TIEMPO DE GARANTÍA TIENE LE PRODUCTO? <br /></span>
-              Dependiendo de los productos que combre pero casi siempre tiene un año de garantia <br />
-              y para poder pedir la garantia tiene que ir con la factura del producto.
+              <span className='interogacion'>¿CUANTO TIEMPO DE GARANTÍA TIENE EL PRODUCTO? <br /></span>
+              Dependiendo de los productos que compre pero por lo general tiene un año de garantia y para pedir la<br />
+              garantia debe que ir con la factura del producto.
             </p>
             <p className='preguntas2'>
-              <span className='interogacion'>¿TIENE TRANSPORTE HASTA SU CASA? <br /></span>
-              Dependiendo de la ubicacion donde quiera mandar el producto <br />
-              ahi o no ahi transporte.
+              <span className='interogacion'>¿LLEVAN EL PRODUCTO HASTA SU CASA? <br /></span>
+              Dependiendo de la ubicacion del cliente lo llevan<br />
+              hasta su casa.
             </p>
             <p className='preguntas3'>
-              <span className='interogacion'>¿CUANTO TIEMPO SE LE DEMORA EL PRODUCTO? <br /></span>
-              Dependiendo del producto se puede demorar entre 8 o 5 dias en hacerce el producto. <br />
+              <span className='interogacion'>¿CUANTO TIEMPO TARDA EN LLEGAR EL PRODUCTO? <br /></span>
+              Dependiendo del producto se puede demorar entre 8 o 5 dias en hacerse el producto. <br />
             </p>
           </div>
         </Dialog>
         <div>
           <nav>
             <li> <Button className='sunbNavLink buttom1 title-question'  onClick={() => open2(open2)}>¿QUE MADERA ES?</Button></li>
-            <li><Button className='sunbNavLink buttom1 title-question'  onClick={() => open2(open2)}>¿CUANTO TIEMPO DE GARANTÍA TIENE LE PRODUCTO? </Button></li>
-            <li><Button className='sunbNavLink buttom1 title-question'  onClick={() => open2(open2)}>¿TIENE TRANSPORTE HASTA SU CASA? </Button></li>
-            <li><Button className='sunbNavLink buttom1 title-question'  onClick={() => open2(open2)}>¿CUANTO TIEMPO SE LE DEMORA EL PRODUCTO? </Button></li>
+            <li><Button className='sunbNavLink buttom1 title-question'  onClick={() => open2(open2)}>¿CUANTO TIEMPO DE GARANTÍA TIENE EL PRODUCTO? </Button></li>
+            <li><Button className='sunbNavLink buttom1 title-question'  onClick={() => open2(open2)}>¿¿LLEVAN EL PRODUCTO HASTA SU CASA? </Button></li>
+            <li><Button className='sunbNavLink buttom1 title-question'  onClick={() => open2(open2)}>¿CUANTO TIEMPO TARDA EN LLEGAR EL PRODUCTO? </Button></li>
           </nav>
           
 

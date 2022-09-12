@@ -28,7 +28,7 @@ import { PageSendCode } from './Component/Layout/PageResetPassword/PageSendCode'
 import { PageInsertCode } from './Component/Layout/PageResetPassword/PageInsertCode';
 import { PageInsertNewPassword } from './Component/Layout/PageResetPassword/PageInsertNewPassword';
 import { PageAdmin } from './Component/Layout/PageAdmin/PageAdmin';
-import { PageReservesClient } from './Component/Page/PageReservesClient/PageReservesClient';
+import { Service_ListReservesClient } from './service/ServiceReserve/Service_ListReservesClient';
 
 function App() {
   return (
@@ -47,7 +47,7 @@ function App() {
         <Route path='furniture' element={<Furniture/>}/>
         <Route path='mattresses' element={<Mattresses/>}/>
         <Route path='listReserves' element={<Service_ListReservesAdmin/>}/>
-        <Route path='listReservesClient' element={<PageReservesClient/>}/>
+        <Route path='listReservesClient' element={<Service_ListReservesClient/>}/>
         <Route path='chairs' element={<Chairs/>}/>
         <Route path='reservesExpired' element={<Service_ReserveExpired/>}/>
         <Route path='listInvoices' element={<Service_ListInvoices/>}/>

@@ -114,7 +114,7 @@ export const NavHome = () => {
                 guardarUsuario(token.access_token)
                 const user = sessionStorage.getItem("usuario")
                 const user2 = JSON.parse(user.toString());
-                toast("Has iniciado sesion, Bienvenido " + user2.nameU)
+                toast("Bienvenido " + user2.nameU)
                 setVisible(false)
             }else {
                 localStorage.setItem('admin' , token.access_token)
