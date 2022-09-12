@@ -25,12 +25,11 @@
 }
 
 .button-save-admin{
-    text-align: end;
+    text-align: center;
     width: 120%;
     display: flex;
     gap:12px;
-    justify-content: end;
-    /* margin: 100px 0 0 0; */
+    justify-content: center
 }
 
 .input-update-admin{
