@@ -66,7 +66,7 @@ export const Service_UpdateCategories = ({codeCategoriUpdate}) => {
             },
             body: JSON.stringify({
                     id_categoria: code,
-                    nombre_categoria: name_categori
+                    nombre: name_categori
             })
         })
             .then(response => response.json())
