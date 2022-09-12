@@ -70,7 +70,6 @@ export const Service_ListReservesAdmin = () => {
                             <Service_EditReserve codeReserve={0} />
                         </div>
 
-                        <PageReservesExpired text="Ir a expiradas" direction="/reservesExpiredAdmin" />
                         <span className="p-input-icon-left">
                             <i className="pi pi-search" />
                             <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre cliente reservado" />
@@ -89,7 +88,6 @@ export const Service_ListReservesAdmin = () => {
                             <Servicie_DeleteReserve codigo={selectedReserve[0].codigo_reserva} />
                         </div>
 
-                        <PageReservesExpired text="Ir a expiradas" direction="/reservesExpiredAdmin" />
                         <span className="p-input-icon-left">
                             <i className="pi pi-search" />
                             <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre cliente reservado" />
@@ -182,7 +180,7 @@ export const Service_ListReservesAdmin = () => {
                                 <Column field="cedula_cliente_reserva" header="Cedula Cliente Reserva" sortable filterPlaceholder="Search by name" body={identificationClientTemplate} />
                                 <Column field="fecha_creacion_reserva" header="Fecha creacion de la reserva" sortable filterPlaceholder="Search by amount" body={dateCreateReserve} />
                                 <Column field="fecha_recoger_reserva" header="Fecha recoge reserva" sortable filterPlaceholder="Search by amount" body={dateFinalReserve} />
-                                <Column field="foto_producto_reserva" header="Fecha creacion de la reserva" sortable filterPlaceholder="Search by amount" body={imageBodyTemplate} />
+                                <Column field="foto_producto_reserva" header="Producto reservado" sortable filterPlaceholder="Search by amount" body={imageBodyTemplate} />
                                 <Column field="estado_reserva" header="Estado reserva" sortable filterPlaceholder="Search by amount" body={stateReserveTemplate} />
                                 <Column field="cambiarEstado" header="Cambiar estado" sortable filterPlaceholder="Search by amount" body={changeStateBodyTemplate} />
                             </DataTable>

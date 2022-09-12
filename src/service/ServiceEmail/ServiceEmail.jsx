@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Calendar } from 'primereact/calendar';
 import { Dialog } from 'primereact/dialog';
 import { Button } from 'reactstrap';
+import toast, { Toaster } from 'react-hot-toast';
 
 export const ServiceEmail = ({ nameProduct ,nameProduct2 ,  descriptionProduct , priceProduct  , photoProduct,classN }) => {
     
@@ -40,9 +41,9 @@ export const ServiceEmail = ({ nameProduct ,nameProduct2 ,  descriptionProduct ,
             .then(response => response)
             .then(json => {
                 if(json.ok){
-                    alert("Reserva exitosa")
+                    toast("Reserva exitosa")
                 }else{
-                    alert("No se ha podido reservar el producto")
+                    toast("No se ha podido reservar el producto")
                 }
             })
     }
@@ -75,6 +76,11 @@ export const ServiceEmail = ({ nameProduct ,nameProduct2 ,  descriptionProduct ,
             <Dialog className='cuadro'  visible={visible1} style={{ width: '30%' }} style1={{ height: '30%' }} onHide={open} header={header3}>
                 <Calendar id="date" name="date" onChange={e => catchDateBirthClient(e)} dateFormat="dd/mm/yy" mask="99/99/9999" showIcon />
                 <button onClick={sendEmail}>Reservar</button>
+                <Toaster toastOptions={{
+                    className: 'k',
+                    duration: '100'
+                }} />
+
             </Dialog>
         </>
   )
