@@ -35,7 +35,7 @@ export const Service_UpdateCategories = ({codeCategoriUpdate}) => {
     }    
   
     const guardarCategory = (list) =>{
-        console.log("rtrr " + list)
+        console.log("rtrr " + list.nombre_categoria)
         
         setCategori(list)
         setCodeCategori(list.id_categoria)

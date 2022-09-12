@@ -90,6 +90,8 @@ export const Service_UpdateProvider = ({codeProviderUpdate}) => {
             .then(json => {
                 if(json.ok){
                     alert("Actualizacion Exitosa")
+                }else{
+                  alert("Actualizacion Exitosa")
                 }
             })
       }
