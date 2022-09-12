@@ -1,0 +1,21 @@
+.div-update {
+    color: white !important;
+}
+
+.input-update{
+    margin: 20px 0 0 0 !important;
+    width: 48% !important;
+    height: 45px;
+    border-radius: 35px;
+}
+
+.content-categori {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dialogoRegisterProduct {
+    height: 50vh !important;
+    width: 50% !important;
+}
