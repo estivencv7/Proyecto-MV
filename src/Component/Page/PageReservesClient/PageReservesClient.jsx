@@ -12,7 +12,7 @@ export const PageReservesClient = () => {
         
         navigate("/listReservesClient")
     }
-
+    
     return (
         <div>
             <button onClick={redirect}>Mis reservas</button>
