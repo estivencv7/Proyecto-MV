@@ -28,16 +28,14 @@ export const Service_UpdateCategories = ({codeCategoriUpdate}) => {
                 "Content-type": "application/json"
             }
         })
-            .then(response => {
-                console.log(response.json());
-            })
+            .then(response => response.json())
             .then(category => {
-                console.log(category)
+                guardarCategory(category)
             })
     }    
   
-    const guardarProvider = (list) =>{
-        console.log("rtrr " + list.nombre_categoria)
+    const guardarCategory = (list) =>{
+        console.log("rtrr " + list)
         
         setCategori(list)
         setCodeCategori(list.id_categoria)

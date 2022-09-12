@@ -43,7 +43,7 @@ export const Service_RegisterProvider = ({style}) => {
     }
 
     const catchphoneProvider = (even) => {
-        setPhoneProvider(even.value)
+        setPhoneProvider(even.target.value)
     }
 
 
