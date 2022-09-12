@@ -69,7 +69,6 @@ export const Service_ReserveExpiredAdmin = () => {
                             <Servicie_DeleteReserve codigo={0}  className='button-book'/>
                             <Service_EditReserve codeReserve={0} />
                         </div>
-                        <PageReservesExpired text="Ir a pendientes" direction="/listReserves" />
                         <span className="p-input-icon-left">
                             <i className="pi pi-search" />
                             <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Nombre cliente reservado" />
@@ -87,9 +86,6 @@ export const Service_ReserveExpiredAdmin = () => {
                             <Service_EditReserve codeReserve={selectedReserve[0].codigo_reserva} className='button-book'/>
                             <Servicie_DeleteReserve codigo={selectedReserve[0].codigo_reserva} />
                         </div>
-
-                        <PageReservesExpired text="Ir a pendientes" direction="/listReserves" />
-
 
                         <span className="p-input-icon-left">
                             <i className="pi pi-search" />
