@@ -41,9 +41,9 @@ export const ServiceEmail = ({ nameProduct ,nameProduct2 ,  descriptionProduct ,
             .then(response => response)
             .then(json => {
                 if(json.ok){
-                    toast("Reserva exitosa")
+                    toast("Reserva exitosa",{className:'send-toast',position:'bottom-right',duration:'130'})
                 }else{
-                    toast("No se ha podido reservar el producto")
+                    toast("No se ha podido reservar el producto",{className:'send-toast',position:'bottom-right',duration:'130'})
                 }
             })
     }

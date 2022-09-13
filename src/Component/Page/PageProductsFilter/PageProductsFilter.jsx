@@ -6,6 +6,7 @@ import { Modal } from '../../Layout/ContentPageMain/Modal'
 import { HeaderHome } from '../../Layout/HeaderHome/HeaderHome'
 import'./style.css'
 import {GiPriceTag} from 'react-icons/gi'
+import { FooterMain } from '../../Ui/FooterMain/FooterMain'
 export const PageProductsFilter = () => {
 
   const [products, setProducts] = useState([])
@@ -47,31 +48,29 @@ export const PageProductsFilter = () => {
           products.map((item, index,) => (
 
             <div key={index} >
-              {/* <div className='sud-content' > */}
-              <div className='car2' style={{ position: 'relative' }}>
+             
+              <div className='car-product' style={{ position: 'relative' }}>
+                
+                <div className='content-card-m' style={{ position: 'relative' }}>
                 <ServicioRegistrar_Favoritos codigoP={item.codigo_producto} nameP={item.nombre_producto} descripcionP={item.descripcion_producto} precioP={item.precio_producto} imagenP={item.foto_producto} classN="iconHeart" />
                 <GiPriceTag className='etiqueta2'/>
-                <div >
-
                   <img className='img-cardGif' src={item.foto_producto} alt="" />
-
+                  <div>
+                  <Modal classN='observar-m' url={item.foto_producto} name={item.nombre_producto} description={item.descripcion_producto} press={item.precio_producto} />
+                </div>
                 </div>
 
                 <div>
-                  <h2>{item.nombre_producto}</h2>
+                  <h2 className='card-name-img'>{item.nombre_producto}</h2>
             
                 </div>
-                <hr />
+
+                
                 <div className='content-press'>
                   <h2 className='press'>${item.precio_producto}</h2>
-
-
-                  <RegistrarCarrito codigoP={item.codigo_producto} nameP={item.nombre_producto} descripcionP={item.descripcion_producto} imagenP={item.foto_producto} precioP={item.precio_producto} />
                   
                 </div>
-                <div>
-                  <Modal classN='botonFilter' url={item.foto_producto} name={item.nombre_producto} description={item.descripcion_producto} press={item.precio_producto} />
-                </div>
+                <RegistrarCarrito classN='register-cart-product' codigoP={item.codigo_producto} nameP={item.nombre_producto} descripcionP={item.descripcion_producto} imagenP={item.foto_producto} precioP={item.precio_producto} text='AGREGAR AL CARRITO'/>
 
               </div>
 
@@ -82,6 +81,9 @@ export const PageProductsFilter = () => {
           ))
         }
       </div>
+      <div className='section-footer'>
+            <FooterMain></FooterMain>
+         </div>
     </div>
   )
 }

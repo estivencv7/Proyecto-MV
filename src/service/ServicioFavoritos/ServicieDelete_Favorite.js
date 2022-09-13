@@ -37,7 +37,7 @@ export const ServicieDelete_Favorite = ({codigo,className}) => {
    const messageDelete=()=>{
     toast("Quitar de favoritos",{
         position:'bottom-left',
-        className:'messageDelete'
+        className:'send-toast'
         
     })
    }

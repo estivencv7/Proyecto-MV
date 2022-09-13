@@ -9,7 +9,7 @@ import {IoIosSend} from 'react-icons/io'
 import './css/styleComing.css'
 import { set } from 'date-fns';
 // import './css/registerProduct.css'
-export const ServicieRegisterInventario = ({ style, code, nameP, descriptionP,imgP,price}) => {
+export const ServicieRegisterInventario = ({ style, code, nameP, descriptionP,imgP,price,category,nameC}) => {
 
     // let navigate = useNavigate()
     // const [visible, setVisible] = useState(false)
@@ -55,7 +55,7 @@ export const ServicieRegisterInventario = ({ style, code, nameP, descriptionP,im
 
     function registerProduct() {
         if(nameP!=null){
-            console.log("estoy registrando un producto")
+            console.log("estoy registrando un producto"+category.id_categoria)
             // console.log(price)
             // console.log(amount)
             const urlRegister = 'http://localhost:8080/producto';
@@ -75,11 +75,7 @@ export const ServicieRegisterInventario = ({ style, code, nameP, descriptionP,im
                         descripcion_producto: descriptionP,
                         precio_producto: price,
                         foto_producto: imgP,
-                        id_categoria: {
-                            id_categoria: null,
-                            nombre_categoria: null
-                        },
-                        nombre_proveedor_producto: null
+                       
                     })
                 })
                     .then(response =>{
@@ -140,7 +136,7 @@ export const ServicieRegisterInventario = ({ style, code, nameP, descriptionP,im
 
     return (
 
-        <Button className='send' onClick={registerProduct} code nameP descriptionP imgP price>Ingresar al Inventario</Button>
+        <Button className='send' onClick={registerProduct} code nameP descriptionP imgP price category nameC>Ingresar al Inventario</Button>
 
 
     )

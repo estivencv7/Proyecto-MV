@@ -91,7 +91,7 @@ export const ServicieArriveProduct = ({ cod }) => {
 
 
                         {productSearch.nombre_producto != null ? <p></p> : <p>Noy hay datos</p>}
-                        <ServicieRegisterInventario code={productSearch.codigo} nameP={productSearch.nombre_producto} descriptionP={productSearch.descripcion} imgP={productSearch.imagen_producto} price={productSearch.precioProducto}></ServicieRegisterInventario>
+                        <ServicieRegisterInventario code={productSearch.codigo} nameP={productSearch.nombre_producto} descriptionP={productSearch.descripcion} imgP={productSearch.imagen_producto} price={productSearch.precioProducto} category={productSearch.id_categoria}></ServicieRegisterInventario>
                     </div>
                     :
                     <div>

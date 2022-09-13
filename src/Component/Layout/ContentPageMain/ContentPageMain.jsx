@@ -23,6 +23,7 @@ export const ContentPageMain = ({ prods }) => {
          <div id='containerFilter'>
             {/* <Service_ListProductFilter/>             */}
          </div>
+         <br /><br /><br />
          <div className='setion-proximos'>
             <CarouselPrime></CarouselPrime>
          </div>

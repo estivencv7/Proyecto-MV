@@ -93,13 +93,10 @@ export const ServicieRegisterProximos = ({ style }) => {
 
                     nombre_producto: name_product,
                     descripcion: description,
-                    precioProducto: price,
+                    
                     // cantidad_producto : amount,
                     imagen_producto: image,
-                    // id_categoria : {
-                    //     id_categoria : idCategory,
-                    //     nombre_categoria : nameCategory
-                    // },
+                    precioProducto: price,
                     // nombre_proveedor_producto : name_supplier_product
                 })
             })
@@ -109,8 +106,8 @@ export const ServicieRegisterProximos = ({ style }) => {
                         setNameProduct("")
                     }
                 })
-                .then(json => check(json.ok))
-            console.log(name_supplier_product);
+                // .then(json => json.ok)
+          
         }
         }else{
             toast("Error Intente de nuevo", { className: 'send-toast', duration: '300',position:'bottom-left' })
