@@ -30,17 +30,17 @@ export const FormSaveComingSoon = ({ onChange1, onChange2, onchange3, onchange4,
     //         .then(supplier => createSelectElements(supplier))
     // }
 
-    function listCategories() {
-        const urlRegister = 'http://localhost:8080/categorias/listarCategorias';
-        fetch(urlRegister, {
-            method: 'GET',
-            headers: {
-                "Content-type": "application/json"
-            }
-        })
-            .then(response => response.json())
-            .then(categories => createSelectElementsCategories(categories))
-    }
+    // function listCategories() {
+    //     const urlRegister = 'http://localhost:8080/categorias/listarCategorias';
+    //     fetch(urlRegister, {
+    //         method: 'GET',
+    //         headers: {
+    //             "Content-type": "application/json"
+    //         }
+    //     })
+    //         .then(response => response.json())
+    //         .then(categories => createSelectElementsCategories(categories))
+    // }
 
     // function checkSuppliers() {
     //     while (document.getElementById('selectContainer').lastChild) {
@@ -49,12 +49,12 @@ export const FormSaveComingSoon = ({ onChange1, onChange2, onchange3, onchange4,
     //     listSuppliers();
     // }
 
-    function checkCategories() {
-        while (document.getElementById('selectContainerCategories').lastChild) {
-            document.getElementById('selectContainerCategories').removeChild(document.getElementById('selectContainerCategories').lastChild)
-        }
-        listCategories();
-    }
+    // function checkCategories() {
+    //     while (document.getElementById('selectContainerCategories').lastChild) {
+    //         document.getElementById('selectContainerCategories').removeChild(document.getElementById('selectContainerCategories').lastChild)
+    //     }
+    //     listCategories();
+    // }
     // const createSelectElements = (supplierList) => {
     //     console.log(supplierList.length);
     //     let i = 0;
@@ -77,31 +77,31 @@ export const FormSaveComingSoon = ({ onChange1, onChange2, onchange3, onchange4,
     //     }
     // }
 
-    const createSelectElementsCategories = (categoriesList) => {
-        let i = 0;
-        const selectContainer = document.getElementById("selectContainerCategories");
-        const optionSelect = document.createElement("option")
-        optionSelect.textContent = "Seleccione una categoria";
-        optionSelect.setAttribute("value", "Vacio")
-        selectContainer.appendChild(optionSelect)
-        while (i <= categoriesList.length) {
-            categoriesList.forEach(element => {
-                const optionSelect2 = document.createElement("option")
-                console.log("ELEMENT CATEGORY: " + element.nombre_categoria);
-                optionSelect2.textContent = element.nombre_categoria;
-                optionSelect2.setAttribute("value", element.id_categoria)
-                // optionSelect.setAttribute("onClick",catchSupplierName(optionSelect))
-                selectContainer.appendChild(optionSelect2)
-                i++
-            })
-            break;
-        }
-    }
+    // const createSelectElementsCategories = (categoriesList) => {
+    //     let i = 0;
+    //     const selectContainer = document.getElementById("selectContainerCategories");
+    //     const optionSelect = document.createElement("option")
+    //     optionSelect.textContent = "Seleccione una categoria";
+    //     optionSelect.setAttribute("value", "Vacio")
+    //     selectContainer.appendChild(optionSelect)
+    //     while (i <= categoriesList.length) {
+    //         categoriesList.forEach(element => {
+    //             const optionSelect2 = document.createElement("option")
+    //             console.log("ELEMENT CATEGORY: " + element.nombre_categoria);
+    //             optionSelect2.textContent = element.nombre_categoria;
+    //             optionSelect2.setAttribute("value", element.id_categoria)
+    //             // optionSelect.setAttribute("onClick",catchSupplierName(optionSelect))
+    //             selectContainer.appendChild(optionSelect2)
+    //             i++
+    //         })
+    //         break;
+    //     }
+    // }
 
-    useEffect(() => {
-        checkCategories()
-        // checkSuppliers()
-    }, [listCategories.length])
+    // useEffect(() => {
+    //     // checkCategories()
+    //     // checkSuppliers()
+    // }, [listCategories.length])
 
     const setDataCategory = (category) => {
         console.log(category);
@@ -130,7 +130,7 @@ export const FormSaveComingSoon = ({ onChange1, onChange2, onchange3, onchange4,
                 </div>
                 <div className='optionsProduc'>
 
-                    <div className='category'>
+                    {/* <div className='category'>
                         <div>
                             <div className='paredCategories'></div>
                             <select id='selectContainerCategories' onChange={e => setDataCategory(e.target.value)} className='radioGroup'>
@@ -139,7 +139,7 @@ export const FormSaveComingSoon = ({ onChange1, onChange2, onchange3, onchange4,
                         <div id='labelGroup' className='labelGroup'>
 
                         </div>
-                    </div>
+                    </div> */}
                     {/* <div className='selecProvider'>
                         <div className='paredProvider'></div>
                         <select id='selectContainer' onChange={e => onChange8(e.target.value)} className='radioGroup'>
