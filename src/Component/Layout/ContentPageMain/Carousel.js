@@ -13,11 +13,31 @@ const items = [
 
 
   {
+    src: require("../../../Images/1.png")
+    
+
+  },
+  {
+    src: require("../../../Images/2.png")
+    
+
+  },
+  {
+    src: require("../../../Images/3.png")
+    
+
+  },
+  {
     src: require("../../../Images/4.png")
     
 
   },
+  {
+    src: require("../../../Images/5.png")
+    
 
+  },
+ 
 ];
 
 class CarouselDemo extends Component {

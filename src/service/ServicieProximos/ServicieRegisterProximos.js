@@ -93,11 +93,9 @@ export const ServicieRegisterProximos = ({ style }) => {
 
                     nombre_producto: name_product,
                     descripcion: description,
-                    
-                    // cantidad_producto : amount,
                     imagen_producto: image,
                     precioProducto: price,
-                    // nombre_proveedor_producto : name_supplier_product
+                   
                 })
             })
                 .then(response => {
@@ -158,11 +156,11 @@ export const ServicieRegisterProximos = ({ style }) => {
     return (
         <div className={style}>
             <Button className='button-book' onClick={() => onHide(onHide)}><div className='div-enter-button-table'><IoIosSave className='Book' />Guardar</div></Button>
-            <Dialog header={header} className='dialogoRegisterProduct' visible={visible} style={{ width: '30em', bordeRadius: '100%' }} modal onHide={onHide}>
+            <Dialog header={header} className='dialogoRegisterProduct' visible={visible} style={{ width: '30em', bordeRadius: '100%', }} modal onHide={onHide}>
 
                 <div className='content-image'>
 
-                    <FormSaveComingSoon onChange1={catchNameProduct} onChange2={catchDescriptionProduct} onChange5={catchPriceProduct} onChange6={catchAmountProduct} onchange4={registerProduct} onChange7={setIdCategory} onChange8={setNameSupplierProduct} onChange9={setNameCategory} onchange3={() => onHide(onHide)} />
+                    <FormSaveComingSoon onChange1={catchNameProduct} onChange2={catchDescriptionProduct} onChange5={catchPriceProduct} onChange6={catchAmountProduct} onchange4={registerProduct}  onChange8={setNameSupplierProduct}  onchange3={() => onHide(onHide)} />
 
                     <div className='content-Input-file'>
                         {loading ? (<h3>cargando imagen</h3>) : (<img className='image-product' src={image} />)}
