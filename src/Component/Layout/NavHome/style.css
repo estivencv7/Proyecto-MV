@@ -105,6 +105,17 @@
     
 }
 
+.p-menu .p-menuitem-link:hover {
+    background-color: rebeccapurple !important;
+
+}
+
+.p-menu .p-menuitem-link:hover .p-menuitem-text{
+    color: #fff !important;
+
+}
+
+
 .SplitButton-reservas .p-button:focus{
    box-shadow: none !important;
 

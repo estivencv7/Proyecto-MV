@@ -8,7 +8,7 @@ export const PageMainAdmin = () => {
     const admin = sessionStorage.getItem("administrador")
     const admin2 = JSON.parse(admin.toString());
     document.getElementById("nameAccount").textContent = admin2.nameU
-    toast("Has iniciado sesion, Bienvenido " + admin2.nameU)
+    toast("Has iniciado sesion, Bienvenido " + admin2.nameU,{className:'send-toast',position:'bottom-right',duration:'207'})
   }, [])
   return (
 

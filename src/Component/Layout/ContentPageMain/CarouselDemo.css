@@ -3,7 +3,7 @@
 
 
 .container_Carousel {
-    margin-top: 14em;
+    margin-top: 12em;
     text-align: center;
     /* padding: 13em; */
 }
@@ -421,4 +421,10 @@ h3 {
 .carousel-demo .product-item .product-image {
     width: 50%;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.img-carousel-boostrap{
+    width: 70%;
+    height: 60%;
+    border-radius: 15px;
 }

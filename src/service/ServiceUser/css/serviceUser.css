@@ -1,7 +1,13 @@
 .content-updateUser{
     margin-top: 235px;
     display: flex;
+    flex-direction: column;
+
+   
     justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 50vh;
 }
 
 .cont-update {
@@ -14,6 +20,8 @@
 .label-update{
     display: flex;
     align-items: initial;
+    color: black;
+    margin-left: 20px;
 }
 .div-update{
     color: green;
@@ -23,8 +31,37 @@
     margin-top: 20px;
 }
 .input-update {
-    margin: 0;
-    width: 48% !important;
+    margin-top: 7px !important;
+    margin-bottom: 15px !important;
+    width: 100% !important;
     height: 45px;
     border-radius: 35px;
+    box-shadow: 0 0 4px black;
+}
+.form-update-uset{
+   
+    
+    color: white;
+    width: 50%;
+    justify-content: center;
+    height: 35vh;
+    align-items: center;
+    
+    gap: 30px;
+    
+}
+
+.save-update-user{
+    background: rebeccapurple;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    border-radius: 9px;
+}
+.content-updateUser-title{
+    display: flex;
+    gap: 16px;
+    
+    align-items: center;
+    height: 70px;
 }

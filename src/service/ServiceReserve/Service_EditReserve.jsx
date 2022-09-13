@@ -7,6 +7,7 @@ import { RadioGroup } from 'rsuite';
 import { InputNumber } from 'primereact/inputnumber';
 import {FaUserEdit} from 'react-icons/fa'
 import '../ServiceProduct/css/registerProduct.css'
+import toast from 'react-hot-toast';
 
 export const Service_EditReserve = ({codeReserve}) => {
 
@@ -72,9 +73,9 @@ export const Service_EditReserve = ({codeReserve}) => {
                 .then(response => response.json())
                 .then(json => {
                     if(json.ok){
-                        alert("Actualizacion Exitosa")
+                        toast("Actualizacion Exitosa",{className:'send-toast'})
                     }else{
-                        alert("Actualizacion Exitosa")
+                        toast("Actualizacion Exitosa",{className:'send-toast'})
                     }
                 })
     }

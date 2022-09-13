@@ -217,6 +217,7 @@ export const NavHome = () => {
     const items = [
 
         {
+            
             label: 'Reservas',
             icon: 'pi pi-folder-open',
             command: () => {
@@ -285,7 +286,7 @@ export const NavHome = () => {
             </div>
 
             <div className='logoutHide' id='logout' style={{ position: 'relative' }}>
-                <SplitButton label={<i className='pi pi-list'></i>} model={items} className="SplitButton-reservas"></SplitButton>
+                <SplitButton  label={<i className='pi pi-list'></i>} model={items} className="SplitButton-reservas"></SplitButton>
                 <p className='opciones' >opciones</p>
             </div>
 
