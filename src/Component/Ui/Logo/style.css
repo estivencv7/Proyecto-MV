@@ -16,3 +16,16 @@
     
     
 }
+@media (max-width: 992px) {
+    .name{
+        font-size: 15px;
+        right: 0px;
+    }
+}
+@media (max-width: 768px) {
+
+    .name{
+        font-size: 15px;
+        right: 0px;  
+    }
+}
