@@ -6,7 +6,7 @@ import { Modal } from '../../Layout/ContentPageMain/Modal'
 import { HeaderHome } from '../../Layout/HeaderHome/HeaderHome'
 import'./style.css'
 import {GiPriceTag} from 'react-icons/gi'
-export const PageProductsFilter = () => {
+export const    PageProductsFilter = () => {
 
   const [products, setProducts] = useState([])
 
