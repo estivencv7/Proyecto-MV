@@ -41,7 +41,10 @@ export const Service_ReserveExpired = () => {
     return (
         <>
          <HeaderHome/>
-        <div className='conter_car reserve-card' id='conter_car'>
+        <div className='containerTitle'>
+            <h1 className='titleReseves'>RESERVAS EXPIRADAS</h1>
+        </div>
+        <div className='conter_car reserve-card container-reserve' id='conter_car'>
         {
             reserves.map((item, index,) => (
 
