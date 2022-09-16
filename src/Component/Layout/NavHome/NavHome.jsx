@@ -13,6 +13,7 @@ import { PageReservesClient } from '../../Page/PageReservesClient/PageReservesCl
 // import { useNavigate } from 'react-router-dom'
 import { SplitButton } from 'primereact/splitbutton';
 import { Service_ListInvoices } from '../../../service/ServiceInvoice/Service_ListInvoices';
+import { MdOutlineInventory } from "react-icons/md";
 
 export const NavHome = () => {
     const [email, setEmail] = useState("")
@@ -120,7 +121,12 @@ export const NavHome = () => {
                 localStorage.setItem('admin' , token.access_token)
                 let tokenAdmin = localStorage.getItem('admin')
                 guardarAdmin(token.access_token)
-                navigate("/PageAdminMain" )
+                setVisible(false)            
+                const admin = sessionStorage.getItem("administrador")
+                const admin2 = JSON.parse(admin.toString());
+                document.getElementById("nameAccount").textContent = admin2.nameU
+                toast("Bienvenido " + admin2.nameU,{className:'send-toast',duration:'300',position:'bottom-left'})
+                
             }
         }
     }
@@ -193,7 +199,6 @@ export const NavHome = () => {
     //==================================================================
 
     useEffect(() => {
-
     }, [visible2])
 
     let navigat = useNavigate()
@@ -283,6 +288,10 @@ export const NavHome = () => {
 
             <div className='favoritos'>
                 <Link to="/pageFavorito" className='icon'><i className='pi pi-heart heart-icon ico'> <p className='name-icon'>Favoritos</p></i></Link>
+            </div>
+
+            <div className='favoritos'>
+                <Link to="/PageAdminMain" className='icon'><i className='pi pi-book ico'> <p className='name-icon'>Inventario</p></i></Link>
             </div>
 
             <div className='logoutHide' id='logout' style={{ position: 'relative' }}>
