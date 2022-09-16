@@ -40,7 +40,7 @@ export const IteratCart = ({ listsCart = [], conut }) => {//resive como parametr
         // console.log(listsCart.toString());
         const user = sessionStorage.getItem("usuario")
         if(user == null){
-            toast("Por favor inicie sesion")
+            toast("Por favor inicie sesion",{className:'send-toast',duration:'200',position:'bottom-left'})
         }else{
             const user2 = JSON.parse(user.toString());
             const nameUser = user2.nameU
@@ -52,7 +52,7 @@ export const IteratCart = ({ listsCart = [], conut }) => {//resive como parametr
             let tokenAdmin = localStorage.getItem('user')
             console.log("TOKEN ADMIN");
             if (tokenAdmin == "" || tokenAdmin == null) {
-                toast("Por favor inicie sesion")
+                toast("Por favor inicie sesion",{className:'send-toast',duration:'200',position:'bottom-left'})
             }else{
                 carrito.forEach(element => {
                     console.log("ELEMENTO " + element.nombre__producto);
@@ -74,7 +74,7 @@ export const IteratCart = ({ listsCart = [], conut }) => {//resive como parametr
             
                     })
                         .then(response => {
-                            toast("Compra exitosa")
+                            toast("Compra exitosa",{className:'send-toast',duration:'200',position:'bottom-left'})
                         })    
             })
         }
@@ -87,7 +87,10 @@ export const IteratCart = ({ listsCart = [], conut }) => {//resive como parametr
 
     
     const saveAmount = (amount) => {
-        toast('Actualice precios 👇')
+        toast('Actualice precios 👇',{
+            className:'send-toast',
+            position:'top-right'
+        })
         setAmountProd(amount)
         console.log(amount);
     }
@@ -222,9 +225,7 @@ export const IteratCart = ({ listsCart = [], conut }) => {//resive como parametr
             }
 
             <Toaster toastOptions={{
-
-                className: 'k',
-                duration: '100'
+                duration: '200'
 
             }} />
 

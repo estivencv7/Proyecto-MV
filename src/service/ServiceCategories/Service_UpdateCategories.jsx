@@ -56,8 +56,8 @@ export const Service_UpdateCategories = ({codeCategoriUpdate}) => {
   
     function editCategori() {
         console.log("estoy editando una categoria")
-        const name_categori = document.getElementById("inputName").value
-        console.log("nombre"+name_categori)
+        const name_category = document.getElementById("inputName").value
+        console.log("nombre"+name_category)
         const urlRegister = 'http://localhost:8080/categorias/actualizarCategoria/' + codeCategoriUpdate;
         fetch(urlRegister, {
             method: 'PUT',
@@ -66,7 +66,7 @@ export const Service_UpdateCategories = ({codeCategoriUpdate}) => {
             },
             body: JSON.stringify({
                     id_categoria: code,
-                    nombre: name_categori
+                    nombre_categoria: name_category
             })
         })
             .then(response => response.json())
@@ -90,7 +90,7 @@ export const Service_UpdateCategories = ({codeCategoriUpdate}) => {
               },
               body: JSON.stringify({
                 id_categoria: code,
-                nombre: name_categori
+                nombre_categoria: name_category
               })
           })
               .then(response => response.json())

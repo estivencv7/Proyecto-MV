@@ -10,12 +10,12 @@ export const FormSaveComingSoon = ({ onChange1, onChange2, onchange3, onchange4,
     let [category, setCategory] = useState(0);
 
 
-    // const catchValue1 = () => {
-    //     let cat = document.getElementById("mueble").value;
-    //     setCategory(cat)
-    //     onChange7(cat)
-    //     console.log(cat);
-    // }
+    const catchValue1 = () => {
+        let cat = document.getElementById("mueble").value;
+        setCategory(cat)
+        onChange7(cat)
+        console.log(cat);
+    }
 
     // function listSuppliers() {
     //     console.log("LISTANDO PROVEEDORES")
@@ -27,7 +27,7 @@ export const FormSaveComingSoon = ({ onChange1, onChange2, onchange3, onchange4,
     //         }
     //     })
     //         .then(response => response.json())
-    //         // .then(supplier => createSelectElements(supplier))
+    //         .then(supplier => createSelectElements(supplier))
     // }
 
     // function listCategories() {
@@ -39,7 +39,7 @@ export const FormSaveComingSoon = ({ onChange1, onChange2, onchange3, onchange4,
     //         }
     //     })
     //         .then(response => response.json())
-    //         // .then(categories => createSelectElementsCategories(categories))
+    //         .then(categories => createSelectElementsCategories(categories))
     // }
 
     // function checkSuppliers() {
@@ -99,21 +99,23 @@ export const FormSaveComingSoon = ({ onChange1, onChange2, onchange3, onchange4,
     // }
 
     // useEffect(() => {
-    //     checkCategories()
-    //     checkSuppliers()
+    //     // checkCategories()
+    //     // checkSuppliers()
     // }, [listCategories.length])
 
-    // const setDataCategory = (category) => {
-    //     console.log(category);
-    //     fetch("http://localhost:8080/producto/consultarCategoria/" + category, {
-    //         method: 'GET'
-    //     })
-    //         .then(response => response.json())
-    //         .then(product => {
-    //             onChange9(product.nombre_categoria);
-    //             onChange7(product.id_categoria)
-    //         })
-    // }
+    const setDataCategory = (category) => {
+        console.log(category);
+        fetch("http://localhost:8080/producto/consultarCategoria/" + category, {
+            method: 'GET'
+        })
+            .then(response => response.json())
+            .then(product => {
+                console.log(product.nombre_categoria+"ñññññññññññk"+product.id_categoria+product.nombre_categoria)
+                onChange7(product.id_categoria)
+                onChange9(product.nombre_categoria);
+               
+            })
+    }
     return (
 
         <FormGroup className='cont-Register'>

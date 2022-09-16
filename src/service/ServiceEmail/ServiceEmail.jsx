@@ -3,6 +3,7 @@ import { Calendar } from 'primereact/calendar';
 import { Dialog } from 'primereact/dialog';
 import { Button } from 'reactstrap';
 import toast, { Toaster } from 'react-hot-toast';
+import '../ServiceEmail/css/ServiceEmail.css'
 
 export const ServiceEmail = ({ nameProduct ,nameProduct2 ,  descriptionProduct , priceProduct  , photoProduct,classN }) => {
     
@@ -41,9 +42,9 @@ export const ServiceEmail = ({ nameProduct ,nameProduct2 ,  descriptionProduct ,
             .then(response => response)
             .then(json => {
                 if(json.ok){
-                    toast("Reserva exitosa")
+                    toast("Reserva exitosa",{className:'send-toast',position:'bottom-right',duration:'130'})
                 }else{
-                    toast("No se ha podido reservar el producto")
+                    toast("No se ha podido reservar el producto",{className:'send-toast',position:'bottom-right',duration:'130'})
                 }
             })
     }
@@ -56,9 +57,13 @@ export const ServiceEmail = ({ nameProduct ,nameProduct2 ,  descriptionProduct ,
         }
     }
     
-    const header3 = () => {
-        return "Ingresa la fecha en la que puedas ir a ver el producto"
-    }
+    const header3 =  (
+        
+        <div className='div-login'>
+            <h2 className='header-3'>Que dia puedas ir a ver el producto</h2>
+        </div>
+        
+    )
 
     const catchDateBirthClient = (event) => {
         console.log(event.target.value);
@@ -73,14 +78,16 @@ export const ServiceEmail = ({ nameProduct ,nameProduct2 ,  descriptionProduct ,
     return (
         <>
             <Button className={classN} onClick={() => open(open)}>Reservar</Button>
-            <Dialog className='cuadro'  visible={visible1} style={{ width: '30%' }} style1={{ height: '30%' }} onHide={open} header={header3}>
-                <Calendar id="date" name="date" onChange={e => catchDateBirthClient(e)} dateFormat="dd/mm/yy" mask="99/99/9999" showIcon />
-                <button onClick={sendEmail}>Reservar</button>
-                <Toaster toastOptions={{
-                    className: 'k',
-                    duration: '100'
-                }} />
-
+            <Dialog className='cuadro'  visible={visible1} style={{ width: '30%' }} style1={{ height: '30%' }}  onHide={open} header={header3}>
+                <div className='reserve-date'>
+                    <label>Ingrese la fecha</label>
+                    <Calendar id="date" name="date" onChange={e => catchDateBirthClient(e)} dateFormat="dd/mm/yy" mask="99/99/9999" showIcon />
+                    <Button className='reserve-button' onClick={sendEmail}>Reservar</Button>
+                    <Toaster toastOptions={{
+                        className: 'k',
+                        duration: '100'
+                    }} />
+                    </div>
             </Dialog>
         </>
   )

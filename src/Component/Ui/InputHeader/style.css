@@ -21,3 +21,28 @@
     text-align: center;
 
 }
+
+@media (max-width: 1200px) {
+    .autoInput{
+        width: 300px;
+    }
+}
+
+@media (max-width: 992px) {
+    .autoInput{
+        width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .autoInput{
+        width: 200px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 576px) {
+    .autoInput{
+        /* width: 250px; */
+    }
+}
