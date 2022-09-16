@@ -11,7 +11,9 @@ export const PageReservesExpired = ({text, direction}) => {
     navigate(direction)
   }
   
-  return (  
-    <Button className='PageReservesExpired' onClick={redirec}>{text}</Button>
+  return (
+    <div className='page-reserve-expired'>
+      <Button className='PageReservesExpired' onClick={redirec}>{text}</Button>
+    </div>
   )
 }

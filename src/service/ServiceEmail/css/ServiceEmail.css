@@ -15,6 +15,14 @@
     background: #008037 ;
 }
 
+.reserve-button:hover{
+    background-color: #008037 !important;
+}
+
+.reserve-button:focus{
+    background-color: #008037 !important;
+}
+
 .header-3{
     font-size: 25px;
 }
