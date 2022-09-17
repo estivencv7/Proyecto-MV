@@ -126,19 +126,28 @@ export const NavHome = () => {
                 const admin2 = JSON.parse(admin.toString());
                 document.getElementById("nameAccount").textContent = admin2.nameU
                 toast("Bienvenido " + admin2.nameU,{className:'send-toast',duration:'300',position:'bottom-left'})
-                
+                document.getElementById("inventoryIcon").classList.remove("invt")
             }
         }
     }
 
     useEffect(() => {
         const user = sessionStorage.getItem("usuario")
+        const admin = sessionStorage.getItem("administrador")
         if (user == null) {
             document.getElementById("logout").classList.add("logoutHide")
         } else {
             const user2 = JSON.parse(user.toString());
             document.getElementById("nameAccount").textContent = user2.nameU
             document.getElementById("logout").classList.remove("logoutHide")
+        }
+        if(admin == null){
+            document.getElementById("logout").classList.add("logoutHide")            
+        }else{
+            const admin = sessionStorage.getItem("administrador")
+            const admin2 = JSON.parse(admin.toString());
+            document.getElementById("nameAccount").textContent = admin2.nameU    
+            document.getElementById("inventoryIcon").classList.remove("invt")
         }
     }, [])
 
@@ -168,10 +177,12 @@ export const NavHome = () => {
         localStorage.setItem("admin", null)
         // sessionStorage.clear();
         sessionStorage.removeItem('usuario');
+        sessionStorage.removeItem('administrador');
         sessionStorage.removeItem('token');
         document.getElementById("logout").classList.add("logoutHide")
         toast("Has cerrado sesion",{className:'send-toast',duration:'300',position:'bottom-left'})
         document.getElementById("nameAccount").textContent = "Mi Cuenta"
+        document.getElementById("inventoryIcon").classList.add("invt")
     }
 
     const header = (
@@ -290,13 +301,13 @@ export const NavHome = () => {
                 <Link to="/pageFavorito" className='icon'><i className='pi pi-heart heart-icon ico'> <p className='name-icon'>Favoritos</p></i></Link>
             </div>
 
-            <div className='favoritos'>
-                <Link to="/PageAdminMain" className='icon'><i className='pi pi-book ico'> <p className='name-icon'>Inventario</p></i></Link>
-            </div>
-
             <div className='logoutHide' id='logout' style={{ position: 'relative' }}>
                 <SplitButton  label={<i className='pi pi-list'></i>} model={items} className="SplitButton-reservas"></SplitButton>
                 <p className='opciones' >opciones</p>
+            </div>
+
+            <div className='favoritos invt' id='inventoryIcon'>
+                <Link to="/PageAdminMain" className='icon'><i className='pi pi-book ico'> <p className='name-icon'>Inventario</p></i></Link>
             </div>
 
             <Toaster reverseOrder={true} toastOptions={{
