@@ -7,6 +7,7 @@ import { Toaster, toast } from 'react-hot-toast';
 import { Navigate, useNavigate } from 'react-router'
 import { FormSaveComingSoon } from '../../Component/Layout/FormSaveComingSoon/FormSaveComingSoon';
 import { IoIosSave } from 'react-icons/io'
+import {AiOutlineLoading3Quarters} from 'react-icons/ai'
 import './css/styleComing.css'
 
 
@@ -74,42 +75,42 @@ export const ServicieRegisterProximos = ({ style }) => {
 
 
     function registerProduct() {
-        if(name_product!=""){
-        console.log("estoy registrando un producto")
-        console.log(price)
-        console.log(amount)
-        const urlRegister = 'http://localhost:8080/proximos';
-        let tokenAdmin = localStorage.getItem('admin')
-        if (tokenAdmin == "" || tokenAdmin == null) {
-            alert("Por favor registrese")
-        } else {
-            fetch(urlRegister, {
-                method: 'POST',
-                headers: {
-                    "Content-type": "application/json",
-                    "Authorization": "Bearer " + tokenAdmin
-                },
-                body: JSON.stringify({
+        if (name_product != "") {
+            console.log("estoy registrando un producto")
+            console.log(price)
+            console.log(amount)
+            const urlRegister = 'http://localhost:8080/proximos';
+            let tokenAdmin = localStorage.getItem('admin')
+            if (tokenAdmin == "" || tokenAdmin == null) {
+                alert("Por favor registrese")
+            } else {
+                fetch(urlRegister, {
+                    method: 'POST',
+                    headers: {
+                        "Content-type": "application/json",
+                        "Authorization": "Bearer " + tokenAdmin
+                    },
+                    body: JSON.stringify({
 
-                    nombre_producto: name_product,
-                    descripcion: description,
-                    imagen_producto: image,
-                    precioProducto: price,
-                   
+                        nombre_producto: name_product,
+                        descripcion: description,
+                        imagen_producto: image,
+                        precioProducto: price,
+
+                    })
                 })
-            })
-                .then(response => {
-                    if (response.status == 201) {
-                        toast("Éxito al guardar", { className: 'send-toast', duration: '300',position:'bottom-left' })
-                        setNameProduct("")
-                    }
-                })
+                    .then(response => {
+                        if (response.status == 201) {
+                            toast("Éxito al guardar", { className: 'send-toast', duration: '300', position: 'bottom-left' })
+                            setNameProduct("")
+                        }
+                    })
                 // .then(json => json.ok)
-          
-        }
-        }else{
-            toast("Error Intente de nuevo", { className: 'send-toast', duration: '300',position:'bottom-left' })
-            
+
+            }
+        } else {
+            toast("Error Intente de nuevo", { className: 'send-toast', duration: '300', position: 'bottom-left' })
+
         }
     }
     // if(response.status==201){
@@ -160,11 +161,15 @@ export const ServicieRegisterProximos = ({ style }) => {
 
                 <div className='content-image'>
 
-                    <FormSaveComingSoon onChange1={catchNameProduct} onChange2={catchDescriptionProduct} onChange5={catchPriceProduct} onChange6={catchAmountProduct} onchange4={registerProduct}  onChange8={setNameSupplierProduct}  onchange3={() => onHide(onHide)} />
+                    <FormSaveComingSoon onChange1={catchNameProduct} onChange2={catchDescriptionProduct} onChange5={catchPriceProduct} onChange6={catchAmountProduct} onchange4={registerProduct} onChange8={setNameSupplierProduct} onchange3={() => onHide(onHide)} />
 
-                    <div className='content-Input-file'>
-                        {loading ? (<h3>cargando imagen</h3>) : (<img className='image-product' src={image} />)}
-                        <InputText className='input-register' id='catch' type='file' name='file' placeholder='subirImg' onChange={uploadimage} />
+                    <div className='content-img-download-input'>
+
+                        <input className='input-img-download' id='catch' type='file' name='file' placeholder='subirImg' onChange={uploadimage} />
+                        <div className='content-imag-2'>
+                            {loading==true ? <AiOutlineLoading3Quarters className='loadig' /> : (<img className='img-product-download' src={image} />)}
+
+                        </div>
                     </div>
                 </div>
             </Dialog>

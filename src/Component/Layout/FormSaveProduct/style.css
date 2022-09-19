@@ -1,36 +1,38 @@
-.dialogoRegisterProduct {
-    height: 70vh !important;
-    width: 70% !important;
-
-}
-.cont-Register{
-    display: flex !important;
-    gap: 30px;
+.cont-Register-product-2{ 
+  
     flex-direction: column;
+    height: 100%;
     width: 50%;
-
     /* background-color: red; */
+
+    
     
 }
 .form-control{
     width: 30% !important;
     
 }
-.form {
-    width: 100%;
+.form2 {
+    width: 90%;
     display: flex;
     flex-direction: column;
-    margin: 25px;
-    /* justify-content: center; */
-    /* text-align: center; */
-  
-    gap: 20px;
+    padding: 8px;
+    gap:13px;
+    /* background: black; */
+    
+    
 }
 .input-register{
-    margin: 10px 0 0 0;
+    margin-top: 10px;
     width: 100% !important;
     height: 45px;
     border-radius: 35px;
+
+}
+
+.input-text-area{
+    width: 100% !important;
+    height: 45px;
 }
 
 .from-img{
@@ -65,10 +67,19 @@
 }
 .cantidad{
     display: flex;
-    justify-content: space-around;
-   
-    
+    width: 100%;
+    gap: 28px;   
+    justify-content: center
 }
+
+.input-quantyti .p-inputtext{
+    width:10rem !important;
+}
+
+.input-register-price .p-inputtext{
+    width:15rem !important;
+}
+
 .select-provedor{
     height: 38px;
     border-radius: 6px;
@@ -78,18 +89,24 @@ option{
     font-size:25px;
 }
 .button-save-Product{
-    text-align: end;
-    width: 120%;
+    
+   
     display: flex;
     gap:12px;
-    justify-content: end;
-    margin: 100px 0 0 0;
+    justify-content: center;
+    
+   
 }
 
 .radioGroup{
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    border: none;
+    height: 34px;
+    box-shadow: 0 0 4px;
+    text-align: center;
+    align-items: center;
+    width:180px;
 }
 
 .labelGroup{
@@ -99,30 +116,62 @@ option{
 
 .category{
     display: flex;
-    width: 100%;
     height: 10vh;
     font-size: 22px;
+
 }
 
 .paredProvider::before{
     content: "Proveedor:";
     height: 2px;
     font-size: 20px;
+   
 }
 
 .selecProvider{
-    width: 100%;
     height: 10vh;
     justify-content: space-around;
     font-size: 22px;
    
+   
 }
 
-.optionsProduc{
+.optionsProdu{
     display: flex;
-
+    justify-content: center;
+    align-items: center;
+   
+    width: 100%;
+    gap: 28px;
 }
 
 .p-inputnumber .p-component .p-inputwrapper .input-register .inputpress .input-number{
     width: 50px !important;
+}
+
+.box{
+    box-shadow: 0 0 2px black;
+}
+
+@media screen and (width:1920px) {
+
+    .cantidad{
+       gap: 30px;
+    }
+
+    .optionsProdu{
+        
+        gap: 100px;
+    
+    }
+
+    .optionsProdu{
+        width: 100%;
+        gap: 100px;
+    }
+
+    .input-quantyti .p-inputtext{
+        width:13rem !important;
+    }
+    
 }

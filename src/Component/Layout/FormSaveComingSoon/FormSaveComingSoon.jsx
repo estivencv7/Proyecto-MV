@@ -118,11 +118,11 @@ export const FormSaveComingSoon = ({ onChange1, onChange2, onchange3, onchange4,
     }
     return (
 
-        <FormGroup className='cont-Register'>
-            <div className='form'>
+        <FormGroup className='cont-Register-product-2'>
+            <div className='form2'>
 
-                <InputText type='text' className='input-register' onChange={onChange1} placeholder="Nombre" />
-                <InputTextarea type='' className='' onChange={onChange2} placeholder="Des" />
+                <InputText type='text' className='input-register box' onChange={onChange1} placeholder="Nombre" />
+                <InputTextarea type='' className='input-text-area box' onChange={onChange2} placeholder="Des" />
 
                 <div className='cantidad'>
                     <InputNumber className='input-register inputpress input-number' placeholder="$" onChange={onChange5} />
