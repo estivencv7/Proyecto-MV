@@ -73,7 +73,7 @@ export const Service_RegisterCategories = ({style}) => {
           <Button className='button-book' onClick={() => onHide(onHide)} ><IoIosSave className='Book'/></Button>
           <Dialog header={header}   className='dialogoRegisterProduct' visible={visible} style={{ width: '30em',bordeRadius:'100%'}} modal onHide={onHide}>
 
-          <div className='content-provider'>
+          <div className='content-image'>
               <FormSaveCategories onChange2={catchNameCategory} onchange4={registerCategory} onchange3={() => onHide(onHide)}/>
           </div>
           </Dialog>

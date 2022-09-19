@@ -8,11 +8,11 @@ import './FormSaveCategories.css'
 export const FormSaveCategories = ({onChange2,onchange3,onchange4}) => {
     return (
         
-        <FormGroup className='cont-Register'>
-            <div className='form'>
+        <FormGroup className='cont-Register-product-2'>
+            <div className='form2'>
                 <InputText type='text' className='input-register'onChange={onChange2} placeholder="Nombre"/>
             </div>
-            <div className='button-save-category'>
+            <div className='button-save-Product'>
                 <Button onClick={onchange4}>Guardar</Button> 
                 <Button onClick={onchange3}>Desacer</Button>
             </div>

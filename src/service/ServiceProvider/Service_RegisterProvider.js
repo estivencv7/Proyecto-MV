@@ -100,7 +100,7 @@ export const Service_RegisterProvider = ({style}) => {
         <Button className='button-book' onClick={() => onHide(onHide)} ><IoIosSave className='Book'/></Button>
         <Dialog header={header}   className='dialogoRegisterProduct' visible={visible} style={{ width: '30em',bordeRadius:'100%'}} modal onHide={onHide}>
         
-        <div className='content-provider'>
+        <div className='content-image'>
             <FromSaveProvider onChange1={catchIdProvider} onChange2={catchNameProvider} onChange5={catchphoneProvider} onchange4={registerProvider} onchange3={() => onHide(onHide)}/>
         </div>
         </Dialog>
