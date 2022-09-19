@@ -367,3 +367,18 @@ code {
   visibility: hidden;
   height: 0;
 }
+
+@media (max-width: 768px) {
+  .title-main {
+    /* text-align: center; */
+    /* animation: animate 5s infinite linear; */
+    /* font-size: 200%; */
+    font-family: 'Water Brush', cursive;
+    width:80px;
+    height: 60px;
+    margin-left: 5%;
+    margin-top: 20%;
+    
+    
+  }
+}

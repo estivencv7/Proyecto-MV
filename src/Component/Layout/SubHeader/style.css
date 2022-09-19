@@ -93,6 +93,7 @@
     background: #008037;
     color: white;
     text-align: center;
+    width: 23em !important;
 }
 
 
@@ -182,4 +183,20 @@ p.preguntas3{
     height: 4rem;
     border-radius: 100%;
     border: solid 4px white;
+}
+
+@media (max-width: 1200px) {
+    .sidebar1{
+        width: 20rem !important;
+    }
+}
+@media (max-width: 768px) {
+
+    .button-menu {
+        font-size: 20px;
+    }
+
+    .navbar.active {
+        background: linear-gradient(70deg, #008037 50%, white 0%);
+    }
 }

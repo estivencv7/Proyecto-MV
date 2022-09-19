@@ -5,6 +5,7 @@ import { Service_ListReservesClient } from './Service_ListReservesClient';
 import { HeaderHome } from '../../Component/Layout/HeaderHome/HeaderHome';
 import { PageReservesExpired } from '../../Component/Page/PageReservesExpired/PageReservesExpired';
 import { Link } from 'react-router-dom';
+import '../ServiceReserve/ServiceReserve.css';
 
 export const Service_ReserveExpired = () => {
     
@@ -41,7 +42,10 @@ export const Service_ReserveExpired = () => {
     return (
         <>
          <HeaderHome/>
-        <div className='conter_car reserve-card' id='conter_car'>
+        <div className='containerTitle'>
+            <h1 className='titleReseves'>RESERVAS EXPIRADAS</h1>
+        </div>
+        <div className='conter_car reserve-card container-reserve' id='conter_car'>
         {
             reserves.map((item, index,) => (
 
@@ -75,7 +79,7 @@ export const Service_ReserveExpired = () => {
             ))
         }
     </div>
-        <PageReservesExpired text="Ir a reservas pendientes" direction="/listReservesClient"/>       
+        <PageReservesExpired text="Ir a reservas pendientes" direction="/listReservesClient"/>
     </>
     )
 }

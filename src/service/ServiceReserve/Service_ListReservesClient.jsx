@@ -119,19 +119,20 @@ export const Service_ListReservesClient = () => {
         return (
             <>
             <HeaderHome/>
-            <PageReservesExpired text="Ir a reservas expiradas" direction="/reservesExpired"/>
-            <div className='conter_car reserve-card' id='conter_car'>
-                
+
+            <div className='containerTitle'>
+                <h1 className='titleReseves'>RESERVAS PENDIENTES</h1>
+            </div>
+            <div className='conter_car reserve-card container-reserve' id='conter_car'>
             
             {   
                 
                 reserves.map((item, index,) => (
-    
+            
                     <div >
-    
-    
+            
                         <div className='car-product' style={{ position: 'relative' }}>
-    
+
                             <div style={{ position: 'relative' }} className='content-card-m'>
                                 <img className='img-cardGif' src={item.foto_producto_reserva} alt="" />
                                 <div >

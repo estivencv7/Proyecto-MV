@@ -112,7 +112,7 @@ export const NavBar = () => {
         <>
             <nav className={navbar ? 'navbar active' : 'navabar'} id='SubHeader'>
                 <div className='navbar-container'>
-                    <Sidebar className='sidebar1' visible={visible} style={{ width: '23em' }} onHide={() => setVisible(false)} >
+                    <Sidebar className='sidebar1' visible={visible} onHide={() => setVisible(false)} >
                         <header className='header-sildebar1'>
                             <Emblema classN='emblema'></Emblema>
                         </header>
