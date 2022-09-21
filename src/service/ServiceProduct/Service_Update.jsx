@@ -231,7 +231,7 @@ export const Service_Update = ({ codeProductUpdate }) => {
                         <div className='form2'>
                             
                             <InputText id='inputName' type='text' className='input-register box' placeholder={product.nombre_producto} />
-                            <InputTextarea placeholder={product.descripcion_producto} className='input-text-area box'></InputTextarea>
+                            <InputTextarea id='inputDescription' placeholder={product.descripcion_producto} className='input-text-area box'></InputTextarea>
                     
 
                             <div className='cantidad'>
