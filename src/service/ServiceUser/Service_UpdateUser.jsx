@@ -87,9 +87,9 @@ export const Service_UpdateUser = ({ }) => {
                 .then(response => response.json())
                 .then(json => {
                     if (json.ok) {
-                        toast("Actualizacion Exitosa", { className: 'send-toast', position: 'bottom-right', duration: '130' })
+                        toast("Error ", { className: 'send-toast', position: 'bottom-right', duration: '130' })
                     } else {
-                        alert("Error al actualizat", { className: 'send-toast', position: 'bottom-right', duration: '130' })
+                        toast("Actualizacion Exitosa", { className: 'send-toast', position: 'bottom-right', duration: '130' })
                     }
                 })
         }
