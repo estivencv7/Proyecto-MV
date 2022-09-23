@@ -13,7 +13,7 @@ import { Modal } from './Modal';
 export const CarouselPrime = () => {
     const [product, setProduct] = useState([])
     const getProducts = () => {
-        const url = 'http://localhost:8080/proximos/listaProximos';
+        const url = 'https://muebleriaback.herokuapp.com/proximos/listaProximos';
           fetch(url)
             .then(response => response.json())
             .then(data =>{
