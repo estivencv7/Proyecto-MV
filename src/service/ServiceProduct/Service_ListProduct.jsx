@@ -11,8 +11,7 @@ export const Service_ListProduct = () => {
       fetch(url,{
         method: 'GET',
         headers: {
-          "Content-type": "application/json",
-          'Access-Control-Allow-Origin': '*'
+          "Content-type": "application/json"
         }
       })
         .then(response => response.json())
