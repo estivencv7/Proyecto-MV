@@ -14,7 +14,11 @@ export const CarouselPrime = () => {
     const [product, setProduct] = useState([])
     const getProducts = () => {
         const url = 'https://muebleriaback.herokuapp.com/proximos/listaProximos';
-          fetch(url)
+          fetch(url,{method: 'GET',
+                headers: {
+                "Content-type": "application/json",
+                'Access-Control-Allow-Origin': '*'
+          }})
             .then(response => response.json())
             .then(data =>{
                 console.log("carol")

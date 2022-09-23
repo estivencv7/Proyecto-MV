@@ -8,7 +8,13 @@ export const Service_ListProduct = () => {
   
   const getProducts = () => {
     const url = 'https://muebleriaback.herokuapp.com/producto/listaProductos';
-      fetch(url)
+      fetch(url,{
+        method: 'GET',
+        headers: {
+          "Content-type": "application/json",
+          'Access-Control-Allow-Origin': '*'
+        }
+      })
         .then(response => response.json())
         .then(data =>{
           console.log("esta es la sista que llega\n"+data)
