@@ -1,0 +1,117 @@
+.logoo {
+  width: 184px;
+}
+
+@media screen and (max-width:360px) and (max-height:740px) {
+  .header-main {
+    display: flex;
+    justify-content: inherit;
+    /* border-bottom: 0.1px solid#008031; */
+    height: 26vh;
+    flex-wrap: wrap;
+
+  }
+
+  .icons {
+    gap: 1px;
+  }
+
+  .name {
+    font-size: 7px;
+  }
+
+  .logoo {
+    width: 90px;
+    /* height: 39px; */
+  }
+
+  .title-main {
+    width: 47px;
+    height: 42px;
+  }
+
+  .name-icon {
+    font-size: 12px;
+    width: 52px;
+    text-align: center;
+
+  }
+
+  .-login.p-dialog {
+    background: aqua !important;
+    height: 61% !important;
+    width: 90% !important;
+  }
+
+  .inputs {
+    width: 16em !important;
+  }
+
+  .button-menu {
+    font-size: 16px;
+  }
+
+  .buttom1 {
+    color: #008037;
+    height: 1px;
+    /* gap: 14px; */
+  }
+
+  .subNav {
+    display: flex;
+    gap: 7px;
+    flex-direction: column;
+  }
+
+  #logout {
+
+
+    top: 0;
+    margin-left: 1px;
+  }
+
+  .opciones {
+    position: absolute;
+    bottom: 7px;
+    color: #008031;
+    left: -8px;
+  }
+
+  .pi-list::before {
+    font-size: 0px !important;
+    color: #008037;
+  }
+
+  .content-page-main {
+    padding: 6em 0 0 0;
+  }
+
+  .img-carousel-boostrap {
+    width: 97%;
+    height: 35%;
+    border-radius: 15px;
+  }
+
+  .conter_car {
+
+    gap: 4em;
+  }
+
+  .conter_car .car-product {
+
+    width: 17rem;
+
+  }
+  .sidebar-cart{
+    width: 91% !important;
+  }
+
+  .img-cart {
+    width: 95%;
+    height: 8rem;
+    
+}
+
+
+}
+

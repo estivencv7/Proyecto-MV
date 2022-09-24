@@ -143,7 +143,7 @@ export const NavBar = () => {
                     </Sidebar>
 
                     <div className="inf">
-                        <button className={navbar ? 'button-menu pi pi-filter-fill' : 'sunbNavLinkDisabled'} onClick={(e) => setVisible(true)} >Filtrar por:</button>
+                        <button className={navbar ? 'button-menu pi pi-filter-fill' : 'sunbNavLinkDisabled'} onClick={(e) => setVisible(true)} >Filtrar</button>
                         {/* <span className="tool-text">
                             Filtrado
                         </span> */}
