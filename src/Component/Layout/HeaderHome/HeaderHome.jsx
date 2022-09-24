@@ -5,12 +5,13 @@ import { NavHome } from '../NavHome/NavHome'
 import { SubHeader } from '../SubHeader/SubHeader'
 import { NavBar } from '../SubHeader/NavBar'
 // import { NavInfo } from '../../Ui/NavInfo/NavInfo'
+import './MQuery360X740.css'
 
 export const HeaderHome = () => {
   return (
     <div className='header-user'>
       <header className='header-main'>
-        <div style={{width:'184px',}}>
+        <div className='logoo'>
           {/* <div className='navinfo'>
             <NavInfo />
           </div> */}

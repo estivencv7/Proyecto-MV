@@ -12,6 +12,7 @@ import { ServicioList_Favorites } from '../../../service/ServicioFavoritos/Servi
 // import { get } from 'jquery';
 // import { Modal } from './Modal';
 import { GiPriceTag } from 'react-icons/gi'
+
 export const GetCards = ({ getCards = [], onClick }) => {
 
     const [visible2, setVisible2] = useState(false);

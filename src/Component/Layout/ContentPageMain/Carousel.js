@@ -12,11 +12,7 @@ import './CarouselDemo.css'
 const items = [
 
 
-  {
-    src: require("../../../Images/1.png")
-    
-
-  },
+  
   {
     src: require("../../../Images/2.png")
     
