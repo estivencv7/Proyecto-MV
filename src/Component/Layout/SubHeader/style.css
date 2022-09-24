@@ -73,11 +73,19 @@
    
 }
 
-.buttom1 {
+.media{
     background: none;
     border: 0px;
     color: #008037;
 }
+
+
+.buttom1{
+    background:none;
+    border: 0px;
+    color: #008037;
+}
+
 
 .buttom1:hover {
     background: none !important;
@@ -142,6 +150,13 @@
     text-align:revert;
     font-size: 20px;
 }
+/* @media screen and (max-width:360px) and (max-height:740px) {
+    .interogacion{
+       
+        font-size: 2px;
+    }
+} */
+
 
 .p-dialog .p-dialog-content{
     border-bottom-left-radius: 15px !important;
