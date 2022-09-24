@@ -113,7 +113,7 @@ export const Modal = ({ url,name,description,press,classN='button-observar',id,c
         <>
             <Button  onClick={() => onHide(onHide)} id={id} className={classN}>Observar</Button>
 
-            <Dialog visible={visible} onHide={onHide} style={{ width: '70%', height: '70%' }}  >
+            <Dialog visible={visible} onHide={onHide} className='dialogObservar' style={{ width: '70%', height: '70%' }}  >
 
                 <div id="content-wrapper">
 
@@ -148,25 +148,3 @@ export const Modal = ({ url,name,description,press,classN='button-observar',id,c
 
     )
 }
-
-
-{/* <div className='column'  >
-                    <div id='img-container'>
-                        <div id='lens' ></div>
-                        <img  src={url} alt="" id='featured' onClick={imageZoom} />
-                    </div>
-
-                </div> */}
-
-{/* <div>
-                        <h1>{name}</h1>
-                        <h2>${press}</h2>
-                        <hr />
-                        <h2>Descripción del producto</h2>
-                        <p>{description}</p>
-                        <br /><br />
-                        <hr />
-                        <input type="number" />
-
-                    </div> */}
-{/* </div> */ }

@@ -14,6 +14,7 @@ import { PageReservesClient } from '../../Page/PageReservesClient/PageReservesCl
 import { SplitButton } from 'primereact/splitbutton';
 import { Service_ListInvoices } from '../../../service/ServiceInvoice/Service_ListInvoices';
 import { MdOutlineInventory } from "react-icons/md";
+import '../HeaderHome/MQuery360X740.css'
 
 export const NavHome = () => {
     const [email, setEmail] = useState("")
@@ -271,7 +272,7 @@ export const NavHome = () => {
 
             <div className="cart-conten">
                 <p className='cantidad-product' id='cantidad'></p> {/*Aqui va la cantidad de productos que llevamos en el carrito*/}
-                <button className='icon' onClick={(e) => setVisible2(true)} ><i className="pi pi-shopping-cart ico"><p>Mi Carrito</p></i></button>
+                <button className='icon' onClick={(e) => setVisible2(true)} ><i className="pi pi-shopping-cart ico"><p className='name-icon'>Mi Carrito</p></i></button>
             </div>
 
 
