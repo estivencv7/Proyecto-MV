@@ -23,6 +23,7 @@ export const FormRegister = () => {
     const [dateBirthClient , setDateBirthClient] = useState(Date)
     const [nameClient , setNameClient] = useState("")
     const [emailClient , setEmailClient] = useState("")
+    const [panelCollased , setPanelCollased] = useState(true)
     let navigate = useNavigate();
     
     const catchSurnameClient = (event) => {
@@ -256,7 +257,7 @@ export const FormRegister = () => {
                         <Button type="submit" label="Registrar" onClick={registerClient} className="mt-2 buttom-register" />
                     </form>
                 </div>
-                <Panel className='descrition' header="Hola 🙂" toggleable>  
+                <Panel className='descrition' header="Hola 🙂" collapsed={panelCollased} onToggle={(e) => setPanelCollased(e.value)}  toggleable>  
                     <p>Que esperas Registrate y disfruta de nuestros increibles precios y productos
                         que muebles valencia tiene para ti 😉 
                     </p>         

@@ -29,6 +29,8 @@
     width: 500px
 }
 
+
+
 .p-fluid .p-inputtext:focus{
     
     box-shadow: 1px 1px 3px 1px #008031;
@@ -82,4 +84,31 @@
 
 .p-button-label{
     color: white !important;
+}
+
+
+@media screen and (max-width:412px) and (max-height:915px) {
+    .p-fluid .p-inputtext{
+        width: 315px
+    }
+    .descrition {
+        width: 100% !important;
+    }
+    .p-fluid{
+        margin-top: 23px;
+    }
+    
+}
+
+@media screen and (max-width:360px) and (max-height:740px) {
+    .p-fluid .p-inputtext{
+        width: 264px
+    }
+    .descrition {
+        width: 100% !important;
+    }
+    .p-fluid{
+        margin-top: 23px;
+    }
+   
 }
