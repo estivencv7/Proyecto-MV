@@ -66,7 +66,7 @@ export const NavigationAdmin = () => {
         localStorage.setItem('admin' , "")
         adminActivo = null;
         // sessionStorage.clear();
-        sessionStorage.removeItem('admin');
+        sessionStorage.removeItem('administrador');
         sessionStorage.removeItem('token');
         document.getElementById("nameAccount").textContent = "Mi Cuenta"
         return (

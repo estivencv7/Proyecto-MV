@@ -149,6 +149,7 @@ export const NavHome = () => {
             const admin2 = JSON.parse(admin.toString());
             document.getElementById("nameAccount").textContent = admin2.nameU    
             document.getElementById("inventoryIcon").classList.remove("invt")
+            document.getElementById("logout").classList.remove("logoutHide")
         }
     }, [])
 
