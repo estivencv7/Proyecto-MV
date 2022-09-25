@@ -200,3 +200,6 @@ p.preguntas3{
         background: linear-gradient(70deg, #008037 50%, white 0%);
     }
 }
+@media screen and (max-width:360px) and (max-height:740px) {
+    
+}
