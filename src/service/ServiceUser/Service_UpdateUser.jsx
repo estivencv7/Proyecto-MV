@@ -114,9 +114,9 @@ export const Service_UpdateUser = ({ }) => {
                     <h2 style={{marginTop:'7px'}}>Editar Perfil</h2>
                 </div>
                  
-                <div className='form-update-uset' style={{display:'flex'}}>
+                <div className='form-update-uset'>
                     
-                    <div style={{width:'30%'}}>
+                    <div className='update-user-column1' style={{width:'30%'}}>
                         <label htmlFor="" className='label-update'>Nombre</label>
                         <InputText type='text' id='inputName' className='input-update' placeholder={user.nombre} />
 
@@ -127,7 +127,7 @@ export const Service_UpdateUser = ({ }) => {
                         <InputText type='date' id='inputDate' className='input-update' />
                     </div>
         
-                    <div style={{width:'30%'}}>
+                    <div   className='update-user-column2'style={{width:'30%'}}>
                         <label htmlFor="" className='label-update'>Numero</label>
                         <InputText type='number' id='inputPhone' className='input-update inputpress' placeholder={user.celular_cliente} />
                     
