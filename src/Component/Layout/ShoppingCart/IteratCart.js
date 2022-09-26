@@ -116,7 +116,8 @@ export const IteratCart = ({ listsCart = [], conut }) => {//resive como parametr
         fetch(urlRegister, {
             method: 'PUT',
             headers: {
-                "Content-type": "application/json"
+                "Content-type": "application/json",
+                "Access-Control-Allow-Origin": '*' 
             },
             body: JSON.stringify({
                 codigo_Carrito: codigo,
