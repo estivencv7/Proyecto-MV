@@ -19,7 +19,7 @@ export const PageSendCode = () => {
     }
 
     function sendCode() {
-        const URL = 'http://muebleriaback.herokuapp.com/clientes/recuperarContraseña/' + email;
+        const URL = 'https://muebleriaback.herokuapp.com/clientes/recuperarContraseña/' + email;
         fetch(URL, {
             method: 'GET',
             headers: {
