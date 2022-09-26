@@ -20,8 +20,8 @@ export const FooterMain = () => {
   return (
     <footer className='footermain' style={{ width: '95%' }}>
       {/* <p className='pi pi-angle-double-down arrow' ></p> */}
-      <div style={{marginLeft:'30px'}}>
-        <Button className='sunbNavLink buttom1 title-question'  onClick={() => open2(open2)}><h4>Preguntas Frecuentes</h4></Button>
+      <div style={{marginLeft:'30px'}} className='footer-question'>
+        <Button className='sunbNavLink media title-question'  onClick={() => open2(open2)}><h4>Preguntas Frecuentes</h4></Button>
         <Dialog className='cuadro' visible={visible3} style={{ width: '30%' }} style1={{ height: '30%' }} onHide={open2} >
           <h1 className='ayuda'>AYUDA</h1>
           <div>
@@ -46,11 +46,11 @@ export const FooterMain = () => {
           </div>
         </Dialog>
         <div>
-          <nav>
-            <li> <Button className='sunbNavLink buttom1 title-question'  onClick={() => open2(open2)}>¿QUE MADERA ES?</Button></li>
-            <li><Button className='sunbNavLink buttom1 title-question'  onClick={() => open2(open2)}>¿CUANTO TIEMPO DE GARANTÍA TIENE EL PRODUCTO? </Button></li>
-            <li><Button className='sunbNavLink buttom1 title-question'  onClick={() => open2(open2)}>¿¿LLEVAN EL PRODUCTO HASTA SU CASA? </Button></li>
-            <li><Button className='sunbNavLink buttom1 title-question'  onClick={() => open2(open2)}>¿CUANTO TIEMPO TARDA EN LLEGAR EL PRODUCTO? </Button></li>
+          <nav className='list-footer'>
+            <li> <Button className='sunbNavLink  title-question media'  onClick={() => open2(open2)}>¿QUE MADERA ES?</Button></li>
+            <li><Button className='sunbNavLink  title-question media'  onClick={() => open2(open2)}>¿CUANTO TIEMPO DE GARANTÍA TIENE EL PRODUCTO? </Button></li>
+            <li><Button className='sunbNavLink  title-question media'  onClick={() => open2(open2)}>¿¿LLEVAN EL PRODUCTO HASTA SU CASA? </Button></li>
+            <li><Button className='sunbNavLink  title-question media'  onClick={() => open2(open2)}>¿CUANTO TIEMPO TARDA EN LLEGAR EL PRODUCTO? </Button></li>
           </nav>
           
 

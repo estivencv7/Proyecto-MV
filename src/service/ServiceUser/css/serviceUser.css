@@ -39,14 +39,12 @@
     box-shadow: 0 0 4px black;
 }
 .form-update-uset{
-   
-    
+    display: flex;
     color: white;
     width: 50%;
     justify-content: center;
     height: 35vh;
     align-items: center;
-    
     gap: 30px;
     
 }
@@ -64,4 +62,54 @@
     
     align-items: center;
     height: 70px;
+}
+
+@media screen and (max-width:412px) and (max-height:915px) {
+    .form-update-uset{
+      width: 100%;
+      justify-content: space-around;
+      padding: 7px;
+        
+    }
+    .label-update {
+        margin-left: 6px;
+    }
+    .update-user-column1{
+        width: 50% !important;
+    }
+    .update-user-column2{
+        width: 50% !important;
+    }
+    .save-update-user{
+        width: 35% !important;
+    }
+
+    .content-updateUser {
+        margin-top: 300px;
+    }
+}
+
+
+@media screen and (max-width:360px) and (max-height:740px) {
+    .form-update-uset{
+      width: 100%;
+      justify-content: space-around;
+      padding: 7px;
+        
+    }
+    .label-update {
+        margin-left: 6px;
+    }
+    .update-user-column1{
+        width: 50% !important;
+    }
+    .update-user-column2{
+        width: 50% !important;
+    }
+    .save-update-user{
+        width: 35% !important;
+    }
+    .content-updateUser {
+        margin-top: 254px;
+    }
 }

@@ -88,3 +88,26 @@
     
     }
 }
+
+@media screen and (max-width:415px) and (max-height:915px) {
+    .register-cart-product{
+        font-size: 15px;
+    }
+    .dialogObservar{
+        width: 87% !important;
+
+    }
+    #content-wrapper {
+        display:block;
+       
+    }
+    #img-container {
+       
+        width: 62%;
+        height: 39%;
+    }
+    .description {
+        width: 286px;
+    
+    }
+}
