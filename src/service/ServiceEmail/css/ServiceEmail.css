@@ -26,3 +26,36 @@
 .header-3{
     font-size: 25px;
 }
+
+
+@media screen and (max-width:360px) and (max-height:740px) {
+    .header-3{
+        font-size: 17px;
+    }
+
+    .cuadro.p-dialog .p-dialog-header{
+        height: 70px;
+        width: 200%;
+    }
+    
+    .cuadro.p-dialog .p-dialog-content {
+        height: 70px !important;
+        width: 200% !important;
+    }
+    .cuadro{
+        margin: 0 150px 0 0;
+    }
+    .reserve-date{
+        gap: 10px;
+    }
+
+    .p-datepicker .p-component .p-connected-overlay-enter-done {
+        z-index: 2102;
+        min-width: 138px;
+        transform-origin: center top;
+        top: 220.75px;
+        left: 10px;
+        width: 296px;
+    }
+
+}

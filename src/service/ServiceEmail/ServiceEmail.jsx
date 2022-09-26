@@ -78,10 +78,10 @@ export const ServiceEmail = ({ nameProduct ,nameProduct2 ,  descriptionProduct ,
     return (
         <>
             <Button className={classN} onClick={() => open(open)}>Reservar</Button>
-            <Dialog className='cuadro'  visible={visible1} style={{ width: '30%' }} style1={{ height: '30%' }}  onHide={open} header={header3}>
+            <Dialog className='cuadro'  visible={visible1} style={{ width: '30%' , height: '30%'}}  onHide={open} header={header3}>
                 <div className='reserve-date'>
                     <label>Ingrese la fecha</label>
-                    <Calendar id="date" name="date" onChange={e => catchDateBirthClient(e)} dateFormat="dd/mm/yy" mask="99/99/9999" showIcon />
+                    <Calendar className='calendar-date' id="date" name="date" onChange={e => catchDateBirthClient(e)} dateFormat="dd/mm/yy" mask="99/99/9999" showIcon />
                     <Button className='reserve-button' onClick={sendEmail}>Reservar</Button>
                     <Toaster toastOptions={{
                         className: 'k',
