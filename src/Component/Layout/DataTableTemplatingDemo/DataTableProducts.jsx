@@ -10,6 +10,8 @@ import { Service_ProductRegis } from '../../../service/ServiceProduct/Service_Pr
 import { Button } from 'primereact/button'
 import { Image } from 'primereact/image'
 import {AiFillDelete} from 'react-icons/ai'
+import { ServiceEnableProduct } from '../../../service/ServiceProduct/ServiceEnableProduct';
+
 export const DataTableProducts = () => {
 
     const [seew, setSeew] = useState(false);
@@ -151,6 +153,18 @@ export const DataTableProducts = () => {
         return formatCurrency(element.precio_producto);
     }
 
+    const enableButtonTemplate = (product) => {
+        if(product.estado == "1"){
+            return (
+                <ServiceEnableProduct id={product.codigo_producto} text="Deshabilitar"/>
+            )
+        }else{
+            return (
+                <ServiceEnableProduct id={product.codigo_producto} text="Habilitar"/>
+            )
+        }
+    }
+
     const categoryBodyTemplate = (element) => {
         let name_category = "";
         if (element.id_categoria == null) {
@@ -201,6 +215,7 @@ export const DataTableProducts = () => {
                     <Column header="Imagen producto" sortable sortField="foto_producto" filterField="foto" body={imageBodyTemplate} />
                     <Column field="id_categoria.nombre_categoria" header="Categoria" sortable filterPlaceholder="Search by name" body={categoryBodyTemplate} />
                     <Column field="nombre_proveedor_producto" header="Proveedor" sortable showFilterMatchModes={false} body={supplierNameBodyTemplate} />
+                    <Column field="nombre_proveedor_producto" header="Habilitar o Deshabilitar" sortable showFilterMatchModes={false} body={enableButtonTemplate} />
                 </DataTable>
             </div>
         </div>

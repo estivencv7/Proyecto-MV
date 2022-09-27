@@ -7,7 +7,7 @@ export const Service_ListProduct = () => {
   // const [save, setSave] = useState([])
   
   const getProducts = () => {
-    const url = 'http://localhost:8080/producto/listaProductos';
+    const url = 'http://localhost:8080/producto/listaProductosPrincipal';
       fetch(url)
         .then(response => response.json())
         .then(data =>{

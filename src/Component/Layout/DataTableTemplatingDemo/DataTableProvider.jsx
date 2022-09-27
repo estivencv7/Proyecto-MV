@@ -9,6 +9,8 @@ import { Service_RegisterProvider } from '../../../service/ServiceProvider/Servi
 import { Button } from 'primereact/button'
 import './DataTableDemo.css';
 import { AiFillDelete } from 'react-icons/ai'
+import { Service_DeleteProvider } from '../../../service/ServiceProvider/Service_DeleteProvider';
+
 export const DataTableProvider = () => {
 
     const [value, setValue] = useState(false);
@@ -173,6 +175,11 @@ export const DataTableProvider = () => {
         return element.telefono_proveedor;
     }
 
+    const buttonDeleteTemplate = (provider) => {
+        return (
+            <Service_DeleteProvider id={provider.cedula_proveedor}/>
+        );
+    }
 
     const header = renderHeader();
 
@@ -199,6 +206,7 @@ export const DataTableProvider = () => {
                         <Column field="cedula_proveedor" header="Documento" sortable filterField="cedula_proveedor" body={codeBodyTemplate} filter filterPlaceholder="Search by code" />
                         <Column field="nombre_proveedor" header="Nombre" sortable filter filterPlaceholder="Search by name" body={nameBodyTemplate} />
                         <Column field="telefono_proveedor" header="Telefono" sortable filter filterPlaceholder="Search by amount" body={amountBodyTemplate} />
+                        <Column field="telefono_proveedor" header="Eliminar" sortable filter filterPlaceholder="Search by amount" body={buttonDeleteTemplate} />
                     </DataTable>
                 </main>
             </div>
