@@ -1,15 +1,14 @@
 import React from 'react'
 
-export const Service_DeleteAdmin = ({codeAdmin}) => {
-    
-    function deleteAdmin() {
-        console.log("eliminando un admin")
-        const urlDelete = "http://localhost:8080/administradores/eliminarAdministrador/" + codeAdmin;
+export const Service_DeleteProvider = ({id}) => {
+  
+    function deleteProvider() {
+        const URL = "http://localhost:8080/proveedores/eliminarProveedor/" + id
         let tokenAdmin = localStorage.getItem('admin')
         if(tokenAdmin == "" || tokenAdmin == null){
             alert("Por favor registrese")
         }else{             
-            fetch(urlDelete, {
+            fetch(URL, {
                 method: 'DELETE',
                 headers: {
                     "Content-type": "application/json",
@@ -29,7 +28,10 @@ export const Service_DeleteAdmin = ({codeAdmin}) => {
         }
     }
 
-  return (
-    <button onClick={deleteAdmin}><i className='pi pi-trash'></i></button>
-  )
+
+    return (
+        <div>
+            <button onClick={deleteProvider}><i className='pi pi-trash'></i></button>
+        </div>
+    )
 }
