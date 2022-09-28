@@ -154,7 +154,7 @@ export const NavHome = () => {
     }, [])
 
     function login() {
-        const urlEndpoint = 'http://localhost:8080/oauth/token';
+        const urlEndpoint = 'https://muebleriaback.herokuapp.com/oauth/token';
         const credenciales = btoa('reactapp' + ':' + '12345');
         const params = new URLSearchParams();
         params.append('username', email);
