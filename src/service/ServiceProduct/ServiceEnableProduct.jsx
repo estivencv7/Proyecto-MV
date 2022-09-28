@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button, } from 'primereact/button';
 
 export const ServiceEnableProduct = ({id , text}) => {
     
@@ -24,7 +25,7 @@ export const ServiceEnableProduct = ({id , text}) => {
 
   return (
     <div>
-        <button onClick={enableOrDisable}>{text}</button>
+        <Button onClick={enableOrDisable}>{text}</Button>
     </div>
   )
 }
