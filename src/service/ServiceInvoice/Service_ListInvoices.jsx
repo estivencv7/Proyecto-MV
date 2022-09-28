@@ -37,6 +37,17 @@ export const Service_ListInvoices = () => {
 
     useEffect(() => {
         listInvoices()
+        const user = sessionStorage.getItem("usuario")
+        if (user != null || user != ""){
+            console.log(document.getElementById("logout"));
+            document.getElementById("logout").classList.remove("logoutHide")
+            console.log("USUARIO");
+            console.log(user);
+            const user2 = JSON.parse(user.toString());
+            document.getElementById("nameAccount").textContent = user2.nameU
+        }else if(user == null || user == ""){
+            document.getElementById("logout").classList.add("logoutHide")
+        }
     }, [selectedInvoice])
 
     function listInvoices() {

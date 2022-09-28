@@ -33,6 +33,8 @@ export const NavHome = () => {
     const [stateAdmin , setStateAdmin] = useState(0)
     const [emailAdmin , setEmailAdmin] = useState("")
     const [idAdmin , setIdAdmin] = useState("")
+    const [u , setU ] = useState("")
+    const [a , setA ] = useState("")
     
     let navigate = useNavigate();
 
@@ -93,7 +95,6 @@ export const NavHome = () => {
         adminActivo.stateU = payload.Estado;
         adminActivo.idU = payload.cedula;
         sessionStorage.setItem("administrador", JSON.stringify(adminActivo))
-
     }
 
     const catchToken = (token) => {
@@ -110,20 +111,25 @@ export const NavHome = () => {
             document.getElementById("logout").classList.remove("logoutHide")
             setAccessToken(token.access_token)
             if(token.Estado == 1){
+                document.getElementById("logout").classList.remove("logoutHide")
                 localStorage.setItem('user' , token.access_token)
                 sessionStorage.setItem("token", token.access_token);
                 document.getElementById("nameAccount").textContent = token.nombre
                 guardarUsuario(token.access_token)
                 const user = sessionStorage.getItem("usuario")
+                setU(user)
                 const user2 = JSON.parse(user.toString());
                 toast("Bienvenido " + user2.nameU,{className:'send-toast',duration:'300',position:'bottom-left'})
                 setVisible(false)
             }else {
+                document.getElementById("logout").classList.remove("logoutHide")
                 localStorage.setItem('admin' , token.access_token)
                 let tokenAdmin = localStorage.getItem('admin')
                 guardarAdmin(token.access_token)
+                guardarUsuario(token.access_token)
                 setVisible(false)            
                 const admin = sessionStorage.getItem("administrador")
+                setAccessToken(admin)
                 const admin2 = JSON.parse(admin.toString());
                 document.getElementById("nameAccount").textContent = admin2.nameU
                 toast("Bienvenido " + admin2.nameU,{className:'send-toast',duration:'300',position:'bottom-left'})
@@ -134,22 +140,16 @@ export const NavHome = () => {
 
     useEffect(() => {
         const user = sessionStorage.getItem("usuario")
-        const admin = sessionStorage.getItem("administrador")
-        if (user == null) {
-            document.getElementById("logout").classList.add("logoutHide")
-        } else {
+        if (user != null || user != ""){
+            console.log(document.getElementById("logout"));
+            document.getElementById("logout").classList.remove("logoutHide")
+            console.log("USUARIO");
+            console.log(user);
+            setU(user)
             const user2 = JSON.parse(user.toString());
             document.getElementById("nameAccount").textContent = user2.nameU
-            document.getElementById("logout").classList.remove("logoutHide")
-        }
-        if(admin == null){
-            document.getElementById("logout").classList.add("logoutHide")            
-        }else{
-            const admin = sessionStorage.getItem("administrador")
-            const admin2 = JSON.parse(admin.toString());
-            document.getElementById("nameAccount").textContent = admin2.nameU    
-            document.getElementById("inventoryIcon").classList.remove("invt")
-            document.getElementById("logout").classList.remove("logoutHide")
+        }else if(user == null || user == ""){
+            document.getElementById("logout").classList.add("logoutHide")
         }
     }, [])
 
@@ -303,7 +303,7 @@ export const NavHome = () => {
                 <Link to="/pageFavorito" className='icon'><i className='pi pi-heart heart-icon ico'> <p className='name-icon'>Favoritos</p></i></Link>
             </div>
 
-            <div className='logoutHide' id='logout' style={{ position: 'relative' }}>
+            <div id='logout' style={{ position: 'relative' }}>
                 <SplitButton  label={<i className='pi pi-list'></i>} model={items} className="SplitButton-reservas"></SplitButton>
                 <p className='opciones' >opciones</p>
             </div>
