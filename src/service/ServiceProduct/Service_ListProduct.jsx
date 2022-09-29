@@ -7,7 +7,7 @@ export const Service_ListProduct = () => {
   // const [save, setSave] = useState([])
   
   const getProducts = () => {
-    const url = 'https://muebleriaback.herokuapp.com/producto/listaProductos';
+    const url = 'https://muebleriaback.herokuapp.com/producto/listaProductosPrincipal';
       fetch(url,{
         method: 'GET',
         headers: {
