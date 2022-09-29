@@ -12,6 +12,8 @@ import { NavHome } from '../../Component/Layout/NavHome/NavHome';
 import { NavBar } from '../../Component/Layout/SubHeader/NavBar';
 import { Logo } from '../../Component/Ui/Logo/Logo';
 import { FooterMain } from '../../Component/Ui/FooterMain/FooterMain';
+import { HeaderHome } from '../../Component/Layout/HeaderHome/HeaderHome';
+
 
 export const Service_ListInvoices = () => {
 
@@ -35,6 +37,17 @@ export const Service_ListInvoices = () => {
 
     useEffect(() => {
         listInvoices()
+        const user = sessionStorage.getItem("usuario")
+        if (user != null || user != ""){
+            console.log(document.getElementById("logout"));
+            document.getElementById("logout").classList.remove("logoutHide")
+            console.log("USUARIO");
+            console.log(user);
+            const user2 = JSON.parse(user.toString());
+            document.getElementById("nameAccount").textContent = user2.nameU
+        }else if(user == null || user == ""){
+            document.getElementById("logout").classList.add("logoutHide")
+        }
     }, [selectedInvoice])
 
     function listInvoices() {
@@ -157,17 +170,13 @@ export const Service_ListInvoices = () => {
     }
     
     const header = renderHeader();
-
-    return (
-        <div>
-            <div className='header-user'>
-                <header className='header-main'>
-                    <div style={{width:'184px',}}>
+/*<div style={{width:'184px',}}>
                       <Logo classN="title-main" />
                     </div>
-                <NavHome />
-                </header>
-            </div>
+                <NavHome />*/
+    return (
+        <div>
+            <HeaderHome/>
             <br /><br /><br /><br /><br /><br /><br />
             <br /><br /><br /><br />
             <div className="datatable-doc-demo">
@@ -177,7 +186,7 @@ export const Service_ListInvoices = () => {
                         filters={filters} filterDisplay="menu" loading={loading} responsiveLayout="scroll"
                         globalFilterFields={['codigo_factura', 'cantidad_producto', 'direccion_cliente' , 'fecha_factura' , 'nombre_cliente' , 'nombre_producto' , 'telefono_cliente' , 'total_a_pagar' , 'cedula_cliente']} emptyMessage="No se encontraron categorias."
                         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
-                        <Column selectionMode="multiple" headerStyle={{ width: '3em' }}></Column>
+                        <Column selectionMode="multiple" headerStyle={{ width: '1em' }}></Column>
                         <Column field="codigo_factura" header="Codigo" sortable filterField="id_categoria" body={codeBodyTemplate} filterPlaceholder="Search by code" />
                         <Column field="nombre_cliente" header="Nombre Cliente" sortable  filterPlaceholder="Search by name" body={nameBodyTemplate}/>
                         <Column field="cedula_cliente" header="Cedula Cliente" sortable  filterPlaceholder="Search by name" body={idBodyTemplate}/>

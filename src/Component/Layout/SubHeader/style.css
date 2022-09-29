@@ -138,6 +138,11 @@
     color: #008037 !important;
 } */
 
+.nav-cuadro{
+    height: 40% ;
+    width: 40% ;
+}
+
 .cuadro.p-dialog .p-dialog-header{
     color: white !important;
     background-color: #008037 !important;
@@ -213,5 +218,20 @@ p.preguntas3{
 
     .navbar.active {
         background: linear-gradient(70deg, #008037 50%, white 0%);
+    }
+}
+@media screen and (max-width:360px) and (max-height:740px) {
+
+    .nav-cuadro{
+        height: 50% !important ;
+        width: 40% !important;
+    }
+}
+
+
+@media screen and (max-width:412px) and (max-height:915px) {
+    .nav-cuadro{
+        height: 50% ;
+        width: 75% ;
     }
 }

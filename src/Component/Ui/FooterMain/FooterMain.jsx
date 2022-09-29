@@ -22,7 +22,7 @@ export const FooterMain = () => {
       {/* <p className='pi pi-angle-double-down arrow' ></p> */}
       <div style={{marginLeft:'30px'}} className='footer-question'>
         <Button className='sunbNavLink media title-question'  onClick={() => open2(open2)}><h4>Preguntas Frecuentes</h4></Button>
-        <Dialog className='cuadro' visible={visible3} style={{ width: '30%' }} style1={{ height: '30%' }} onHide={open2} >
+        <Dialog className='cuadro nav-cuadro' visible={visible3}  onHide={open2} >
           <h1 className='ayuda'>AYUDA</h1>
           <div>
             <p className='preguntas'>
